@@ -32,10 +32,6 @@ namespace Ink_Canvas
             CheckLastColor(103);
         }
 
-        private void BtnHighlighterColorTeal_Click(object sender, RoutedEventArgs e)
-        {
-            CheckLastColor(104);
-        }
         private void BtnHighlighterColorBlue_Click(object sender, RoutedEventArgs e)
         {
             CheckLastColor(105);

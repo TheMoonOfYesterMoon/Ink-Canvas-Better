@@ -184,12 +184,6 @@ namespace Ink_Canvas
                 // Yellow
                 BorderPenColorYellow.Background = new SolidColorBrush(Color.FromRgb(250, 204, 21));
                 BoardBorderPenColorYellow.Background = new SolidColorBrush(Color.FromRgb(250, 204, 21));
-                // Pink ( Purple )
-                BorderPenColorPink.Background = new SolidColorBrush(Color.FromRgb(236, 72, 153));
-                BoardBorderPenColorPink.Background = new SolidColorBrush(Color.FromRgb(236, 72, 153));
-                // Teal
-                BorderPenColorTeal.Background = new SolidColorBrush(Color.FromRgb(20, 184, 166));
-                BoardBorderPenColorTeal.Background = new SolidColorBrush(Color.FromRgb(20, 184, 166));
                 // Orange
                 BorderPenColorOrange.Background = new SolidColorBrush(Color.FromRgb(249, 115, 22));
                 BoardBorderPenColorOrange.Background = new SolidColorBrush(Color.FromRgb(249, 115, 22));
@@ -212,12 +206,6 @@ namespace Ink_Canvas
                 // Yellow
                 BorderPenColorYellow.Background = new SolidColorBrush(Color.FromRgb(234, 179, 8));
                 BoardBorderPenColorYellow.Background = new SolidColorBrush(Color.FromRgb(234, 179, 8));
-                // Pink ( Purple )
-                BorderPenColorPink.Background = new SolidColorBrush(Color.FromRgb(147, 51, 234));
-                BoardBorderPenColorPink.Background = new SolidColorBrush(Color.FromRgb(147, 51, 234));
-                // Teal
-                BorderPenColorTeal.Background = new SolidColorBrush(Color.FromRgb(13, 148, 136));
-                BoardBorderPenColorTeal.Background = new SolidColorBrush(Color.FromRgb(13, 148, 136));
                 // Orange
                 BorderPenColorOrange.Background = new SolidColorBrush(Color.FromRgb(234, 88, 12));
                 BoardBorderPenColorOrange.Background = new SolidColorBrush(Color.FromRgb(234, 88, 12));
@@ -254,8 +242,6 @@ namespace Ink_Canvas
             ViewboxBtnColorRedContent.Visibility = Visibility.Collapsed;
             ViewboxBtnColorYellowContent.Visibility = Visibility.Collapsed;
             ViewboxBtnColorWhiteContent.Visibility = Visibility.Collapsed;
-            ViewboxBtnColorPinkContent.Visibility = Visibility.Collapsed;
-            ViewboxBtnColorTealContent.Visibility = Visibility.Collapsed;
             ViewboxBtnColorOrangeContent.Visibility = Visibility.Collapsed;
             BoardViewboxBtnColorBlackContent.Visibility = Visibility.Collapsed;
             BoardViewboxBtnColorBlueContent.Visibility = Visibility.Collapsed;
@@ -263,8 +249,6 @@ namespace Ink_Canvas
             BoardViewboxBtnColorRedContent.Visibility = Visibility.Collapsed;
             BoardViewboxBtnColorYellowContent.Visibility = Visibility.Collapsed;
             BoardViewboxBtnColorWhiteContent.Visibility = Visibility.Collapsed;
-            BoardViewboxBtnColorPinkContent.Visibility = Visibility.Collapsed;
-            BoardViewboxBtnColorTealContent.Visibility = Visibility.Collapsed;
             BoardViewboxBtnColorOrangeContent.Visibility = Visibility.Collapsed;
 
             ViewboxBtnHighlighterColorRedContent.Visibility = Visibility.Collapsed;
@@ -273,8 +257,6 @@ namespace Ink_Canvas
             BoardViewboxBtnHighlighterColorOrangeContent.Visibility = Visibility.Collapsed;
             ViewboxBtnHighlighterColorYellowContent.Visibility = Visibility.Collapsed;
             BoardViewboxBtnHighlighterColorYellowContent.Visibility = Visibility.Collapsed;
-            ViewboxBtnHighlighterColorTealContent.Visibility = Visibility.Collapsed;
-            BoardViewboxBtnHighlighterColorTealContent.Visibility = Visibility.Collapsed;
             ViewboxBtnHighlighterColorBlueContent.Visibility = Visibility.Collapsed;
             BoardViewboxBtnHighlighterColorBlueContent.Visibility = Visibility.Collapsed;
             ViewboxBtnHighlighterColorPurpleContent.Visibility = Visibility.Collapsed;
@@ -305,14 +287,6 @@ namespace Ink_Canvas
                     ViewboxBtnColorWhiteContent.Visibility = Visibility.Visible;
                     BoardViewboxBtnColorWhiteContent.Visibility = Visibility.Visible;
                     break;
-                case 6:
-                    ViewboxBtnColorPinkContent.Visibility = Visibility.Visible;
-                    BoardViewboxBtnColorPinkContent.Visibility = Visibility.Visible;
-                    break;
-                case 7:
-                    ViewboxBtnColorTealContent.Visibility = Visibility.Visible;
-                    BoardViewboxBtnColorTealContent.Visibility = Visibility.Visible;
-                    break;
                 case 8:
                     ViewboxBtnColorOrangeContent.Visibility = Visibility.Visible;
                     BoardViewboxBtnColorOrangeContent.Visibility = Visibility.Visible;
@@ -328,10 +302,6 @@ namespace Ink_Canvas
                 case 103:
                     ViewboxBtnHighlighterColorYellowContent.Visibility = Visibility.Visible;
                     BoardViewboxBtnHighlighterColorYellowContent.Visibility = Visibility.Visible;
-                    break;
-                case 104:
-                    ViewboxBtnHighlighterColorTealContent.Visibility = Visibility.Visible;
-                    BoardViewboxBtnHighlighterColorTealContent.Visibility = Visibility.Visible;
                     break;
                 case 105:
                     ViewboxBtnHighlighterColorBlueContent.Visibility = Visibility.Visible;
@@ -406,11 +376,6 @@ namespace Ink_Canvas
         private void BtnColorPink_Click(object sender, RoutedEventArgs e)
         {
             CheckLastColor(6);
-        }
-
-        private void BtnColorTeal_Click(object sender, RoutedEventArgs e)
-        {
-            CheckLastColor(7);
         }
 
         private void BtnColorOrange_Click(object sender, RoutedEventArgs e)

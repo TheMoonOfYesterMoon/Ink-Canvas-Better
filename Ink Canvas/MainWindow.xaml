@@ -716,20 +716,6 @@
                                             Height="30"
                                             Padding="0"
                                             Background="{DynamicResource FloatBarBackground}"
-                                            Click="BtnColorTeal_Click">
-                                            <Border
-                                                Width="16"
-                                                Height="16"
-                                                Background="#0d9488"
-                                                BorderBrush="{DynamicResource FloatBarBorderBrush}"
-                                                BorderThickness="1.5"
-                                                CornerRadius="100" />
-                                        </Button>
-                                        <Button
-                                            Width="30"
-                                            Height="30"
-                                            Padding="0"
-                                            Background="{DynamicResource FloatBarBackground}"
                                             Click="BtnColorBlue_Click">
                                             <Border
                                                 Width="16"
@@ -1468,19 +1454,19 @@
                                                             </StackPanel>
                                                         </ikw:SimpleStackPanel>
                                                     </Viewbox>
-                                                    <ikw:SimpleStackPanel Width="310">
+                                                    <ikw:SimpleStackPanel Width="250">
                                                         <Border
-                                                            Width="310"
+                                                            Width="250"
                                                             Height="120"
                                                             BorderBrush="Black"
                                                             BorderThickness="0"
                                                             CornerRadius="5">
                                                             <Controls:UniformGrid Height="120" Rows="2">
                                                                 <ikw:SimpleStackPanel
-                                                                    Width="310"
+                                                                    Width="250"
                                                                     Height="50"
                                                                     Orientation="Horizontal">
-                                                                    <Controls:UniformGrid Width="310" Columns="5">
+                                                                    <Controls:UniformGrid Width="250" Columns="4">
                                                                         <Border
                                                                             Width="50"
                                                                             Background="Transparent"
@@ -1566,33 +1552,13 @@
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
                                                                             </Viewbox>
                                                                         </Border>
-                                                                        <Border
-                                                                            x:Name="BoardBorderPenColorPink"
-                                                                            Width="50"
-                                                                            Background="#c72ec7"
-                                                                            BorderBrush="{DynamicResource BoardBarBorderBrush}"
-                                                                            BorderThickness="1.5"
-                                                                            CornerRadius="100"
-                                                                            MouseUp="BtnColorPink_Click">
-                                                                            <Viewbox
-                                                                                x:Name="BoardViewboxBtnColorPinkContent"
-                                                                                Margin="8"
-                                                                                Visibility="Collapsed">
-                                                                                <Image
-                                                                                    Width="24"
-                                                                                    Height="24"
-                                                                                    VerticalAlignment="Top"
-                                                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                                                    Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
                                                                     </Controls:UniformGrid>
                                                                 </ikw:SimpleStackPanel>
                                                                 <ikw:SimpleStackPanel
-                                                                    Width="310"
+                                                                    Width="250"
                                                                     Height="50"
                                                                     Orientation="Horizontal">
-                                                                    <Controls:UniformGrid Width="310" Columns="5">
+                                                                    <Controls:UniformGrid Width="250" Columns="4">
                                                                         <Border
                                                                             x:Name="BoardBorderPenColorOrange"
                                                                             Width="50"
@@ -1643,26 +1609,6 @@
                                                                             MouseUp="BtnColorGreen_Click">
                                                                             <Viewbox
                                                                                 x:Name="BoardViewboxBtnColorGreenContent"
-                                                                                Margin="8"
-                                                                                Visibility="Collapsed">
-                                                                                <Image
-                                                                                    Width="24"
-                                                                                    Height="24"
-                                                                                    VerticalAlignment="Top"
-                                                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                                                    Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                        <Border
-                                                                            x:Name="BoardBorderPenColorTeal"
-                                                                            Width="50"
-                                                                            Background="#0d9488"
-                                                                            BorderBrush="{DynamicResource BoardBarBorderBrush}"
-                                                                            BorderThickness="1.5"
-                                                                            CornerRadius="100"
-                                                                            MouseUp="BtnColorTeal_Click">
-                                                                            <Viewbox
-                                                                                x:Name="BoardViewboxBtnColorTealContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
                                                                                 <Image
@@ -1807,26 +1753,6 @@
                                                                 Height="25"
                                                                 Orientation="Horizontal">
                                                                 <Controls:UniformGrid Width="115" Columns="3">
-                                                                    <Border
-                                                                        x:Name="BoardBorderHighlighterColorTeal"
-                                                                        Width="30"
-                                                                        Background="#10baab"
-                                                                        BorderBrush="{DynamicResource BoardBarBorderBrush}"
-                                                                        BorderThickness="1"
-                                                                        CornerRadius="4"
-                                                                        MouseUp="BtnHighlighterColorTeal_Click">
-                                                                        <Viewbox
-                                                                            x:Name="BoardViewboxBtnHighlighterColorTealContent"
-                                                                            Margin="2"
-                                                                            Visibility="Collapsed">
-                                                                            <Image
-                                                                                Width="28"
-                                                                                Height="28"
-                                                                                VerticalAlignment="Top"
-                                                                                RenderOptions.BitmapScalingMode="HighQuality"
-                                                                                Source="/Resources/Icons-png/checked-white.png" />
-                                                                        </Viewbox>
-                                                                    </Border>
                                                                     <Border
                                                                         x:Name="BoardBorderHighlighterColorBlue"
                                                                         Width="30"
@@ -5591,19 +5517,19 @@
                                                             </StackPanel>
                                                         </ikw:SimpleStackPanel>
                                                     </Viewbox>
-                                                    <ikw:SimpleStackPanel Width="310">
+                                                    <ikw:SimpleStackPanel Width="250">
                                                         <Border
-                                                            Width="310"
+                                                            Width="250"
                                                             Height="120"
                                                             BorderBrush="Black"
                                                             BorderThickness="0"
                                                             CornerRadius="5">
                                                             <Controls:UniformGrid Height="120" Rows="2">
                                                                 <ikw:SimpleStackPanel
-                                                                    Width="310"
+                                                                    Width="250"
                                                                     Height="50"
                                                                     Orientation="Horizontal">
-                                                                    <Controls:UniformGrid Width="310" Columns="5">
+                                                                    <Controls:UniformGrid Width="250" Columns="4">
                                                                         <Border
                                                                             Width="50"
                                                                             Background="Transparent"
@@ -5690,33 +5616,13 @@
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
                                                                             </Viewbox>
                                                                         </Border>
-                                                                        <Border
-                                                                            x:Name="BorderPenColorPink"
-                                                                            Width="50"
-                                                                            Background="#c72ec7"
-                                                                            BorderBrush="{DynamicResource FloatBarBorderBrush}"
-                                                                            BorderThickness="1.5"
-                                                                            CornerRadius="100"
-                                                                            MouseUp="BtnColorPink_Click">
-                                                                            <Viewbox
-                                                                                x:Name="ViewboxBtnColorPinkContent"
-                                                                                Margin="8"
-                                                                                Visibility="Collapsed">
-                                                                                <Image
-                                                                                    Width="24"
-                                                                                    Height="24"
-                                                                                    VerticalAlignment="Top"
-                                                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                                                    Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
                                                                     </Controls:UniformGrid>
                                                                 </ikw:SimpleStackPanel>
                                                                 <ikw:SimpleStackPanel
-                                                                    Width="310"
+                                                                    Width="250"
                                                                     Height="50"
                                                                     Orientation="Horizontal">
-                                                                    <Controls:UniformGrid Width="310" Columns="5">
+                                                                    <Controls:UniformGrid Width="250" Columns="4">
                                                                         <Border
                                                                             x:Name="BorderPenColorOrange"
                                                                             Width="50"
@@ -5767,26 +5673,6 @@
                                                                             MouseUp="BtnColorGreen_Click">
                                                                             <Viewbox
                                                                                 x:Name="ViewboxBtnColorGreenContent"
-                                                                                Margin="8"
-                                                                                Visibility="Collapsed">
-                                                                                <Image
-                                                                                    Width="24"
-                                                                                    Height="24"
-                                                                                    VerticalAlignment="Top"
-                                                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                                                    Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                        <Border
-                                                                            x:Name="BorderPenColorTeal"
-                                                                            Width="50"
-                                                                            Background="#0d9488"
-                                                                            BorderBrush="{DynamicResource FloatBarBorderBrush}"
-                                                                            BorderThickness="1.5"
-                                                                            CornerRadius="100"
-                                                                            MouseUp="BtnColorTeal_Click">
-                                                                            <Viewbox
-                                                                                x:Name="ViewboxBtnColorTealContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
                                                                                 <Image
@@ -5929,26 +5815,6 @@
                                                             Height="25"
                                                             Orientation="Horizontal">
                                                             <Controls:UniformGrid Width="115" Columns="3">
-                                                                <Border
-                                                                    x:Name="BorderHighlighterColorTeal"
-                                                                    Width="30"
-                                                                    Background="#10baab"
-                                                                    BorderBrush="{DynamicResource FloatBarBorderBrush}"
-                                                                    BorderThickness="1"
-                                                                    CornerRadius="4"
-                                                                    MouseUp="BtnHighlighterColorTeal_Click">
-                                                                    <Viewbox
-                                                                        x:Name="ViewboxBtnHighlighterColorTealContent"
-                                                                        Margin="2"
-                                                                        Visibility="Collapsed">
-                                                                        <Image
-                                                                            Width="28"
-                                                                            Height="28"
-                                                                            VerticalAlignment="Top"
-                                                                            RenderOptions.BitmapScalingMode="HighQuality"
-                                                                            Source="/Resources/Icons-png/checked-white.png" />
-                                                                    </Viewbox>
-                                                                </Border>
                                                                 <Border
                                                                     x:Name="BorderHighlighterColorBlue"
                                                                     Width="30"
