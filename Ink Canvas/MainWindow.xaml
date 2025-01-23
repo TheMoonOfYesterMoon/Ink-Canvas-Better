@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
     Name="window"
-    Title="Ink Canvas Artistry 画板"
+    Title="Ink Canvas Better 画板"
     Width="1440"
     Height="5500"
     AllowsTransparency="True"
@@ -2980,7 +2980,7 @@
         <!--  // 设置界面 //  -->
         <Border
             Name="BorderSettings"
-            Width="440"
+            Width="460"
             Margin="0,150,0,350"
             HorizontalAlignment="Center"
             Background="{DynamicResource SettingsPageBackground}"
@@ -4638,7 +4638,7 @@
                                     FontSize="26"
                                     FontWeight="Bold"
                                     Foreground="{DynamicResource SettingsPageForeground}"
-                                    Text="关于 Ink Canvas Artistry" />
+                                    Text="关于 Ink Canvas Better" />
                             </GroupBox.Header>
                             <ikw:SimpleStackPanel Spacing="5">
                                 <ikw:SimpleStackPanel Orientation="Horizontal">
@@ -4656,7 +4656,7 @@
                                 </ikw:SimpleStackPanel>
                                 <TextBlock
                                     Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                    Text="* 使用和分发本软件前，请您应当且务必知晓相关开源协议，且您应当知晓本软件基于 https://github.com/WXRIW/Ink-Canvas 修改而成。"
+                                    Text="* 使用和分发本软件前，请您应当且务必知晓相关开源协议，且您应当知晓本软件基于 https://github.com/InkCanvas/Ink-Canvas-Artistry 修改而成。"
                                     TextWrapping="Wrap" />
                                 <Border
                                     Padding="0,5"
@@ -4684,13 +4684,15 @@
                                             Text="GNU General Public License v3.0" />
                                     </WrapPanel>
                                 </Border>
+                                
+                                <!-- Ink Canvas Better -->
                                 <TextBlock FontSize="15" Foreground="{DynamicResource SettingsPageForeground}">
                                     <Bold>本项目仓库源:</Bold>
                                     <Hyperlink Click="HyperlinkSourceToPresentRepository_Click" TextDecorations="None">
                                         <TextBlock
                                             Width="250"
                                             Margin="2,0"
-                                            Text="https://github.com/InkCanvas/Ink-Canvas-Artistry"
+                                            Text="https://github.com/BaiYang2238/Ink-Canvas-Better"
                                             TextWrapping="Wrap" />
                                     </Hyperlink>
                                 </TextBlock>
@@ -4703,12 +4705,20 @@
                                     <Image
                                         Width="20"
                                         Height="20"
+                                        Margin="3,0"
                                         RenderOptions.BitmapScalingMode="HighQuality"
-                                        Source="/Resources/DeveloperAvatars/ChangSakura.png" />
+                                        Source="/Resources/DeveloperAvatars/BaiYang2238.jpg">
+                                    <Image.Clip>
+                                        <EllipseGeometry
+                                                    Center="10,10"
+                                                    RadiusX="10"
+                                                    RadiusY="10" />
+                                        </Image.Clip>
+                                    </Image>
                                     <TextBlock
                                         FontSize="15"
                                         Foreground="{DynamicResource SettingsPageForeground}"
-                                        Text="CJ Wu (ChangSakura)" />
+                                        Text="BaiYang (BaiYang2238)" />
                                 </WrapPanel>
 
                                 <Line
@@ -4720,9 +4730,53 @@
                                     X2="350"
                                     Y1="0"
                                     Y2="0" />
+                                
+                                <!-- Ink Canvas Artistry -->
 
                                 <TextBlock FontSize="15" Foreground="{DynamicResource SettingsPageForeground}">
-                                    <Bold>原项目仓库源:</Bold>
+                                    <Bold>Ink Canvas Artistry 仓库源:</Bold>
+                                    <Hyperlink Click="HyperlinkSourceToOringinalRepository_Click" TextDecorations="None">
+                                        <TextBlock Margin="2,0" Text="https://github.com/InkCanvas/Ink-Canvas-Artistry" />
+                                    </Hyperlink>
+                                </TextBlock>
+                                <WrapPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                    <TextBlock
+                                        FontSize="15"
+                                        FontWeight="Bold"
+                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                        Text="Ink Canvas Artistry 开发者: " />
+                                    <Image
+                                        Width="20"
+                                        Height="20"
+                                        Margin="3,0"
+                                        RenderOptions.BitmapScalingMode="HighQuality"
+                                        Source="/Resources/DeveloperAvatars/ChangSakura.png">
+                                        <Image.Clip>
+                                            <EllipseGeometry
+                                                Center="10,10"
+                                                RadiusX="10"
+                                                RadiusY="10" />
+                                        </Image.Clip>
+                                    </Image>
+                                    <TextBlock
+                                        FontSize="15"
+                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                        Text="XY Wang (WXRIW)" />
+                                </WrapPanel>
+                                
+                                <Line
+                                    Margin="0,4,0,0"
+                                    HorizontalAlignment="Center"
+                                    Stroke="{DynamicResource SettingsPageBorderBrush}"
+                                    StrokeThickness="1"
+                                    X1="0"
+                                    X2="350"
+                                    Y1="0"
+                                    Y2="0" />
+
+                                <!-- Ink Canvas -->
+                                <TextBlock FontSize="15" Foreground="{DynamicResource SettingsPageForeground}">
+                                    <Bold>Ink Canvas 仓库源:</Bold>
                                     <Hyperlink Click="HyperlinkSourceToOringinalRepository_Click" TextDecorations="None">
                                         <TextBlock Margin="2,0" Text="https://github.com/WXRIW/Ink-Canvas" />
                                     </Hyperlink>
@@ -4732,7 +4786,7 @@
                                         FontSize="15"
                                         FontWeight="Bold"
                                         Foreground="{DynamicResource SettingsPageForeground}"
-                                        Text="原项目开发者: " />
+                                        Text="Ink Canvas 开发者: " />
                                     <Image
                                         Width="20"
                                         Height="20"
@@ -4751,13 +4805,14 @@
                                         Foreground="{DynamicResource SettingsPageForeground}"
                                         Text="XY Wang (WXRIW)" />
                                 </WrapPanel>
+                                
                                 <WrapPanel VerticalAlignment="Center" Orientation="Horizontal">
                                     <TextBlock
                                         Margin="0,0,0,5"
                                         FontSize="15"
                                         FontWeight="Bold"
                                         Foreground="{DynamicResource SettingsPageForeground}"
-                                        Text="原项目贡献者: " />
+                                        Text="Ink Canvas 贡献者: " />
                                     <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
                                         <Image
                                             Width="20"

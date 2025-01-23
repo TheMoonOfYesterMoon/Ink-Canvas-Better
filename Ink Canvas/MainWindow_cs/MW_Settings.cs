@@ -53,7 +53,7 @@ namespace Ink_Canvas
 
         private async void BtnCheckAutoUpdateProxyReturnedData_Click(object sender, RoutedEventArgs e)
         {
-            string ProxyReturnedData = await AutoUpdateHelper.GetRemoteVersion(Settings.Startup.AutoUpdateProxy + "https://raw.githubusercontent.com/InkCanvas/Ink-Canvas-Artistry/master/AutomaticUpdateVersionControl.txt");
+            string ProxyReturnedData = await AutoUpdateHelper.GetRemoteVersion(Settings.Startup.AutoUpdateProxy + "https://raw.githubusercontent.com/BaiYang2238/Ink-Canvas-Better/master/AutomaticUpdateVersionControl.txt");
             ShowNotificationAsync(ProxyReturnedData);
         }
 
@@ -78,13 +78,13 @@ namespace Ink_Canvas
             {
                 StartAutomaticallyDel("InkCanvas");
                 StartAutomaticallyDel("Ink Canvas Annotation");
-                StartAutomaticallyCreate("Ink Canvas Artistry");
+                StartAutomaticallyCreate("Ink Canvas Better");
             }
             else
             {
                 StartAutomaticallyDel("InkCanvas");
                 StartAutomaticallyDel("Ink Canvas Annotation");
-                StartAutomaticallyDel("Ink Canvas Artistry");
+                StartAutomaticallyDel("Ink Canvas Better");
             }
         }
 
@@ -893,7 +893,7 @@ namespace Ink_Canvas
 
         private void HyperlinkSourceToPresentRepository_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("https://github.com/InkCanvas/Ink-Canvas-Artistry");
+            Process.Start("https://github.com/BaiYang2238/Ink-Canvas-Better");
             HideSubPanels();
         }
 

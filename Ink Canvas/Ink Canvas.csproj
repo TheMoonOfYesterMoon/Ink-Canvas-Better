@@ -4,12 +4,12 @@
 		<RuntimeIdentifiers>win;win-x86;win-x64;win-arm64;win7;win7-x86;win7-x64</RuntimeIdentifiers>
 		<OutputType>WinExe</OutputType>
 		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-		<AssemblyName>Ink Canvas Artistry</AssemblyName>
+		<AssemblyName>Ink Canvas Better</AssemblyName>
 		<UseWindowsForms>true</UseWindowsForms>
 		<UseWPF>true</UseWPF>
 		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<ApplicationIcon>Resources\Ink Canvas Artistry.ico</ApplicationIcon>
+		<ApplicationIcon>Resources\Ink Canvas Better.ico</ApplicationIcon>
 	</PropertyGroup>
 	<PropertyGroup>
 		<IsWebBootstrapper>false</IsWebBootstrapper>
@@ -56,6 +56,9 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
 	  <Prefer32Bit>True</Prefer32Bit>
 	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="Resources\DeveloperAvatars\BaiYang2238.jpg" />
+	</ItemGroup>
 	<ItemGroup>
 		<Reference Include="IACore">
 			<HintPath>.\IACore.dll</HintPath>
@@ -130,6 +133,7 @@
 		<WCFMetadata Include="Connected Services\" />
 	</ItemGroup>
 	<ItemGroup>
+		<Resource Include="Resources\DeveloperAvatars\BaiYang2238.jpg" />
 		<Resource Include="Resources\DeveloperAvatars\ChangSakura.png" />
 		<Resource Include="Resources\DeveloperAvatars\clover-yan.png" />
 		<Resource Include="Resources\DeveloperAvatars\CN-Ironegg.jpg" />
@@ -138,8 +142,6 @@
 		<Resource Include="Resources\DeveloperAvatars\Raspberry-Monster.jpg" />
 		<Resource Include="Resources\DeveloperAvatars\STBBRD.png" />
 		<Resource Include="Resources\DeveloperAvatars\WXRIW.png" />
-		
-		<Resource Include="Resources\Ink Canvas Artistry.ico" />
 		<Resource Include="Resources\Segoe Fluent Icons.ttf" />
 		<Resource Include="Resources\Icons-png\check-box-background.png" />
 		<Resource Include="Resources\Icons-png\checked-black.png" />
