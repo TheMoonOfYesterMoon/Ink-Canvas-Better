@@ -434,13 +434,6 @@ namespace Ink_Canvas
             CheckColorTheme(true);
         }
 
-        private void ImageCountdownTimer_Click(object sender, RoutedEventArgs e)
-        {
-            AnimationsHelper.HideWithSlideAndFade(BorderTools);
-            AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
-            new CountdownTimerWindow().Show();
-        }
-
         private void OperatingGuideWindowIcon_Click(object sender, RoutedEventArgs e)
         {
             AnimationsHelper.HideWithSlideAndFade(BorderTools);

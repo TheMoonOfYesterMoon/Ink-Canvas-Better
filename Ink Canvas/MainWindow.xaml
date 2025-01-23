@@ -1064,7 +1064,7 @@
                                         VerticalAlignment="Bottom"
                                         FontSize="12"
                                         Foreground="{DynamicResource BoardBarForeground}"
-                                        Text="手势" />
+                                        Text="触屏设置" />
                                 </Grid>
                             </Border>
                         </Button>
@@ -2262,43 +2262,6 @@
                             Height="55"
                             Padding="0"
                             BorderThickness="0"
-                            Click="BtnImageInsert_Click">
-                            <Border
-                                Width="60"
-                                Height="55"
-                                Background="{DynamicResource BoardBarBackground}"
-                                BorderBrush="{DynamicResource BoardBarBorderBrush}"
-                                BorderThickness="0,1,0.25,1">
-                                <Grid Margin="5">
-                                    <ikw:SimpleStackPanel
-                                        Width="28"
-                                        Height="28"
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Top"
-                                        Background="Transparent"
-                                        Orientation="Horizontal">
-                                        <ui:FontIcon
-                                            Width="28"
-                                            Height="22"
-                                            FontFamily="{StaticResource FluentIconFontFamily}"
-                                            FontSize="22"
-                                            Foreground="{DynamicResource BoardBarForeground}"
-                                            Glyph="&#xee71;" />
-                                    </ikw:SimpleStackPanel>
-                                    <TextBlock
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Bottom"
-                                        FontSize="12"
-                                        Foreground="{DynamicResource BoardBarForeground}"
-                                        Text="插入图片" />
-                                </Grid>
-                            </Border>
-                        </Button>
-                        <Button
-                            Width="60"
-                            Height="55"
-                            Padding="0"
-                            BorderThickness="0"
                             Click="SymbolIconUndo_Click">
                             <Border
                                 x:Name="BoardUndo"
@@ -2441,30 +2404,6 @@
                                                     Height="45"
                                                     Margin="0,4,0,0"
                                                     Orientation="Horizontal">
-                                                    <Button
-                                                        Width="45"
-                                                        Height="45"
-                                                        Padding="0"
-                                                        BorderThickness="0"
-                                                        Click="ImageCountdownTimer_Click">
-                                                        <ikw:SimpleStackPanel
-                                                            Width="40"
-                                                            Height="40"
-                                                            Orientation="Vertical">
-                                                            <ui:FontIcon
-                                                                Width="22"
-                                                                Height="22"
-                                                                Margin="0,4,0,1"
-                                                                FontFamily="{StaticResource FluentIconFontFamily}"
-                                                                Foreground="{DynamicResource BoardBarForeground}"
-                                                                Glyph="&#xea8f;" />
-                                                            <Label
-                                                                HorizontalAlignment="Center"
-                                                                Content="倒计时"
-                                                                FontSize="10"
-                                                                Foreground="{DynamicResource BoardBarForeground}" />
-                                                        </ikw:SimpleStackPanel>
-                                                    </Button>
                                                     <Button
                                                         Width="45"
                                                         Height="45"
@@ -5008,7 +4947,7 @@
         <!--  // PPT 翻页按钮 //  -->
         <Viewbox
             x:Name="PPTNavigationBottomLeft"
-            Height="40"
+            Height="50"
             Margin="2,0,0,2"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
@@ -5097,7 +5036,7 @@
         </Viewbox>
         <Viewbox
             x:Name="PPTNavigationBottomRight"
-            Height="40"
+            Height="50"
             Margin="2,0,0,2"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
@@ -6093,7 +6032,7 @@
                                         Margin="1,-1,0,0"
                                         FontSize="8"
                                         Foreground="{DynamicResource FloatBarForeground}"
-                                        Text="圆形擦"
+                                        Text="面积擦"
                                         TextAlignment="Center"
                                         Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
                                 </ikw:SimpleStackPanel>
@@ -6438,57 +6377,6 @@
                                 Height="32"
                                 Padding="0"
                                 BorderThickness="0"
-                                Click="BtnImageInsert_Click">
-                                <ikw:SimpleStackPanel
-                                    HorizontalAlignment="Center"
-                                    Background="Transparent"
-                                    Orientation="Vertical">
-                                    <ui:FontIcon
-                                        Width="30"
-                                        Height="22"
-                                        FontFamily="{StaticResource FluentIconFontFamily}"
-                                        FontSize="16"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Glyph="&#xee71;" />
-                                    <TextBlock
-                                        Margin="-0.75,-1,0,0"
-                                        FontSize="8"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Text="插入图片"
-                                        TextAlignment="Center"
-                                        Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
-                                </ikw:SimpleStackPanel>
-                            </Button><Button
-                                Width="30"
-                                Height="32"
-                                Padding="0"
-                                BorderThickness="0"
-                                Click="BtnMediaInsert_Click">
-                                <ikw:SimpleStackPanel
-                                    HorizontalAlignment="Center"
-                                    Background="Transparent"
-                                    Orientation="Vertical">
-                                    <ui:FontIcon
-                                        Width="30"
-                                        Height="22"
-                                        FontFamily="{StaticResource FluentIconFontFamily}"
-                                        FontSize="16"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Glyph="&#xee71;" />
-                                    <TextBlock
-                                        Margin="-0.75,-1,0,0"
-                                        FontSize="8"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Text="插入视频"
-                                        TextAlignment="Center"
-                                        Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
-                                </ikw:SimpleStackPanel>
-                            </Button>
-                            <Button
-                                Width="30"
-                                Height="32"
-                                Padding="0"
-                                BorderThickness="0"
                                 Click="SymbolIconUndo_Click">
                                 <ikw:SimpleStackPanel
                                     HorizontalAlignment="Center"
@@ -6548,43 +6436,6 @@
                                         Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
                                 </ikw:SimpleStackPanel>
                             </Button>
-                            <Button
-                                Width="30"
-                                Height="32"
-                                Padding="0"
-                                BorderThickness="0"
-                                Click="CursorWithDelIcon_Click">
-                                <ikw:SimpleStackPanel
-                                    Margin="1.5,0,2.5,0"
-                                    HorizontalAlignment="Center"
-                                    Background="Transparent"
-                                    Orientation="Vertical">
-                                    <ui:FontIcon
-                                        Width="30"
-                                        Height="22"
-                                        Margin="-5,0,-2,0"
-                                        FontFamily="{StaticResource FluentIconFontFamily}"
-                                        FontSize="16"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Glyph="&#xe8b0;" />
-                                    <ui:FontIcon
-                                        Width="15"
-                                        Height="22"
-                                        Margin="10,-25,0,-10"
-                                        FontFamily="{StaticResource FluentIconFontFamily}"
-                                        FontSize="12"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Glyph="&#xe74d;" />
-                                    <TextBlock
-                                        Margin="1,-1,0,0"
-                                        FontSize="8"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Text="清并鼠"
-                                        TextAlignment="Center"
-                                        Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
-                                </ikw:SimpleStackPanel>
-                            </Button>
-
                         </ikw:SimpleStackPanel>
                         <ikw:SimpleStackPanel Orientation="{Binding ElementName=StackPanelFloatingBar, Path=Orientation}">
                             <Button
@@ -6701,30 +6552,6 @@
                                                 Height="45"
                                                 Margin="0,4,0,0"
                                                 Orientation="Horizontal">
-                                                <Button
-                                                    Width="45"
-                                                    Height="45"
-                                                    Padding="0"
-                                                    BorderThickness="0"
-                                                    Click="ImageCountdownTimer_Click">
-                                                    <ikw:SimpleStackPanel
-                                                        Width="40"
-                                                        Height="40"
-                                                        Orientation="Vertical">
-                                                        <ui:FontIcon
-                                                            Width="22"
-                                                            Height="22"
-                                                            Margin="0,4,0,1"
-                                                            FontFamily="{StaticResource FluentIconFontFamily}"
-                                                            Foreground="{DynamicResource FloatBarForeground}"
-                                                            Glyph="&#xea8f;" />
-                                                        <Label
-                                                            HorizontalAlignment="Center"
-                                                            Content="倒计时"
-                                                            FontSize="10"
-                                                            Foreground="{DynamicResource FloatBarForeground}" />
-                                                    </ikw:SimpleStackPanel>
-                                                </Button>
                                                 <Button
                                                     Width="45"
                                                     Height="45"
@@ -6977,7 +6804,7 @@
                                 Margin="0,-2,0,-1"
                                 FontSize="8"
                                 Foreground="{DynamicResource FloatBarForeground}"
-                                Text="手势"
+                                Text="触屏设置"
                                 TextAlignment="Center"
                                 Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
                         </ikw:SimpleStackPanel>
