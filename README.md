@@ -32,6 +32,8 @@ Support Active Pen (支持压感)
 ### 为什么会有这个分支版本？
 简而言之，就是作者在使用 Ink Canvas 时，发现有一些需要的功能它没有，再看各版本的仓库，除 [Ink-Canvas-Reborn](https://github.com/InkCanvas/Ink-Canvas-Reborn) 外，其它版本的仓库都几乎半年没有动过了，而它又仅仅只是重构，遂决定自己搓一个。
 
+精力有限，不出意外的话这个项目也会很快进入半死不活的状态
+
 ### 点击放映后一翻页就闪退？
 考虑是由于`Microsoft Office`未激活导致的，请自行激活
 
