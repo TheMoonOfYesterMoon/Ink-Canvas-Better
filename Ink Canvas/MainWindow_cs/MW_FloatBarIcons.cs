@@ -17,6 +17,7 @@ using Point = System.Windows.Point;
 using System.Diagnostics;
 using iNKORE.UI.WPF.Modern.Controls;
 using System.Collections.Generic;
+using Ink_Canvas.Windows;
 
 namespace Ink_Canvas
 {
@@ -816,6 +817,19 @@ namespace Ink_Canvas
             CursorIcon_Click(null, null);
         }
 
+        private void Magnify_Click(object sender, RoutedEventArgs e)
+        {
+            if (MagnifyWindow.Visibility == Visibility.Visible)
+            {
+                MagnifyWindow.Hide();
+            }
+            else
+            {
+                MagnifyWindow.Show();
+            }
+
+        }
+
         private void SelectIcon_MouseUp(object sender, RoutedEvent e)
         {
             forceEraser = true;
@@ -946,6 +960,13 @@ namespace Ink_Canvas
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             CloseIsFromButton = true;
+            try
+            {
+                MagnifyWindow.Close();
+            } catch(System.NullReferenceException ex) {
+                Console.WriteLine(ex.Message);
+                // 如果触发了这个异常，不用管它
+            }
             Close();
         }
 

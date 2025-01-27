@@ -1,0 +1,55 @@
+<Window x:Class="Ink_Canvas.Windows.Magnify"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+    xmlns:local="clr-namespace:Ink_Canvas"
+    xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+    mc:Ignorable="d"
+    Background="{x:Null}"
+    ResizeMode="NoResize"
+    WindowStyle="None"
+    ShowInTaskbar="False"
+    Topmost="True"
+    Title="MainWindow" Height="600" Width="600" 
+    MouseLeftButtonDown="Window_MouseDown">
+<WindowChrome.WindowChrome>
+    <WindowChrome GlassFrameThickness="-1"   CaptionHeight="0"   />
+</WindowChrome.WindowChrome>
+    <Grid>
+        <Border
+                Height="40"
+                Margin="0,0,0,560"
+                Padding="15,5,5,5"
+                Background="{DynamicResource FloatBarBackground}"
+                CornerRadius="5,5,0,0">
+            <ikw:SimpleStackPanel Orientation="Horizontal">
+                <TextBlock
+                FontSize="24"
+                FontWeight="Bold"
+                Foreground="{DynamicResource FloatBarForeground}"
+                Text="放大镜" />
+                <ui:FontIcon
+                    x:Name="BorderDrawShapePin"
+                    Width="20"
+                    Height="20"
+                    Margin="480,0,0,0"
+                    VerticalAlignment="Center"
+                    FontFamily="{StaticResource FluentIconFontFamily}"
+                    FontSize="20"
+                    Foreground="{DynamicResource FloatBarForeground}"
+                    Glyph="&#xef2c;"
+                    MouseDown="HideMagnify_Click"/>
+            </ikw:SimpleStackPanel>
+        </Border>
+        
+        <Rectangle Stroke="LightBlue"
+                Margin="0,0,0,-40"
+                Height="560">
+            <Rectangle.Fill>
+                <ImageBrush x:Name="ib" Viewbox="0,0,0.5,0.5" />
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</Window>

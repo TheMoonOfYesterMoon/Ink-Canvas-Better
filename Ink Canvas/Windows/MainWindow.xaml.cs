@@ -1,4 +1,5 @@
 using Ink_Canvas.Helpers;
+using Ink_Canvas.Windows;
 using iNKORE.UI.WPF.Modern;
 using System;
 using System.Collections.ObjectModel;
@@ -15,6 +16,8 @@ namespace Ink_Canvas
 {
     public partial class MainWindow : Window
     {
+        Magnify MagnifyWindow;
+
         #region Window Initialization
 
         public MainWindow()
@@ -24,6 +27,15 @@ namespace Ink_Canvas
                 处于 PPT 放映内：BtnPPTSlideShowEnd.Visibility
             */
             InitializeComponent();
+
+            // 初始化放大镜窗口
+            MagnifyWindow = new Magnify();
+            /*
+                这里先Show()再Hide()，看似多此一举，实则不然
+                如果你删掉了它们，那么就会报错
+            */
+            MagnifyWindow.Show();
+            MagnifyWindow.Hide();
 
             BlackboardLeftSide.Visibility = Visibility.Collapsed;
             BlackboardCenterSide.Visibility = Visibility.Collapsed;
@@ -215,5 +227,6 @@ namespace Ink_Canvas
         }
 
         #endregion Definations and Loading
+
     }
 }
