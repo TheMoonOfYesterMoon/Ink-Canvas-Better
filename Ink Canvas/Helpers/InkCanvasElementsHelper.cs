@@ -112,7 +112,7 @@ namespace Ink_Canvas.Helpers
             {
                 return CloneImage(originalImage);
             }
-            
+
             if (element is MediaElement originalMediaElement)
             {
                 return CloneMediaElement(originalMediaElement);

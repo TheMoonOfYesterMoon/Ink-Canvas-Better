@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas.Helpers;
+using Microsoft.Office.Core;
 using Microsoft.Office.Interop.PowerPoint;
 using System;
 using System.Diagnostics;
@@ -13,7 +14,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using Application = System.Windows.Application;
 using File = System.IO.File;
-using Microsoft.Office.Core;
 
 namespace Ink_Canvas
 {

@@ -18,7 +18,7 @@ namespace Ink_Canvas
 
         private void HotKey_ExitPPTSlideShow()
         {
-            if(BtnPPTSlideShowEnd.Visibility == Visibility.Visible)
+            if (BtnPPTSlideShowEnd.Visibility == Visibility.Visible)
             {
                 BtnPPTSlideShowEnd_Click(null, null);
             }
@@ -33,7 +33,7 @@ namespace Ink_Canvas
         {
             SaveScreenShotToDesktop();
         }
-        
+
         private void HotKey_Hide()
         {
             SymbolIconEmoji_MouseUp(null, null);

@@ -21,6 +21,10 @@
 
 [直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest "Latest Releases")
 
+[使用说明](./Manual.md)
+
+> 你也许会觉得这个图标有点丑，奈何作者不会画图标
+
 ## 🔧 特性
 Support Active Pen (支持压感)
 

@@ -1,11 +1,11 @@
 ﻿using Ink_Canvas.Helpers;
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Input;
-using System.Diagnostics;
 using System.Windows.Media;
 
 namespace Ink_Canvas
@@ -117,7 +117,7 @@ namespace Ink_Canvas
             {
                 if (!item.StrokeHasBeenCleared)
                 {
-                    if(item.StylusPointDictionary != null)
+                    if (item.StylusPointDictionary != null)
                     {
                         foreach (var currentStroke in item.StylusPointDictionary)
                         {
@@ -127,7 +127,7 @@ namespace Ink_Canvas
                             }
                         }
                     }
-                    if(item.ElementsManipulationHistory != null)
+                    if (item.ElementsManipulationHistory != null)
                     {
                         foreach (var currentElement in item.ElementsManipulationHistory)
                         {
@@ -152,7 +152,7 @@ namespace Ink_Canvas
                 }
                 else
                 {
-                    if(item.StylusPointDictionary != null)
+                    if (item.StylusPointDictionary != null)
                     {
                         foreach (var currentStroke in item.StylusPointDictionary)
                         {
@@ -162,7 +162,7 @@ namespace Ink_Canvas
                             }
                         }
                     }
-                    if(item.ElementsManipulationHistory != null)
+                    if (item.ElementsManipulationHistory != null)
                     {
                         foreach (var currentElement in item.ElementsManipulationHistory)
                         {
@@ -404,7 +404,7 @@ namespace Ink_Canvas
             {
                 return;
             }
-            if(StrokeManipulationHistory?.Count > 0 || ElementsManipulationHistory?.Count > 0)
+            if (StrokeManipulationHistory?.Count > 0 || ElementsManipulationHistory?.Count > 0)
             {
                 timeMachine.CommitStrokeManipulationHistory(StrokeManipulationHistory, ElementsManipulationHistory);
                 if (StrokeManipulationHistory != null)

@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using OSVersionExtension;
 using System;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
@@ -124,7 +123,7 @@ namespace Ink_Canvas
                     Icon_Select1.Height = 22;
                     Icon_Select2.Height = 22;
                     Icon_Select2.Margin = new Thickness(6, -18, 0, -8);
-                    Icon_Undo.Margin = new Thickness(0,1.5,0,-1.5);
+                    Icon_Undo.Margin = new Thickness(0, 1.5, 0, -1.5);
                     Icon_Redo.Margin = new Thickness(0, 1.5, 0, -1.5);
                     ToggleSwitchEnableDisPlayFloatBarText.IsOn = true;
                 }

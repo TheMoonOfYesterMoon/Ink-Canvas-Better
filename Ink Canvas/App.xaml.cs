@@ -33,7 +33,8 @@ namespace Ink_Canvas
 
         void App_Startup(object sender, StartupEventArgs e)
         {
-            /*if (!StoreHelper.IsStoreApp) */RootPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            /*if (!StoreHelper.IsStoreApp) */
+            RootPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
 
             LogHelper.NewLog(string.Format("Ink Canvas Starting (Version: {0})", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
 
@@ -64,9 +65,9 @@ namespace Ink_Canvas
                         SenderScrollViewer.ScrollToVerticalOffset(SenderScrollViewer.VerticalOffset - e.Delta * 10 * System.Windows.Forms.SystemInformation.MouseWheelScrollLines / (double)120);
                         e.Handled = true;
                     }
-                    catch {  }
+                    catch { }
             }
-            catch {  }
+            catch { }
         }
     }
 }

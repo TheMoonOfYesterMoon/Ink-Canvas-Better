@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Xml.Linq;
 using Point = System.Windows.Point;
 
 namespace Ink_Canvas
@@ -109,7 +108,8 @@ namespace Ink_Canvas
                         inkCanvas.Children.Remove(GetVisualCanvas(e.StylusDevice.Id));
                         inkCanvas_StrokeCollected(inkCanvas, new InkCanvasStrokeCollectedEventArgs(GetStrokeVisual(e.StylusDevice.Id).Stroke));
                     }
-                    catch(Exception ex) {
+                    catch (Exception ex)
+                    {
                         LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
                     }
                 }

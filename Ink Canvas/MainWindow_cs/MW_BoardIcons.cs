@@ -1,10 +1,10 @@
 ﻿using Ink_Canvas.Helpers;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Media;
 using Application = System.Windows.Application;
-using System.Diagnostics;
 
 namespace Ink_Canvas
 {

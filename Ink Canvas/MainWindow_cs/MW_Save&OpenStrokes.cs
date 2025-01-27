@@ -3,12 +3,12 @@ using Microsoft.Win32;
 using System;
 using System.IO;
 using System.IO.Compression;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Markup;
 using System.Windows.Media.Imaging;
-using System.Threading.Tasks;
 
 namespace Ink_Canvas
 {

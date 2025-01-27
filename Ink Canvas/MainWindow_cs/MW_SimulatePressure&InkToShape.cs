@@ -347,19 +347,6 @@ namespace Ink_Canvas
                     }
                 }
 
-
-                try
-                {
-                    if (e.Stroke.StylusPoints.Count > 3)
-                    {
-                        Random random = new Random();
-                        double _speed = GetPointSpeed(e.Stroke.StylusPoints[random.Next(0, e.Stroke.StylusPoints.Count - 1)].ToPoint(), e.Stroke.StylusPoints[random.Next(0, e.Stroke.StylusPoints.Count - 1)].ToPoint(), e.Stroke.StylusPoints[random.Next(0, e.Stroke.StylusPoints.Count - 1)].ToPoint());
-
-                        RandWindow.randSeed = (int)(_speed * 100000 * 1000);
-                    }
-                }
-                catch { }
-
                 switch (Settings.Canvas.InkStyle)
                 {
                     case 1:
@@ -445,7 +432,7 @@ namespace Ink_Canvas
 
                         }
                         break;
-                    case 3: //根据 mode == 0 改写，目前暂未完成
+                    case 3: // TODO:根据 mode == 0 改写，目前暂未完成
                         try
                         {
                             StylusPointCollection stylusPoints = new StylusPointCollection();

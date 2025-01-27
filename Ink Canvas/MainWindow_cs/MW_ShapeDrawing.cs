@@ -1,5 +1,4 @@
 ﻿using Ink_Canvas.Helpers;
-using iNKORE.UI.WPF.Modern.Controls;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -1615,7 +1614,7 @@ namespace Ink_Canvas
             if (StrokeManipulationHistory?.Count > 0 || ElementsManipulationHistory?.Count > 0)
             {
                 timeMachine.CommitStrokeManipulationHistory(StrokeManipulationHistory, ElementsManipulationHistory);
-                if(StrokeManipulationHistory?.Count > 0)
+                if (StrokeManipulationHistory?.Count > 0)
                 {
                     foreach (var item in StrokeManipulationHistory)
                     {

@@ -1,23 +1,22 @@
 ﻿using Ink_Canvas.Helpers;
+using iNKORE.UI.WPF.Modern;
+using iNKORE.UI.WPF.Modern.Controls;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Threading;
-using System.Windows.Interop;
 using System.Windows.Media.Imaging;
-using iNKORE.UI.WPF.Modern;
-using System.Threading;
+using System.Windows.Threading;
 using Application = System.Windows.Application;
 using Point = System.Windows.Point;
-using System.Diagnostics;
-using iNKORE.UI.WPF.Modern.Controls;
-using System.Collections.Generic;
-using Ink_Canvas.Windows;
 
 namespace Ink_Canvas
 {
@@ -279,7 +278,7 @@ namespace Ink_Canvas
             if (selectedStrokes.Count > 0 || selectedElements.Count > 0)
             {
                 inkCanvas.Strokes.Remove(inkCanvas.GetSelectedStrokes());
-                foreach(UIElement element in selectedElements)
+                foreach (UIElement element in selectedElements)
                 {
                     inkCanvas.Children.Remove(element);
                     timeMachine.CommitElementInsertHistory(element, true);
@@ -440,21 +439,6 @@ namespace Ink_Canvas
             AnimationsHelper.HideWithSlideAndFade(BorderTools);
             AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
             new OperatingGuideWindow().Show();
-        }
-
-        private void SymbolIconRand_Click(object sender, RoutedEventArgs e)
-        {
-            AnimationsHelper.HideWithSlideAndFade(BorderTools);
-            AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
-            new RandWindow().Show();
-        }
-
-        private void SymbolIconRandOne_Click(object sender, RoutedEventArgs e)
-        {
-            AnimationsHelper.HideWithSlideAndFade(BorderTools);
-            AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
-
-            new RandWindow(true).ShowDialog();
         }
 
         private void GridInkReplayButton_Click(object sender, RoutedEventArgs e)
@@ -963,7 +947,9 @@ namespace Ink_Canvas
             try
             {
                 MagnifyWindow.Close();
-            } catch(System.NullReferenceException ex) {
+            }
+            catch (System.NullReferenceException ex)
+            {
                 Console.WriteLine(ex.Message);
                 // 如果触发了这个异常，不用管它
             }
