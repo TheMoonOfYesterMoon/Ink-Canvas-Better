@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
+using System.Windows.Input;
 using System.Windows.Media;
 using File = System.IO.File;
 using MessageBox = System.Windows.MessageBox;
@@ -16,10 +17,10 @@ namespace Ink_Canvas
 {
     public partial class MainWindow : Window
     {
-        Magnify MagnifyWindow;
 
         #region Window Initialization
 
+        Magnify MagnifyWindow;
         public MainWindow()
         {
             /*
@@ -227,6 +228,82 @@ namespace Ink_Canvas
         }
 
         #endregion Definations and Loading
+
+        #region Setting
+
+        private void HideAllSetting()
+        {
+            Setting_General1.Visibility = Visibility.Collapsed;
+            Setting_General2.Visibility = Visibility.Collapsed;
+            Setting_StartAndUpgrade.Visibility = Visibility.Collapsed;
+            GroupBoxAppearanceNewUI.Visibility = Visibility.Collapsed;
+            Setting_CanvasAndGesture1.Visibility = Visibility.Collapsed;
+            GroupBoxInkRecognition.Visibility = Visibility.Collapsed;
+            Setting_CanvasAndGesture2.Visibility = Visibility.Collapsed;
+            Setting_PPT.Visibility = Visibility.Collapsed;
+            Setting_Advance.Visibility = Visibility.Collapsed;
+            Setting_Others.Visibility = Visibility.Collapsed;
+
+        }
+        
+        private void BtnSettingGeneral_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSetting();
+            Setting_General1.Visibility = Visibility.Visible;
+            Setting_General2.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - 基本";
+        }
+
+        private void BtnSettingStartAndUpgrade_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSetting();
+            Setting_StartAndUpgrade.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - 启动与更新";
+        }
+
+        private void BtnSettingAppearance_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSetting();
+            GroupBoxAppearanceNewUI.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - 外观";
+        }
+
+        private void BtnSettingCanvasAndGesture_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSetting();
+            Setting_CanvasAndGesture1.Visibility = Visibility.Visible;
+            GroupBoxInkRecognition.Visibility = Visibility.Visible;
+            Setting_CanvasAndGesture2.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - 画板与手势";
+        }
+
+        private void BtnSettingPPT_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSetting();
+            Setting_PPT.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - PPT";
+        }
+
+        private void BtnSettingAdvance_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSetting();
+            Setting_Advance.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - 高级";
+        }
+
+        private void BtnSettingOthers_Click(object sender, RoutedEventArgs e)
+        {
+            HideAllSetting();
+            Setting_Others.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - 其它";
+        }
+
+        #endregion
+
+        private void WindowDragMove(object sender, MouseEventArgs e)
+        {
+            if ( e.LeftButton == MouseButtonState.Pressed ) this.DragMove();
+        }
 
     }
 }
