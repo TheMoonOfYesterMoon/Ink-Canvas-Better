@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas.Helpers;
+using Ink_Canvas.Windows;
 using iNKORE.UI.WPF.Modern;
 using iNKORE.UI.WPF.Modern.Controls;
 using System;
@@ -14,6 +15,7 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
 using Point = System.Windows.Point;
@@ -801,14 +803,22 @@ namespace Ink_Canvas
             CursorIcon_Click(null, null);
         }
 
-        private void Magnify_Click(object sender, RoutedEventArgs e)
+        public void Magnify_Click(object sender, RoutedEventArgs e)
         {
+            // 初始化放大镜窗口
+            if (MagnifyWindow == null)
+            {
+                MagnifyWindow = new Magnify();
+            }
             if (MagnifyWindow.Visibility == Visibility.Visible)
             {
-                MagnifyWindow.Hide();
+                MagnifyWindow.MagnifyCompleted();
+                MagnifyWindow.Close();
+                MagnifyWindow = null;
             }
             else
             {
+                MagnifyWindow.MagnifyRunning();
                 MagnifyWindow.Show();
             }
 

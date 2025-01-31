@@ -13,22 +13,35 @@ namespace Ink_Canvas.Windows
     /// </summary>
     public partial class Magnify : Window
     {
+        DispatcherTimer dispatcherTimer;
         public Magnify()
         {
             InitializeComponent();
+        }
+
+        public void MagnifyRunning()
+        {
             //启动定时器，截屏
-            var dispatcherTimer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(33), };
+            dispatcherTimer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(33), };
             dispatcherTimer.Tick += (s, e) =>
             {
                 //gdi+截屏，截取窗口左边的区域（可根据具体使用场景调整截屏位置）,使用PointToScreen消除dpi影响
                 var leftTop = PointToScreen(new System.Windows.Point(-Width, 0));
                 var rightBottom = PointToScreen(new System.Windows.Point(0, Height));
+                // 右边
+                // var leftTop = PointToScreen(new System.Windows.Point(Width, 0));
+                // var rightBottom = PointToScreen(new System.Windows.Point(Width*2, Height));
                 var bm = Snapshot((int)leftTop.X, (int)leftTop.Y, (int)(rightBottom.X - leftTop.X), (int)(rightBottom.Y - leftTop.Y));
                 var wb = BitmapToWriteableBitmap(bm);
                 //显示到界面
                 ib.ImageSource = wb;
             };
             dispatcherTimer.Start();
+        }
+
+        public void MagnifyCompleted()
+        {
+            dispatcherTimer.Stop();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -105,7 +118,9 @@ namespace Ink_Canvas.Windows
 
         private void HideMagnify_Click(object sender, MouseButtonEventArgs e)
         {
-            this.Hide();
+            MagnifyCompleted();
+            this.Close();
+            
         }
     }
 }
