@@ -122,8 +122,14 @@ namespace Ink_Canvas
         [JsonProperty("isColorfulViewboxFloatingBar")]
         public bool IsColorfulViewboxFloatingBar { get; set; } = false;
         [JsonProperty("enableViewboxFloatingBarScaleTransform")]
-        public bool EnableViewboxFloatingBarScaleTransform { get; set; } = false;
-        [JsonProperty("enableViewboxBlackBoardScaleTransform")]
+
+        // 旧 UI 缩放
+        // public bool EnableViewboxFloatingBarScaleTransform { get; set; } = false;
+        // [JsonProperty("enableViewboxBlackBoardScaleTransform")]
+
+        // 新 UI 缩放
+        public float ViewboxScaling { get; set; } = 1.0f;
+        [JsonProperty("ViewboxScaling")]
         public bool EnableViewboxBlackBoardScaleTransform { get; set; } = false;
         [JsonProperty("isTransparentButtonBackground")]
         public bool IsTransparentButtonBackground { get; set; } = true;

@@ -178,20 +178,29 @@ namespace Ink_Canvas
                 {
                     ToggleSwitchColorfulViewboxFloatingBar.IsOn = false;
                 }
-                if (Settings.Appearance.EnableViewboxFloatingBarScaleTransform) // 浮动工具栏 UI 缩放 90%
-                {
-                    ViewboxFloatingBarScaleTransform.ScaleX = 0.9;
-                    ViewboxFloatingBarScaleTransform.ScaleY = 0.9;
 
-                    ToggleSwitchEnableViewboxFloatingBarScaleTransform.IsOn = true;
-                }
-                else
-                {
-                    ViewboxFloatingBarScaleTransform.ScaleX = 1;
-                    ViewboxFloatingBarScaleTransform.ScaleY = 1;
+                // UI 缩放
+                ViewboxFloatingBarScaleTransform.ScaleX = Settings.Appearance.ViewboxScaling;
+                ViewboxFloatingBarScaleTransform.ScaleY = Settings.Appearance.ViewboxScaling;
+                ViewboxScalingSlider.Value = Settings.Appearance.ViewboxScaling;
 
-                    ToggleSwitchEnableViewboxFloatingBarScaleTransform.IsOn = false;
-                }
+                // 浮动工具栏 UI 缩放 90% （旧的 UI 缩放）
+                // if (Settings.Appearance.EnableViewboxFloatingBarScaleTransform)
+                // {
+                //     ViewboxFloatingBarScaleTransform.ScaleX = 0.9;
+                //     ViewboxFloatingBarScaleTransform.ScaleY = 0.9;
+
+                //     ToggleSwitchEnableViewboxFloatingBarScaleTransform.IsOn = true;
+                // }
+                // else
+                // {
+                //     ViewboxFloatingBarScaleTransform.ScaleX = 1;
+                //     ViewboxFloatingBarScaleTransform.ScaleY = 1;
+
+                //     ToggleSwitchEnableViewboxFloatingBarScaleTransform.IsOn = false;
+                // }
+
+
                 if (Settings.Appearance.EnableViewboxBlackBoardScaleTransform) // 画板 UI 缩放 80%
                 {
                     ViewboxBlackboardLeftSideScaleTransform.ScaleX = 0.8;

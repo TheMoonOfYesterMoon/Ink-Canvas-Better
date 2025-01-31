@@ -174,14 +174,6 @@ namespace Ink_Canvas
             LoadSettings();
         }
 
-        private void ToggleSwitchEnableViewboxFloatingBarScaleTransform_Toggled(object sender, RoutedEventArgs e)
-        {
-            if (!isLoaded) return;
-            Settings.Appearance.EnableViewboxFloatingBarScaleTransform = ToggleSwitchEnableViewboxFloatingBarScaleTransform.IsOn;
-            SaveSettingsToFile();
-            LoadSettings();
-        }
-
         private void ToggleSwitchEnableViewboxBlackBoardScaleTransform_Toggled(object sender, RoutedEventArgs e)
         {
             if (!isLoaded) return;
@@ -653,7 +645,7 @@ namespace Ink_Canvas
             Settings.Appearance.IsEnableDisPlayFloatBarText = false;
             Settings.Appearance.IsEnableDisPlayNibModeToggler = false;
             Settings.Appearance.IsColorfulViewboxFloatingBar = false;
-            Settings.Appearance.EnableViewboxFloatingBarScaleTransform = true;
+            Settings.Appearance.ViewboxScaling = 1.0f;
             Settings.Appearance.EnableViewboxBlackBoardScaleTransform = false;
             Settings.Appearance.IsTransparentButtonBackground = true;
             Settings.Appearance.IsShowExitButton = true;
@@ -799,6 +791,15 @@ namespace Ink_Canvas
             if (!Settings.Advanced.IsQuadIR) value = args.Width;
             else value = Math.Sqrt(args.Width * args.Height); //四边红外
             TextBlockShowCalculatedMultiplier.Text = (5 / (value * 1.1)).ToString();
+        }
+
+        private void ViewboxScalingSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (!isLoaded) return;
+            Settings.Appearance.ViewboxScaling = (float)e.NewValue;
+            ViewboxFloatingBarScaleTransform.ScaleX = Settings.Appearance.ViewboxScaling;
+            ViewboxFloatingBarScaleTransform.ScaleY = Settings.Appearance.ViewboxScaling;
+            SaveSettingsToFile();
         }
 
         private void NibModeBoundsWidthSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
