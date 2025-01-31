@@ -1,5 +1,4 @@
-﻿// 改自 https://blog.csdn.net/u013113678/article/details/132743195
-
+﻿
 using System;
 using System.Windows;
 using System.Windows.Input;
@@ -14,6 +13,7 @@ namespace Ink_Canvas.Windows
     public partial class Magnify : Window
     {
         DispatcherTimer dispatcherTimer;
+        private bool MagnifyTheRightScreem = false;
         public Magnify()
         {
             InitializeComponent();
@@ -21,19 +21,20 @@ namespace Ink_Canvas.Windows
 
         public void MagnifyRunning()
         {
-            //启动定时器，截屏
+            // 启动定时器，截屏
             dispatcherTimer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(33), };
+            double leftTopPointWidth = MagnifyTheRightScreem ? Width : -Width;
+            double leftTopPointHeight = MagnifyTheRightScreem ? 0 : 0;
+            double rightBottomPointWidth = MagnifyTheRightScreem ? Width * 2 : 0;
+            double rightBottomPointHeight = MagnifyTheRightScreem ? Height : Height;
             dispatcherTimer.Tick += (s, e) =>
             {
-                //gdi+截屏，截取窗口左边的区域（可根据具体使用场景调整截屏位置）,使用PointToScreen消除dpi影响
-                var leftTop = PointToScreen(new System.Windows.Point(-Width, 0));
-                var rightBottom = PointToScreen(new System.Windows.Point(0, Height));
-                // 右边
-                // var leftTop = PointToScreen(new System.Windows.Point(Width, 0));
-                // var rightBottom = PointToScreen(new System.Windows.Point(Width*2, Height));
+                // gdi+截屏，,使用PointToScreen消除dpi影响
+                var leftTop = PointToScreen(new System.Windows.Point(leftTopPointWidth, leftTopPointHeight));
+                var rightBottom = PointToScreen(new System.Windows.Point(rightBottomPointWidth, rightBottomPointHeight));
                 var bm = Snapshot((int)leftTop.X, (int)leftTop.Y, (int)(rightBottom.X - leftTop.X), (int)(rightBottom.Y - leftTop.Y));
                 var wb = BitmapToWriteableBitmap(bm);
-                //显示到界面
+                // 显示到界面
                 ib.ImageSource = wb;
             };
             dispatcherTimer.Start();
@@ -66,7 +67,8 @@ namespace Ink_Canvas.Windows
             }
             return bitmap;
         }
-        //将Bitmap 转换成WriteableBitmap 
+
+        // 将Bitmap 转换成WriteableBitmap 
         public static WriteableBitmap BitmapToWriteableBitmap(System.Drawing.Bitmap src)
         {
             var wb = CreateCompatibleWriteableBitmap(src);
@@ -79,7 +81,8 @@ namespace Ink_Canvas.Windows
             BitmapCopyToWriteableBitmap(src, wb, new System.Drawing.Rectangle(0, 0, src.Width, src.Height), 0, 0, format);
             return wb;
         }
-        //创建尺寸和格式与Bitmap兼容的WriteableBitmap
+        // 创建尺寸和格式与Bitmap兼容的WriteableBitmap
+
         public static WriteableBitmap CreateCompatibleWriteableBitmap(System.Drawing.Bitmap src)
         {
             System.Windows.Media.PixelFormat format;
@@ -108,7 +111,7 @@ namespace Ink_Canvas.Windows
             }
             return new WriteableBitmap(src.Width, src.Height, 0, 0, format, null);
         }
-        //将Bitmap数据写入WriteableBitmap中
+        // 将Bitmap数据写入WriteableBitmap中
         public static void BitmapCopyToWriteableBitmap(System.Drawing.Bitmap src, WriteableBitmap dst, System.Drawing.Rectangle srcRect, int destinationX, int destinationY, System.Drawing.Imaging.PixelFormat srcPixelFormat)
         {
             var data = src.LockBits(new System.Drawing.Rectangle(new System.Drawing.Point(0, 0), src.Size), System.Drawing.Imaging.ImageLockMode.ReadOnly, srcPixelFormat);
@@ -121,6 +124,22 @@ namespace Ink_Canvas.Windows
             MagnifyCompleted();
             this.Close();
             
+        }
+
+        private void BtnSwitchMagnifyScream_Click(object sender, RoutedEventArgs e)
+        {
+            MagnifyTheRightScreem = !MagnifyTheRightScreem;
+            if (MagnifyTheRightScreem == true)
+            {
+                MagnifyCompleted();
+                MagnifyRunning();
+                LabelSwitchMagnifyScream.Content = "点击放大左侧";
+            } else
+            {
+                MagnifyCompleted();
+                MagnifyRunning();
+                LabelSwitchMagnifyScream.Content = "点击放大右侧";
+            }
         }
     }
 }
