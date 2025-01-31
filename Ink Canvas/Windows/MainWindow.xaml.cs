@@ -29,6 +29,7 @@ namespace Ink_Canvas
             */
             InitializeComponent();
 
+            HideAllSetting();
 
             BlackboardLeftSide.Visibility = Visibility.Collapsed;
             BlackboardCenterSide.Visibility = Visibility.Collapsed;

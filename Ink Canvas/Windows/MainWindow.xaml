@@ -11,7 +11,7 @@
     Name="window"
     Title="Ink Canvas Better 画板"
     Width="1440"
-    Height="800"
+    Height="5100"
     AllowsTransparency="True"
     Background="Transparent"
     Closed="Window_Closed"
@@ -3227,7 +3227,6 @@
                                     Y2="0" />
 
                                     <!-- Ink Canvas Artistry -->
-
                                     <TextBlock FontSize="15" Foreground="{DynamicResource SettingsPageForeground}">
                                     <Bold>Ink Canvas Artistry 仓库源:</Bold>
                                     <Hyperlink Click="HyperlinkSourceToOringinalRepository_Click" TextDecorations="None">
@@ -3256,7 +3255,7 @@
                                         <TextBlock
                                                 FontSize="15"
                                                 Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="XY Wang (WXRIW)" />
+                                                Text="ChangSakura" />
                                     </WrapPanel>
 
                                     <Line
@@ -3301,153 +3300,12 @@
                                                 Text="XY Wang (WXRIW)" />
                                     </WrapPanel>
 
-                                    <WrapPanel VerticalAlignment="Center" Orientation="Horizontal">
-                                        <TextBlock
-                                                Margin="0,0,0,5"
-                                                FontSize="15"
-                                                FontWeight="Bold"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="Ink Canvas 贡献者: " />
-                                        <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
-                                            <Image
-                                                    Width="20"
-                                                    Height="20"
-                                                    Margin="3,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="/Resources/DeveloperAvatars/Kengwang.png">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                            Center="10,10"
-                                                            RadiusX="10"
-                                                            RadiusY="10" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <TextBlock
-                                                    FontSize="15"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Text="Kengwang" />
-                                        </ikw:SimpleStackPanel>
-                                        <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
-                                            <Image
-                                                    Width="20"
-                                                    Height="20"
-                                                    Margin="3,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="/Resources/DeveloperAvatars/Raspberry-Monster.jpg">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                            Center="10,10"
-                                                            RadiusX="10"
-                                                            RadiusY="10" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <TextBlock
-                                                    FontSize="15"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Text="Raspberry Kan " />
-                                        </ikw:SimpleStackPanel>
-                                        <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
-                                            <Image
-                                                    Width="20"
-                                                    Height="20"
-                                                    Margin="3,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="/Resources/DeveloperAvatars/jiajiaxd.jpg">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                            Center="10,10"
-                                                            RadiusX="10"
-                                                            RadiusY="10" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <TextBlock
-                                                    FontSize="15"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Text="jiajiaxd" />
-                                        </ikw:SimpleStackPanel>
-                                        <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
-                                            <Image
-                                                    Width="20"
-                                                    Height="20"
-                                                    Margin="3,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="/Resources/DeveloperAvatars/CN-Ironegg.jpg">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                            Center="10,10"
-                                                            RadiusX="10"
-                                                            RadiusY="10" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <TextBlock
-                                                    FontSize="15"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Text="CN-Ironegg" />
-                                        </ikw:SimpleStackPanel>
-                                        <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
-                                            <Image
-                                                    Width="20"
-                                                    Height="20"
-                                                    Margin="3,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="/Resources/DeveloperAvatars/clover-yan.png">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                            Center="10,10"
-                                                            RadiusX="10"
-                                                            RadiusY="10" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <TextBlock
-                                                    FontSize="15"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Text="Clover Yan" />
-                                        </ikw:SimpleStackPanel>
-                                        <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
-                                            <Image
-                                                    Width="20"
-                                                    Height="20"
-                                                    Margin="3,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="/Resources/DeveloperAvatars/STBBRD.png">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                            Center="10,10"
-                                                            RadiusX="10"
-                                                            RadiusY="10" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <TextBlock
-                                                    FontSize="15"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Text="STBBRD" />
-                                        </ikw:SimpleStackPanel>
-                                        <ikw:SimpleStackPanel Margin="0,0,0,5" Orientation="Horizontal">
-                                            <Image
-                                                    Width="20"
-                                                    Height="20"
-                                                    Margin="3,0"
-                                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                                    Source="/Resources/DeveloperAvatars/ChangSakura.png">
-                                                <Image.Clip>
-                                                    <EllipseGeometry
-                                                            Center="10,10"
-                                                            RadiusX="10"
-                                                            RadiusY="10" />
-                                                </Image.Clip>
-                                            </Image>
-                                            <TextBlock
-                                                    FontSize="15"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Text="ChangSakura" />
-                                        </ikw:SimpleStackPanel>
-                                    </WrapPanel>
                                 </ikw:SimpleStackPanel>
                             </GroupBox>
                             <!-- 启动与更新:启动选项 -->
                             <GroupBox
                                 Name="Setting_StartAndUpgrade"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"
@@ -3536,79 +3394,80 @@
                                                     TextWrapping="Wrap"
                                                     Visibility="{Binding ElementName=AutoUpdateWithProxy_Title, Path=Visibility}" />
                                             <TextBlock
-                                                    Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                                    Text="# 检查代理返回数据具有一定延迟，弹窗内容为空即无返回数据。"
-                                                    TextWrapping="Wrap"
-                                                    Visibility="{Binding ElementName=AutoUpdateWithProxy_Title, Path=Visibility}" />
+                                                Foreground="{DynamicResource SettingsPageAnnotationForeground}"
+                                                Text="# 检查代理返回数据具有一定延迟，弹窗内容为空即无返回数据。"
+                                                TextWrapping="Wrap"
+                                                Visibility="{Binding ElementName=AutoUpdateWithProxy_Title, Path=Visibility}" />
                                         </ikw:SimpleStackPanel>
                                     </Border>
                                     <ikw:SimpleStackPanel x:Name="IsAutoUpdateWithSilenceBlock" Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
-                                                    Name="ToggleSwitchIsAutoUpdateWithSilence"
-                                                    OffContent="关"
-                                                    OnContent="开"
-                                                    Toggled="ToggleSwitchIsAutoUpdateWithSilence_Toggled" />
+                                                Name="ToggleSwitchIsAutoUpdateWithSilence"
+                                                OffContent="关"
+                                                OnContent="开"
+                                                Toggled="ToggleSwitchIsAutoUpdateWithSilence_Toggled" />
                                         </ikw:SimpleStackPanel>
                                         <TextBlock
-                                                Margin="0,0,14,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="14"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="静默更新" />
+                                            Margin="0,0,14,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="{DynamicResource SettingsPageForeground}"
+                                            Text="静默更新" />
                                     </ikw:SimpleStackPanel>
                                     <Border
-                                            Padding="12"
-                                            BorderBrush="{DynamicResource SettingsPageBorderBrush}"
-                                            BorderThickness="1"
-                                            CornerRadius="5"
-                                            Visibility="{Binding ElementName=IsAutoUpdateWithSilenceBlock, Path=Visibility}">
+                                        Padding="12"
+                                        BorderBrush="{DynamicResource SettingsPageBorderBrush}"
+                                        BorderThickness="1"
+                                        CornerRadius="5"
+                                        Visibility="{Binding ElementName=IsAutoUpdateWithSilenceBlock, Path=Visibility}">
                                         <ikw:SimpleStackPanel Spacing="12">
                                             <TextBlock
-                                                    Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                                    Text="# 关闭静默更新后，已完成安装包的下载后将会弹窗询问是否进行更新，开启静默更新后将会在安装包下载完成后每隔十分钟进行如下检测：①处于静默更新时间段内 ②未处于书写模式 ③未处于画板内。若以上检测通过即会关闭软件进行自动更新。"
-                                                    TextWrapping="Wrap" />
+                                                Foreground="{DynamicResource SettingsPageAnnotationForeground}"
+                                                Text="# 关闭静默更新后，已完成安装包的下载后将会弹窗询问是否进行更新，开启静默更新后将会在安装包下载完成后每隔十分钟进行如下检测：①处于静默更新时间段内 ②未处于书写模式 ③未处于画板内。若以上检测通过即会关闭软件进行自动更新。"
+                                                TextWrapping="Wrap" />
                                             <ikw:SimpleStackPanel x:Name="AutoUpdateTimePeriodBlock" Spacing="12">
                                                 <ikw:SimpleStackPanel Spacing="12">
                                                     <TextBlock
-                                                            FontSize="15"
-                                                            FontWeight="Bold"
-                                                            Foreground="{DynamicResource SettingsPageForeground}"
-                                                            Text="静默更新时间段"
-                                                            TextWrapping="Wrap" />
+                                                        FontSize="15"
+                                                        FontWeight="Bold"
+                                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                                        Text="静默更新时间段"
+                                                        TextWrapping="Wrap" />
                                                     <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="12">
                                                         <ikw:SimpleStackPanel Orientation="Horizontal">
                                                             <TextBlock
-                                                                    Margin="0,0,10,0"
-                                                                    VerticalAlignment="Center"
-                                                                    FontSize="14"
-                                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                                    Text="起始时间"
-                                                                    TextWrapping="Wrap" />
+                                                                Margin="0,0,10,0"
+                                                                VerticalAlignment="Center"
+                                                                FontSize="14"
+                                                                Foreground="{DynamicResource SettingsPageForeground}"
+                                                                Text="起始时间"
+                                                                TextWrapping="Wrap" />
                                                             <ComboBox
-                                                                    x:Name="AutoUpdateWithSilenceStartTimeComboBox"
-                                                                    Width="90"
-                                                                    SelectionChanged="AutoUpdateWithSilenceStartTimeComboBox_SelectionChanged" />
+                                                                x:Name="AutoUpdateWithSilenceStartTimeComboBox"
+                                                                Width="90"
+                                                                SelectionChanged="AutoUpdateWithSilenceStartTimeComboBox_SelectionChanged" />
                                                         </ikw:SimpleStackPanel>
                                                         <ikw:SimpleStackPanel Orientation="Horizontal">
                                                             <TextBlock
-                                                                    Margin="0,0,10,0"
-                                                                    VerticalAlignment="Center"
-                                                                    FontSize="14"
-                                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                                    Text="终止时间"
-                                                                    TextWrapping="Wrap" />
+                                                                Margin="0,0,10,0"
+                                                                VerticalAlignment="Center"
+                                                                FontSize="14"
+                                                                Foreground="{DynamicResource SettingsPageForeground}"
+                                                                Text="终止时间"
+                                                                TextWrapping="Wrap" />
                                                             <ComboBox
-                                                                    x:Name="AutoUpdateWithSilenceEndTimeComboBox"
-                                                                    Width="90"
-                                                                    SelectionChanged="AutoUpdateWithSilenceEndTimeComboBox_SelectionChanged" />
+                                                                x:Name="AutoUpdateWithSilenceEndTimeComboBox"
+                                                                Width="90"
+                                                                SelectionChanged="AutoUpdateWithSilenceEndTimeComboBox_SelectionChanged" />
                                                         </ikw:SimpleStackPanel>
                                                     </ikw:SimpleStackPanel>
                                                     <TextBlock
-                                                            Width="340"
-                                                            Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                                            Text="# 若终止时间小于起始时间，即将终止时间视为第二天的时间。# 若起始时间与终止时间相同，即视为全天候时间。"
-                                                            TextWrapping="Wrap" />
+                                                        HorizontalAlignment="Left"
+                                                        Width="340"
+                                                        Foreground="{DynamicResource SettingsPageAnnotationForeground}"
+                                                        Text="# 若终止时间小于起始时间，即将终止时间视为第二天的时间。# 若起始时间与终止时间相同，即视为全天候时间。"
+                                                        TextWrapping="Wrap" />
                                                 </ikw:SimpleStackPanel>
                                             </ikw:SimpleStackPanel>
                                         </ikw:SimpleStackPanel>
@@ -3647,7 +3506,7 @@
                             </GroupBox>
                             <!-- 外观:外观选项 -->
                             <GroupBox Name="GroupBoxAppearanceNewUI"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"
@@ -3740,7 +3599,7 @@
                             <!-- 画板与手势:画板选项 -->
                             <GroupBox
                                 Name="Setting_CanvasAndGesture1"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"
@@ -3842,7 +3701,7 @@
                             </GroupBox>
                             <!-- 画板与手势:墨迹识别选项 -->
                             <GroupBox Name="GroupBoxInkRecognition"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"
@@ -3873,7 +3732,7 @@
                             <!-- 画板与手势:手势选项 -->
                             <GroupBox
                                 Name="Setting_CanvasAndGesture2"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"
@@ -3943,7 +3802,7 @@
                             <!-- PPT:PPT选项 -->
                             <GroupBox
                                 Name="Setting_PPT"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"
@@ -4227,7 +4086,7 @@
                             <!-- 高级:高级选项 -->
                             <GroupBox
                                 Name="Setting_Advance"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"
@@ -4589,7 +4448,7 @@
                             <!-- 其它:自动选项 -->
                             <GroupBox
                                 Name="Setting_Others"
-                                Visibility="Collapsed">
+                                Visibility="Visible">
                                 <GroupBox.Header>
                                     <TextBlock
                                             FontSize="26"

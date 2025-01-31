@@ -303,6 +303,7 @@ namespace Ink_Canvas
         private void SymbolIconSettings_Click(object sender, RoutedEventArgs e)
         {
             HideSubPanels();
+            BtnSettingGeneral_Click(null, null);
             BtnSettings_Click(null, null);
         }
 
