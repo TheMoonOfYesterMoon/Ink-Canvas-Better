@@ -11,7 +11,7 @@
     Name="window"
     Title="Ink Canvas Better 画板"
     Width="1440"
-    Height="5100"
+    Height="5800"
     AllowsTransparency="True"
     Background="Transparent"
     Closed="Window_Closed"
@@ -2785,7 +2785,11 @@
                 Visibility="Visible">
                 <Grid>
                     <!-- 标题栏 -->
-                    <Grid Height="50" VerticalAlignment="Top" MouseMove="WindowDragMove" Background="{DynamicResource BoardBarTitleBackground}">
+                    <Grid
+                        Height="50"
+                        VerticalAlignment="Top"
+                        MouseMove="WindowDragMove"
+                        Background="{DynamicResource BoardBarTitleBackground}">
                         <Grid
                             Height="40"
                             Margin="20,0,0,0"
@@ -2808,12 +2812,17 @@
                                     Text="详细设置 - 基本" />
                             </ikw:SimpleStackPanel>
                         </Grid>
-                        <Button
-                        Width="120"
-                        Margin="10"
-                        HorizontalAlignment="Right"
-                        Click="BtnSettings_Click"
-                        Content="关闭" />
+                        <ui:FontIcon
+                            Width="20"
+                            Height="20"
+                            Margin="0,0,20,0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            FontFamily="{StaticResource FluentIconFontFamily}"
+                            FontSize="20"
+                            Foreground="{DynamicResource FloatBarForeground}"
+                            Glyph="&#xef2c;"
+                            MouseDown="BtnSettings_Click"/>
                     </Grid>
                     <!-- 选项卡 -->
                     <ikw:SimpleStackPanel Margin="0,50,0,0" Spacing="-2.5" Width="110" HorizontalAlignment="Left">
@@ -2986,6 +2995,35 @@
                                         Height="30"
                                         Width="90"
                                         Content="高级"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource FloatBarForeground}" />
+                                </Border>
+                            </ikw:SimpleStackPanel>
+                        </Button>
+                        <!-- 快捷启动 -->
+                        <Button
+                            Width="110"
+                            Height="40"
+                            Padding="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            HorizontalContentAlignment="Left"
+                            BorderThickness="0"
+                            Click="BtnSettingShortcut_Click">
+                            <ikw:SimpleStackPanel
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal"
+                                Spacing="8">
+                                <Border
+                                    Margin="0,0"
+                                    BorderBrush="{DynamicResource FloatBarForeground}"
+                                    BorderThickness="0,0,2,0">
+                                    <Label
+                                        VerticalAlignment="Center"
+                                        VerticalContentAlignment="Center"
+                                        Height="30"
+                                        Width="90"
+                                        Content="快捷启动"
                                         FontSize="16"
                                         Foreground="{DynamicResource FloatBarForeground}" />
                                 </Border>
@@ -3317,6 +3355,45 @@
                                     <ikw:SimpleStackPanel Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
+                                                    Name="ToggleSwitchRunAtStartup"
+                                                    OffContent="关"
+                                                    OnContent="开"
+                                                    Toggled="ToggleSwitchRunAtStartup_Toggled" />
+                                        </ikw:SimpleStackPanel>
+                                        <TextBlock
+                                                Margin="0,0,14,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="{DynamicResource SettingsPageForeground}"
+                                                Text="开机时运行" />
+                                    </ikw:SimpleStackPanel>
+                                    <ikw:SimpleStackPanel Orientation="Horizontal">
+                                        <ikw:SimpleStackPanel Width="50">
+                                            <ui:ToggleSwitch
+                                                    Name="ToggleSwitchFoldAtStartup"
+                                                    OffContent="关"
+                                                    OnContent="开"
+                                                    Toggled="ToggleSwitchFoldAtStartup_Toggled" />
+                                        </ikw:SimpleStackPanel>
+                                        <TextBlock
+                                                Margin="0,0,14,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="{DynamicResource SettingsPageForeground}"
+                                                Text="开机运行后收纳到侧边栏" />
+                                    </ikw:SimpleStackPanel>
+                                    <Line
+                                            Margin="0,4,0,4"
+                                            HorizontalAlignment="Center"
+                                            Stroke="{DynamicResource SettingsPageBorderBrush}"
+                                            StrokeThickness="1"
+                                            X1="0"
+                                            X2="850"
+                                            Y1="0"
+                                            Y2="0" />
+                                    <ikw:SimpleStackPanel Orientation="Horizontal">
+                                        <ikw:SimpleStackPanel Width="50">
+                                            <ui:ToggleSwitch
                                                     Name="ToggleSwitchIsAutoUpdate"
                                                     OffContent="关"
                                                     OnContent="开"
@@ -3472,36 +3549,6 @@
                                             </ikw:SimpleStackPanel>
                                         </ikw:SimpleStackPanel>
                                     </Border>
-                                    <ikw:SimpleStackPanel Orientation="Horizontal">
-                                        <ikw:SimpleStackPanel Width="50">
-                                            <ui:ToggleSwitch
-                                                    Name="ToggleSwitchRunAtStartup"
-                                                    OffContent="关"
-                                                    OnContent="开"
-                                                    Toggled="ToggleSwitchRunAtStartup_Toggled" />
-                                        </ikw:SimpleStackPanel>
-                                        <TextBlock
-                                                Margin="0,0,14,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="14"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="开机时运行" />
-                                    </ikw:SimpleStackPanel>
-                                    <ikw:SimpleStackPanel Orientation="Horizontal">
-                                        <ikw:SimpleStackPanel Width="50">
-                                            <ui:ToggleSwitch
-                                                    Name="ToggleSwitchFoldAtStartup"
-                                                    OffContent="关"
-                                                    OnContent="开"
-                                                    Toggled="ToggleSwitchFoldAtStartup_Toggled" />
-                                        </ikw:SimpleStackPanel>
-                                        <TextBlock
-                                                Margin="0,0,14,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="14"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="开机运行后收纳到侧边栏" />
-                                    </ikw:SimpleStackPanel>
                                 </ikw:SimpleStackPanel>
                             </GroupBox>
                             <!-- 外观:外观选项 -->
@@ -4872,6 +4919,83 @@
                                     </ikw:SimpleStackPanel>
                                 </ikw:SimpleStackPanel>
                             </GroupBox>
+                            <!-- 快捷启动 -->
+                            <GroupBox
+                                Name="Setting_Shortcut"
+                                Visibility="Visible">
+                                <GroupBox.Header>
+                                    <TextBlock
+                                        FontSize="26"
+                                        FontWeight="Bold"
+                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                        Text="快捷启动" />
+                                </GroupBox.Header>
+                                <ikw:SimpleStackPanel Spacing="5">
+                                    <Button
+                                        Width="180"
+                                        Height="30"
+                                        Click="BtnNewShortcut_Click">
+                                        <ikw:SimpleStackPanel
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal"
+                                            Spacing="0">
+                                            <Label
+                                                VerticalAlignment="Center"
+                                                FontSize="16"
+                                                FontWeight="Bold">
+                                                创建新的快捷启动项
+                                            </Label>
+                                        </ikw:SimpleStackPanel>
+                                    </Button>
+                                    <!-- 以下只是示例
+                                        <ikw:SimpleStackPanel Orientation="Horizontal">
+                                            <Button
+                                            BorderThickness="0"
+                                            Height="28"
+                                            Margin="0,0,10,0"
+                                            HorizontalAlignment="Center"
+                                            Padding="0"
+                                            Background="#00000000">
+                                                <ui:FontIcon
+                                                Width="18"
+                                                Height="18"
+                                                FontFamily="{StaticResource FluentIconFontFamily}"
+                                                FontSize="18"
+                                                Foreground="{DynamicResource SettingsPageForeground}"
+                                                Glyph="&#xf16d;" />
+                                            </Button>
+                                            <ikw:SimpleStackPanel Width="50">
+                                                <ui:ToggleSwitch
+                                                Name="Toggle_shortcut_0"
+                                                IsOn="False"
+                                                OffContent="关"
+                                                OnContent="开"
+                                                Toggled="ToggleSwitchAutoSwitchTwoFingerGesture_Toggled" />
+                                            </ikw:SimpleStackPanel>
+                                            <TextBox
+                                            Margin="10,0"
+                                            SourceUpdated="NameTextbox_SourceUpdated_0">
+                                                显示的名称
+                                            </TextBox>
+                                            <TextBox
+                                            Margin="10,0"
+                                            SourceUpdated="URLTextbox_SourceUpdated_0">
+                                                修改为文件、程序或网页的URL
+                                            </TextBox>
+                                        </ikw:SimpleStackPanel>
+                                    -->
+                                        <!-- 往下生成 -->
+                                    <TextBlock
+                                            Foreground="{DynamicResource SettingsPageAnnotationForeground}"
+                                            Text="# 点击“创建新的启动项”以添加更多
+                                        &#x000A;# 每一行最左边的按钮为“是否显示该快捷启动”，默认不显示
+                                        &#x000A;# 右边的文本框需要修改为你要快捷启动的文件、程序的路径或网页的地址
+                                        &#x000A;# 中间的文本框为该快捷启动方式显示的名称
+                                        &#x000A;# 设置完毕后可在本应用的“工具”中找到对应的快捷启动项"
+                                            TextWrapping="Wrap" />
+                                </ikw:SimpleStackPanel>
+                            </GroupBox>
                         </StackPanel>
                     </ui:ScrollViewerEx>
                 </Grid>
@@ -5970,7 +6094,7 @@
                                         Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
                                 </ikw:SimpleStackPanel>
                             </Button>
-                            
+
                             <!-- 放大镜 -->
                             <Button
                                 Width="30"
@@ -6000,7 +6124,7 @@
                                         Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
                                 </ikw:SimpleStackPanel>
                             </Button>
-                            
+
                             <Button
                                 Width="30"
                                 Height="32"
