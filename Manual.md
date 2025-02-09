@@ -43,6 +43,7 @@ Ink Canvas Better 是一款轻量级画板软件，其针对希沃白板设备�
   坐标系（平面直角坐标系，空间直角坐标系）
 * 墨迹转图形，目前可实现智能识别圆、三角形、特殊四边形
   自动转换为规范图形。可自动识别同心圆，相切圆，可自动识别球的截面圆
+* 放大镜功能，把细小图形展示出来
 
 ### Ink Canvas Better 功能  
 * **保存墨迹**：默认保存至 `文档\Ink Canvas Strokes`
@@ -92,9 +93,10 @@ ppt模式下打开的内置画板和正常打开的画板一样的，可能需�
 
 ## 图片版说明<span id='pictu'></span>
 
-这个是 Ink Canvas 带图标的简易功能说明
-https://yuwenhui2020.github.io/ink/BHH~7AJ6N7OMLT095LO(LQJ.png
+下面这个链接是 Ink Canvas 带图标的简易功能说明
+[https://yuwenhui2020.github.io/ink/BHH~7AJ6N7OMLT095LO(LQJ.png](https://yuwenhui2020.github.io/ink/BHH~7AJ6N7OMLT095LO%28LQJ.png)
 
 但不是你正在看的 Ink Canvas Better 的
 
 你可以在 Ink Canvas Better 的 `设置 - 外观选项 - 浮动工具栏显示文字注释` 来获知对应图标的简要说明
+
