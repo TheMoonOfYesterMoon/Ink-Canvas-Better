@@ -2790,7 +2790,6 @@
                     <Grid
                         Height="50"
                         VerticalAlignment="Top"
-                        MouseMove="WindowDragMove"
                         Background="{DynamicResource BoardBarTitleBackground}">
                         <Grid
                             Height="40"

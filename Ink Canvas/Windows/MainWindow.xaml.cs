@@ -11,7 +11,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Ink;
-using System.Windows.Input;
 using System.Windows.Media;
 using File = System.IO.File;
 using MessageBox = System.Windows.MessageBox;
@@ -192,7 +191,7 @@ namespace Ink_Canvas
             // 显示“测试版”字样
             String[] Version = Assembly.GetExecutingAssembly().GetName().Version.ToString().Split('.');
             AppVersionTextBlock.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            if (int.TryParse(Version[3],out int i))
+            if (int.TryParse(Version[3], out int i))
             {
                 if (i > 0)
                 {
@@ -320,10 +319,6 @@ namespace Ink_Canvas
         }
 
         #endregion
-        private void WindowDragMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed) this.DragMove();
-        }
 
     }
 
