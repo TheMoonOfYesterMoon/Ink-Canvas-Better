@@ -189,9 +189,20 @@ namespace Ink_Canvas
             ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
             SystemEvents_UserPreferenceChanged(null, null);
 
+            // 显示“测试版”字样
+            String[] Version = Assembly.GetExecutingAssembly().GetName().Version.ToString().Split('.');
             AppVersionTextBlock.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            if (int.TryParse(Version[3],out int i))
+            {
+                if (i > 0)
+                {
+                    AppVersionTextBlock.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - 测试版";
+                }
+            }
+
             LogHelper.WriteLogToFile("Ink Canvas Loaded", LogHelper.LogType.Event);
             isLoaded = true;
+
             RegisterGlobalHotkeys();
         }
 
@@ -241,7 +252,7 @@ namespace Ink_Canvas
             Setting_Others.Visibility = Visibility.Collapsed;
             Setting_Shortcut.Visibility = Visibility.Collapsed;
         }
-        
+
         private void BtnSettingGeneral_Click(object sender, RoutedEventArgs e)
         {
             HideAllSetting();
@@ -311,7 +322,7 @@ namespace Ink_Canvas
         #endregion
         private void WindowDragMove(object sender, MouseEventArgs e)
         {
-            if ( e.LeftButton == MouseButtonState.Pressed ) this.DragMove();
+            if (e.LeftButton == MouseButtonState.Pressed) this.DragMove();
         }
 
     }
@@ -363,9 +374,9 @@ namespace Ink_Canvas
             {
                 BorderThickness = new Thickness(0, 0, 0, 0),
                 Height = 28,
-                Margin = new Thickness(0,0,10,0),
+                Margin = new Thickness(0, 0, 10, 0),
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Padding = new Thickness(0,0,0,0),
+                Padding = new Thickness(0, 0, 0, 0),
                 Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000")),
             };
 

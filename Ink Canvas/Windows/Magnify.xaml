@@ -12,7 +12,11 @@
     WindowStyle="None"
     ShowInTaskbar="False"
     Topmost="True"
-    Title="MainWindow" Height="640" Width="600" 
+    Title="MainWindow"
+    Height="640"
+    Width="600" 
+    Top="200"
+    Left="500"
     MouseLeftButtonDown="Window_MouseDown">
     <WindowChrome.WindowChrome>
         <WindowChrome GlassFrameThickness="-1"   CaptionHeight="0"   />

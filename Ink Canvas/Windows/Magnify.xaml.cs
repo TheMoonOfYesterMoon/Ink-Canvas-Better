@@ -123,7 +123,7 @@ namespace Ink_Canvas.Windows
         {
             MagnifyCompleted();
             this.Close();
-            
+
         }
 
         private void BtnSwitchMagnifyScream_Click(object sender, RoutedEventArgs e)
@@ -134,7 +134,8 @@ namespace Ink_Canvas.Windows
                 MagnifyCompleted();
                 MagnifyRunning();
                 LabelSwitchMagnifyScream.Content = "点击放大左侧";
-            } else
+            }
+            else
             {
                 MagnifyCompleted();
                 MagnifyRunning();

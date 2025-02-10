@@ -1646,7 +1646,9 @@
                                                     </ikw:SimpleStackPanel>
                                                 </ikw:SimpleStackPanel>
                                             </Viewbox>
-                                            <Viewbox Width="140">
+                                            <Viewbox
+                                                VerticalAlignment="Top"
+                                                Width="140">
                                                 <ikw:SimpleStackPanel Width="115">
                                                     <TextBlock
                                                         Margin="0,30,0,5"
@@ -2302,7 +2304,7 @@
                             <Grid Width="0" Margin="0,0,0,5">
                                 <Border
                                     Name="BoardBorderTools"
-                                    Margin="-160,-290,-80,60"
+                                    Margin="-160,-245,-80,60"
                                     Background="{DynamicResource BoardBarBackground}"
                                     BorderBrush="{DynamicResource BoardBarBorderBrush}"
                                     BorderThickness="1"
@@ -2323,7 +2325,7 @@
                                         </Border>
                                         <Viewbox
                                             Width="180"
-                                            Height="188"
+                                            Height="135"
                                             Margin="0,4,0,0">
                                             <ikw:SimpleStackPanel HorizontalAlignment="Center">
                                                 <ikw:SimpleStackPanel Height="45" Orientation="Horizontal">
@@ -3190,7 +3192,7 @@
                                     </ikw:SimpleStackPanel>
                                     <TextBlock
                                             Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                            Text="* 使用和分发本软件前，请您应当且务必知晓相关开源协议，且您应当知晓本软件基于 https://github.com/InkCanvas/Ink-Canvas-Artistry 修改而成。"
+                                            Text="# 使用和分发本软件前，务必知晓相关开源协议，且您应当知晓本软件改自 https://github.com/InkCanvas/Ink-Canvas-Artistry"
                                             TextWrapping="Wrap" />
                                     <Border
                                             Padding="0,5"
@@ -3609,6 +3611,22 @@
                                                 Foreground="{DynamicResource SettingsPageForeground}"
                                                 Text="浮动工具栏背景色" />
                                     </ikw:SimpleStackPanel>
+                                    <ikw:SimpleStackPanel Orientation="Horizontal">
+                                        <ikw:SimpleStackPanel Width="50">
+                                            <ui:ToggleSwitch
+                                                    Name="ToggleSwitchEnableViewboxBlackBoardScaleTransform"
+                                                    IsOn="False"
+                                                    OffContent="关"
+                                                    OnContent="开"
+                                                    Toggled="ToggleSwitchEnableViewboxBlackBoardScaleTransform_Toggled" />
+                                        </ikw:SimpleStackPanel>
+                                        <TextBlock
+                                                Margin="0,0,14,0"
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="{DynamicResource SettingsPageForeground}"
+                                                Text="画板 UI 80% 缩放" />
+                                    </ikw:SimpleStackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <Slider
                                                 x:Name="ViewboxScalingSlider"
@@ -3629,22 +3647,6 @@
                                                 FontSize="14"
                                                 Text="{Binding Value, ElementName=ViewboxScalingSlider, Mode=OneWay}" />
                                     </StackPanel>
-                                    <ikw:SimpleStackPanel Orientation="Horizontal">
-                                        <ikw:SimpleStackPanel Width="50">
-                                            <ui:ToggleSwitch
-                                                    Name="ToggleSwitchEnableViewboxBlackBoardScaleTransform"
-                                                    IsOn="False"
-                                                    OffContent="关"
-                                                    OnContent="开"
-                                                    Toggled="ToggleSwitchEnableViewboxBlackBoardScaleTransform_Toggled" />
-                                        </ikw:SimpleStackPanel>
-                                        <TextBlock
-                                                Margin="0,0,14,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="14"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="画板 UI 80% 缩放" />
-                                    </ikw:SimpleStackPanel>
                                 </ikw:SimpleStackPanel>
                             </GroupBox>
                             <!-- 画板与手势:画板选项 -->
@@ -5575,48 +5577,51 @@
                                                 Text="墨迹选项" />
                                         </Border>
                                         <ikw:SimpleStackPanel Orientation="Horizontal">
-                                            <Viewbox Width="245">
-                                                <ikw:SimpleStackPanel Margin="20,10">
-                                                    <Viewbox
+                                            <Border
+                                                BorderBrush="{DynamicResource FloatBarBorderBrush}"
+                                                BorderThickness="0,0,1,0">
+                                                <Viewbox Width="245">
+                                                    <ikw:SimpleStackPanel Margin="15,5,15,5">
+                                                        <Viewbox
                                                         Height="80"
                                                         HorizontalAlignment="Center"
                                                         VerticalAlignment="Center">
-                                                        <ikw:SimpleStackPanel>
-                                                            <Controls:UniformGrid
+                                                            <ikw:SimpleStackPanel>
+                                                                <Controls:UniformGrid
                                                                 Width="310"
                                                                 Height="55"
                                                                 Columns="2">
-                                                                <ikw:SimpleStackPanel Height="35" Orientation="Horizontal">
-                                                                    <Label
+                                                                    <ikw:SimpleStackPanel Height="35" Orientation="Horizontal">
+                                                                        <Label
                                                                         Margin="0,0,12,0"
                                                                         VerticalAlignment="Center"
                                                                         Content="笔锋"
                                                                         FontSize="15"
                                                                         Foreground="{DynamicResource FloatBarForeground}" />
-                                                                    <ComboBox
+                                                                        <ComboBox
                                                                         x:Name="ComboBoxPenStyle"
                                                                         Height="30"
                                                                         VerticalAlignment="Center"
                                                                         SelectedIndex="0"
                                                                         SelectionChanged="ComboBoxPenStyle_SelectionChanged">
-                                                                        <ComboBoxItem Content="点集笔锋" />
-                                                                        <ComboBoxItem Content="速率笔锋" />
-                                                                        <ComboBoxItem Content="关闭笔锋" />
-                                                                    </ComboBox>
-                                                                </ikw:SimpleStackPanel>
-                                                                <ikw:SimpleStackPanel
+                                                                            <ComboBoxItem Content="点集笔锋" />
+                                                                            <ComboBoxItem Content="速率笔锋" />
+                                                                            <ComboBoxItem Content="关闭笔锋" />
+                                                                        </ComboBox>
+                                                                    </ikw:SimpleStackPanel>
+                                                                    <ikw:SimpleStackPanel
                                                                     Margin="0,-5,0,-5"
                                                                     HorizontalAlignment="Right"
                                                                     VerticalAlignment="Center">
-                                                                    <ikw:SimpleStackPanel
+                                                                        <ikw:SimpleStackPanel
                                                                         x:Name="NibModeSimpleStackPanel"
                                                                         Width="135"
                                                                         Orientation="Horizontal">
-                                                                        <Label
+                                                                            <Label
                                                                             VerticalAlignment="Center"
                                                                             Content="笔尖模式"
                                                                             FontSize="15" />
-                                                                        <ui:ToggleSwitch
+                                                                            <ui:ToggleSwitch
                                                                             x:Name="ToggleSwitchEnableNibMode"
                                                                             Width="70"
                                                                             MinWidth="0"
@@ -5625,15 +5630,15 @@
                                                                             OffContent="关"
                                                                             OnContent="开"
                                                                             Toggled="ToggleSwitchEnableNibMode_Toggled" />
-                                                                    </ikw:SimpleStackPanel>
-                                                                    <ikw:SimpleStackPanel Width="135" Orientation="Horizontal">
-                                                                        <Label
+                                                                        </ikw:SimpleStackPanel>
+                                                                        <ikw:SimpleStackPanel Width="135" Orientation="Horizontal">
+                                                                            <Label
                                                                             Margin="0,0,10,0"
                                                                             VerticalAlignment="Center"
                                                                             Content="墨迹识别"
                                                                             FontSize="15"
                                                                             Foreground="{DynamicResource FloatBarForeground}" />
-                                                                        <ui:ToggleSwitch
+                                                                            <ui:ToggleSwitch
                                                                             Width="70"
                                                                             MinWidth="0"
                                                                             Foreground="{DynamicResource FloatBarForeground}"
@@ -5641,17 +5646,17 @@
                                                                             OffContent="关"
                                                                             OnContent="开"
                                                                             Toggled="ToggleSwitchEnableInkToShape_Toggled" />
+                                                                        </ikw:SimpleStackPanel>
                                                                     </ikw:SimpleStackPanel>
-                                                                </ikw:SimpleStackPanel>
-                                                            </Controls:UniformGrid>
-                                                            <StackPanel Height="30" Orientation="Horizontal">
-                                                                <Label
+                                                                </Controls:UniformGrid>
+                                                                <StackPanel Height="30" Orientation="Horizontal">
+                                                                    <Label
                                                                     Margin="0,0,10,0"
                                                                     VerticalAlignment="Center"
                                                                     Content="粗细"
                                                                     FontSize="15"
                                                                     Foreground="{DynamicResource FloatBarForeground}" />
-                                                                <Slider
+                                                                    <Slider
                                                                     x:Name="InkWidthSlider"
                                                                     Width="250"
                                                                     FontSize="20"
@@ -5662,29 +5667,29 @@
                                                                     TickPlacement="None"
                                                                     ValueChanged="InkWidthSlider_ValueChanged"
                                                                     Value="5" />
-                                                                <TextBlock
+                                                                    <TextBlock
                                                                     Margin="10,0,0,8"
                                                                     VerticalAlignment="Bottom"
                                                                     FontSize="14"
                                                                     Foreground="{DynamicResource FloatBarForeground}"
                                                                     Text="{Binding Value, ElementName=InkWidthSlider, Mode=OneWay}" />
-                                                            </StackPanel>
-                                                        </ikw:SimpleStackPanel>
-                                                    </Viewbox>
-                                                    <ikw:SimpleStackPanel Width="250">
-                                                        <Border
+                                                                </StackPanel>
+                                                            </ikw:SimpleStackPanel>
+                                                        </Viewbox>
+                                                        <ikw:SimpleStackPanel Width="250">
+                                                            <Border
                                                             Width="250"
                                                             Height="120"
                                                             BorderBrush="Black"
                                                             BorderThickness="0"
                                                             CornerRadius="5">
-                                                            <Controls:UniformGrid Height="120" Rows="2">
-                                                                <ikw:SimpleStackPanel
+                                                                <Controls:UniformGrid Height="120" Rows="2">
+                                                                    <ikw:SimpleStackPanel
                                                                     Width="250"
                                                                     Height="50"
                                                                     Orientation="Horizontal">
-                                                                    <Controls:UniformGrid Width="250" Columns="4">
-                                                                        <Border
+                                                                        <Controls:UniformGrid Width="250" Columns="4">
+                                                                            <Border
                                                                             Width="50"
                                                                             Background="Transparent"
                                                                             BorderBrush="{DynamicResource FloatBarBorderBrush}"
@@ -5692,8 +5697,8 @@
                                                                             CornerRadius="100"
                                                                             MouseDown="Border_MouseDown"
                                                                             MouseUp="ColorThemeSwitch_MouseUp">
-                                                                            <Grid Margin="5">
-                                                                                <ui:FontIcon
+                                                                                <Grid Margin="5">
+                                                                                    <ui:FontIcon
                                                                                     x:Name="ColorThemeSwitchIcon"
                                                                                     Width="26"
                                                                                     Height="26"
@@ -5701,16 +5706,16 @@
                                                                                     FontFamily="{StaticResource FluentIconFontFamily}"
                                                                                     Foreground="{DynamicResource FloatBarForeground}"
                                                                                     Glyph="&#xe706;" />
-                                                                                <TextBlock
+                                                                                    <TextBlock
                                                                                     x:Name="ColorThemeSwitchTextBlock"
                                                                                     HorizontalAlignment="Center"
                                                                                     VerticalAlignment="Bottom"
                                                                                     FontSize="13"
                                                                                     Foreground="{DynamicResource FloatBarForeground}"
                                                                                     Text="亮系" />
-                                                                            </Grid>
-                                                                        </Border>
-                                                                        <Border
+                                                                                </Grid>
+                                                                            </Border>
+                                                                            <Border
                                                                             x:Name="BorderPenColorBlack"
                                                                             Width="50"
                                                                             Background="Black"
@@ -5718,19 +5723,19 @@
                                                                             BorderThickness="1.5"
                                                                             CornerRadius="100"
                                                                             MouseUp="BtnColorBlack_Click">
-                                                                            <Viewbox
+                                                                                <Viewbox
                                                                                 x:Name="ViewboxBtnColorBlackContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
-                                                                                <Image
+                                                                                    <Image
                                                                                     Width="24"
                                                                                     Height="24"
                                                                                     VerticalAlignment="Top"
                                                                                     RenderOptions.BitmapScalingMode="HighQuality"
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                        <Border
+                                                                                </Viewbox>
+                                                                            </Border>
+                                                                            <Border
                                                                             x:Name="BorderPenColorWhite"
                                                                             Width="50"
                                                                             Background="White"
@@ -5738,19 +5743,19 @@
                                                                             BorderThickness="1.5"
                                                                             CornerRadius="100"
                                                                             MouseUp="BtnColorWhite_Click">
-                                                                            <Viewbox
+                                                                                <Viewbox
                                                                                 x:Name="ViewboxBtnColorWhiteContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
-                                                                                <Image
+                                                                                    <Image
                                                                                     Width="24"
                                                                                     Height="24"
                                                                                     VerticalAlignment="Top"
                                                                                     RenderOptions.BitmapScalingMode="HighQuality"
                                                                                     Source="/Resources/Icons-png/checked-black.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                        <Border
+                                                                                </Viewbox>
+                                                                            </Border>
+                                                                            <Border
                                                                             x:Name="BorderPenColorRed"
                                                                             Width="50"
                                                                             Background="#dc2626"
@@ -5758,26 +5763,26 @@
                                                                             BorderThickness="1.5"
                                                                             CornerRadius="100"
                                                                             MouseUp="BtnColorRed_Click">
-                                                                            <Viewbox
+                                                                                <Viewbox
                                                                                 x:Name="ViewboxBtnColorRedContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
-                                                                                <Image
+                                                                                    <Image
                                                                                     Width="24"
                                                                                     Height="24"
                                                                                     VerticalAlignment="Top"
                                                                                     RenderOptions.BitmapScalingMode="HighQuality"
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                    </Controls:UniformGrid>
-                                                                </ikw:SimpleStackPanel>
-                                                                <ikw:SimpleStackPanel
+                                                                                </Viewbox>
+                                                                            </Border>
+                                                                        </Controls:UniformGrid>
+                                                                    </ikw:SimpleStackPanel>
+                                                                    <ikw:SimpleStackPanel
                                                                     Width="250"
                                                                     Height="50"
                                                                     Orientation="Horizontal">
-                                                                    <Controls:UniformGrid Width="250" Columns="4">
-                                                                        <Border
+                                                                        <Controls:UniformGrid Width="250" Columns="4">
+                                                                            <Border
                                                                             x:Name="BorderPenColorOrange"
                                                                             Width="50"
                                                                             Background="#ea580c"
@@ -5785,19 +5790,19 @@
                                                                             BorderThickness="1.5"
                                                                             CornerRadius="100"
                                                                             MouseUp="BtnColorOrange_Click">
-                                                                            <Viewbox
+                                                                                <Viewbox
                                                                                 x:Name="ViewboxBtnColorOrangeContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
-                                                                                <Image
+                                                                                    <Image
                                                                                     Width="24"
                                                                                     Height="24"
                                                                                     VerticalAlignment="Top"
                                                                                     RenderOptions.BitmapScalingMode="HighQuality"
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                        <Border
+                                                                                </Viewbox>
+                                                                            </Border>
+                                                                            <Border
                                                                             x:Name="BorderPenColorYellow"
                                                                             Width="50"
                                                                             Background="#eab308"
@@ -5805,19 +5810,19 @@
                                                                             BorderThickness="1.5"
                                                                             CornerRadius="100"
                                                                             MouseUp="BtnColorYellow_Click">
-                                                                            <Viewbox
+                                                                                <Viewbox
                                                                                 x:Name="ViewboxBtnColorYellowContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
-                                                                                <Image
+                                                                                    <Image
                                                                                     Width="24"
                                                                                     Height="24"
                                                                                     VerticalAlignment="Top"
                                                                                     RenderOptions.BitmapScalingMode="HighQuality"
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                        <Border
+                                                                                </Viewbox>
+                                                                            </Border>
+                                                                            <Border
                                                                             x:Name="BorderPenColorGreen"
                                                                             Width="50"
                                                                             Background="#16a34a"
@@ -5825,19 +5830,19 @@
                                                                             BorderThickness="1.5"
                                                                             CornerRadius="100"
                                                                             MouseUp="BtnColorGreen_Click">
-                                                                            <Viewbox
+                                                                                <Viewbox
                                                                                 x:Name="ViewboxBtnColorGreenContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
-                                                                                <Image
+                                                                                    <Image
                                                                                     Width="24"
                                                                                     Height="24"
                                                                                     VerticalAlignment="Top"
                                                                                     RenderOptions.BitmapScalingMode="HighQuality"
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                        <Border
+                                                                                </Viewbox>
+                                                                            </Border>
+                                                                            <Border
                                                                             x:Name="BorderPenColorBlue"
                                                                             Width="50"
                                                                             Background="#2563eb"
@@ -5845,28 +5850,32 @@
                                                                             BorderThickness="1.5"
                                                                             CornerRadius="100"
                                                                             MouseUp="BtnColorBlue_Click">
-                                                                            <Viewbox
+                                                                                <Viewbox
                                                                                 x:Name="ViewboxBtnColorBlueContent"
                                                                                 Margin="8"
                                                                                 Visibility="Collapsed">
-                                                                                <Image
+                                                                                    <Image
                                                                                     Width="24"
                                                                                     Height="24"
                                                                                     VerticalAlignment="Top"
                                                                                     RenderOptions.BitmapScalingMode="HighQuality"
                                                                                     Source="/Resources/Icons-png/checked-white.png" />
-                                                                            </Viewbox>
-                                                                        </Border>
-                                                                    </Controls:UniformGrid>
-                                                                </ikw:SimpleStackPanel>
-                                                            </Controls:UniformGrid>
-                                                        </Border>
+                                                                                </Viewbox>
+                                                                            </Border>
+                                                                        </Controls:UniformGrid>
+                                                                    </ikw:SimpleStackPanel>
+                                                                </Controls:UniformGrid>
+                                                            </Border>
+                                                        </ikw:SimpleStackPanel>
                                                     </ikw:SimpleStackPanel>
-                                                </ikw:SimpleStackPanel>
-                                            </Viewbox>
-                                            <ikw:SimpleStackPanel Width="115">
+                                                </Viewbox>
+                                            </Border>
+                                            <ikw:SimpleStackPanel
+                                                VerticalAlignment="Top"
+                                                Width="115"
+                                                Margin="5,0,5,0">
                                                 <TextBlock
-                                                    Margin="0,40,0,5"
+                                                    Margin="0,5,0,5"
                                                     FontWeight="Bold"
                                                     Foreground="{DynamicResource FloatBarForeground}"
                                                     Text="荧光笔"
@@ -6580,7 +6589,7 @@
                             <Grid Width="0">
                                 <Border
                                     Name="BorderTools"
-                                    Margin="-120,-180,-40,40"
+                                    Margin="-120,-135,-40,40"
                                     Background="{DynamicResource FloatBarBackground}"
                                     BorderBrush="{DynamicResource FloatBarBorderBrush}"
                                     BorderThickness="1"

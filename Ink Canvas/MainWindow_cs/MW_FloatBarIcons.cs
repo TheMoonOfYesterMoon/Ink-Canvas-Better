@@ -15,7 +15,6 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Media.TextFormatting;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
 using Point = System.Windows.Point;
