@@ -5523,6 +5523,35 @@
                                     Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
                             </ikw:SimpleStackPanel>
                         </Button>
+                        <!-- 放大镜 -->
+                        <Button
+                                Width="30"
+                                Height="32"
+                                Padding="0"
+                                BorderThickness="0"
+                                Click="Magnify_Click">
+                            <ikw:SimpleStackPanel
+                                    Name="Magnify_Icon"
+                                    HorizontalAlignment="Center"
+                                    Background="Transparent"
+                                    Orientation="Vertical">
+                                <ui:FontIcon
+                                        x:Name="Magnify"
+                                        Width="30"
+                                        Height="22"
+                                        FontFamily="{StaticResource FluentIconFontFamily}"
+                                        FontSize="16"
+                                        Foreground="{DynamicResource FloatBarForeground}"
+                                        Glyph="&#xf78b;" />
+                                <TextBlock
+                                        Margin="1,-1,0,0"
+                                        FontSize="8"
+                                        Foreground="{DynamicResource FloatBarForeground}"
+                                        Text="放大"
+                                        TextAlignment="Center"
+                                        Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
+                            </ikw:SimpleStackPanel>
+                        </Button>
                         <Button
                             Width="30"
                             Height="32"
@@ -6103,37 +6132,6 @@
                                         Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
                                 </ikw:SimpleStackPanel>
                             </Button>
-
-                            <!-- 放大镜 -->
-                            <Button
-                                Width="30"
-                                Height="32"
-                                Padding="0"
-                                BorderThickness="0"
-                                Click="Magnify_Click">
-                                <ikw:SimpleStackPanel
-                                    Name="Magnify_Icon"
-                                    HorizontalAlignment="Center"
-                                    Background="Transparent"
-                                    Orientation="Vertical">
-                                    <ui:FontIcon
-                                        x:Name="Magnify"
-                                        Width="30"
-                                        Height="22"
-                                        FontFamily="{StaticResource FluentIconFontFamily}"
-                                        FontSize="16"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Glyph="&#xf78b;" />
-                                    <TextBlock
-                                        Margin="1,-1,0,0"
-                                        FontSize="8"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Text="放大"
-                                        TextAlignment="Center"
-                                        Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}" />
-                                </ikw:SimpleStackPanel>
-                            </Button>
-
                             <Button
                                 Width="30"
                                 Height="32"

@@ -123,7 +123,6 @@ namespace Ink_Canvas.Windows
         {
             MagnifyCompleted();
             this.Close();
-
         }
 
         private void BtnSwitchMagnifyScream_Click(object sender, RoutedEventArgs e)
