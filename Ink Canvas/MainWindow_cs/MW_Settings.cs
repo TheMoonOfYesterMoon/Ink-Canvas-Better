@@ -903,5 +903,14 @@ namespace Ink_Canvas
             Process.Start("https://github.com/WXRIW/Ink-Canvas");
             HideSubPanels();
         }
+
+        private void BtnLog_Click(object sender, RoutedEventArgs e)
+        {
+            if (File.Exists("Log.txt"))
+            {
+                Process.Start("Log.txt");
+            }
+            HideSubPanels();
+        }
     }
 }

@@ -1077,7 +1077,6 @@
                                             BorderThickness="1"
                                             CornerRadius="5,5,0,0">
                                             <TextBlock
-                                                FontSize="11"
                                                 FontWeight="Bold"
                                                 Foreground="{DynamicResource BoardBarForeground}"
                                                 Text="手势功能"
@@ -2318,7 +2317,6 @@
                                             BorderThickness="1"
                                             CornerRadius="5,5,0,0">
                                             <TextBlock
-                                                FontSize="16"
                                                 FontWeight="Bold"
                                                 Foreground="{DynamicResource BoardBarForeground}"
                                                 Text="更多功能" />
@@ -3062,100 +3060,126 @@
                     </ikw:SimpleStackPanel>
                     <!-- 设置 -->
                     <ui:ScrollViewerEx
-                            Margin="110,50,0,0"
-                            ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback"
-                            PanningMode="VerticalOnly"
-                            VerticalScrollBarVisibility="Auto">
+                        Margin="110,50,0,0"
+                        ManipulationBoundaryFeedback="SCManipulationBoundaryFeedback"
+                        PanningMode="VerticalOnly"
+                        VerticalScrollBarVisibility="Auto">
                         <StackPanel Margin="20,0,20,0">
                             <!-- 基本:重启/重置/关闭 -->
                             <Border
                                 Name="Setting_General1"
                                 Visibility="Visible"
-                                Height="100"
+                                Height="70"
                                 Margin="0,10,0,0"
                                 BorderBrush="{DynamicResource SettingsPageBorderBrush}"
                                 BorderThickness="1"
                                 CornerRadius="5">
                                 <ikw:SimpleStackPanel VerticalAlignment="Center">
-                                    <TextBlock
-                                            Margin="0,0,0,10"
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            FontSize="15"
-                                            Foreground="{DynamicResource SettingsPageForeground}"
-                                            Text="设置更改将自动保存，部分设置需要重启软件后生效" />
                                     <ikw:SimpleStackPanel Spacing="5">
                                         <ikw:SimpleStackPanel
-                                                HorizontalAlignment="Center"
-                                                Orientation="Horizontal"
-                                                Spacing="5">
+                                            HorizontalAlignment="Center"
+                                            Orientation="Horizontal"
+                                            Spacing="5">
+                                            <!-- 打开日志 -->
                                             <Button
-                                                    Width="116"
-                                                    Height="45"
-                                                    Click="BtnRestart_Click">
+                                                Width="116"
+                                                Height="45"
+                                                Click="BtnLog_Click">
                                                 <ikw:SimpleStackPanel
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Orientation="Horizontal"
-                                                        Spacing="0">
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal"
+                                                    Spacing="0">
                                                     <ui:FontIcon
-                                                            Margin="0,1,4,0"
-                                                            FontFamily="{StaticResource FluentIconFontFamily}"
-                                                            FontSize="16"
-                                                            Foreground="{DynamicResource SettingsPageForeground}"
-                                                            Glyph="&#xe72c;" />
+                                                        Margin="0,1,4,0"
+                                                        FontFamily="{StaticResource FluentIconFontFamily}"
+                                                        FontSize="16"
+                                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                                        Glyph="&#xeadf;" />
                                                     <Label
-                                                            VerticalAlignment="Center"
-                                                            FontSize="16"
-                                                            FontWeight="Bold">
-                                                        重启软件
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        FontWeight="Bold">
+                                                        打开日志
                                                     </Label>
                                                 </ikw:SimpleStackPanel>
                                             </Button>
+                                            <!-- 重置设置 -->
                                             <Button
-                                                    Width="116"
-                                                    Height="45"
-                                                    Click="BtnResetToSuggestion_Click"
-                                                    FontWeight="Bold">
+                                                Width="116"
+                                                Height="45"
+                                                Click="BtnResetToSuggestion_Click"
+                                                FontWeight="Bold">
                                                 <ikw:SimpleStackPanel
-                                                        HorizontalAlignment="Center"
-                                                        VerticalAlignment="Center"
-                                                        Orientation="Horizontal"
-                                                        Spacing="0">
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal"
+                                                    Spacing="0">
                                                     <ui:FontIcon
-                                                            Margin="0,0,4,0"
-                                                            FontFamily="{StaticResource FluentIconFontFamily}"
-                                                            FontSize="18"
-                                                            Foreground="{DynamicResource SettingsPageForeground}"
-                                                            Glyph="&#xe8f7;" />
+                                                        Margin="0,0,4,0"
+                                                        FontFamily="{StaticResource FluentIconFontFamily}"
+                                                        FontSize="18"
+                                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                                        Glyph="&#xe8f7;" />
                                                     <Label
-                                                            Margin="2,0,0,0"
-                                                            VerticalAlignment="Center"
-                                                            FontSize="16"
-                                                            FontWeight="Bold">
+                                                        Margin="2,0,0,0"
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        FontWeight="Bold">
                                                         重置设置
                                                     </Label>
                                                 </ikw:SimpleStackPanel>
                                             </Button>
+                                            <Line
+                                                HorizontalAlignment="Center"
+                                                Stroke="{DynamicResource SettingsPageBorderBrush}"
+                                                StrokeThickness="1"
+                                                Y1="40"
+                                                Y2="5" />
+                                            <!-- 重启软件 -->
                                             <Button
-                                                    Width="116"
-                                                    Height="45"
-                                                    Click="BtnExit_Click">
+                                                Width="116"
+                                                Height="45"
+                                                Click="BtnRestart_Click">
                                                 <ikw:SimpleStackPanel
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            Orientation="Horizontal"
-                                            Spacing="0">
-                                                    <ui:FontIcon
-                                                    Margin="0,0,4,0"
-                                                    FontFamily="{StaticResource FluentIconFontFamily}"
-                                                    FontSize="18"
-                                                    Foreground="{DynamicResource SettingsPageForeground}"
-                                                    Glyph="&#xe7e8;" />
-                                                    <Label
+                                                    HorizontalAlignment="Center"
                                                     VerticalAlignment="Center"
-                                                    FontSize="16"
-                                                    FontWeight="Bold">
+                                                    Orientation="Horizontal"
+                                                    Spacing="0">
+                                                    <ui:FontIcon
+                                                        Margin="0,1,4,0"
+                                                        FontFamily="{StaticResource FluentIconFontFamily}"
+                                                        FontSize="16"
+                                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                                        Glyph="&#xe72c;" />
+                                                    <Label
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        FontWeight="Bold">
+                                                        重启软件
+                                                    </Label>
+                                                </ikw:SimpleStackPanel>
+                                            </Button>
+                                            <!-- 关闭软件 -->
+                                            <Button
+                                                Width="116"
+                                                Height="45"
+                                                Click="BtnExit_Click">
+                                                <ikw:SimpleStackPanel
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Orientation="Horizontal"
+                                                    Spacing="0">
+                                                    <ui:FontIcon
+                                                        Margin="0,0,4,0"
+                                                        FontFamily="{StaticResource FluentIconFontFamily}"
+                                                        FontSize="18"
+                                                        Foreground="{DynamicResource SettingsPageForeground}"
+                                                        Glyph="&#xe7e8;" />
+                                                    <Label
+                                                        VerticalAlignment="Center"
+                                                        FontSize="16"
+                                                        FontWeight="Bold">
                                                         关闭软件
                                                     </Label>
                                                 </ikw:SimpleStackPanel>
@@ -6816,7 +6840,6 @@
                                 BorderThickness="1"
                                 CornerRadius="5,5,0,0">
                                 <TextBlock
-                                    FontSize="10"
                                     FontWeight="Bold"
                                     Foreground="{DynamicResource FloatBarForeground}"
                                     Text="手势选项" />
