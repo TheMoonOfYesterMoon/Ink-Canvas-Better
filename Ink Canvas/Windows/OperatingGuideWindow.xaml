@@ -26,18 +26,6 @@
         CornerRadius="10">
 
         <Grid>
-            <Border
-                Width="64"
-                Height="15"
-                Margin="0,0,0,5"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"
-                Background="{DynamicResource PopupWindowBackground}"
-                BorderBrush="{DynamicResource PopupWindowBorderBrush}"
-                BorderThickness="1"
-                CornerRadius="8"
-                MouseMove="WindowDragMove"
-                Visibility="Visible" />
             <Grid>
                 <ScrollViewer
                     Margin="0,0,0,30"

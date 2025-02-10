@@ -38,11 +38,6 @@ namespace Ink_Canvas
             Close();
         }
 
-        private void WindowDragMove(object sender, MouseEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed) DragMove();
-        }
-
         private void SCManipulationBoundaryFeedback(object sender, ManipulationBoundaryFeedbackEventArgs e)
         {
             e.Handled = true;

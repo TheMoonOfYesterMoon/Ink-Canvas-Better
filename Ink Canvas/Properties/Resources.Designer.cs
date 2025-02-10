@@ -28,8 +28,6 @@ namespace Ink_Canvas.Properties
 
         private static global::System.Resources.ResourceManager resourceMan;
 
-        private static global::System.Globalization.CultureInfo resourceCulture;
-
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources()
         {
@@ -49,34 +47,6 @@ namespace Ink_Canvas.Properties
                     resourceMan = temp;
                 }
                 return resourceMan;
-            }
-        }
-
-        /// <summary>
-        ///   Overrides the current thread's CurrentUICulture property for all
-        ///   resource lookups using this strongly typed resource class.
-        /// </summary>
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
-                return resourceCulture;
-            }
-            set
-            {
-                resourceCulture = value;
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream TimerDownNotice
-        {
-            get
-            {
-                return ResourceManager.GetStream("TimerDownNotice", resourceCulture);
             }
         }
     }
