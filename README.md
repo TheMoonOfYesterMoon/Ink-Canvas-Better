@@ -12,19 +12,16 @@
 
 ## 👀 前言
 使用和分发本软件前，请您应当且务必知晓相关开源协议  
-本软件在 [Ink-Canvas-Artistry](https://github.com/InkCanvas/Ink-Canvas-Artistry) 的基础上对 [Ink-Canvas](https://github.com/WXRIW/Ink-Canvas) 二次修改而成。
+本软件在 [Ink-Canvas-Artistry](https://github.com/InkCanvas/Ink-Canvas-Artistry) 的基础上对 [Ink-Canvas](https://github.com/WXRIW/Ink-Canvas) 进行了二次修改  
+对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者
 
 [直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest "Latest Releases")  
 [使用说明](./Manual.md)
 
-> 你也许会觉得这个图标有点丑，作者也这么觉得（
-
-- 对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者。
-
 ## 📗 Q&A
 
 ### 为什么会有这个分支版本？
-简而言之，就是作者在使用 Ink Canvas 时，发现有一些需要的功能它没有，再看看其他分支版本，都没有看到合适的，遂决定自己搓一个。  
+简而言之，就是作者在使用 Ink Canvas 时，发现有一些需要的功能它没有，再看看其他分支版本，都没有看到合适的，遂决定自己搓一个  
 精力有限，不出意外的话这个项目也会很快进入半死不活的状态
 
 ### 点击放映后一翻页就闪退？
