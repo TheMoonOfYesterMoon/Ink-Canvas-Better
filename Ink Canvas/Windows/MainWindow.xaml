@@ -1444,12 +1444,6 @@
                                                                     TickPlacement="Both"
                                                                     ValueChanged="InkWidthSlider_ValueChanged"
                                                                     Value="5" />
-                                                                <TextBlock
-                                                                    Margin="10,0,0,8"
-                                                                    VerticalAlignment="Bottom"
-                                                                    FontSize="14"
-                                                                    Foreground="{DynamicResource BoardBarForeground}"
-                                                                    Text="{Binding Value, ElementName=InkWidthSlider, Mode=OneWay}" />
                                                             </StackPanel>
                                                         </ikw:SimpleStackPanel>
                                                     </Viewbox>
@@ -5704,28 +5698,22 @@
                                                                 </Controls:UniformGrid>
                                                                 <StackPanel Height="30" Orientation="Horizontal">
                                                                     <Label
-                                                                    Margin="0,0,10,0"
-                                                                    VerticalAlignment="Center"
-                                                                    Content="粗细"
-                                                                    FontSize="15"
-                                                                    Foreground="{DynamicResource FloatBarForeground}" />
+                                                                        Margin="0,0,10,0"
+                                                                        VerticalAlignment="Center"
+                                                                        Content="粗细"
+                                                                        FontSize="15"
+                                                                        Foreground="{DynamicResource FloatBarForeground}" />
                                                                     <Slider
-                                                                    x:Name="InkWidthSlider"
-                                                                    Width="250"
-                                                                    FontSize="20"
-                                                                    IsSnapToTickEnabled="True"
-                                                                    Maximum="30"
-                                                                    Minimum="1"
-                                                                    TickFrequency="1"
-                                                                    TickPlacement="Both"
-                                                                    ValueChanged="InkWidthSlider_ValueChanged"
-                                                                    Value="5" />
-                                                                    <TextBlock
-                                                                    Margin="10,0,0,8"
-                                                                    VerticalAlignment="Bottom"
-                                                                    FontSize="14"
-                                                                    Foreground="{DynamicResource FloatBarForeground}"
-                                                                    Text="{Binding Value, ElementName=InkWidthSlider, Mode=OneWay}" />
+                                                                        x:Name="InkWidthSlider"
+                                                                        Width="250"
+                                                                        FontSize="20"
+                                                                        IsSnapToTickEnabled="True"
+                                                                        Maximum="30"
+                                                                        Minimum="1"
+                                                                        TickFrequency="1"
+                                                                        TickPlacement="Both"
+                                                                        ValueChanged="InkWidthSlider_ValueChanged"
+                                                                        Value="5" />
                                                                 </StackPanel>
                                                             </ikw:SimpleStackPanel>
                                                         </Viewbox>
@@ -6078,6 +6066,18 @@
 
 
                                             </ikw:SimpleStackPanel>
+                                            <!-- TODO:颜色完全自定义
+                                            <Border>
+                                                <ikw:SquarePicker
+                                                    Name="squarePicker"
+                                                    Height="150"
+                                                    PreviewMouseUp="squarePicker_PreviewMouseUp"
+                                                    ColorChanged="squarePicker_ColorChanged"
+                                                    SelectedColor="White" 
+                                                    >
+                                                </ikw:SquarePicker>
+                                            </Border>
+                                             -->
                                         </ikw:SimpleStackPanel>
                                     </ikw:SimpleStackPanel>
                                 </Border>
