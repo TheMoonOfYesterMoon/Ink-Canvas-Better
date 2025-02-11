@@ -1441,7 +1441,7 @@
                                                                     Maximum="30"
                                                                     Minimum="1"
                                                                     TickFrequency="1"
-                                                                    TickPlacement="None"
+                                                                    TickPlacement="Both"
                                                                     ValueChanged="InkWidthSlider_ValueChanged"
                                                                     Value="5" />
                                                                 <TextBlock
@@ -1674,7 +1674,7 @@
                                                                 Maximum="240"
                                                                 Minimum="20"
                                                                 TickFrequency="20"
-                                                                TickPlacement="None"
+                                                                TickPlacement="Both"
                                                                 ValueChanged="InkAlphaSlider_ValueChanged"
                                                                 Value="120" />
                                                         </Viewbox>
@@ -3612,63 +3612,64 @@
                                                     Toggled="ToggleSwitchEnableDisPlayFloatBarText_Toggled" />
                                         </ikw:SimpleStackPanel>
                                         <TextBlock
-                                                Margin="0,0,14,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="14"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="浮动工具栏显示文字注释" />
+                                            Margin="0,0,14,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="{DynamicResource SettingsPageForeground}"
+                                            Text="浮动工具栏显示文字注释" />
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
-                                                    Name="ToggleSwitchColorfulViewboxFloatingBar"
-                                                    IsOn="False"
-                                                    OffContent="关"
-                                                    OnContent="开"
-                                                    Toggled="ToggleSwitchIsColorfulViewboxFloatingBar_Toggled" />
+                                                Name="ToggleSwitchColorfulViewboxFloatingBar"
+                                                IsOn="False"
+                                                OffContent="关"
+                                                OnContent="开"
+                                                Toggled="ToggleSwitchIsColorfulViewboxFloatingBar_Toggled" />
                                         </ikw:SimpleStackPanel>
                                         <TextBlock
-                                                Margin="0,0,14,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="14"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="浮动工具栏背景色" />
+                                            Margin="0,0,14,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="{DynamicResource SettingsPageForeground}"
+                                            Text="浮动工具栏背景色" />
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
-                                                    Name="ToggleSwitchEnableViewboxBlackBoardScaleTransform"
-                                                    IsOn="False"
-                                                    OffContent="关"
-                                                    OnContent="开"
-                                                    Toggled="ToggleSwitchEnableViewboxBlackBoardScaleTransform_Toggled" />
+                                                Name="ToggleSwitchEnableViewboxBlackBoardScaleTransform"
+                                                IsOn="False"
+                                                OffContent="关"
+                                                OnContent="开"
+                                                Toggled="ToggleSwitchEnableViewboxBlackBoardScaleTransform_Toggled" />
                                         </ikw:SimpleStackPanel>
                                         <TextBlock
-                                                Margin="0,0,14,0"
-                                                VerticalAlignment="Center"
-                                                FontSize="14"
-                                                Foreground="{DynamicResource SettingsPageForeground}"
-                                                Text="画板 UI 80% 缩放" />
+                                            Margin="0,0,14,0"
+                                            VerticalAlignment="Center"
+                                            FontSize="14"
+                                            Foreground="{DynamicResource SettingsPageForeground}"
+                                            Text="画板 UI 80% 缩放" />
                                     </ikw:SimpleStackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <Slider
-                                                x:Name="ViewboxScalingSlider"
-                                                Width="340"
-                                                ui:ControlHelper.Header="浮动工具栏 UI 缩放"
-                                                FontSize="15"
-                                                IsSnapToTickEnabled="True"
-                                                Maximum="2"
-                                                Minimum="0.5"
-                                                TickFrequency="0.1"
-                                                TickPlacement="None"
-                                                ValueChanged="ViewboxScalingSlider_ValueChanged"
-                                                Value="1" />
+                                            x:Name="ViewboxScalingSlider"
+                                            Width="340"
+                                            ui:ControlHelper.Header="浮动工具栏 UI 缩放"
+                                            FontSize="15"
+                                            IsSnapToTickEnabled="True"
+                                            Maximum="2"
+                                            Minimum="0.5"
+                                            TickFrequency="0.1"
+                                            TickPlacement="Both"
+                                            AutoToolTipPlacement="None"
+                                            ValueChanged="ViewboxScalingSlider_ValueChanged"
+                                            Value="1" />
                                         <TextBlock
-                                                Width="30"
-                                                Margin="10,0,0,8"
-                                                VerticalAlignment="Bottom"
-                                                FontSize="14"
-                                                Text="{Binding Value, ElementName=ViewboxScalingSlider, Mode=OneWay}" />
+                                            Width="30"
+                                            Margin="10,0,0,8"
+                                            VerticalAlignment="Bottom"
+                                            FontSize="14"
+                                            Text="{Binding Value, ElementName=ViewboxScalingSlider, Mode=OneWay}" />
                                     </StackPanel>
                                 </ikw:SimpleStackPanel>
                             </GroupBox>
@@ -4292,7 +4293,7 @@
                                                 Maximum="50"
                                                 Minimum="1"
                                                 TickFrequency="1"
-                                                TickPlacement="None"
+                                                TickPlacement="Both"
                                                 ValueChanged="NibModeBoundsWidthSlider_ValueChanged"
                                                 Value="5" />
                                         <TextBlock
@@ -4312,7 +4313,7 @@
                                                 Maximum="50"
                                                 Minimum="1"
                                                 TickFrequency="1"
-                                                TickPlacement="None"
+                                                TickPlacement="Both"
                                                 ValueChanged="FingerModeBoundsWidthSlider_ValueChanged"
                                                 Value="20" />
                                         <TextBlock
@@ -4849,7 +4850,7 @@
                                                 Maximum="10"
                                                 Minimum="0"
                                                 TickFrequency="1"
-                                                TickPlacement="None"
+                                                TickPlacement="Both"
                                                 ValueChanged="SideControlMinimumAutomationSlider_ValueChanged"
                                                 Value="0" />
                                         <TextBlock
@@ -5716,7 +5717,7 @@
                                                                     Maximum="30"
                                                                     Minimum="1"
                                                                     TickFrequency="1"
-                                                                    TickPlacement="None"
+                                                                    TickPlacement="Both"
                                                                     ValueChanged="InkWidthSlider_ValueChanged"
                                                                     Value="5" />
                                                                     <TextBlock
@@ -5950,7 +5951,7 @@
                                                             Maximum="240"
                                                             Minimum="20"
                                                             TickFrequency="20"
-                                                            TickPlacement="None"
+                                                            TickPlacement="Both"
                                                             ValueChanged="InkAlphaSlider_ValueChanged"
                                                             Value="120" />
                                                     </Viewbox>
