@@ -1,0 +1,69 @@
+﻿<Page x:Class="Ink_Canvas.Windows.Pages.ShortcutSetting"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ink_Canvas.Windows.Pages"
+      xmlns:Controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+      xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      mc:Ignorable="d" 
+      d:DesignHeight="32"
+      d:DesignWidth="800"
+      Margin="0,5"
+      Title="ShortcutSetting">
+
+    <Grid
+        Background="White">
+        <ikw:SimpleStackPanel Spacing="5">
+            <ikw:SimpleStackPanel
+                Spacing="5"
+                VerticalAlignment="Top"
+                Orientation="Horizontal"
+                Height="32">
+                <Button
+                    Click="Shortcut_Button_Delete"
+                    BorderThickness="0"
+                    Height="18"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="5,0,0,0"
+                    Padding="0"
+                    Background="#00000000">
+                    <ui:FontIcon
+                        Width="18"
+                        Height="18"
+                        FontFamily="{StaticResource FluentIconFontFamily}"
+                        FontSize="18"
+                        Foreground="{DynamicResource SettingsPageForeground}"
+                        Glyph="&#xf16d;" />
+                </Button>
+                <ikw:SimpleStackPanel
+                    VerticalAlignment="Top"
+                    Width="50"
+                    Height="32">
+                    <ui:ToggleSwitch
+                        Width="40"
+                        Height="32"
+                        Name="Toggle_shortcut_0"
+                        IsOn="False"
+                        OffContent="关"
+                        OnContent="开"
+                        Toggled="ToggleSwitchShortcutEnable_Toggled" />
+                </ikw:SimpleStackPanel>
+                <TextBox
+                    VerticalAlignment="Top"
+                    Height="32"
+                    SourceUpdated="NameTextbox_SourceUpdated_0">
+                    显示的名称
+                </TextBox>
+                <TextBox
+                    VerticalAlignment="Top"
+                    Height="32"
+                    SourceUpdated="URLTextbox_SourceUpdated_0">
+                    修改为文件、程序或网页的URL
+                </TextBox>
+            </ikw:SimpleStackPanel>
+        </ikw:SimpleStackPanel>
+    </Grid>
+</Page>

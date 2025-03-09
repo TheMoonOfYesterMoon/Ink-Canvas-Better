@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 
 namespace Ink_Canvas
 {
@@ -20,8 +22,8 @@ namespace Ink_Canvas
         public InkToShape InkToShape { get; set; } = new InkToShape();
         [JsonProperty("startup")]
         public Startup Startup { get; set; } = new Startup();
-        [JsonProperty("randSettings")]
-        public RandSettings RandSettings { get; set; } = new RandSettings();
+        [JsonProperty("shortcut")]
+        public Shortcut Shortcut { get; set; } = new Shortcut();
     }
 
     public class Canvas
@@ -310,11 +312,14 @@ namespace Ink_Canvas
         public bool IsInkToShapeEnabled { get; set; } = true;
     }
 
-    public class RandSettings
+    public class Shortcut
     {
-        [JsonProperty("peopleCount")]
-        public int PeopleCount { get; set; } = 60;
-        [JsonProperty("isNotRepeatName")]
-        public bool IsNotRepeatName { get; set; } = false;
+        // 务必注意：此处部分字符串组为 null
+        [JsonProperty("ShortcutUrls")]
+        public List<String> ShortcutUrls { get; set; } = null;
+        [JsonProperty("ShortcutName")]
+        public List<String> ShortcutName { get; set; } = null;
+        [JsonProperty("ShortcutEnable")]
+        public List<bool> ShortcutEnable { get; set; } = null;
     }
 }

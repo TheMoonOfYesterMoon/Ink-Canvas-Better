@@ -719,6 +719,10 @@ namespace Ink_Canvas
             Settings.Startup.AutoUpdateWithSilenceStartTime = "18:20";
             Settings.Startup.AutoUpdateWithSilenceEndTime = "07:40";
             Settings.Startup.IsFoldAtStartup = false;
+
+            Settings.Shortcut.ShortcutUrls = null;
+            Settings.Shortcut.ShortcutEnable = null;
+            Settings.Shortcut.ShortcutName = null;
         }
 
         private void BtnResetToSuggestion_Click(object sender, RoutedEventArgs e)

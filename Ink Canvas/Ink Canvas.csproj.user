@@ -3,7 +3,11 @@
   <PropertyGroup>
     <_LastSelectedProfileId>C:\github\Ink-Canvas-Better\Ink-Canvas-Better\Ink Canvas\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Update="Windows\Pages\ShortcutSetting.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -14,6 +18,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Resources\Styles\Light-PopupWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\Pages\ShortcutSetting.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

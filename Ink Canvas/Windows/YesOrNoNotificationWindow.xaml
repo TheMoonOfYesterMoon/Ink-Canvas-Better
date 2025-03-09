@@ -18,13 +18,18 @@
     Topmost="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <Grid Background="{DynamicResource FloatBarBackground}">
-        <Grid Margin="10">
+    <Grid
+        Background="{DynamicResource FloatBarBackground}">
+        <Grid
+            Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="35" />
             </Grid.RowDefinitions>
-            <Viewbox Height="30" Margin="10" HorizontalAlignment="Left">
+            <Viewbox
+                Height="30"
+                Margin="10"
+                HorizontalAlignment="Left">
                 <ui:FontIcon
                     Width="30"
                     Height="22"
@@ -52,12 +57,16 @@
                     Content="是"
                     Foreground="White">
                     <Button.Resources>
-                        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundKey}" Color="#15803d" />
-                        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}" Color="#166534" />
-                        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}" Color="#306534" />
+                        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundKey}" Color="#FFD09151" />
+                        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}" Color="#FFB37C45" />
+                        <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}" Color="#FFB37C45" />
                     </Button.Resources>
                 </Button>
-                <Button Width="100" Margin="0" Click="ButtonNo_Click" Content="否" />
+                <Button
+                    Width="100"
+                    Margin="0"
+                    Click="ButtonNo_Click"
+                    Content="否"/>
             </ikw:SimpleStackPanel>
         </Grid>
     </Grid>

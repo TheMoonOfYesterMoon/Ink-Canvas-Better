@@ -249,7 +249,7 @@ namespace Ink_Canvas
             Setting_PPT.Visibility = Visibility.Collapsed;
             Setting_Advance.Visibility = Visibility.Collapsed;
             Setting_Others.Visibility = Visibility.Collapsed;
-            Setting_Shortcut.Visibility = Visibility.Collapsed;
+            Setting_Exp.Visibility = Visibility.Collapsed;
         }
 
         private void BtnSettingGeneral_Click(object sender, RoutedEventArgs e)
@@ -297,11 +297,11 @@ namespace Ink_Canvas
             Setting_CurrentOption.Text = "详细设置 - 高级";
         }
 
-        private void BtnSettingShortcut_Click(object sender, RoutedEventArgs e)
+        private void BtnSettingExp_Click(object sender, RoutedEventArgs e)
         {
             HideAllSetting();
-            Setting_Shortcut.Visibility = Visibility.Visible;
-            Setting_CurrentOption.Text = "详细设置 - 快捷启动";
+            Setting_Exp.Visibility = Visibility.Visible;
+            Setting_CurrentOption.Text = "详细设置 - 实验性功能";
         }
         private void BtnSettingOthers_Click(object sender, RoutedEventArgs e)
         {
@@ -322,143 +322,4 @@ namespace Ink_Canvas
 
     }
 
-    public partial class Shortcut
-    {
-        #region defination
-        /// <summary>
-        /// 总外框
-        /// </summary>
-        iNKORE.UI.WPF.Controls.SimpleStackPanel simpleStackPanel_1;
-        /// <summary>
-        /// 按钮 -> 删除
-        /// </summary>
-        Button btnRemoveShortcut;
-        /// <summary>
-        /// 删除按钮的图标
-        /// </summary>
-        iNKORE.UI.WPF.Modern.Controls.FontIcon btnRemoveShortcutIcon;
-        /// <summary>
-        /// 开关外框
-        /// </summary>
-        iNKORE.UI.WPF.Controls.SimpleStackPanel simpleStackPanel_2;
-        /// <summary>
-        /// 开关
-        /// </summary>
-        iNKORE.UI.WPF.Modern.Controls.ToggleSwitch toggleSwitch;
-        /// <summary>
-        /// 显示的名称
-        /// </summary>
-        TextBox NameTextBox;
-        /// <summary>
-        /// URL
-        /// </summary>
-        TextBox URLTextBox;
-        #endregion
-
-        public Shortcut()
-        {
-            // 基本设置
-            // 总外框
-            simpleStackPanel_1 = new SimpleStackPanel
-            {
-                HorizontalAlignment = HorizontalAlignment.Center
-            };
-
-            // 按钮删除
-            btnRemoveShortcut = new Button
-            {
-                BorderThickness = new Thickness(0, 0, 0, 0),
-                Height = 28,
-                Margin = new Thickness(0, 0, 10, 0),
-                HorizontalAlignment = HorizontalAlignment.Center,
-                Padding = new Thickness(0, 0, 0, 0),
-                Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#00000000")),
-            };
-
-            // 删除按钮的图标
-            btnRemoveShortcutIcon.SetResourceReference(Control.ForegroundProperty, "SettingsPageForeground");
-            btnRemoveShortcutIcon = new FontIcon
-            {
-                Width = 18,
-                Height = 18,
-                FontFamily = (FontFamily)Application.Current.Resources["FluentIconFontFamily"], // 静态资源获取
-                FontSize = 18,
-                Glyph = "\uf16d"
-            };
-
-            // 开关的外框
-            simpleStackPanel_2 = new SimpleStackPanel
-            {
-                Width = 50
-            };
-
-            // 开关
-            toggleSwitch = new ToggleSwitch
-            {
-                Name = "Toggle_shortcut_0",
-                IsOn = false,
-                OffContent = "关",
-                OnContent = "开",
-            };
-            toggleSwitch.Toggled += ToggleSwitch_Toggled();
-
-            // 显示的名称
-            NameTextBox = new TextBox
-            {
-                Margin = new Thickness(10, 0, 10, 10),
-                Text = "显示的名称"
-            };
-            NameTextBox.SourceUpdated += NameTextBox_SourceUpdated();
-
-            // URL
-            URLTextBox = new TextBox
-            {
-                Margin = new Thickness(10, 0, 10, 10),
-                Text = "修改为文件、程序或网页的URL",
-                MaxWidth = 100
-            };
-            URLTextBox.SourceUpdated += URLTextBox_SourceUpdated();
-
-            // 塞在一起
-            btnRemoveShortcut.Content = btnRemoveShortcutIcon;
-            simpleStackPanel_2.Children.Add(toggleSwitch);
-            simpleStackPanel_1.Children.Add(btnRemoveShortcut);
-            simpleStackPanel_1.Children.Add(simpleStackPanel_2);
-            simpleStackPanel_1.Children.Add(NameTextBox);
-            simpleStackPanel_1.Children.Add(URLTextBox);
-
-
-        }
-
-        /// <summary>
-        /// 开关
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        private RoutedEventHandler ToggleSwitch_Toggled()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 填写显示名称的文本框
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        private EventHandler<DataTransferEventArgs> NameTextBox_SourceUpdated()
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 填写URL的文本框
-        /// </summary>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        private EventHandler<DataTransferEventArgs> URLTextBox_SourceUpdated()
-        {
-            throw new NotImplementedException();
-        }
-
-    }
 }

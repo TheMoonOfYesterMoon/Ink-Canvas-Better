@@ -534,14 +534,6 @@ namespace Ink_Canvas
             {
                 Settings.InkToShape = new InkToShape();
             }
-            // RandSettings
-            if (Settings.RandSettings != null)
-            {
-            }
-            else
-            {
-                Settings.RandSettings = new RandSettings();
-            }
             // Automation
             if (Settings.Automation != null)
             {
