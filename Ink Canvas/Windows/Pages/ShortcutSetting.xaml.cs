@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Ink_Canvas.Helpers;
+using Ink_Canvas.Windows;
+using System.Data.SqlTypes;
 
 namespace Ink_Canvas.Windows.Pages
 {
@@ -21,14 +24,14 @@ namespace Ink_Canvas.Windows.Pages
     /// </summary>
     public partial class ShortcutSetting : Page
     {
-        public ShortcutSetting()
+        int index;
+        public ShortcutSetting(int index, bool enable, String Name, String URL)
         {
+            this.index = index;
+            this.Toggle_shortcut_0.IsOn = enable;
+            this.NameTextbox_Shortcut.Text = Name;
+            this.URLTextbox_Shortcut.Text= URL;
             InitializeComponent();
-        }
-
-        private void LoadShortcut()
-        {
-
         }
 
         /// <summary>
@@ -38,7 +41,11 @@ namespace Ink_Canvas.Windows.Pages
         /// <param name="e"></param>
         private void Shortcut_Button_Delete(object sender, RoutedEventArgs e)
         {
+            MainWindow.Settings.Shortcut.ShortcutEnable.RemoveAt(index);
+            MainWindow.Settings.Shortcut.ShortcutName.RemoveAt(index);
+            MainWindow.Settings.Shortcut.ShortcutUrls.RemoveAt(index);
 
+            MainWindow.SaveSettingsToFile();
         }
 
         /// <summary>
@@ -48,7 +55,9 @@ namespace Ink_Canvas.Windows.Pages
         /// <param name="e"></param>
         private void ToggleSwitchShortcutEnable_Toggled(object sender, RoutedEventArgs e)
         {
-            
+            if (!MainWindow.isLoaded) return;
+            MainWindow.Settings.Shortcut.ShortcutEnable[index] = this.Toggle_shortcut_0.IsOn;
+            MainWindow.SaveSettingsToFile();
         }
 
         /// <summary>
@@ -58,7 +67,9 @@ namespace Ink_Canvas.Windows.Pages
         /// <param name="e"></param>
         private void NameTextbox_SourceUpdated_0(object sender, DataTransferEventArgs e)
         {
-
+            if (!MainWindow.isLoaded) return;
+            MainWindow.Settings.Shortcut.ShortcutName[index] = this.NameTextbox_Shortcut.Text;
+            MainWindow.SaveSettingsToFile();
         }
 
         /// <summary>
@@ -68,7 +79,9 @@ namespace Ink_Canvas.Windows.Pages
         /// <param name="e"></param>
         private void URLTextbox_SourceUpdated_0(object sender, DataTransferEventArgs e)
         {
-
+            if (!MainWindow.isLoaded) return;
+            MainWindow.Settings.Shortcut.ShortcutUrls[index] = this.URLTextbox_Shortcut.Text;
+            MainWindow.SaveSettingsToFile();
         }
     }
 }

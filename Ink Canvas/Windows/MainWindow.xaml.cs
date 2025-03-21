@@ -1,5 +1,6 @@
 using Ink_Canvas.Helpers;
 using Ink_Canvas.Windows;
+using Ink_Canvas.Windows.Pages;
 using iNKORE.UI.WPF.Controls;
 using iNKORE.UI.WPF.Modern;
 using iNKORE.UI.WPF.Modern.Controls;
@@ -173,7 +174,7 @@ namespace Ink_Canvas
 
         public static Settings Settings = new Settings();
         public static string settingsFileName = "Settings.json";
-        bool isLoaded = false;
+        public static bool isLoaded = false;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -188,14 +189,14 @@ namespace Ink_Canvas
             ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
             SystemEvents_UserPreferenceChanged(null, null);
 
-            // 显示“测试版”字样
+            // 显示“beta”字样
             String[] Version = Assembly.GetExecutingAssembly().GetName().Version.ToString().Split('.');
             AppVersionTextBlock.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             if (int.TryParse(Version[3], out int i))
             {
                 if (i > 0)
                 {
-                    AppVersionTextBlock.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - 测试版";
+                    AppVersionTextBlock.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - beta";
                 }
             }
 
@@ -235,7 +236,7 @@ namespace Ink_Canvas
 
         #endregion Definations and Loading
 
-        #region Setting
+        #region Setting Pages
 
         private void HideAllSetting()
         {
@@ -313,9 +314,30 @@ namespace Ink_Canvas
         #endregion
 
         #region Shortcut
+
+        ShortcutSetting[] ShortcutSetting;
+        public void LoadShortcuts()
+        {
+            Setting_Shortcuts_Edit.Children.Clear();
+            ShortcutSetting = null;
+
+            int shortcutAmount = Settings.Shortcut.ShortcutName.Count;
+            for (int i = 0; i < shortcutAmount; i++)
+            {
+                // 务必注意，此处 i 与 List 中的索引一致
+                ShortcutSetting[i] = new ShortcutSetting(i, Settings.Shortcut.ShortcutEnable[i], Settings.Shortcut.ShortcutName[i], Settings.Shortcut.ShortcutUrls[i]);
+                Setting_Shortcuts_Edit.Children.Add(ShortcutSetting[i]);
+            }
+        }
+
         private void BtnNewShortcut_Click(object sender, RoutedEventArgs e)
         {
-            // 这里新建一个Shortcut类
+            Settings.Shortcut.ShortcutName.Add("显示的名称");
+            Settings.Shortcut.ShortcutUrls.Add("修改为文件、程序或网页的URL");
+            Settings.Shortcut.ShortcutEnable.Add(true);
+            SaveSettingsToFile();
+
+            LoadShortcuts();
         }
 
         #endregion

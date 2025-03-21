@@ -54,12 +54,14 @@
                 <TextBox
                     VerticalAlignment="Top"
                     Height="32"
+                    Name="NameTextbox_Shortcut"
                     SourceUpdated="NameTextbox_SourceUpdated_0">
                     显示的名称
                 </TextBox>
                 <TextBox
                     VerticalAlignment="Top"
                     Height="32"
+                    Name="URLTextbox_Shortcut"
                     SourceUpdated="URLTextbox_SourceUpdated_0">
                     修改为文件、程序或网页的URL
                 </TextBox>

@@ -5107,7 +5107,11 @@
                                                 </Label>
                                             </ikw:SimpleStackPanel>
                                         </Button>
-                                        <!-- 往下生成 -->
+                                        <!-- Setting_Shortcuts_Edit -->
+                                        <ikw:SimpleStackPanel
+                                            Name="Setting_Shortcuts_Edit">
+                                            
+                                        </ikw:SimpleStackPanel>
                                         <TextBlock
                                             Foreground="{DynamicResource SettingsPageAnnotationForeground}"
                                             Text="# 点击“创建新的启动项”以添加更多
