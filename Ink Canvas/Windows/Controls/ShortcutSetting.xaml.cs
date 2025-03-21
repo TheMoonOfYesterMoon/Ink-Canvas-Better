@@ -1,36 +1,27 @@
 ﻿using Ink_Canvas.Properties;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Ink_Canvas.Helpers;
 using Ink_Canvas.Windows;
-using System.Data.SqlTypes;
 
-namespace Ink_Canvas.Windows.Pages
+namespace Ink_Canvas.Windows.Controls
 {
     /// <summary>
     /// ShortcutSetting.xaml 的交互逻辑
     /// </summary>
-    public partial class ShortcutSetting : Page
+    public partial class ShortcutSetting : Grid
     {
         int index;
         public ShortcutSetting(int index, bool enable, String Name, String URL)
         {
             this.index = index;
+            /*
             this.Toggle_shortcut_0.IsOn = enable;
             this.NameTextbox_Shortcut.Text = Name;
             this.URLTextbox_Shortcut.Text= URL;
+            */
             InitializeComponent();
         }
 

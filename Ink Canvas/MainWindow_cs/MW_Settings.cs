@@ -628,7 +628,7 @@ namespace Ink_Canvas
         {
             bool AutoDelSavedFilesDays = Settings.Automation.AutoDelSavedFiles;
             int AutoDelSavedFilesDaysThreshold = Settings.Automation.AutoDelSavedFilesDaysThreshold;
-            Settings = new Settings();
+            Settings = new SettingsClass();
             Settings.Advanced.IsSpecialScreen = true;
             Settings.Advanced.IsQuadIR = false;
             Settings.Advanced.TouchMultiplier = 0.3;

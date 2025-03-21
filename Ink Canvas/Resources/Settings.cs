@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Ink_Canvas
 {
-    public class Settings
+    public class SettingsClass
     {
         [JsonProperty("advanced")]
         public Advanced Advanced { get; set; } = new Advanced();
@@ -314,12 +314,11 @@ namespace Ink_Canvas
 
     public class Shortcut
     {
-        // 务必注意：此处部分字符串组为 null
         [JsonProperty("ShortcutUrls")]
-        public List<String> ShortcutUrls { get; set; } = null;
+        public List<String> ShortcutUrls { get; set; } = new List<string>();
         [JsonProperty("ShortcutName")]
-        public List<String> ShortcutName { get; set; } = null;
+        public List<String> ShortcutName { get; set; } = new List<string>();
         [JsonProperty("ShortcutEnable")]
-        public List<bool> ShortcutEnable { get; set; } = null;
+        public List<bool> ShortcutEnable { get; set; } = new List<bool>();
     }
 }

@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using OSVersionExtension;
 using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
@@ -20,7 +21,7 @@ namespace Ink_Canvas
                     try
                     {
                         string text = File.ReadAllText(App.RootPath + settingsFileName);
-                        Settings = JsonConvert.DeserializeObject<Settings>(text);
+                        Settings = JsonConvert.DeserializeObject<SettingsClass>(text);
                     }
                     catch { }
                 }
@@ -685,6 +686,13 @@ namespace Ink_Canvas
             else
             {
                 ViewboxFloatingBarMarginAnimation(100);
+            }
+            // shortcut
+            if (Settings.Shortcut != null)
+            {
+                Settings.Shortcut.ShortcutEnable = new List<bool>();
+                Settings.Shortcut.ShortcutName = new List<string>();
+                Settings.Shortcut.ShortcutUrls = new List<string>();
             }
         }
     }

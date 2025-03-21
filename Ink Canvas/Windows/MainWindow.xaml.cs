@@ -1,6 +1,6 @@
 using Ink_Canvas.Helpers;
 using Ink_Canvas.Windows;
-using Ink_Canvas.Windows.Pages;
+using Ink_Canvas.Windows.Controls;
 using iNKORE.UI.WPF.Controls;
 using iNKORE.UI.WPF.Modern;
 using iNKORE.UI.WPF.Modern.Controls;
@@ -172,7 +172,7 @@ namespace Ink_Canvas
 
         #region Definations and Loading
 
-        public static Settings Settings = new Settings();
+        public static SettingsClass Settings = new SettingsClass();
         public static string settingsFileName = "Settings.json";
         public static bool isLoaded = false;
 
@@ -318,15 +318,16 @@ namespace Ink_Canvas
         ShortcutSetting[] ShortcutSetting;
         public void LoadShortcuts()
         {
-            Setting_Shortcuts_Edit.Children.Clear();
-            ShortcutSetting = null;
-
             int shortcutAmount = Settings.Shortcut.ShortcutName.Count;
+            Setting_Shortcuts_Edit.Children.Clear();
+            ShortcutSetting = new ShortcutSetting[shortcutAmount];
+
             for (int i = 0; i < shortcutAmount; i++)
             {
                 // 务必注意，此处 i 与 List 中的索引一致
                 ShortcutSetting[i] = new ShortcutSetting(i, Settings.Shortcut.ShortcutEnable[i], Settings.Shortcut.ShortcutName[i], Settings.Shortcut.ShortcutUrls[i]);
                 Setting_Shortcuts_Edit.Children.Add(ShortcutSetting[i]);
+                ShortcutSetting[i].Visibility = Visibility.Visible;
             }
         }
 
