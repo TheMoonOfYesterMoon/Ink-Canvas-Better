@@ -5079,9 +5079,10 @@
                                         Foreground="{DynamicResource SettingsPageForeground}"
                                         Text="实验性功能"/>
                                 </GroupBox.Header>
+                                <!-- TODO: 发布前请注意隐藏此控件，因为它暂未完成 -->
                                 <GroupBox
-                                    Name="Setting_Exp_Shortcut"
-                                    Visibility="Visible">
+                                    Visibility="Collapsed"
+                                    Name="Setting_Exp_Shortcut">
                                     <GroupBox.Header>
                                         <TextBlock
                                         FontSize="26"
@@ -6167,7 +6168,7 @@
 
 
                                             </ikw:SimpleStackPanel>
-                                            <!-- TODO:颜色完全自定义
+                                            <!-- TODO: 颜色完全自定义
                                             <Border>
                                                 <ikw:SquarePicker
                                                     Name="squarePicker"

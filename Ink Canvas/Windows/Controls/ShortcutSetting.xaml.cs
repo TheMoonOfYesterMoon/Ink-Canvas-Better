@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using Ink_Canvas.Helpers;
 using Ink_Canvas.Windows;
+using System.Windows.Forms;
 
 namespace Ink_Canvas.Windows.Controls
 {
@@ -13,16 +14,15 @@ namespace Ink_Canvas.Windows.Controls
     /// </summary>
     public partial class ShortcutSetting : Grid
     {
-        int index;
+        internal int index;
         public ShortcutSetting(int index, bool enable, String Name, String URL)
         {
             this.index = index;
-            /*
+            InitializeComponent();
+
             this.Toggle_shortcut_0.IsOn = enable;
             this.NameTextbox_Shortcut.Text = Name;
-            this.URLTextbox_Shortcut.Text= URL;
-            */
-            InitializeComponent();
+            this.URLTextbox_Shortcut.Text = URL;
         }
 
         /// <summary>
@@ -30,13 +30,14 @@ namespace Ink_Canvas.Windows.Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Shortcut_Button_Delete(object sender, RoutedEventArgs e)
+        private void Shortcut_Button_Delete(object sender, RoutedEventArgs e )
         {
             MainWindow.Settings.Shortcut.ShortcutEnable.RemoveAt(index);
             MainWindow.Settings.Shortcut.ShortcutName.RemoveAt(index);
             MainWindow.Settings.Shortcut.ShortcutUrls.RemoveAt(index);
 
             MainWindow.SaveSettingsToFile();
+
         }
 
         /// <summary>
@@ -56,7 +57,7 @@ namespace Ink_Canvas.Windows.Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void NameTextbox_SourceUpdated_0(object sender, DataTransferEventArgs e)
+        private void NameTextbox_TextChanged_0(object sender, TextChangedEventArgs e)
         {
             if (!MainWindow.isLoaded) return;
             MainWindow.Settings.Shortcut.ShortcutName[index] = this.NameTextbox_Shortcut.Text;
@@ -68,7 +69,7 @@ namespace Ink_Canvas.Windows.Controls
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void URLTextbox_SourceUpdated_0(object sender, DataTransferEventArgs e)
+        private void URLTextbox_TextChanged_0(object sender, TextChangedEventArgs e)
         {
             if (!MainWindow.isLoaded) return;
             MainWindow.Settings.Shortcut.ShortcutUrls[index] = this.URLTextbox_Shortcut.Text;

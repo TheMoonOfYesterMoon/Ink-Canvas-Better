@@ -321,7 +321,7 @@ namespace Ink_Canvas
             int shortcutAmount = Settings.Shortcut.ShortcutName.Count;
             Setting_Shortcuts_Edit.Children.Clear();
             ShortcutSetting = new ShortcutSetting[shortcutAmount];
-
+            
             for (int i = 0; i < shortcutAmount; i++)
             {
                 // 务必注意，此处 i 与 List 中的索引一致

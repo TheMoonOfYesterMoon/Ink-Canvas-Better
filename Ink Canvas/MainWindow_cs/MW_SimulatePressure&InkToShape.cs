@@ -16,7 +16,7 @@ namespace Ink_Canvas
         StrokeCollection newStrokes = new StrokeCollection();
         List<Circle> circles = new List<Circle>();
 
-        //此函数中的所有代码版权所有 WXRIW，在其他项目中使用前必须提前联系（wxriw@outlook.com），谢谢！
+        // 此函数中的所有代码版权所有 WXRIW，在其他项目中使用前必须提前联系（wxriw@outlook.com），谢谢！
         private void inkCanvas_StrokeCollected(object sender, InkCanvasStrokeCollectedEventArgs e)
         {
             try
@@ -432,7 +432,7 @@ namespace Ink_Canvas
 
                         }
                         break;
-                    case 3: // TODO:根据 mode == 0 改写，目前暂未完成
+                    case 3: // TODO: 根据 mode == 0 改写，目前暂未完成
                         try
                         {
                             StylusPointCollection stylusPoints = new StylusPointCollection();

@@ -34,7 +34,9 @@ namespace Ink_Canvas
             {
                 LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
             }
-            // Startup
+
+            #region Startup
+
             if (isStartup)
             {
                 CursorIcon_Click(null, null);
@@ -56,6 +58,7 @@ namespace Ink_Canvas
             {
                 LogHelper.WriteLogToFile(ex.ToString(), LogHelper.LogType.Error);
             }
+
             if (Settings.Startup != null)
             {
                 if (isStartup)
@@ -106,7 +109,11 @@ namespace Ink_Canvas
             {
                 Settings.Startup = new Startup();
             }
-            // Appearance
+
+            #endregion
+
+            #region Appearance
+
             if (Settings.Appearance != null)
             {
                 ComboBoxTheme.SelectedIndex = Settings.Appearance.Theme;
@@ -145,6 +152,7 @@ namespace Ink_Canvas
                     Icon_Redo.Margin = new Thickness(0);
                     ToggleSwitchEnableDisPlayFloatBarText.IsOn = false;
                 }
+
                 if (Settings.Appearance.IsEnableDisPlayNibModeToggler)
                 {
                     NibModeSimpleStackPanel.Visibility = Visibility.Visible;
@@ -162,13 +170,14 @@ namespace Ink_Canvas
 
                 if (Settings.Appearance.IsColorfulViewboxFloatingBar) // 浮动工具栏背景色
                 {
-                    LinearGradientBrush gradientBrush = new LinearGradientBrush();
-                    gradientBrush.StartPoint = new Point(0, 0);
-                    gradientBrush.EndPoint = new Point(1, 1);
                     GradientStop blueStop = new GradientStop(Color.FromArgb(0x95, 0x80, 0xB0, 0xFF), 0);
                     GradientStop greenStop = new GradientStop(Color.FromArgb(0x95, 0xC0, 0xFF, 0xC0), 1);
-                    gradientBrush.GradientStops.Add(blueStop);
-                    gradientBrush.GradientStops.Add(greenStop);
+                    LinearGradientBrush gradientBrush = new LinearGradientBrush
+                    {
+                        StartPoint = new Point(0, 0),
+                        EndPoint = new Point(1, 1),
+                        GradientStops = { blueStop , greenStop },
+                    };
                     EnableTwoFingerGestureBorder.Background = gradientBrush;
                     BorderFloatingBarMainControls.Background = gradientBrush;
                     BorderFloatingBarMoveControls.Background = gradientBrush;
@@ -184,24 +193,6 @@ namespace Ink_Canvas
                 ViewboxFloatingBarScaleTransform.ScaleX = Settings.Appearance.ViewboxScaling;
                 ViewboxFloatingBarScaleTransform.ScaleY = Settings.Appearance.ViewboxScaling;
                 ViewboxScalingSlider.Value = Settings.Appearance.ViewboxScaling;
-
-                // 浮动工具栏 UI 缩放 90% （旧的 UI 缩放）
-                // if (Settings.Appearance.EnableViewboxFloatingBarScaleTransform)
-                // {
-                //     ViewboxFloatingBarScaleTransform.ScaleX = 0.9;
-                //     ViewboxFloatingBarScaleTransform.ScaleY = 0.9;
-
-                //     ToggleSwitchEnableViewboxFloatingBarScaleTransform.IsOn = true;
-                // }
-                // else
-                // {
-                //     ViewboxFloatingBarScaleTransform.ScaleX = 1;
-                //     ViewboxFloatingBarScaleTransform.ScaleY = 1;
-
-                //     ToggleSwitchEnableViewboxFloatingBarScaleTransform.IsOn = false;
-                // }
-
-
                 if (Settings.Appearance.EnableViewboxBlackBoardScaleTransform) // 画板 UI 缩放 80%
                 {
                     ViewboxBlackboardLeftSideScaleTransform.ScaleX = 0.8;
@@ -229,7 +220,11 @@ namespace Ink_Canvas
             {
                 Settings.Appearance = new Appearance();
             }
-            // PowerPointSettings
+
+            #endregion
+
+            #region PowerPointSettings
+
             if (Settings.PowerPointSettings != null)
             {
                 PptNavigationBottomBtn.Visibility = Settings.PowerPointSettings.IsShowPPTNavigationBottom ? Visibility.Visible : Visibility.Collapsed;
@@ -328,7 +323,11 @@ namespace Ink_Canvas
             {
                 Settings.PowerPointSettings = new PowerPointSettings();
             }
-            // Gesture
+
+            #endregion
+
+            #region Gesture
+
             if (Settings.Gesture != null)
             {
                 ComboBoxMatrixTransformCenterPoint.SelectedIndex = (int)Settings.Gesture.MatrixTransformCenterPoint;
@@ -417,7 +416,11 @@ namespace Ink_Canvas
             {
                 Settings.Gesture = new Gesture();
             }
-            // Canvas
+
+            #endregion
+
+            #region Canvas
+
             if (Settings.Canvas != null)
             {
                 drawingAttributes.Height = Settings.Canvas.InkWidth;
@@ -470,7 +473,11 @@ namespace Ink_Canvas
             {
                 Settings.Canvas = new Canvas();
             }
-            // Advanced
+
+            #endregion
+
+            #region Advanced
+
             if (Settings.Advanced != null)
             {
                 TouchMultiplierSlider.Value = Settings.Advanced.TouchMultiplier;
@@ -519,7 +526,11 @@ namespace Ink_Canvas
             {
                 Settings.Advanced = new Advanced();
             }
-            // InkToShape
+
+            #endregion
+
+            #region InkToShape
+
             if (Settings.InkToShape != null)
             {
                 if (Settings.InkToShape.IsInkToShapeEnabled)
@@ -535,7 +546,11 @@ namespace Ink_Canvas
             {
                 Settings.InkToShape = new InkToShape();
             }
-            // Automation
+
+            #endregion
+
+            #region Automation
+
             if (Settings.Automation != null)
             {
                 StartOrStoptimerCheckAutoFold();
@@ -678,7 +693,11 @@ namespace Ink_Canvas
             {
                 Settings.Automation = new Automation();
             }
-            // auto align
+
+            #endregion
+
+            #region auto align
+
             if (BtnPPTSlideShowEnd.Visibility == Visibility.Visible)
             {
                 ViewboxFloatingBarMarginAnimation(60);
@@ -687,13 +706,21 @@ namespace Ink_Canvas
             {
                 ViewboxFloatingBarMarginAnimation(100);
             }
-            // shortcut
+
+            #endregion
+
+            #region shortcut
+
             if (Settings.Shortcut != null)
             {
-                Settings.Shortcut.ShortcutEnable = new List<bool>();
-                Settings.Shortcut.ShortcutName = new List<string>();
-                Settings.Shortcut.ShortcutUrls = new List<string>();
+                LoadShortcuts();
             }
+            else
+            {
+                Settings.Shortcut = new Shortcut();
+            }
+
+            #endregion
         }
     }
 }
