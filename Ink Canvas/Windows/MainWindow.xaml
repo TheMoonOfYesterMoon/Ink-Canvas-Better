@@ -3529,7 +3529,7 @@
                                         <ikw:SimpleStackPanel Spacing="12">
                                             <TextBlock
                                                 Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                                Text="# 开启 自动检查更新 后，将在软件启动时检查版本号，若版本号落后则会尝试从 Github 下载最新版安装包，安装新版本后会自动删除安装包。更新代理设置文本框放空即为直接裸连 Github。"
+                                                Text="# 开启本功能后，将在软件启动时检查版本号，若版本号落后则会尝试从 Github 下载最新版安装包，安装新版本后会自动删除安装包。不填“更新代理设置”即为直接裸连 Github。"
                                                 TextWrapping="Wrap"/>
                                             <ikw:SimpleStackPanel Orientation="Horizontal">
                                                 <ikw:SimpleStackPanel Width="50">
@@ -6823,7 +6823,7 @@
                                             <TextBlock
                                                 FontWeight="Bold"
                                                 Foreground="{DynamicResource FloatBarForeground}"
-                                                Text="更多设置"/>
+                                                Text="更多"/>
                                         </Border>
                                         <ikw:SimpleStackPanel HorizontalAlignment="Center">
                                             <ikw:SimpleStackPanel Height="45"
