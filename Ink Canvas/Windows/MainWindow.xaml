@@ -6755,34 +6755,6 @@
                                 Height="32"
                                 Padding="0"
                                 BorderThickness="0"
-                                Click="ImageBlackboard_Click">
-                                <ikw:SimpleStackPanel
-                                    Margin="0,-2,0,-2"
-                                    HorizontalAlignment="Center"
-                                    Background="Transparent"
-                                    Orientation="Vertical">
-                                    <ui:FontIcon
-                                        Width="30"
-                                        Height="22"
-                                        Margin="0,0,0,-2"
-                                        FontFamily="{StaticResource FluentIconFontFamily}"
-                                        FontSize="16"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Glyph="&#xe929;"/>
-                                    <TextBlock
-                                        Margin="0,0,-1,-1"
-                                        FontSize="8"
-                                        Foreground="{DynamicResource FloatBarForeground}"
-                                        Text="画板"
-                                        TextAlignment="Center"
-                                        Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}"/>
-                                </ikw:SimpleStackPanel>
-                            </Button>
-                            <Button
-                                Width="30"
-                                Height="32"
-                                Padding="0"
-                                BorderThickness="0"
                                 Click="SymbolIconTools_Click">
                                 <ikw:SimpleStackPanel
                                     HorizontalAlignment="Center"
@@ -6835,7 +6807,7 @@
                             <Grid Width="0">
                                 <Border
                                     Name="BorderTools"
-                                    Margin="-120,-135,-40,40"
+                                    Margin="-120,-180,-40,40"
                                     Background="{DynamicResource FloatBarBackground}"
                                     BorderBrush="{DynamicResource FloatBarBorderBrush}"
                                     BorderThickness="1"
@@ -6999,6 +6971,33 @@
                                                         <Label
                                                             HorizontalAlignment="Center"
                                                             Content="设置"
+                                                            FontSize="10"
+                                                            Foreground="{DynamicResource FloatBarForeground}"/>
+                                                    </ikw:SimpleStackPanel>
+                                                </Button>
+                                            </ikw:SimpleStackPanel>
+                                            <ikw:SimpleStackPanel Height="45"
+                                                                  Orientation="Horizontal">
+                                                <Button
+                                                    Width="45"
+                                                    Height="45"
+                                                    Padding="0"
+                                                    BorderThickness="0"
+                                                    Click="ImageBlackboard_Click">
+                                                    <ikw:SimpleStackPanel
+                                                        Width="40"
+                                                        Height="40"
+                                                        Orientation="Vertical">
+                                                        <ui:FontIcon
+                                                            Width="22"
+                                                            Height="22"
+                                                            Margin="0,4,0,1"
+                                                            FontFamily="{StaticResource FluentIconFontFamily}"
+                                                            Foreground="{DynamicResource FloatBarForeground}"
+                                                            Glyph="&#xe929;"/>
+                                                        <Label
+                                                            HorizontalAlignment="Center"
+                                                            Content="画板"
                                                             FontSize="10"
                                                             Foreground="{DynamicResource FloatBarForeground}"/>
                                                     </ikw:SimpleStackPanel>

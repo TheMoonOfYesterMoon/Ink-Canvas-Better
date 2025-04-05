@@ -25,6 +25,7 @@
         VerticalAlignment="Top">
         <!-- 标题栏 -->
         <Border
+                Opacity="100"
                 Height="40"
                 Margin="0,0,0,560"
                 Padding="15,5,5,5"
@@ -75,40 +76,6 @@
                     MouseDown="HideMagnify_Click"/>
             </ikw:SimpleStackPanel>
         </Border>
-        <!-- 配置
-        <Border
-                Height="40"
-                Margin="0,0,0,480"
-                Padding="15,5,5,5"
-                Background="{DynamicResource FloatBarBackground}">
-            <ikw:SimpleStackPanel Orientation="Horizontal">
-                <Button
-                    Width="120"
-                    Height="40"
-                    Padding="10,0,0,0"
-                    HorizontalAlignment="Left"
-                    HorizontalContentAlignment="Left"
-                    BorderThickness="0"
-                    Click="BtnSwitchMagnifyScream_Click">
-                    <ikw:SimpleStackPanel
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal"
-                        Spacing="8">
-                        <Label
-                            Name="LabelSwitchMagnifyScream"
-                            VerticalAlignment="Center"
-                            VerticalContentAlignment="Center"
-                            Height="30"
-                            Width="100"
-                            Content="点击放大右侧"
-                            FontSize="16"
-                            Foreground="{DynamicResource FloatBarForeground}" />
-                    </ikw:SimpleStackPanel>
-                </Button>
-            </ikw:SimpleStackPanel>
-        </Border>
-         -->
         <Rectangle Stroke="LightBlue"
             Margin="0,0,0,-40"
             Height="560">
