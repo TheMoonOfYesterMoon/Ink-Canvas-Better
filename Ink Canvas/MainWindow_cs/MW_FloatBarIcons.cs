@@ -151,6 +151,7 @@ namespace Ink_Canvas
             BorderTools.Visibility = Visibility.Collapsed;
             BoardBorderTools.Visibility = Visibility.Collapsed;
             PenPalette.Visibility = Visibility.Collapsed;
+            HighlighterPalette.Visibility = Visibility.Collapsed;
             BoardPenPalette.Visibility = Visibility.Collapsed;
             BoardDeleteIcon.Visibility = Visibility.Collapsed;
             BorderSettings.Visibility = Visibility.Collapsed;
@@ -161,6 +162,7 @@ namespace Ink_Canvas
             AnimationsHelper.HideWithSlideAndFade(BorderTools);
             AnimationsHelper.HideWithSlideAndFade(BoardBorderTools);
             AnimationsHelper.HideWithSlideAndFade(PenPalette);
+            AnimationsHelper.HideWithSlideAndFade(HighlighterPalette);
             AnimationsHelper.HideWithSlideAndFade(BoardPenPalette);
             AnimationsHelper.HideWithSlideAndFade(BoardDeleteIcon);
             AnimationsHelper.HideWithSlideAndFade(BorderSettings, 0.5);
@@ -177,6 +179,7 @@ namespace Ink_Canvas
                 if (mode != "clear")
                 {
                     Pen_Icon.Background = null;
+                    Highlighter_Icon.Background = null;
                     BoardPen.Background = (Brush)Application.Current.FindResource("BoardBarBackground");
                     BoardPen.Opacity = 1;
                     Eraser_Icon.Background = null;
@@ -191,6 +194,7 @@ namespace Ink_Canvas
                 }
                 if (mode == "pen" || mode == "color")
                 {
+                    Highlighter_Icon.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
                     Pen_Icon.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
                     BoardPen.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
                     BoardPen.Opacity = 0.99;
@@ -350,6 +354,12 @@ namespace Ink_Canvas
                     PenIcon_Click(BoardPenIcon, null);
                 }
 
+                if (Highlighter_Icon.Background == null)
+                {
+                    HighlighterIcon_Click(BoardPenIcon, null);
+                }
+
+
                 if (Settings.Gesture.AutoSwitchTwoFingerGesture) // 自动关闭多指书写、开启双指移动
                 {
                     ToggleSwitchEnableTwoFingerTranslate.IsOn = true;
@@ -403,10 +413,17 @@ namespace Ink_Canvas
                         });
                     })).Start();
                 }
+
                 if (Pen_Icon.Background == null)
                 {
                     PenIcon_Click(null, null);
                 }
+
+                if (Highlighter_Icon.Background == null)
+                {
+                    HighlighterIcon_Click(null, null);
+                }
+
 
                 if (Settings.Gesture.AutoSwitchTwoFingerGesture) // 自动启用多指书写
                 {
@@ -484,8 +501,10 @@ namespace Ink_Canvas
                                 }
                                 catch { }
                                 stylusPoints.Add(stylusPoint);
-                                s = new Stroke(stylusPoints.Clone());
-                                s.DrawingAttributes = stroke.DrawingAttributes;
+                                s = new Stroke(stylusPoints.Clone())
+                                {
+                                    DrawingAttributes = stroke.DrawingAttributes
+                                };
                                 InkCanvasForInkReplay.Strokes.Add(s);
                             });
                         }
@@ -509,8 +528,10 @@ namespace Ink_Canvas
                                 }
                                 catch { }
                                 stylusPoints.Add(stylusPoint);
-                                s = new Stroke(stylusPoints.Clone());
-                                s.DrawingAttributes = stroke.DrawingAttributes;
+                                s = new Stroke(stylusPoints.Clone())
+                                {
+                                    DrawingAttributes = stroke.DrawingAttributes
+                                };
                                 InkCanvasForInkReplay.Strokes.Add(s);
                             });
                         }
@@ -736,8 +757,44 @@ namespace Ink_Canvas
                 }
                 else
                 {
+                    AnimationsHelper.HideWithSlideAndFade(HighlighterPalette);
                     AnimationsHelper.ShowWithSlideFromBottomAndFade(PenPalette);
                     AnimationsHelper.ShowWithSlideFromBottomAndFade(BoardPenPalette);
+                }
+            }
+        }
+
+        private void HighlighterIcon_Click(object sender, RoutedEventArgs e)
+        {
+            if (Highlighter_Icon.Background == null || StackPanelCanvasControls.Visibility == Visibility.Collapsed)
+            {
+                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+
+                Main_Grid.Background = new SolidColorBrush(StringToColor("#01FFFFFF"));
+
+                inkCanvas.IsHitTestVisible = true;
+                inkCanvas.Visibility = Visibility.Visible;
+
+                GridBackgroundCoverHolder.Visibility = Visibility.Visible;
+                GridInkCanvasSelectionCover.Visibility = Visibility.Collapsed;
+
+                StackPanelCanvasControls.Visibility = Visibility.Visible;
+
+                CheckEnableTwoFingerGestureBtnVisibility(true);
+                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                ColorSwitchCheck();
+                HideSubPanels("Highlighter", true);
+            }
+            else
+            {
+                if (HighlighterPalette.Visibility == Visibility.Visible)
+                {
+                    AnimationsHelper.HideWithSlideAndFade(HighlighterPalette);
+                }
+                else
+                {
+                    AnimationsHelper.HideWithSlideAndFade(PenPalette);
+                    AnimationsHelper.ShowWithSlideFromBottomAndFade(HighlighterPalette);
                 }
             }
         }
@@ -999,6 +1056,12 @@ namespace Ink_Canvas
                 if (Pen_Icon.Background == null && StackPanelCanvasControls.Visibility == Visibility.Visible)
                 {
                     PenIcon_Click(null, null);
+                    HighlighterIcon_Click(null, null);
+                }
+                if (Highlighter_Icon.Background == null && StackPanelCanvasControls.Visibility == Visibility.Visible)
+                {
+                    PenIcon_Click(null, null);
+                    HighlighterIcon_Click(null, null);
                 }
             }
             else
@@ -1006,6 +1069,12 @@ namespace Ink_Canvas
                 if (Pen_Icon.Background == null)
                 {
                     PenIcon_Click(null, null);
+                    HighlighterIcon_Click(null, null);
+                }
+                if (Highlighter_Icon.Background == null)
+                {
+                    PenIcon_Click(null, null);
+                    HighlighterIcon_Click(null, null);
                 }
             }
 

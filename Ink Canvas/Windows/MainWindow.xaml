@@ -37,25 +37,25 @@
                 <ResourceDictionary Source="/Resources/IconImageDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <RoutedUICommand x:Key="HotKey_Command_Undo"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_Command_Redo"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_ChangeToSelect"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_ChangeToEraser"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_ChangeToPen1"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_ChangeToPen2"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_ChangeToPen3"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_ChangeToPen4"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_ChangeToPen5"
-                    Text=" "/>
+                             Text=" "/>
             <RoutedUICommand x:Key="HotKey_DrawLine"
-                    Text=" "/>
+                             Text=" "/>
         </ResourceDictionary>
     </Window.Resources>
     <!--  输入命令绑定  -->
@@ -125,7 +125,7 @@
             Executed="KeyDrawLine"/>
     </Window.CommandBindings>
     <Grid x:Name="Main_Grid"
-            Background="#01FFFFFF">
+          Background="#01FFFFFF">
         <!--  // 画板幕布 //  -->
         <Grid Name="GridBackgroundCoverHolder">
             <Grid
@@ -252,14 +252,14 @@
                                 </Button>
                             </ikw:SimpleStackPanel>
                             <ikw:SimpleStackPanel VerticalAlignment="Center"
-                                    Spacing="4">
+                                                  Spacing="4">
                                 <Border
                                     Height="33"
                                     Padding="5,0"
                                     Background="{DynamicResource FloatBarBackground}"
                                     CornerRadius="3">
                                     <ikw:SimpleStackPanel Orientation="Horizontal"
-                                            Spacing="1.5">
+                                                          Spacing="1.5">
                                         <ui:FontIcon
                                             Width="18"
                                             Height="18"
@@ -269,13 +269,13 @@
                                             Glyph="&#xe7ad;">
                                             <ui:FontIcon.RenderTransformOrigin>
                                                 <Point X="0.5"
-                                                        Y="0.5"/>
+                                                       Y="0.5"/>
                                             </ui:FontIcon.RenderTransformOrigin>
                                             <ui:FontIcon.RenderTransform>
                                                 <TransformGroup>
                                                     <RotateTransform Angle="90"/>
                                                     <ScaleTransform ScaleX="1"
-                                                            ScaleY="-1"/>
+                                                                    ScaleY="-1"/>
                                                 </TransformGroup>
                                             </ui:FontIcon.RenderTransform>
                                         </ui:FontIcon>
@@ -329,7 +329,7 @@
                                     Background="{DynamicResource FloatBarBackground}"
                                     CornerRadius="3">
                                     <ikw:SimpleStackPanel Orientation="Horizontal"
-                                            Spacing="1.5">
+                                                          Spacing="1.5">
                                         <ui:FontIcon
                                             Width="18"
                                             Height="18"
@@ -339,7 +339,7 @@
                                             Glyph="&#xe7ad;">
                                             <ui:FontIcon.RenderTransformOrigin>
                                                 <Point X="0.5"
-                                                        Y="0.5"/>
+                                                       Y="0.5"/>
                                             </ui:FontIcon.RenderTransformOrigin>
                                             <ui:FontIcon.RenderTransform>
                                                 <RotateTransform Angle="-90"/>
@@ -391,7 +391,7 @@
                                 </Border>
                             </ikw:SimpleStackPanel>
                             <ikw:SimpleStackPanel VerticalAlignment="Center"
-                                    Spacing="2">
+                                                  Spacing="2">
                                 <Button
                                     Width="90"
                                     Height="35"
@@ -432,13 +432,13 @@
                                                 Glyph="&#xe80c;">
                                                 <ui:FontIcon.RenderTransformOrigin>
                                                     <Point X="0.5"
-                                                            Y="0.5"/>
+                                                           Y="0.5"/>
                                                 </ui:FontIcon.RenderTransformOrigin>
                                                 <ui:FontIcon.RenderTransform>
                                                     <TransformGroup>
                                                         <RotateTransform Angle="90"/>
                                                         <ScaleTransform ScaleX="-1"
-                                                                ScaleY="-1"/>
+                                                                        ScaleY="-1"/>
                                                     </TransformGroup>
                                                 </ui:FontIcon.RenderTransform>
                                             </ui:FontIcon>
@@ -482,13 +482,13 @@
                                                 Glyph="&#xf464;">
                                                 <ui:FontIcon.RenderTransformOrigin>
                                                     <Point X="0.5"
-                                                            Y="0.5"/>
+                                                           Y="0.5"/>
                                                 </ui:FontIcon.RenderTransformOrigin>
                                                 <ui:FontIcon.RenderTransform>
                                                     <TransformGroup>
                                                         <RotateTransform Angle="90"/>
                                                         <ScaleTransform ScaleX="-1"
-                                                                ScaleY="-1"/>
+                                                                        ScaleY="-1"/>
                                                     </TransformGroup>
                                                 </ui:FontIcon.RenderTransform>
                                             </ui:FontIcon>
@@ -514,7 +514,7 @@
                                 VerticalAlignment="Center"
                                 Spacing="4">
                                 <ikw:SimpleStackPanel Orientation="Horizontal"
-                                        Spacing="4">
+                                                      Spacing="4">
                                     <Border
                                         Width="155"
                                         Height="33"
@@ -523,7 +523,7 @@
                                         Background="{DynamicResource FloatBarBackground}"
                                         CornerRadius="3">
                                         <ikw:SimpleStackPanel Orientation="Horizontal"
-                                                Spacing="1.5">
+                                                              Spacing="1.5">
                                             <ui:FontIcon
                                                 Width="18"
                                                 Height="18"
@@ -638,7 +638,7 @@
                                     Background="{DynamicResource FloatBarBackground}"
                                     CornerRadius="3">
                                     <ikw:SimpleStackPanel Orientation="Horizontal"
-                                            Spacing="1.5">
+                                                          Spacing="1.5">
                                         <ui:FontIcon
                                             Width="18"
                                             Height="18"
@@ -816,8 +816,8 @@
                 VerticalAlignment="Bottom">
                 <Viewbox.LayoutTransform>
                     <ScaleTransform x:Name="ViewboxBlackboardLeftSideScaleTransform"
-                            ScaleX="1"
-                            ScaleY="1"/>
+                                    ScaleX="1"
+                                    ScaleY="1"/>
                 </Viewbox.LayoutTransform>
                 <Grid
                     x:Name="BlackboardLeftSide"
@@ -830,11 +830,11 @@
                     <Grid.Resources>
                         <!--  定义 SolidColorBrush 资源  -->
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundKey}"
-                                Color="{DynamicResource BoardBarButtonBackgroundKey}"/>
+                                         Color="{DynamicResource BoardBarButtonBackgroundKey}"/>
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}"
-                                Color="{DynamicResource BoardBarButtonBackgroundPointerOverKey}"/>
+                                         Color="{DynamicResource BoardBarButtonBackgroundPointerOverKey}"/>
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}"
-                                Color="{DynamicResource BoardBarButtonButtonBackgroundPressedKey}"/>
+                                         Color="{DynamicResource BoardBarButtonButtonBackgroundPressedKey}"/>
                         <!--  定义按钮样式  -->
                         <Style TargetType="Button">
                             <Setter Property="Background"
@@ -848,16 +848,16 @@
                                             BorderThickness="{TemplateBinding BorderThickness}"
                                             CornerRadius="5">
                                             <ContentPresenter HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
+                                                              VerticalAlignment="Center"/>
                                         </Border>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver"
-                                                    Value="True">
+                                                     Value="True">
                                                 <Setter Property="Background"
                                                         Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}}"/>
                                             </Trigger>
                                             <Trigger Property="IsPressed"
-                                                    Value="True">
+                                                     Value="True">
                                                 <Setter Property="Background"
                                                         Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}}"/>
                                             </Trigger>
@@ -909,7 +909,7 @@
                             BorderThickness="0,1,0.25,1">
                             <Grid Margin="0,5">
                                 <ikw:SimpleStackPanel HorizontalAlignment="Center"
-                                        VerticalAlignment="Center">
+                                                      VerticalAlignment="Center">
                                     <TextBlock
                                         Name="TextBlockWhiteBoardIndexInfo"
                                         Margin="0,4,0,2"
@@ -1019,8 +1019,8 @@
                 VerticalAlignment="Bottom">
                 <Viewbox.LayoutTransform>
                     <ScaleTransform x:Name="ViewboxBlackboardCenterSideScaleTransform"
-                            ScaleX="1"
-                            ScaleY="1"/>
+                                    ScaleX="1"
+                                    ScaleY="1"/>
                 </Viewbox.LayoutTransform>
                 <Grid
                     x:Name="BlackboardCenterSide"
@@ -1031,11 +1031,11 @@
                     <Grid.Resources>
                         <!--  定义 SolidColorBrush 资源  -->
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundKey}"
-                                Color="{DynamicResource BoardBarButtonBackgroundKey}"/>
+                                         Color="{DynamicResource BoardBarButtonBackgroundKey}"/>
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}"
-                                Color="{DynamicResource BoardBarButtonBackgroundPointerOverKey}"/>
+                                         Color="{DynamicResource BoardBarButtonBackgroundPointerOverKey}"/>
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}"
-                                Color="{DynamicResource BoardBarButtonButtonBackgroundPressedKey}"/>
+                                         Color="{DynamicResource BoardBarButtonButtonBackgroundPressedKey}"/>
                         <!--  定义按钮样式  -->
                         <Style TargetType="Button">
                             <Setter Property="Background"
@@ -1049,16 +1049,16 @@
                                             BorderThickness="{TemplateBinding BorderThickness}"
                                             CornerRadius="5">
                                             <ContentPresenter HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
+                                                              VerticalAlignment="Center"/>
                                         </Border>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver"
-                                                    Value="True">
+                                                     Value="True">
                                                 <Setter Property="Background"
                                                         Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}}"/>
                                             </Trigger>
                                             <Trigger Property="IsPressed"
-                                                    Value="True">
+                                                     Value="True">
                                                 <Setter Property="Background"
                                                         Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}}"/>
                                             </Trigger>
@@ -1103,7 +1103,7 @@
                             </Border>
                         </Button>
                         <Grid Width="0"
-                                Margin="0,0,0,5">
+                              Margin="0,0,0,5">
                             <Viewbox
                                 Name="BoardTwoFingerGestureBorder"
                                 Height="173"
@@ -1132,7 +1132,7 @@
                                                 TextAlignment="Left"/>
                                         </Border>
                                         <ikw:SimpleStackPanel Margin="10,4,10,0"
-                                                Spacing="-2.5">
+                                                              Spacing="-2.5">
                                             <ikw:SimpleStackPanel
                                                 HorizontalAlignment="Center"
                                                 VerticalAlignment="Center"
@@ -1152,7 +1152,7 @@
                                                     FontSize="12"
                                                     Foreground="{DynamicResource BoardBarForeground}"/>
                                                 <Viewbox Width="36"
-                                                        Height="25">
+                                                         Height="25">
                                                     <ui:ToggleSwitch
                                                         Name="BoardToggleSwitchEnableMultiTouchMode"
                                                         Width="42"
@@ -1185,7 +1185,7 @@
                                                     FontSize="12"
                                                     Foreground="{DynamicResource BoardBarForeground}"/>
                                                 <Viewbox Width="36"
-                                                        Height="25">
+                                                         Height="25">
                                                     <ui:ToggleSwitch
                                                         Name="BoardToggleSwitchEnableTwoFingerTranslate"
                                                         Width="42"
@@ -1217,7 +1217,7 @@
                                                     FontSize="12"
                                                     Foreground="{DynamicResource BoardBarForeground}"/>
                                                 <Viewbox Width="36"
-                                                        Height="25">
+                                                         Height="25">
                                                     <ui:ToggleSwitch
                                                         Name="BoardToggleSwitchEnableTwoFingerZoom"
                                                         Width="42"
@@ -1249,7 +1249,7 @@
                                                     FontSize="12"
                                                     Foreground="{DynamicResource BoardBarForeground}"/>
                                                 <Viewbox Width="36"
-                                                        Height="25">
+                                                         Height="25">
                                                     <ui:ToggleSwitch
                                                         Name="BoardToggleSwitchEnableTwoFingerRotation"
                                                         Width="42"
@@ -1419,7 +1419,7 @@
                                                                 Height="55"
                                                                 Columns="2">
                                                                 <ikw:SimpleStackPanel Height="35"
-                                                                        Orientation="Horizontal">
+                                                                                      Orientation="Horizontal">
                                                                     <Label
                                                                         Margin="0,0,12,0"
                                                                         VerticalAlignment="Center"
@@ -1462,7 +1462,7 @@
                                                                             Toggled="ToggleSwitchEnableNibMode_Toggled"/>
                                                                     </ikw:SimpleStackPanel>
                                                                     <ikw:SimpleStackPanel Width="135"
-                                                                            Orientation="Horizontal">
+                                                                                          Orientation="Horizontal">
                                                                         <Label
                                                                             Margin="0,0,10,0"
                                                                             VerticalAlignment="Center"
@@ -1482,7 +1482,7 @@
                                                                 </ikw:SimpleStackPanel>
                                                             </Controls:UniformGrid>
                                                             <StackPanel Height="30"
-                                                                    Orientation="Horizontal">
+                                                                        Orientation="Horizontal">
                                                                 <Label
                                                                     Margin="0,0,10,0"
                                                                     VerticalAlignment="Center"
@@ -1512,13 +1512,13 @@
                                                             BorderThickness="0"
                                                             CornerRadius="5">
                                                             <Controls:UniformGrid Height="120"
-                                                                    Rows="2">
+                                                                                  Rows="2">
                                                                 <ikw:SimpleStackPanel
                                                                     Width="250"
                                                                     Height="50"
                                                                     Orientation="Horizontal">
                                                                     <Controls:UniformGrid Width="250"
-                                                                            Columns="4">
+                                                                                          Columns="4">
                                                                         <Border
                                                                             Width="50"
                                                                             Background="Transparent"
@@ -1611,7 +1611,7 @@
                                                                     Height="50"
                                                                     Orientation="Horizontal">
                                                                     <Controls:UniformGrid Width="250"
-                                                                            Columns="4">
+                                                                                          Columns="4">
                                                                         <Border
                                                                             x:Name="BoardBorderPenColorOrange"
                                                                             Width="50"
@@ -1736,13 +1736,13 @@
 
                                                     <ikw:SimpleStackPanel>
                                                         <Controls:UniformGrid Height="65"
-                                                                Rows="2">
+                                                                              Rows="2">
                                                             <ikw:SimpleStackPanel
                                                                 Width="115"
                                                                 Height="25"
                                                                 Orientation="Horizontal">
                                                                 <Controls:UniformGrid Width="115"
-                                                                        Columns="3">
+                                                                                      Columns="3">
                                                                     <Border
                                                                         x:Name="BoardBorderHighlighterColorRed"
                                                                         Width="30"
@@ -1810,7 +1810,7 @@
                                                                 Height="25"
                                                                 Orientation="Horizontal">
                                                                 <Controls:UniformGrid Width="115"
-                                                                        Columns="3">
+                                                                                      Columns="3">
                                                                     <Border
                                                                         x:Name="BoardBorderHighlighterColorBlue"
                                                                         Width="30"
@@ -2067,7 +2067,7 @@
                                         </ikw:SimpleStackPanel>
                                     </Border>
                                     <Viewbox Width="240"
-                                            Margin="0,10,0,0">
+                                             Margin="0,10,0,0">
                                         <ikw:SimpleStackPanel Spacing="-8">
                                             <ikw:SimpleStackPanel
                                                 Height="50"
@@ -2359,7 +2359,7 @@
                         </Button>
                         <Border>
                             <Grid Width="0"
-                                    Margin="0,0,0,5">
+                                  Margin="0,0,0,5">
                                 <Border
                                     Name="BoardBorderTools"
                                     Margin="-160,-245,-80,60"
@@ -2386,7 +2386,7 @@
                                             Margin="0,4,0,0">
                                             <ikw:SimpleStackPanel HorizontalAlignment="Center">
                                                 <ikw:SimpleStackPanel Height="45"
-                                                        Orientation="Horizontal">
+                                                                      Orientation="Horizontal">
                                                     <Button
                                                         Width="45"
                                                         Height="45"
@@ -2461,7 +2461,7 @@
                                                     </Button>
                                                 </ikw:SimpleStackPanel>
                                                 <ikw:SimpleStackPanel Height="45"
-                                                        Orientation="Horizontal">
+                                                                      Orientation="Horizontal">
                                                     <Button
                                                         Width="45"
                                                         Height="45"
@@ -2652,8 +2652,8 @@
                 VerticalAlignment="Bottom">
                 <Viewbox.LayoutTransform>
                     <ScaleTransform x:Name="ViewboxBlackboardRightSideScaleTransform"
-                            ScaleX="1"
-                            ScaleY="1"/>
+                                    ScaleX="1"
+                                    ScaleY="1"/>
                 </Viewbox.LayoutTransform>
                 <Grid
                     x:Name="BlackboardRightSide"
@@ -2666,11 +2666,11 @@
                     <Grid.Resources>
                         <!--  定义 SolidColorBrush 资源  -->
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundKey}"
-                                Color="{DynamicResource BoardBarButtonBackgroundKey}"/>
+                                         Color="{DynamicResource BoardBarButtonBackgroundKey}"/>
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}"
-                                Color="{DynamicResource BoardBarButtonBackgroundPointerOverKey}"/>
+                                         Color="{DynamicResource BoardBarButtonBackgroundPointerOverKey}"/>
                         <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}"
-                                Color="{DynamicResource BoardBarButtonButtonBackgroundPressedKey}"/>
+                                         Color="{DynamicResource BoardBarButtonButtonBackgroundPressedKey}"/>
                         <!--  定义按钮样式  -->
                         <Style TargetType="Button">
                             <Setter Property="Background"
@@ -2684,16 +2684,16 @@
                                             BorderThickness="{TemplateBinding BorderThickness}"
                                             CornerRadius="5">
                                             <ContentPresenter HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
+                                                              VerticalAlignment="Center"/>
                                         </Border>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver"
-                                                    Value="True">
+                                                     Value="True">
                                                 <Setter Property="Background"
                                                         Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}}"/>
                                             </Trigger>
                                             <Trigger Property="IsPressed"
-                                                    Value="True">
+                                                     Value="True">
                                                 <Setter Property="Background"
                                                         Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}}"/>
                                             </Trigger>
@@ -2782,7 +2782,7 @@
                             BorderThickness="0,1,0.25,1">
                             <Grid Margin="0,5">
                                 <ikw:SimpleStackPanel HorizontalAlignment="Center"
-                                        VerticalAlignment="Center">
+                                                      VerticalAlignment="Center">
                                     <TextBlock
                                         Margin="0,4,0,2"
                                         HorizontalAlignment="Center"
@@ -2870,7 +2870,7 @@
                             HorizontalAlignment="Left"
                             Background="Transparent">
                             <ikw:SimpleStackPanel VerticalAlignment="Center"
-                                    Orientation="Horizontal">
+                                                  Orientation="Horizontal">
                                 <ui:FontIcon
                                     Width="28"
                                     Height="28"
@@ -2901,9 +2901,9 @@
                     </Grid>
                     <!-- 选项卡 -->
                     <ikw:SimpleStackPanel Margin="0,50,0,0"
-                            Spacing="-2.5"
-                            Width="110"
-                            HorizontalAlignment="Left">
+                                          Spacing="-2.5"
+                                          Width="110"
+                                          HorizontalAlignment="Left">
                         <!-- 基本 -->
                         <Button
                             Width="110"
@@ -3325,10 +3325,10 @@
 
                                     <!-- Ink Canvas Better -->
                                     <TextBlock FontSize="15"
-                                            Foreground="{DynamicResource SettingsPageForeground}">
+                                               Foreground="{DynamicResource SettingsPageForeground}">
                                             <Bold>本项目仓库源:</Bold>
                                             <Hyperlink Click="HyperlinkSourceToPresentRepository_Click"
-                                                TextDecorations="None">
+                                                       TextDecorations="None">
                                                 <TextBlock
                                                 Margin="2,0"
                                                 Text="https://github.com/BaiYang2238/Ink-Canvas-Better"
@@ -3336,7 +3336,7 @@
                                             </Hyperlink>
                                         </TextBlock>
                                     <WrapPanel VerticalAlignment="Center"
-                                            Orientation="Horizontal">
+                                               Orientation="Horizontal">
                                         <TextBlock
                                             FontSize="15"
                                             FontWeight="Bold"
@@ -3373,16 +3373,16 @@
 
                                     <!-- Ink Canvas Artistry -->
                                     <TextBlock FontSize="15"
-                                            Foreground="{DynamicResource SettingsPageForeground}">
+                                               Foreground="{DynamicResource SettingsPageForeground}">
                                     <Bold>Ink Canvas Artistry 仓库源:</Bold>
                                     <Hyperlink Click="HyperlinkSourceToOringinalRepository_Click"
-                                                TextDecorations="None">
+                                               TextDecorations="None">
                                         <TextBlock Margin="2,0"
-                                                    Text="https://github.com/InkCanvas/Ink-Canvas-Artistry"/>
+                                                   Text="https://github.com/InkCanvas/Ink-Canvas-Artistry"/>
                                     </Hyperlink>
                                 </TextBlock>
                                     <WrapPanel VerticalAlignment="Center"
-                                            Orientation="Horizontal">
+                                               Orientation="Horizontal">
                                         <TextBlock
                                             FontSize="15"
                                             FontWeight="Bold"
@@ -3419,16 +3419,16 @@
 
                                     <!-- Ink Canvas -->
                                     <TextBlock FontSize="15"
-                                            Foreground="{DynamicResource SettingsPageForeground}">
+                                               Foreground="{DynamicResource SettingsPageForeground}">
                                             <Bold>Ink Canvas 仓库源:</Bold>
                                             <Hyperlink Click="HyperlinkSourceToOringinalRepository_Click"
-                                                TextDecorations="None">
+                                                       TextDecorations="None">
                                                 <TextBlock Margin="2,0"
-                                                    Text="https://github.com/WXRIW/Ink-Canvas"/>
+                                                           Text="https://github.com/WXRIW/Ink-Canvas"/>
                                             </Hyperlink>
                                         </TextBlock>
                                     <WrapPanel VerticalAlignment="Center"
-                                            Orientation="Horizontal">
+                                               Orientation="Horizontal">
                                         <TextBlock
                                             FontSize="15"
                                             FontWeight="Bold"
@@ -3565,7 +3565,7 @@
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
                                                 <StackPanel Grid.Column="0"
-                                                        Orientation="Horizontal">
+                                                            Orientation="Horizontal">
                                                     <Button
                                                         Padding="15,7.5"
                                                         Click="BtnResetAutoUpdateProxyToGHProxy_Click"
@@ -3594,7 +3594,7 @@
                                         </ikw:SimpleStackPanel>
                                     </Border>
                                     <ikw:SimpleStackPanel x:Name="IsAutoUpdateWithSilenceBlock"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchIsAutoUpdateWithSilence"
@@ -3621,7 +3621,7 @@
                                                 Text="# 关闭静默更新后，已完成安装包的下载后将会弹窗询问是否进行更新，开启静默更新后将会在安装包下载完成后每隔十分钟进行如下检测：①处于静默更新时间段内 ②未处于书写模式 ③未处于画板内。若以上检测通过即会关闭软件进行自动更新。"
                                                 TextWrapping="Wrap"/>
                                             <ikw:SimpleStackPanel x:Name="AutoUpdateTimePeriodBlock"
-                                                    Spacing="12">
+                                                                  Spacing="12">
                                                 <ikw:SimpleStackPanel Spacing="12">
                                                     <TextBlock
                                                         FontSize="15"
@@ -3630,7 +3630,7 @@
                                                         Text="静默更新时间段"
                                                         TextWrapping="Wrap"/>
                                                     <ikw:SimpleStackPanel Orientation="Horizontal"
-                                                            Spacing="12">
+                                                                          Spacing="12">
                                                         <ikw:SimpleStackPanel Orientation="Horizontal">
                                                             <TextBlock
                                                                 Margin="0,0,10,0"
@@ -3882,7 +3882,7 @@
                                 </GroupBox.Header>
                                 <ikw:SimpleStackPanel Spacing="5">
                                     <TextBlock Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                            Text="# 可实现智能识别圆、三角形、矩形，并自动转换为规范图形。"/>
+                                               Text="# 可实现智能识别圆、三角形、矩形，并自动转换为规范图形。"/>
                                     <ikw:SimpleStackPanel Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
@@ -3984,7 +3984,7 @@
                                 </GroupBox.Header>
                                 <ikw:SimpleStackPanel Spacing="5">
                                     <TextBlock Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                            Text="# 此部分的设置项将会在幻灯片播放时使用，优先级高于其他设置项"/>
+                                               Text="# 此部分的设置项将会在幻灯片播放时使用，优先级高于其他设置项"/>
                                     <ikw:SimpleStackPanel Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
@@ -4273,11 +4273,11 @@
                                         Text="# 如果遇到用笔或者手指触摸触控屏画板显示为橡皮无法正常书写请调节触控屏相关高级设置，并请按照顺序进行调整，一般情况下只需要调整[特殊屏幕触摸大小倍数]"
                                         TextWrapping="Wrap"/>
                                     <TextBlock Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                            Text="# 启用特殊屏幕模式以调节触控屏触摸大小倍数"/>
+                                               Text="# 启用特殊屏幕模式以调节触控屏触摸大小倍数"/>
                                     <TextBlock Foreground="{DynamicResource SettingsPageAnnotationForeground}"
-                                            Text="# 触控屏触摸大小倍数调整为 0 即为禁用手势橡皮"/>
+                                               Text="# 触控屏触摸大小倍数调整为 0 即为禁用手势橡皮"/>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchIsSpecialScreen"
@@ -4295,7 +4295,7 @@
                                             Text="特殊屏幕模式"/>
                                     </ikw:SimpleStackPanel>
                                     <StackPanel Orientation="Horizontal"
-                                            Visibility="{Binding Visibility, ElementName=TouchMultiplierSlider}">
+                                                Visibility="{Binding Visibility, ElementName=TouchMultiplierSlider}">
                                         <Slider
                                             x:Name="TouchMultiplierSlider"
                                             Width="340"
@@ -4543,7 +4543,7 @@
                                         Text="# 四边红外触控屏启用 [四边红外模式] 有利于触控面积的确定"
                                         TextWrapping="Wrap"/>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchIsQuadIR"
@@ -4569,7 +4569,7 @@
                                         Y1="0"
                                         Y2="0"/>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchIsLogEnabled"
@@ -4591,7 +4591,7 @@
                                         Text="# 日志文件超过 512 KB 时会自动删除。"
                                         TextWrapping="Wrap"/>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchIsSecondConfimeWhenShutdownApp"
@@ -4608,7 +4608,7 @@
                                             Text="关闭软件时二次弹窗确认"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchIsEnableEdgeGestureUtil"
@@ -4639,7 +4639,7 @@
                                 </GroupBox.Header>
                                 <ikw:SimpleStackPanel Spacing="0">
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInEasiNote"
@@ -4657,7 +4657,7 @@
                                             Text="进入“希沃白板”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInEasiNoteIgnoreDesktopAnno"
@@ -4675,7 +4675,7 @@
                                             Text="自动收纳忽略桌面EN批注窗口"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInEasiCamera"
@@ -4693,7 +4693,7 @@
                                             Text="进入“希沃视频展台”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInEasiNote3C"
@@ -4711,7 +4711,7 @@
                                             Text="进入“希沃轻白板”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInSeewoPincoTeacher"
@@ -4729,7 +4729,7 @@
                                             Text="进入“希沃品课”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInHiteTouchPro"
@@ -4747,7 +4747,7 @@
                                             Text="进入“鸿合白板”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInHiteCamera"
@@ -4765,7 +4765,7 @@
                                             Text="进入“鸿合视频展台”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInWxBoardMain"
@@ -4783,7 +4783,7 @@
                                             Text="进入“文香白板”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInOldZyBoard"
@@ -4801,7 +4801,7 @@
                                             Text="进入“中原旧白板”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInMSWhiteboard"
@@ -4819,7 +4819,7 @@
                                             Text="进入“微软 Whiteboard”时自动收纳"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoFoldInPPTSlideShow"
@@ -4869,7 +4869,7 @@
                                         Text="# 请注意，查杀 PPT 小工具会导致希沃课堂授课助手无法使用，直接进入希沃课堂授课助手安装目录删除 Office.dll 文件即可进入 PPT 放映时不会启动希沃的 PPT 工具栏。"
                                         TextWrapping="Wrap"/>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoKillEasiNote"
@@ -4896,7 +4896,7 @@
                                         Y1="0"
                                         Y2="0"/>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoSaveStrokesAtClear"
@@ -4914,7 +4914,7 @@
                                             Text="清屏时自动截图"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchSaveScreenshotsInDateFolders"
@@ -4932,7 +4932,7 @@
                                             Text="截图分日期文件夹保存"/>
                                     </ikw:SimpleStackPanel>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoSaveStrokesAtScreenshot"
@@ -4987,7 +4987,7 @@
                                         Foreground="{DynamicResource SettingsPageForeground}"
                                         Text="墨迹、截图自动保存位置："/>
                                     <ikw:SimpleStackPanel Orientation="Horizontal"
-                                            Spacing="10">
+                                                          Spacing="10">
                                         <TextBox
                                             x:Name="AutoSavedStrokesLocation"
                                             Width="320"
@@ -5020,7 +5020,7 @@
                                         Text="* 请注意检查保存文件夹是否有写入权限"
                                         TextWrapping="Wrap"/>
                                     <ikw:SimpleStackPanel HorizontalAlignment="Left"
-                                            Orientation="Horizontal">
+                                                          Orientation="Horizontal">
                                         <ikw:SimpleStackPanel Width="50">
                                             <ui:ToggleSwitch
                                                 Name="ToggleSwitchAutoDelSavedFiles"
@@ -5085,10 +5085,10 @@
                                     Name="Setting_Exp_Shortcut">
                                     <GroupBox.Header>
                                         <TextBlock
-                                        FontSize="26"
-                                        FontWeight="Bold"
-                                        Foreground="{DynamicResource SettingsPageForeground}"
-                                        Text="快捷启动"/>
+                                            FontSize="26"
+                                            FontWeight="Bold"
+                                            Foreground="{DynamicResource SettingsPageForeground}"
+                                            Text="快捷启动"/>
                                     </GroupBox.Header>
                                     <ikw:SimpleStackPanel Spacing="5">
                                         <Button
@@ -5515,22 +5515,22 @@
             VerticalAlignment="Top">
             <Viewbox.LayoutTransform>
                 <ScaleTransform x:Name="ViewboxFloatingBarScaleTransform"
-                        ScaleX="1"
-                        ScaleY="1"/>
+                                ScaleX="1"
+                                ScaleY="1"/>
             </Viewbox.LayoutTransform>
             <ikw:SimpleStackPanel Orientation="Horizontal">
 
                 <ikw:SimpleStackPanel.Resources>
                     <!--  定义 SolidColorBrush 资源  -->
                     <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundKey}"
-                            Color="{DynamicResource FloatBarButtonBackgroundKey}"/>
+                                     Color="{DynamicResource FloatBarButtonBackgroundKey}"/>
                     <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}"
-                            Color="{DynamicResource FloatBarButtonBackgroundPointerOverKey}"/>
+                                     Color="{DynamicResource FloatBarButtonBackgroundPointerOverKey}"/>
                     <SolidColorBrush x:Key="{x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}"
-                            Color="{DynamicResource FloatBarButtonButtonBackgroundPressedKey}"/>
+                                     Color="{DynamicResource FloatBarButtonButtonBackgroundPressedKey}"/>
                     <!--  定义按钮样式  -->
                     <Style x:Key="FloatBarButtonStyle"
-                            TargetType="Button">
+                           TargetType="Button">
                         <Setter Property="Background"
                                 Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundKey}}"/>
                         <Setter Property="Template">
@@ -5542,16 +5542,16 @@
                                         BorderThickness="{TemplateBinding BorderThickness}"
                                         CornerRadius="5">
                                         <ContentPresenter HorizontalAlignment="Center"
-                                                VerticalAlignment="Center"/>
+                                                          VerticalAlignment="Center"/>
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsMouseOver"
-                                                Value="True">
+                                                 Value="True">
                                             <Setter Property="Background"
                                                     Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPointerOverKey}}"/>
                                         </Trigger>
                                         <Trigger Property="IsPressed"
-                                                Value="True">
+                                                 Value="True">
                                             <Setter Property="Background"
                                                     Value="{StaticResource {x:Static ui:ThemeKeys.ButtonBackgroundPressedKey}}"/>
                                         </Trigger>
@@ -5619,7 +5619,7 @@
                                 Background="Transparent"
                                 Orientation="Vertical">
                                 <ui:FontIcon
-                                    Width="30"
+                                    Width="28"
                                     Height="22"
                                     FontFamily="{StaticResource FluentIconFontFamily}"
                                     FontSize="16"
@@ -5632,35 +5632,6 @@
                                     Foreground="{DynamicResource FloatBarForeground}"
                                     Text="鼠标"
                                     TextAlignment="Center"/>
-                            </ikw:SimpleStackPanel>
-                        </Button>
-                        <Button
-                            Width="30"
-                            Height="32"
-                            Padding="0"
-                            BorderThickness="0"
-                            Click="PenIcon_Click">
-                            <ikw:SimpleStackPanel
-                                Name="Pen_Icon"
-                                Width="30"
-                                HorizontalAlignment="Center"
-                                Background="Transparent"
-                                Orientation="Vertical">
-                                <ui:FontIcon
-                                    x:Name="Icon_Pen"
-                                    Width="30"
-                                    Height="22"
-                                    FontFamily="{StaticResource FluentIconFontFamily}"
-                                    FontSize="16"
-                                    Foreground="{DynamicResource FloatBarForeground}"
-                                    Glyph="&#xee56;"/>
-                                <TextBlock
-                                    Margin="1,-1,0,0"
-                                    FontSize="8"
-                                    Foreground="{DynamicResource FloatBarForeground}"
-                                    Text="批注"
-                                    TextAlignment="Center"
-                                    Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}"/>
                             </ikw:SimpleStackPanel>
                         </Button>
                         <Button
@@ -5690,14 +5661,44 @@
                                     Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}"/>
                             </ikw:SimpleStackPanel>
                         </Button>
+                        <Button
+                            Width="30"
+                            Height="32"
+                            Padding="0"
+                            BorderThickness="0"
+                            Click="PenIcon_Click">
+                            <ikw:SimpleStackPanel
+                                Name="Pen_Icon"
+                                Width="30"
+                                HorizontalAlignment="Center"
+                                Background="Transparent"
+                                Orientation="Vertical">
+                                <ui:FontIcon
+                                    x:Name="Icon_Pen"
+                                    Width="30"
+                                    Height="22"
+                                    FontFamily="{StaticResource FluentIconFontFamily}"
+                                    FontSize="16"
+                                    Foreground="{DynamicResource FloatBarForeground}"
+                                    Glyph="&#xf0c6;"/>
+                                <TextBlock
+                                    Margin="1,-1,0,0"
+                                    FontSize="8"
+                                    Foreground="{DynamicResource FloatBarForeground}"
+                                    Text="铅笔"
+                                    TextAlignment="Center"
+                                    Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}"/>
+                            </ikw:SimpleStackPanel>
+                        </Button>
                         <ikw:SimpleStackPanel
                             Name="StackPanelCanvasControls"
                             Orientation="{Binding ElementName=StackPanelFloatingBar, Path=Orientation}"
                             Visibility="Visible">
+                            <!-- 铅笔选项 -->
                             <Grid Width="0">
                                 <Border
                                     x:Name="PenPalette"
-                                    Margin="-131,-190,-239,35"
+                                    Margin="-30,-175,-200,35"
                                     Background="{DynamicResource FloatBarBackground}"
                                     BorderBrush="{DynamicResource FloatBarBorderBrush}"
                                     BorderThickness="1"
@@ -5714,120 +5715,121 @@
                                             <TextBlock
                                                 FontWeight="Bold"
                                                 Foreground="{DynamicResource FloatBarForeground}"
-                                                Text="墨迹选项"/>
+                                                Text="铅笔选项"/>
                                         </Border>
                                         <ikw:SimpleStackPanel Orientation="Horizontal">
-                                            <Border
-                                                BorderBrush="{DynamicResource FloatBarBorderBrush}"
-                                                BorderThickness="0,0,1,0">
-                                                <Viewbox Width="245">
-                                                    <ikw:SimpleStackPanel Margin="15,5,15,5">
+                                            <Border BorderBrush="{DynamicResource FloatBarBorderBrush}">
+                                                <Viewbox
+                                                    Width="230">
+                                                    <ikw:SimpleStackPanel Margin="10,5,10,5">
                                                         <Viewbox
-                                                            Height="80"
+                                                            Height="60"
                                                             HorizontalAlignment="Center"
                                                             VerticalAlignment="Center">
-                                                            <ikw:SimpleStackPanel>
-                                                                <Controls:UniformGrid
-                                                                    Width="310"
-                                                                    Height="55"
-                                                                    Columns="2">
-                                                                    <ikw:SimpleStackPanel Height="35"
-                                                                            Orientation="Horizontal">
+                                                            <ikw:SimpleStackPanel
+                                                                Orientation="Horizontal"
+                                                                Spacing="10">
+                                                                <ikw:SimpleStackPanel
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Center">
+                                                                    <ikw:SimpleStackPanel Height="40"
+                                                                                      Orientation="Horizontal">
                                                                         <Label
-                                                                            Margin="0,0,12,0"
-                                                                            VerticalAlignment="Center"
-                                                                            Content="笔锋"
-                                                                            FontSize="15"
-                                                                            Foreground="{DynamicResource FloatBarForeground}"/>
+                                                                        Margin="0,0,12,0"
+                                                                        VerticalAlignment="Center"
+                                                                        Content="笔锋"
+                                                                        FontSize="18"
+                                                                        Foreground="{DynamicResource FloatBarForeground}"/>
                                                                         <ComboBox
-                                                                            x:Name="ComboBoxPenStyle"
-                                                                            Height="30"
-                                                                            VerticalAlignment="Center"
-                                                                            SelectedIndex="0"
-                                                                            SelectionChanged="ComboBoxPenStyle_SelectionChanged">
+                                                                        x:Name="ComboBoxPenStyle"
+                                                                        Height="30"
+                                                                        VerticalAlignment="Center"
+                                                                        SelectedIndex="0"
+                                                                        SelectionChanged="ComboBoxPenStyle_SelectionChanged">
                                                                             <ComboBoxItem Content="点集笔锋"/>
                                                                             <ComboBoxItem Content="速率笔锋"/>
                                                                             <ComboBoxItem Content="关闭笔锋"/>
                                                                         </ComboBox>
                                                                     </ikw:SimpleStackPanel>
-                                                                    <ikw:SimpleStackPanel
-                                                                        Margin="0,-5,0,-5"
-                                                                        HorizontalAlignment="Right"
-                                                                        VerticalAlignment="Center">
-                                                                        <ikw:SimpleStackPanel
-                                                                            x:Name="NibModeSimpleStackPanel"
-                                                                            Width="135"
+                                                                    <StackPanel Height="40"
                                                                             Orientation="Horizontal">
-                                                                            <Label
-                                                                                VerticalAlignment="Center"
-                                                                                Content="笔尖模式"
-                                                                                FontSize="15"/>
-                                                                            <ui:ToggleSwitch
-                                                                                x:Name="ToggleSwitchEnableNibMode"
-                                                                                Width="70"
-                                                                                MinWidth="0"
-                                                                                Margin="10,0,0,0"
-                                                                                IsOn="True"
-                                                                                OffContent="关"
-                                                                                OnContent="开"
-                                                                                Toggled="ToggleSwitchEnableNibMode_Toggled"/>
-                                                                        </ikw:SimpleStackPanel>
-                                                                        <ikw:SimpleStackPanel Width="135"
-                                                                                Orientation="Horizontal">
-                                                                            <Label
-                                                                                Margin="0,0,10,0"
-                                                                                VerticalAlignment="Center"
-                                                                                Content="墨迹识别"
-                                                                                FontSize="15"
-                                                                                Foreground="{DynamicResource FloatBarForeground}"/>
-                                                                            <ui:ToggleSwitch
-                                                                                Width="70"
-                                                                                MinWidth="0"
-                                                                                Foreground="{DynamicResource FloatBarForeground}"
-                                                                                IsOn="{Binding ElementName=ToggleSwitchEnableInkToShape, Path=IsOn}"
-                                                                                OffContent="关"
-                                                                                OnContent="开"
-                                                                                Toggled="ToggleSwitchEnableInkToShape_Toggled"/>
-                                                                        </ikw:SimpleStackPanel>
-                                                                    </ikw:SimpleStackPanel>
-                                                                </Controls:UniformGrid>
-                                                                <StackPanel Height="30"
+                                                                        <Label
+                                                                            Margin="0,0,10,0"
+                                                                            VerticalAlignment="Center"
+                                                                            Content="粗细"
+                                                                            FontSize="18"
+                                                                            Foreground="{DynamicResource FloatBarForeground}"/>
+                                                                        <Slider
+                                                                            VerticalAlignment="Center"
+                                                                            x:Name="InkWidthSlider"
+                                                                            Width="150"
+                                                                            FontSize="20"
+                                                                            IsSnapToTickEnabled="True"
+                                                                            Maximum="30"
+                                                                            Minimum="1"
+                                                                            TickFrequency="1"
+                                                                            TickPlacement="Both"
+                                                                            ValueChanged="InkWidthSlider_ValueChanged"
+                                                                            Value="5"/>
+                                                                    </StackPanel>
+                                                                </ikw:SimpleStackPanel>
+                                                                <ikw:SimpleStackPanel
+                                                                    Spacing="10"
+                                                                    VerticalAlignment="Center"
+                                                                    HorizontalAlignment="Right">
+                                                                    <ikw:SimpleStackPanel
+                                                                        x:Name="NibModeSimpleStackPanel"
+                                                                        Width="160"
                                                                         Orientation="Horizontal">
-                                                                    <Label
-                                                                        Margin="0,0,10,0"
-                                                                        VerticalAlignment="Center"
-                                                                        Content="粗细"
-                                                                        FontSize="15"
-                                                                        Foreground="{DynamicResource FloatBarForeground}"/>
-                                                                    <Slider
-                                                                        x:Name="InkWidthSlider"
-                                                                        Width="250"
-                                                                        FontSize="20"
-                                                                        IsSnapToTickEnabled="True"
-                                                                        Maximum="30"
-                                                                        Minimum="1"
-                                                                        TickFrequency="1"
-                                                                        TickPlacement="Both"
-                                                                        ValueChanged="InkWidthSlider_ValueChanged"
-                                                                        Value="5"/>
-                                                                </StackPanel>
+                                                                        <Label
+                                                                            VerticalAlignment="Center"
+                                                                            Content="笔尖模式"
+                                                                            FontSize="18"/>
+                                                                        <ui:ToggleSwitch
+                                                                            x:Name="ToggleSwitchEnableNibMode"
+                                                                            Width="70"
+                                                                            MinWidth="0"
+                                                                            Margin="10,0,0,0"
+                                                                            IsOn="True"
+                                                                            OffContent="关"
+                                                                            OnContent="开"
+                                                                            Toggled="ToggleSwitchEnableNibMode_Toggled"/>
+                                                                    </ikw:SimpleStackPanel>
+                                                                    <ikw:SimpleStackPanel
+                                                                        Width="160"
+                                                                        Orientation="Horizontal">
+                                                                        <Label
+                                                                            VerticalAlignment="Center"
+                                                                            Content="墨迹识别"
+                                                                            FontSize="18"
+                                                                            Foreground="{DynamicResource FloatBarForeground}"/>
+                                                                        <ui:ToggleSwitch
+                                                                            Width="70"
+                                                                            MinWidth="0"
+                                                                            Margin="10,0,0,0"
+                                                                            Foreground="{DynamicResource FloatBarForeground}"
+                                                                            IsOn="{Binding ElementName=ToggleSwitchEnableInkToShape, Path=IsOn}"
+                                                                            OffContent="关"
+                                                                            OnContent="开"
+                                                                            Toggled="ToggleSwitchEnableInkToShape_Toggled"/>
+                                                                    </ikw:SimpleStackPanel>
+                                                                </ikw:SimpleStackPanel>
                                                             </ikw:SimpleStackPanel>
                                                         </Viewbox>
-                                                        <ikw:SimpleStackPanel Width="250">
+                                                        <ikw:SimpleStackPanel>
                                                             <Border
-                                                                Width="250"
-                                                                Height="120"
                                                                 BorderBrush="Black"
                                                                 BorderThickness="0"
                                                                 CornerRadius="5">
-                                                                <Controls:UniformGrid Height="120"
-                                                                        Rows="2">
+                                                                <ikw:SimpleStackPanel 
+                                                                    Orientation="Vertical"
+                                                                    Spacing="5">
                                                                     <ikw:SimpleStackPanel
                                                                         Width="250"
                                                                         Height="50"
                                                                         Orientation="Horizontal">
                                                                         <Controls:UniformGrid Width="250"
-                                                                                Columns="4">
+                                                                                              Columns="4">
                                                                             <Border
                                                                                 Width="50"
                                                                                 Background="Transparent"
@@ -5920,8 +5922,9 @@
                                                                         Width="250"
                                                                         Height="50"
                                                                         Orientation="Horizontal">
-                                                                        <Controls:UniformGrid Width="250"
-                                                                                Columns="4">
+                                                                        <Controls:UniformGrid
+                                                                            Width="250"
+                                                                            Columns="4">
                                                                             <Border
                                                                                 x:Name="BorderPenColorOrange"
                                                                                 Width="50"
@@ -6004,23 +6007,82 @@
                                                                             </Border>
                                                                         </Controls:UniformGrid>
                                                                     </ikw:SimpleStackPanel>
-                                                                </Controls:UniformGrid>
+                                                                </ikw:SimpleStackPanel>
                                                             </Border>
                                                         </ikw:SimpleStackPanel>
                                                     </ikw:SimpleStackPanel>
                                                 </Viewbox>
                                             </Border>
+                                            <!-- TODO: 颜色完全自定义
+                                            <Border>
+                                                <ikw:SquarePicker
+                                                    Name="squarePicker"
+                                                    Height="150"
+                                                    PreviewMouseUp="squarePicker_PreviewMouseUp"
+                                                    ColorChanged="squarePicker_ColorChanged"
+                                                    SelectedColor="White" 
+                                                    >
+                                                </ikw:SquarePicker>
+                                            </Border>
+                                             -->
+                                        </ikw:SimpleStackPanel>
+                                    </ikw:SimpleStackPanel>
+                                </Border>
+                            </Grid>
+                            <!-- 荧光笔选项 -->
+                            <Grid
+                                Width="0">
+                                <Border
+                                    x:Name="HighlighterPalette"
+                                    Margin="0,-135,-140,35"
+                                    Background="{DynamicResource FloatBarBackground}"
+                                    BorderBrush="{DynamicResource FloatBarBorderBrush}"
+                                    BorderThickness="1"
+                                    CornerRadius="5"
+                                    Visibility="Visible">
+                                    <ikw:SimpleStackPanel>
+                                        <Border
+                                            Margin="-1,-1,-1,0"
+                                            Padding="15,5"
+                                            Background="{DynamicResource FloatBarTitleBackground}"
+                                            BorderBrush="{DynamicResource FloatBarBorderBrush}"
+                                            BorderThickness="1"
+                                            CornerRadius="5,5,0,0">
+                                            <TextBlock
+                                                FontWeight="Bold"
+                                                Foreground="{DynamicResource FloatBarForeground}"
+                                                Text="荧光笔选项"/>
+                                        </Border>
+                                        <ikw:SimpleStackPanel Orientation="Horizontal">
                                             <ikw:SimpleStackPanel
                                                 VerticalAlignment="Top"
                                                 Width="115"
-                                                Margin="5,0,5,0">
-                                                <TextBlock
-                                                    Margin="0,5,0,5"
-                                                    FontWeight="Bold"
-                                                    Foreground="{DynamicResource FloatBarForeground}"
-                                                    Text="荧光笔"
-                                                    TextAlignment="Center"/>
+                                                Margin="10,5">
 
+                                                <!-- TODO: 荧光笔自定义粗细
+                                                <ikw:SimpleStackPanel
+                                                    Orientation="Horizontal"
+                                                    Spacing="5">
+                                                    <TextBlock
+                                                        FontSize="10"
+                                                        Foreground="{DynamicResource FloatBarForeground}"
+                                                        Text="粗细"
+                                                        VerticalAlignment="Center"
+                                                        TextAlignment="Left"/>
+                                                    <Viewbox Height="16">
+                                                        <Slider
+                                                            x:Name="InkWidthSlider_Highlighter"
+                                                            Width="140"
+                                                            IsSnapToTickEnabled="True"
+                                                            Maximum="30"
+                                                            Minimum="1"
+                                                            TickFrequency="1"
+                                                            TickPlacement="Both"
+                                                            ValueChanged="InkWidthSlider_ValueChanged"
+                                                            Value="5"/>
+                                                    </Viewbox>
+                                                </ikw:SimpleStackPanel>
+                                                -->
                                                 <ikw:SimpleStackPanel
                                                     VerticalAlignment="Center"
                                                     Orientation="Horizontal"
@@ -6029,6 +6091,7 @@
                                                         FontSize="10"
                                                         Foreground="{DynamicResource FloatBarForeground}"
                                                         Text="不透明度"
+                                                        VerticalAlignment="Center"
                                                         TextAlignment="Left"/>
                                                     <Viewbox Height="16">
                                                         <Slider
@@ -6046,13 +6109,13 @@
 
                                                 <ikw:SimpleStackPanel>
                                                     <Controls:UniformGrid Height="65"
-                                                            Rows="2">
+                                                                          Rows="2">
                                                         <ikw:SimpleStackPanel
                                                             Width="115"
                                                             Height="25"
                                                             Orientation="Horizontal">
                                                             <Controls:UniformGrid Width="115"
-                                                                    Columns="3">
+                                                                                  Columns="3">
                                                                 <Border
                                                                     x:Name="BorderHighlighterColorRed"
                                                                     Width="30"
@@ -6120,7 +6183,7 @@
                                                             Height="25"
                                                             Orientation="Horizontal">
                                                             <Controls:UniformGrid Width="115"
-                                                                    Columns="3">
+                                                                                  Columns="3">
                                                                 <Border
                                                                     x:Name="BorderHighlighterColorBlue"
                                                                     Width="30"
@@ -6184,6 +6247,35 @@
                                     </ikw:SimpleStackPanel>
                                 </Border>
                             </Grid>
+                            <Button
+                            Width="30"
+                            Height="32"
+                            Padding="0"
+                            BorderThickness="0"
+                            Click="HighlighterIcon_Click">
+                                <ikw:SimpleStackPanel
+                                Name="Highlighter_Icon"
+                                Width="30"
+                                HorizontalAlignment="Center"
+                                Background="Transparent"
+                                Orientation="Vertical">
+                                    <ui:FontIcon
+                                    x:Name="Highlighter_Pen"
+                                    Width="30"
+                                    Height="22"
+                                    FontFamily="{StaticResource FluentIconFontFamily}"
+                                    FontSize="16"
+                                    Foreground="{DynamicResource FloatBarForeground}"
+                                    Glyph="&#xe891;"/>
+                                    <TextBlock
+                                    Margin="1,-1,0,0"
+                                    FontSize="8"
+                                    Foreground="{DynamicResource FloatBarForeground}"
+                                    Text="荧光笔"
+                                    TextAlignment="Center"
+                                    Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}"/>
+                                </ikw:SimpleStackPanel>
+                            </Button>
                             <Button
                                 Width="30"
                                 Height="32"
@@ -6325,7 +6417,7 @@
                                 <Border
                                     x:Name="BorderDrawShape"
                                     Height="230"
-                                    Margin="-112,-240,-88,28"
+                                    Margin="-30,-240,-170,28"
                                     Background="{DynamicResource FloatBarBackground}"
                                     BorderBrush="{DynamicResource FloatBarBorderBrush}"
                                     BorderThickness="1"
@@ -6763,7 +6855,7 @@
                                         </Border>
                                         <ikw:SimpleStackPanel HorizontalAlignment="Center">
                                             <ikw:SimpleStackPanel Height="45"
-                                                    Orientation="Horizontal">
+                                                                  Orientation="Horizontal">
                                                 <Button
                                                     Width="45"
                                                     Height="45"
@@ -6838,7 +6930,7 @@
                                                 </Button>
                                             </ikw:SimpleStackPanel>
                                             <ikw:SimpleStackPanel Height="45"
-                                                    Orientation="Horizontal">
+                                                                  Orientation="Horizontal">
                                                 <Button
                                                     Width="45"
                                                     Height="45"
@@ -6980,7 +7072,7 @@
                                     Text="手势选项"/>
                             </Border>
                             <ikw:SimpleStackPanel Margin="5,2,5,3"
-                                    Spacing="-2.5">
+                                                  Spacing="-2.5">
                                 <ikw:SimpleStackPanel
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
@@ -7000,7 +7092,7 @@
                                         FontSize="12"
                                         Foreground="{DynamicResource FloatBarForeground}"/>
                                     <Viewbox Width="36"
-                                            Height="25">
+                                             Height="25">
                                         <ui:ToggleSwitch
                                             Name="ToggleSwitchEnableMultiTouchMode"
                                             Width="42"
@@ -7032,7 +7124,7 @@
                                         FontSize="12"
                                         Foreground="{DynamicResource FloatBarForeground}"/>
                                     <Viewbox Width="36"
-                                            Height="25">
+                                             Height="25">
                                         <ui:ToggleSwitch
                                             Name="ToggleSwitchEnableTwoFingerTranslate"
                                             Width="42"
@@ -7063,7 +7155,7 @@
                                         FontSize="12"
                                         Foreground="{DynamicResource FloatBarForeground}"/>
                                     <Viewbox Width="36"
-                                            Height="25">
+                                             Height="25">
                                         <ui:ToggleSwitch
                                             Name="ToggleSwitchEnableTwoFingerZoom"
                                             Width="42"
@@ -7094,7 +7186,7 @@
                                         FontSize="12"
                                         Foreground="{DynamicResource FloatBarForeground}"/>
                                     <Viewbox Width="36"
-                                            Height="25">
+                                             Height="25">
                                         <ui:ToggleSwitch
                                             Name="ToggleSwitchEnableTwoFingerRotation"
                                             Width="42"
