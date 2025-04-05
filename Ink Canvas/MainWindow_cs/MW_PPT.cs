@@ -365,15 +365,6 @@ namespace Ink_Canvas
                 //BtnPPTSlideShow.Visibility = Visibility.Collapsed;
                 BtnPPTSlideShowEnd.Visibility = Visibility.Visible;
 
-                if (Settings.Appearance.IsColorfulViewboxFloatingBar)
-                {
-                    ViewboxFloatingBar.Opacity = 0.8;
-                }
-                else
-                {
-                    ViewboxFloatingBar.Opacity = 0.75;
-                }
-
                 if (Settings.PowerPointSettings.IsShowCanvasAtNewSlideShow && Main_Grid.Background == Brushes.Transparent)
                 {
                     if (currentMode != 0)
@@ -514,14 +505,6 @@ namespace Ink_Canvas
                     BtnHideInkCanvas_Click(null, null);
                 }
 
-                if (Settings.Appearance.IsColorfulViewboxFloatingBar)
-                {
-                    ViewboxFloatingBar.Opacity = 0.95;
-                }
-                else
-                {
-                    ViewboxFloatingBar.Opacity = 1;
-                }
             });
 
             await Task.Delay(150);
