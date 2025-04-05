@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 using Application = System.Windows.Application;
 using Point = System.Windows.Point;
 
@@ -23,6 +24,8 @@ namespace Ink_Canvas
 {
     public partial class MainWindow : Window
     {
+        Uri checkboxBackgroundURI = new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png");
+
         #region TwoFingZoomBtn
 
         private void TwoFingerGestureBorder_Click(object sender, RoutedEventArgs e)
@@ -192,33 +195,36 @@ namespace Ink_Canvas
                     BoardEraserByStrokes.Background = (Brush)Application.Current.FindResource("BoardBarBackground");
                     BoardEraserByStrokes.Opacity = 1;
                 }
-                if (mode == "pen" || mode == "color")
+                switch (mode)
                 {
-                    Highlighter_Icon.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
-                    Pen_Icon.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
-                    BoardPen.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
-                    BoardPen.Opacity = 0.99;
-                }
-                else
-                {
-                    if (mode == "eraser")
-                    {
-                        Eraser_Icon.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
-                        BoardEraser.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
+                    case "pen":
+                        Pen_Icon.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
+                        BoardPen.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
+                        BoardPen.Opacity = 0.99;
+                    break;
+                    case "color":
+                        Pen_Icon.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
+                        BoardPen.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
+                        BoardPen.Opacity = 0.99;
+                    break;
+                    case "Highlighter":
+                        Highlighter_Icon.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
+                    break;
+                    case "eraser":
+                        Eraser_Icon.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
+                        BoardEraser.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
                         BoardEraser.Opacity = 0.99;
-                    }
-                    else if (mode == "eraserByStrokes")
-                    {
-                        EraserByStrokes_Icon.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
-                        BoardEraserByStrokes.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
+                    break;
+                    case "eraserByStrokes":
+                        EraserByStrokes_Icon.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
+                        BoardEraserByStrokes.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.3 };
                         BoardEraserByStrokes.Opacity = 0.99;
-                    }
-                    else if (mode == "select")
-                    {
-                        BoardSelect.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
-                        SymbolIconSelect.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/Icons-png/check-box-background.png"))) { Opacity = 0.5 };
+                    break;
+                    case "select":
+                        BoardSelect.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.4 };
+                        SymbolIconSelect.Background = new ImageBrush(new BitmapImage(checkboxBackgroundURI)) { Opacity = 0.4 };
                         SymbolIconSelect.Opacity = 0.99;
-                    }
+                    break;
                 }
 
                 if (autoAlignCenter) // 控制居中
@@ -727,8 +733,17 @@ namespace Ink_Canvas
             }
         }
 
+        // 最后一次点击的铅笔或荧光笔按钮是哪个
+        // 0 无
+        // 1 铅笔
+        // 2 荧光笔
+        long whichPen = 0;
+        // 荧光笔上一次使用时颜色
+        long lastColor_highlighter = 101;
         private void PenIcon_Click(object sender, RoutedEventArgs e)
         {
+            CheckLastColor((int)lastColor_highlighter);
+            whichPen = 1;
             if (Pen_Icon.Background == null || StackPanelCanvasControls.Visibility == Visibility.Collapsed)
             {
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
@@ -766,6 +781,7 @@ namespace Ink_Canvas
 
         private void HighlighterIcon_Click(object sender, RoutedEventArgs e)
         {
+            whichPen = 2;
             if (Highlighter_Icon.Background == null || StackPanelCanvasControls.Visibility == Visibility.Collapsed)
             {
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
@@ -1053,27 +1069,23 @@ namespace Ink_Canvas
 
             if (currentMode == 0)
             { // 先回到画笔再清屏，避免 TimeMachine 的相关 bug 影响
-                if (Pen_Icon.Background == null && StackPanelCanvasControls.Visibility == Visibility.Visible)
+                if (Pen_Icon.Background == null && StackPanelCanvasControls.Visibility == Visibility.Visible && whichPen != 2)
                 {
                     PenIcon_Click(null, null);
-                    HighlighterIcon_Click(null, null);
                 }
-                if (Highlighter_Icon.Background == null && StackPanelCanvasControls.Visibility == Visibility.Visible)
+                if (Highlighter_Icon.Background == null && StackPanelCanvasControls.Visibility == Visibility.Visible && whichPen == 2)
                 {
-                    PenIcon_Click(null, null);
                     HighlighterIcon_Click(null, null);
                 }
             }
             else
             {
-                if (Pen_Icon.Background == null)
+                if (Pen_Icon.Background == null && whichPen != 2)
                 {
                     PenIcon_Click(null, null);
-                    HighlighterIcon_Click(null, null);
                 }
-                if (Highlighter_Icon.Background == null)
+                if (Highlighter_Icon.Background == null && whichPen == 2)
                 {
-                    PenIcon_Click(null, null);
                     HighlighterIcon_Click(null, null);
                 }
             }
