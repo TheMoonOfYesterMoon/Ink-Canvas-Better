@@ -318,6 +318,10 @@ namespace Ink_Canvas
         ShortcutSetting[] ShortcutSetting;
         public void LoadShortcuts()
         {
+            if (Settings.Shortcut.ShortcutName == null)
+            {
+                return;
+            }
             int shortcutAmount = Settings.Shortcut.ShortcutName.Count;
             Setting_Shortcuts_Edit.Children.Clear();
             ShortcutSetting = new ShortcutSetting[shortcutAmount];
