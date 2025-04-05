@@ -742,7 +742,6 @@ namespace Ink_Canvas
         long lastColor_highlighter = 101;
         private void PenIcon_Click(object sender, RoutedEventArgs e)
         {
-            CheckLastColor((int)lastColor_highlighter);
             whichPen = 1;
             if (Pen_Icon.Background == null || StackPanelCanvasControls.Visibility == Visibility.Collapsed)
             {
@@ -781,6 +780,7 @@ namespace Ink_Canvas
 
         private void HighlighterIcon_Click(object sender, RoutedEventArgs e)
         {
+            CheckLastColor((int)lastColor_highlighter);
             whichPen = 2;
             if (Highlighter_Icon.Background == null || StackPanelCanvasControls.Visibility == Visibility.Collapsed)
             {
