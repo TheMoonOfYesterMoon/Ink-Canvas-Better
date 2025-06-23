@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="Ink_Canvas_Better.Controls.ICB_Button"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ink_Canvas_Better.Controls"
+             xmlns:Controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+             xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+             xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+             mc:Ignorable="d" 
+             d:DesignHeight="48"
+             d:DesignWidth="48"
+             Padding="0">
+    <Border
+        Width="48"
+        Height="48"
+        Name="Border"
+        Background="{DynamicResource floatingBarBackground}">
+        <Button
+            Width="43"
+            Height="43"
+            Name="InnerButton"
+            Padding="0"
+            BorderThickness="0"
+            Background="{x:Null}">
+            <ikw:SimpleStackPanel
+                HorizontalAlignment="Center"
+                Background="Transparent"
+                Orientation="Vertical">
+                <ikw:SimpleStackPanel
+                    Name="SimpleStackPanel_1"
+                    Width="43"
+                    Height="28"
+                    HorizontalAlignment="Center"
+                    Background="Transparent"
+                    Orientation="Vertical">
+                    
+                </ikw:SimpleStackPanel>
+                <TextBlock
+                    Height="15"
+                    Name="TextBox_1"
+                    FontSize="10"
+                    Foreground="{DynamicResource floatingBarText}"
+                    Text="example"
+                    TextAlignment="Center"
+                    Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}"/>
+            </ikw:SimpleStackPanel>
+
+        </Button>
+
+    </Border>
+    
+</UserControl>

@@ -1,0 +1,202 @@
+﻿<Window x:Class="Ink_Canvas_Better.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:localControls="clr-namespace:Ink_Canvas_Better.Controls"
+        xmlns:local="clr-namespace:Ink_Canvas_Better"
+        xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+        xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+        Title="Ink Canvas Better 画板"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        Stylus.IsPressAndHoldEnabled="False"
+        Topmost="True"
+        WindowStyle="None"
+        Foreground="Black"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowState="Maximized">
+    <Grid
+        Name="MainWindow_Grid"
+        Background="#01FFFFFF">
+        <!-- 
+        <InkCanvas
+            x:Name="inkCanvas"
+            Background="Transparent"
+            Cursor="Pen"
+            ForceCursor="False"
+            IsManipulationEnabled="True"
+            EditingModeChanged=""
+            ManipulationCompleted=""
+            ManipulationDelta=""
+            ManipulationInertiaStarting=""
+            ManipulationStarting=""
+            MouseDown=""
+            MouseMove=""
+            MouseUp=""
+            PreviewTouchDown=""
+            PreviewTouchUp=""
+            SelectionChanged=""
+            StrokeCollected=""
+            TouchDown=""
+            TouchMove=""
+            TouchUp=""/>
+        -->
+        <!--  // 画板 //  -->
+        <InkCanvas
+            x:Name="inkCanvas"
+            Background="Transparent"
+            Cursor="Pen"
+            ForceCursor="False"
+            IsManipulationEnabled="True"/>
+        <!-- // 浮动工具栏 // -->
+        <ikw:SimpleStackPanel
+            Name="floatingBar"
+            Spacing="2"
+            Height="48"
+            Orientation="Horizontal"
+            HorizontalAlignment="Left" VerticalAlignment="Top">
+            <!-- 渲染变换 -->
+            <ikw:SimpleStackPanel.RenderTransform>
+                <TranslateTransform/>
+            </ikw:SimpleStackPanel.RenderTransform>
+
+            <!-- 隐藏与移动 -->
+            <Border
+                Name="Border_Smile">
+                <localControls:ICB_Button
+                    x:Name="SmileIcon"
+                    PreviewMouseDown="SmileIcon_MouseDown"
+                    PreviewMouseUp="SmileIcon_MouseUp"
+                    FontIcon="&#xe76e;"
+                    CornerRadius="5"
+                    IsShowText="False"/>
+            </Border>
+
+            <Border
+                Name="Border_DrawingTools"
+                Background="{DynamicResource floatingBarBackground}"
+                CornerRadius="5">
+                <ikw:SimpleStackPanel
+                    Margin="5, 0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="鼠标"
+                        FontIcon="&#xe8b0;"
+                        OnClick="CursorIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="清空"
+                        FontIcon="&#xe74d;"
+                        OnClick="ClearIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="铅笔"
+                        FontIcon="&#xf0c6;"
+                        OnClick="PenIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="荧光笔"
+                        OnClick="HighlighterIcon_Click"
+                        FontIcon="&#xe891;"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="橡皮擦"
+                        FontIcon="&#xe75c;"
+                        OnClick="EraserIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="圈选"
+                        FontIcon="&#xe958;"
+                        OnClick="SelectIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="图形"
+                        FontIcon="&#xf158;"
+                        OnClick="ShapeIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="撤销"
+                        FontIcon="&#xe7a7;"
+                        OnClick="RedoIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="重做"
+                        FontIcon="&#xe7a6;"
+                        OnClick="UndoIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+
+                </ikw:SimpleStackPanel>
+
+            </Border>
+
+            <Border
+                Name="Border_Others"
+                Background="{DynamicResource floatingBarBackground}"
+                CornerRadius="5">
+                <ikw:SimpleStackPanel
+                    Margin="5, 0"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="放大镜"
+                        FontIcon="&#xf78b;"
+                        OnClick="MagnifierIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="工具"
+                        FontIcon="&#xe8a9;"
+                        OnClick="ToolsIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
+                        CornerRadius="5"
+                        Text="隐藏"
+                        FontIcon="&#xed1a;"
+                        OnClick="HideIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+
+                </ikw:SimpleStackPanel>
+            </Border>
+
+            <Border
+                Name="Border_TouchSetting">
+                <ikw:SimpleStackPanel
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <localControls:ICB_Button
+                        Text="触屏设置"
+                        FontIcon="&#xf271;"
+                        OnClick="TouchSettingIcon_Click"
+                        CornerRadius="5"/>
+                </ikw:SimpleStackPanel>
+            </Border>
+
+            <Border
+                Name="Border_ExitPPT">
+                <ikw:SimpleStackPanel
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal">
+                    <localControls:ICB_Button
+                        Text="退出PPT"
+                        OnClick="ExitPPTIcon_Click"
+                        CornerRadius="5"/>
+                </ikw:SimpleStackPanel>
+            </Border>
+            
+        </ikw:SimpleStackPanel>
+    </Grid>
+</Window>
