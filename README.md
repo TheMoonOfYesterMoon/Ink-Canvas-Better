@@ -15,10 +15,10 @@
 
 使用和分发本软件前，请您应当且务必知晓相关开源协议  
 本软件在 [Ink-Canvas-Artistry](https://github.com/InkCanvas/Ink-Canvas-Artistry) 的基础上对 [Ink-Canvas](https://github.com/WXRIW/Ink-Canvas) 进行了二次修改  
-对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者
-
+对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者  
+需要特别注意的是：本软件砍掉了点名工具和计时器工具，因为它们并非画板软件的核心功能  
 [直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest "Latest Releases")  
-[使用说明](./Manual.md)
+[使用说明](./Manual.md)  
 [隐私政策](./Privacy.md)
 
 ## 📗 Q&A
