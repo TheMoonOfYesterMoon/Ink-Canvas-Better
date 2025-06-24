@@ -34,7 +34,6 @@ namespace Ink_Canvas_Better
             _mouseDownControlPosition = new Point(transform.X, transform.Y);
             c.MouseMove += SmileIcon_MouseMove;
             c.CaptureMouse();
-            SmileIcon.FontIcon = "\ued54";
         }
 
         private void SmileIcon_MouseMove(object sender, MouseEventArgs e)
@@ -67,7 +66,6 @@ namespace Ink_Canvas_Better
 
             c.MouseMove -= SmileIcon_MouseMove;
             c.ReleaseMouseCapture();
-            SmileIcon.FontIcon = "\ue76e";
         }
 
         #endregion

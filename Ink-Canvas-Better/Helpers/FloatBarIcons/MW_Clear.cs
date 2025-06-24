@@ -11,7 +11,7 @@ namespace Ink_Canvas_Better
     {
         public void ClearIcon_Click(object sender, RoutedEventArgs e)
         {
-
+            inkCanvas.Strokes.Clear();
         }
     }
 }

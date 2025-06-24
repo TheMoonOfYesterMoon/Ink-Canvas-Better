@@ -1,20 +1,18 @@
 ﻿using iNKORE.UI.WPF.Controls;
+using iNKORE.UI.WPF.Helpers;
 using iNKORE.UI.WPF.Modern.Controls;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static System.Net.Mime.MediaTypeNames;
+using Application = System.Windows.Application;
+using Brush = System.Windows.Media.Brush;
+using FontFamily = System.Windows.Media.FontFamily;
+using Image = System.Windows.Controls.Image;
 
 namespace Ink_Canvas_Better.Controls
 {
@@ -24,10 +22,15 @@ namespace Ink_Canvas_Better.Controls
     public partial class ICB_Button : UserControl
     {
         private FontIcon fontIcon;
-        private readonly int _Squeeze = 5;
+        private Image img;
+        private readonly int SQUEEZE = 5;
         private bool _IsSqueezeHorizontally = false;
         private bool _IsShowText = true;
         private int _CornerRadius;
+        private bool _IsStatusEnable = false;
+
+        private readonly Brush BORDER_BRUSH_DEFAULT = (Brush)Application.Current.Resources["floatingBarBackground"];
+        private readonly Brush BORDER_BRUSH_ENABLE = (Brush)Application.Current.Resources["ICB_ButtonStateEnable"];
 
         #region 构造方法
 
@@ -85,10 +88,10 @@ namespace Ink_Canvas_Better.Controls
                 _IsSqueezeHorizontally = value;
                 if (_IsSqueezeHorizontally)
                 {
-                    Width -= _Squeeze;
-                    SimpleStackPanel_1.Width -= _Squeeze;
-                    TextBox_1.Width -= _Squeeze;
-                    InnerButton.Width -= _Squeeze;
+                    Width -= SQUEEZE;
+                    SimpleStackPanel_1.Width -= SQUEEZE;
+                    TextBox_1.Width -= SQUEEZE;
+                    InnerButton.Width -= SQUEEZE;
                     Border.Width = Width - 5;
                 }
 
@@ -122,21 +125,55 @@ namespace Ink_Canvas_Better.Controls
             }
         }
 
+        public bool IsStatusEnable
+        {
+            get { return _IsStatusEnable; }
+            set {
+                _IsStatusEnable = value;
+                if ( _IsStatusEnable )
+                {
+                    Console.WriteLine("enabled");
+                    Border.Background = BORDER_BRUSH_ENABLE;
+                }
+                else
+                {
+                    Border.Background = BORDER_BRUSH_DEFAULT;
+                }
+            }
+        }
+
         /// <summary>
         /// 文字图标
         /// </summary>
         public String FontIcon
         {
             set {
-                SetFontIcon(value);
+                fontIcon = new FontIcon(value, (FontFamily)System.Windows.Application.Current.Resources["FluentIconFontFamily"]);
+                SetIcon(fontIcon);
             }
         }
 
-        public void SetFontIcon(String Glyph)
+        /// <summary>
+        /// 图像图标
+        /// </summary>
+        public String Img
+        {
+            set
+            {
+                img = new Image();
+                BitmapImage _ = new BitmapImage();
+                _.BeginInit();
+                _.UriSource = new Uri(value);
+                _.EndInit();
+                img.Source = _;
+                SetIcon(img);
+            }
+        }
+
+        public void SetIcon(UIElement element)
         {
             SimpleStackPanel_1.Children.Clear();
-            fontIcon = new FontIcon(Glyph, (FontFamily)System.Windows.Application.Current.Resources["FluentIconFontFamily"]);
-            SimpleStackPanel_1.Children.Add(fontIcon);
+            SimpleStackPanel_1.Children.Add(element);
             ShowTextCheck();
         }
 
@@ -165,9 +202,9 @@ namespace Ink_Canvas_Better.Controls
             {
                 TextBox_1.Visibility = Visibility.Visible;
                 SimpleStackPanel_1.Height = 28;
-                fontIcon.Height = SimpleStackPanel_1.Height;
                 if (SimpleStackPanel_1.Children[0] is FontIcon)
                 {
+                    fontIcon.Height = SimpleStackPanel_1.Height;
                     fontIcon.FontSize = fontIcon.Height - 10;
                 }
             }
@@ -175,9 +212,9 @@ namespace Ink_Canvas_Better.Controls
             {
                 TextBox_1.Visibility = Visibility.Collapsed;
                 SimpleStackPanel_1.Height = 43;
-                fontIcon.Height = SimpleStackPanel_1.Height;
                 if (SimpleStackPanel_1.Children[0] is FontIcon)
                 {
+                    fontIcon.Height = SimpleStackPanel_1.Height;
                     fontIcon.FontSize = fontIcon.Height - 10;
                 }
             }

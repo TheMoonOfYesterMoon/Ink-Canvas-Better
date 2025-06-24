@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,18 @@ namespace Ink_Canvas_Better
     {
         public void MagnifierIcon_Click(object sender, RoutedEventArgs e)
         {
+            if (MagnifierWindow.Visibility == Visibility.Visible)
+            {
+                MagnifierWindow.MagnifyCompleted();
+                MagnifierWindow.HideMagnify_Click(null, null);
+            }
+            else
+            {
+                MagnifierWindow.MagnifierRunning();
+                MagnifierWindow.Visibility = Visibility.Visible;
+            }
 
         }
+
     }
 }

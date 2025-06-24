@@ -12,6 +12,7 @@
     mc:Ignorable="d" 
     d:DesignHeight="450"
     d:DesignWidth="800">
+
     <Grid
         VerticalAlignment="Stretch"
         Background="{DynamicResource floatingBarBackground}">
@@ -22,7 +23,7 @@
             <RowDefinition
                 Name="GridRow1"/>
         </Grid.RowDefinitions>
-        
+
         <ikw:SimpleStackPanel
             Grid.Row="0">
             <TextBlock
@@ -34,8 +35,9 @@
         </ikw:SimpleStackPanel>
 
         <ikw:SimpleStackPanel
+            Name="innerPanel"
             Grid.Row="1">
-            
+
         </ikw:SimpleStackPanel>
     </Grid>
 </UserControl>

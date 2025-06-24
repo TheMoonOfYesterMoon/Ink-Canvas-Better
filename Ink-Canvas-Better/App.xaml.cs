@@ -1,4 +1,4 @@
-﻿using Ink_Canvas_Better.LogHelper;
+﻿using Ink_Canvas_Better.Helpers.Log;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

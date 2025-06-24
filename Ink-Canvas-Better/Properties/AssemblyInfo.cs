@@ -8,11 +8,11 @@ using System.Windows;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("Ink-Canvas-Better")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A fantastic Ink Canvas in WPF/C#")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Organization")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Ink-Canvas-Better")]
-[assembly: AssemblyCopyright("Copyright © Organization 2025")]
+[assembly: AssemblyCopyright("Copyright © Bai Yang 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -48,5 +48,5 @@ using System.Windows;
 //      生成号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("2.0.0.0")]
+[assembly: AssemblyFileVersion("2.0.0.0")]

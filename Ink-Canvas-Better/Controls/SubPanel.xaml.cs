@@ -24,5 +24,7 @@ namespace Ink_Canvas_Better.Controls
         {
             InitializeComponent();
         }
+
     }
 }
+

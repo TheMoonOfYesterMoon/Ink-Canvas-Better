@@ -63,14 +63,15 @@
                 <TranslateTransform/>
             </ikw:SimpleStackPanel.RenderTransform>
 
-            <!-- 隐藏与移动 -->
+            <!-- 隐藏与移动
+                    Img="pack://application:,,,/Resources/Ink Canvas Better.ico" -->
             <Border
                 Name="Border_Smile">
                 <localControls:ICB_Button
                     x:Name="SmileIcon"
                     PreviewMouseDown="SmileIcon_MouseDown"
                     PreviewMouseUp="SmileIcon_MouseUp"
-                    FontIcon="&#xe76e;"
+                    Img="C:\github\Ink-Canvas-Better\Ink-Canvas-Better\Ink-Canvas-Better\Resources\Ink Canvas Better.ico"
                     CornerRadius="5"
                     IsShowText="False"/>
             </Border>
@@ -85,46 +86,54 @@
                     Orientation="Horizontal">
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="CursorIcon"
                         Text="鼠标"
                         FontIcon="&#xe8b0;"
                         OnClick="CursorIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="ClearIcon"
                         Text="清空"
                         FontIcon="&#xe74d;"
                         OnClick="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="PenIcon"
                         Text="铅笔"
                         FontIcon="&#xf0c6;"
                         OnClick="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="HighlighterIcon"
                         Text="荧光笔"
                         OnClick="HighlighterIcon_Click"
                         FontIcon="&#xe891;"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="EraserIcon"
                         Text="橡皮擦"
                         FontIcon="&#xe75c;"
                         OnClick="EraserIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="SelectIcon"
                         Text="圈选"
                         FontIcon="&#xe958;"
                         OnClick="SelectIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="ShapeIcon"
                         Text="图形"
                         FontIcon="&#xf158;"
                         OnClick="ShapeIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <!-- TODO:合并redo和undo功能 -->
                     <localControls:ICB_Button
                         CornerRadius="5"
                         Text="撤销"
@@ -152,18 +161,21 @@
                     Orientation="Horizontal">
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="MagnifierIcon"
                         Text="放大镜"
                         FontIcon="&#xf78b;"
                         OnClick="MagnifierIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="ToolsIcon"
                         Text="工具"
                         FontIcon="&#xe8a9;"
                         OnClick="ToolsIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         CornerRadius="5"
+                        x:Name="HideIcon"
                         Text="隐藏"
                         FontIcon="&#xed1a;"
                         OnClick="HideIcon_Click"
@@ -178,6 +190,7 @@
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                     <localControls:ICB_Button
+                        x:Name="TouchSettingIcon"
                         Text="触屏设置"
                         FontIcon="&#xf271;"
                         OnClick="TouchSettingIcon_Click"
@@ -191,6 +204,7 @@
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                     <localControls:ICB_Button
+                        x:Name="ExitPPTIcon"
                         Text="退出PPT"
                         OnClick="ExitPPTIcon_Click"
                         CornerRadius="5"/>

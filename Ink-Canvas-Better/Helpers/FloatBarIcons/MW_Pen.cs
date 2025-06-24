@@ -13,21 +13,12 @@ namespace Ink_Canvas_Better
     {
         public void PenIcon_Click(Object sender, RoutedEventArgs e)
         {
-            // TODO
-            // 临时代码
-            if (MainWindow_Grid.Background != Brushes.Transparent)
-            {
-                MainWindow_Grid.Background = Brushes.Transparent;
-            }
-            else
-            {
-                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-            }
-
             if (CurrentMode != Mode.Pen)
             {
+                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 CurrentMode = Mode.Pen;
-                // TODO
+                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                SwitchButtonStatus(CurrentMode.ToString());
             }
             else
             {

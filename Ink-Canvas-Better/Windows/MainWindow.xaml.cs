@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Ink_Canvas_Better.Windows;
 
 namespace Ink_Canvas_Better
 {
@@ -19,19 +21,30 @@ namespace Ink_Canvas_Better
     /// </summary>
     public partial class MainWindow : Window
     {
-        Mode CurrentMode = Mode.Cursor;
+        Mode CurrentMode = Mode.None;
 
-        enum Mode
+        public enum Mode
         {
-            Cursor,
+            None,
             Pen,
             Highlighter,
             Eraser
         }
 
+        #region init
+
+        Magnifier MagnifierWindow = new Magnifier();
+
+        /// <summary>
+        /// initialize MainWindow
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
+
+            CursorIcon_ChangeToCursor();
         }
+
+        #endregion
     }
 }

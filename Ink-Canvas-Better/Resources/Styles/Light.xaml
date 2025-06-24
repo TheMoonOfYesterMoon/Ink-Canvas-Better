@@ -1,6 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <SolidColorBrush x:Key="floatingBarBackground">AliceBlue</SolidColorBrush>
+    <SolidColorBrush x:Key="FloatBarForeground">Black</SolidColorBrush>
     <SolidColorBrush x:Key="floatingBarText">Black</SolidColorBrush>
+
+    <SolidColorBrush x:Key="ICB_ButtonStateEnable">AliceBlue</SolidColorBrush>
     
 </ResourceDictionary>

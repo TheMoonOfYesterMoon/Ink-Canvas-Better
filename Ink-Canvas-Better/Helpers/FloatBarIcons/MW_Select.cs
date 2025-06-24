@@ -11,7 +11,7 @@ namespace Ink_Canvas_Better
     {
         public void SelectIcon_Click(object sender, RoutedEventArgs e)
         {
-
+            SwitchButtonStatus(CurrentMode.ToString());
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ink_Canvas_Better.LogHelper
+namespace Ink_Canvas_Better.Helpers.Log
 {
     class Log
     {
