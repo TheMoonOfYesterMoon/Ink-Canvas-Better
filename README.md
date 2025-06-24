@@ -11,13 +11,13 @@
 </div>
 
 ## 👀 前言
-本软件正在重写......
+本软件正在重写......  
+上面那个图标是即将在2.X版本使用的图标，因此目前所有 releases 中的图标均与该图标不同
 
 使用和分发本软件前，请您应当且务必知晓相关开源协议  
 本软件在 [Ink-Canvas-Artistry](https://github.com/InkCanvas/Ink-Canvas-Artistry) 的基础上对 [Ink-Canvas](https://github.com/WXRIW/Ink-Canvas) 进行了二次修改  
-对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者  
 需要特别注意的是：本软件砍掉了点名工具和计时器工具，因为它们并非画板软件的核心功能  
-[直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest "Latest Releases")  
+[直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)  
 [使用说明](./Manual.md)  
 [隐私政策](./Privacy.md)
 
@@ -34,8 +34,7 @@
 如果你曾经安装过 `WPS` 且在卸载后发现此问题则是由于暂时未确定的问题所导致，可以尝试重新安装WPS
 > “您好，关于您反馈的情况我们已经反馈技术同学进一步分析哈，辛苦您可以留意后续WPS版本更新哈~” --回复自WPS客服
 
-另外，处在保护（只读）模式的PPT不会被识别
-
+另外，处在保护（只读）模式的PPT不会被识别  
 若因安装了最新版本的 WPS 而导致无法在 WPS 软件内进入 PPT 模式，可以尝试卸载 WPS 后，并清除电脑垃圾、注册表垃圾、删除电脑上所有带 "kingsoft" 名称的文件夹，重新安装 WPS 2021 后，（以上步骤可能有多余步骤），经测试在 WPS 内可以正常进入 PPT 模式。
 
 ### 安装后程序无法正常启动？
@@ -43,8 +42,8 @@
 
 ### 我该在何处提出功能需求和错误报告？
 如果有功能需求和错误报告，请在 GitHub 上提交 Issues  
+对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者  
 功能需求：[https://github.com/BaiYang2238/Ink-Canvas-Better/labels/enhancement/new](https://github.com/BaiYang2238/Ink-Canvas-Better/labels/enhancement/new)  
 错误报告：[https://github.com/BaiYang2238/Ink-Canvas-Better/labels/bug/new](https://github.com/BaiYang2238/Ink-Canvas-Better/labels/bug/new)
 
-当然，如果你有能力参与开发的话，也很欢迎你发起 Pull Request  
-（但不是很建议，因为这个项目经过各开发者的屎上雕花后，已经变得越来越难以维护了）
+当然，如果你有能力参与开发的话，也很欢迎你发起 Pull Request
