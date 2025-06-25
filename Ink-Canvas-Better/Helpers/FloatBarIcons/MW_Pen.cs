@@ -18,7 +18,7 @@ namespace Ink_Canvas_Better
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 CurrentMode = Mode.Pen;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                SwitchButtonStatus(CurrentMode.ToString());
+                
             }
             else
             {

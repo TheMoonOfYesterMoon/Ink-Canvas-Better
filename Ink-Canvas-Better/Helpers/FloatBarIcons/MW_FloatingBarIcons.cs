@@ -11,6 +11,7 @@ namespace Ink_Canvas_Better
     public partial class MainWindow
     {
 
+        // TODO:这个功能仍需打磨
         public void SwitchButtonStatus(String mode)
         {
             CursorIcon.IsStatusEnable = false;

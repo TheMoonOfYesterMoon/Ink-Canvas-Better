@@ -23,11 +23,12 @@ namespace Ink_Canvas_Better.Controls
     {
         private FontIcon fontIcon;
         private Image img;
+        private int _CornerRadius;
         private readonly int SQUEEZE = 5;
         private bool _IsSqueezeHorizontally = false;
         private bool _IsShowText = true;
-        private int _CornerRadius;
         private bool _IsStatusEnable = false;
+        private double _BorderThickness = 0;
 
         private readonly Brush BORDER_BRUSH_DEFAULT = (Brush)Application.Current.Resources["floatingBarBackground"];
         private readonly Brush BORDER_BRUSH_ENABLE = (Brush)Application.Current.Resources["ICB_ButtonStateEnable"];
@@ -36,7 +37,6 @@ namespace Ink_Canvas_Better.Controls
 
         public ICB_Button() {
             InitializeComponent();
-            TextBox_1.Text = "example";
         }
 
         public ICB_Button(String text, FontIcon fontIcon)
@@ -92,7 +92,7 @@ namespace Ink_Canvas_Better.Controls
                     SimpleStackPanel_1.Width -= SQUEEZE;
                     TextBox_1.Width -= SQUEEZE;
                     InnerButton.Width -= SQUEEZE;
-                    Border.Width = Width - 5;
+                    ICBBorder.Width = Width - 5;
                 }
 
             }
@@ -121,24 +121,37 @@ namespace Ink_Canvas_Better.Controls
             {
                 _CornerRadius = value;
                 CornerRadius cornerRadius = new CornerRadius(_CornerRadius);
-                Border.CornerRadius = cornerRadius;
+                ICBBorder.CornerRadius = cornerRadius;
             }
         }
 
+        /// <summary>
+        /// 状态
+        /// </summary>
         public bool IsStatusEnable
         {
             get { return _IsStatusEnable; }
             set {
                 _IsStatusEnable = value;
-                if ( _IsStatusEnable )
+                if (_IsStatusEnable)
                 {
                     Console.WriteLine("enabled");
-                    Border.Background = BORDER_BRUSH_ENABLE;
+                    ICBBorder.Background = BORDER_BRUSH_ENABLE;
                 }
                 else
                 {
-                    Border.Background = BORDER_BRUSH_DEFAULT;
+                    ICBBorder.Background = BORDER_BRUSH_DEFAULT;
                 }
+            }
+        }
+
+        public int ICBBorderThickness
+        {
+            get { return  ICBBorderThickness; }
+            set
+            {
+                _BorderThickness = value;
+                ICBBorder.BorderThickness = new Thickness(value);
             }
         }
 
@@ -186,9 +199,15 @@ namespace Ink_Canvas_Better.Controls
             remove => InnerButton.Click -= value;
         }
 
-        public new void Background(Brush background)
+        /// <summary>
+        /// background
+        /// </summary>
+        public new Brush Background
         {
-            InnerButton.Background = background;
+            set
+            {
+                ICBBorder.Background = value;
+            }
         }
 
         #endregion

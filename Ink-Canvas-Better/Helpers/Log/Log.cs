@@ -49,11 +49,12 @@ namespace Ink_Canvas_Better.Helpers.Log
                     Directory.CreateDirectory(App.RootPath);
                 }
                 StreamWriter sw = new StreamWriter(file, true);
-                sw.WriteLine(string.Format("{0} [{1}] {2}", DateTime.Now.ToString("O"), strLogType, str));
+                sw.WriteLine(string.Format("{0} [{1}] {2}", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"), strLogType, str));
                 sw.Close();
             }
             catch { }
         }
+
 
         public enum LogType
         {

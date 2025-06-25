@@ -16,7 +16,6 @@ namespace Ink_Canvas_Better
             if (CurrentMode != Mode.None)
             {
                 CursorIcon_ChangeToCursor();
-                SwitchButtonStatus(CurrentMode.ToString());
             }
         }
 

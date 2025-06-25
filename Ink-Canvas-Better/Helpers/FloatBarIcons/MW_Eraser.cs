@@ -19,7 +19,7 @@ namespace Ink_Canvas_Better
                 CurrentMode = Mode.Eraser;
                 // TODO
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
-                SwitchButtonStatus(CurrentMode.ToString());
+                
             }
         }
     }

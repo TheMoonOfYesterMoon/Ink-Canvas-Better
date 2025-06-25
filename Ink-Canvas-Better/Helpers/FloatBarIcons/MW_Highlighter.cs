@@ -12,7 +12,7 @@ namespace Ink_Canvas_Better
         public void HighlighterIcon_Click(object sender, RoutedEventArgs e)
         {
             // TODO
-            SwitchButtonStatus(CurrentMode.ToString());
+            
         }
     }
 }

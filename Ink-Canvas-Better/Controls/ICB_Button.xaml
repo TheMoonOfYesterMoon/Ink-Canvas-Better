@@ -12,9 +12,10 @@
              d:DesignWidth="48"
              Padding="0">
     <Border
+        BorderBrush="{DynamicResource BorderBrush}"
         Width="48"
         Height="48"
-        Name="Border"
+        Name="ICBBorder"
         Background="{DynamicResource floatingBarBackground}">
         <Button
             Width="43"
@@ -41,9 +42,8 @@
                     Name="TextBox_1"
                     FontSize="10"
                     Foreground="{DynamicResource floatingBarText}"
-                    Text="example"
-                    TextAlignment="Center"
-                    Visibility="{Binding ElementName=FloatBarSelectIconTextBlock, Path=Visibility}"/>
+                    Text="Button"
+                    TextAlignment="Center"/>
             </ikw:SimpleStackPanel>
 
         </Button>

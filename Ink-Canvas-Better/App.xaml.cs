@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 
 namespace Ink_Canvas_Better
@@ -36,7 +37,13 @@ namespace Ink_Canvas_Better
         {
             RootPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
 
+            if (!Directory.Exists($"{RootPath}Logs"))
+            {
+                Directory.CreateDirectory($"{RootPath}Logs");
+            }
+
             Log.NewLog(string.Format("Ink Canvas Starting (Version: {0})", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
+            
 
             Mutex _ = new Mutex(true, "Ink_Canvas_Better", out bool ret);
 

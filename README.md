@@ -7,6 +7,7 @@
 [![LICENSE](https://img.shields.io/badge/License-GPL--3.0-red.svg "LICENSE")](./LICENSE)
 [![Latest release](https://img.shields.io/github/release/BaiYang2238/Ink-Canvas-Better.svg?style=shield)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
 [![GitHub issues](https://img.shields.io/github/issues/BaiYang2238/Ink-Canvas-Better?logo=github)](https://github.com/BaiYang2238/Ink-Canvas-Better/issues)
+[![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/BaiYang2238/Ink-Canvas-Better/total)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
 
 </div>
 
@@ -18,8 +19,8 @@
 本软件在 [Ink-Canvas-Artistry](https://github.com/InkCanvas/Ink-Canvas-Artistry) 的基础上对 [Ink-Canvas](https://github.com/WXRIW/Ink-Canvas) 进行了二次修改  
 需要特别注意的是：本软件砍掉了点名工具和计时器工具，因为它们并非画板软件的核心功能  
 [直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)  
-[使用说明](./Manual.md)  
-[隐私政策](./Privacy.md)
+[使用说明](./Document/Manual.md)  
+[隐私政策](./Document/Privacy.md)
 
 ## 📗 Q&A
 
