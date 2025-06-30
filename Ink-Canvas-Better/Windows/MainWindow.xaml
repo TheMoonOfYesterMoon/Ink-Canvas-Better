@@ -66,7 +66,6 @@
             <Border
                 Name="Border_Smile">
                 <localControls:ICB_Button
-                    ICBBorderThickness="2"
                     x:Name="SmileIcon"
                     PreviewMouseDown="SmileIcon_MouseDown"
                     PreviewMouseUp="SmileIcon_MouseUp"
@@ -75,42 +74,6 @@
                     IsShowText="False"/>
             </Border>
 
-            <Grid
-                Name="Border_Others">
-                <Border
-                    BorderThickness="2"
-                    CornerRadius="5"
-                    BorderBrush="{DynamicResource BorderBrush}"
-                    IsHitTestVisible="False"
-                    Background="{DynamicResource floatingBarBackground}"/>
-                
-                
-                <ikw:SimpleStackPanel
-                    Margin="6, -2"
-                    HorizontalAlignment="Center"
-                    Orientation="Horizontal">
-                    <localControls:ICB_Button
-                        x:Name="MagnifierIcon"
-                        Text="放大镜"
-                        FontIcon="&#xf78b;"
-                        OnClick="MagnifierIcon_Click"
-                        IsSqueezeHorizontally="True"/>
-                    <localControls:ICB_Button
-                        x:Name="ToolsIcon"
-                        Text="工具"
-                        FontIcon="&#xe8a9;"
-                        OnClick="ToolsIcon_Click"
-                        IsSqueezeHorizontally="True"/>
-                    <localControls:ICB_Button
-                        x:Name="HideIcon"
-                        Text="隐藏"
-                        FontIcon="&#xed1a;"
-                        OnClick="HideIcon_Click"
-                        IsSqueezeHorizontally="True"/>
-                </ikw:SimpleStackPanel>
-                
-            </Grid>
-            
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
                 Name="Border_DrawingTools"
@@ -124,103 +87,101 @@
                         x:Name="CursorIcon"
                         Text="鼠标"
                         FontIcon="&#xe8b0;"
-                        OnClick="CursorIcon_Click"
+                        Click="CursorIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ClearIcon"
                         Text="清空"
                         FontIcon="&#xe74d;"
-                        OnClick="ClearIcon_Click"
+                        Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="PenIcon"
                         Text="铅笔"
                         FontIcon="&#xf0c6;"
-                        OnClick="PenIcon_Click"
+                        Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="HighlighterIcon"
                         Text="荧光笔"
-                        OnClick="HighlighterIcon_Click"
+                        Click="HighlighterIcon_Click"
                         FontIcon="&#xe891;"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="EraserIcon"
                         Text="橡皮擦"
                         FontIcon="&#xe75c;"
-                        OnClick="EraserIcon_Click"
+                        Click="EraserIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="SelectIcon"
                         Text="圈选"
                         FontIcon="&#xe958;"
-                        OnClick="SelectIcon_Click"
+                        Click="SelectIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ShapeIcon"
                         Text="图形"
                         FontIcon="&#xf158;"
-                        OnClick="ShapeIcon_Click"
+                        Click="ShapeIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- TODO:合并redo和undo功能 -->
                     <localControls:ICB_Button
                         Text="撤销"
                         FontIcon="&#xe7a7;"
-                        OnClick="RedoIcon_Click"
+                        Click="RedoIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         Text="重做"
                         FontIcon="&#xe7a6;"
-                        OnClick="UndoIcon_Click"
+                        Click="UndoIcon_Click"
                         IsSqueezeHorizontally="True"/>
-
                 </ikw:SimpleStackPanel>
-
             </Border>
-            <!--
-            <Border
-                BorderThickness="2"
-                BorderBrush="{DynamicResource BorderBrush}"
-                Name="Border_Others"
-                Background="{DynamicResource floatingBarBackground}"
-                CornerRadius="5">
+            
+            <Grid
+                Name="Border_Others">
+                <Border
+                    BorderThickness="2"
+                    CornerRadius="5"
+                    BorderBrush="{DynamicResource BorderBrush}"
+                    IsHitTestVisible="False"
+                    Background="{DynamicResource floatingBarBackground}"/>
                 <ikw:SimpleStackPanel
-                    Margin="5, 0"
+                    Margin="6, -2"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                     <localControls:ICB_Button
                         x:Name="MagnifierIcon"
                         Text="放大镜"
                         FontIcon="&#xf78b;"
-                        OnClick="MagnifierIcon_Click"
+                        Click="MagnifierIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ToolsIcon"
                         Text="工具"
                         FontIcon="&#xe8a9;"
-                        OnClick="ToolsIcon_Click"
+                        Click="ToolsIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="HideIcon"
                         Text="隐藏"
                         FontIcon="&#xed1a;"
-                        OnClick="HideIcon_Click"
+                        Click="HideIcon_Click"
                         IsSqueezeHorizontally="True"/>
-
                 </ikw:SimpleStackPanel>
-            </Border>
--->
+            </Grid>
+            
             <Border
                 Name="Border_TouchSetting">
                 <ikw:SimpleStackPanel
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                     <localControls:ICB_Button
-                        ICBBorderThickness="2"
                         x:Name="TouchSettingIcon"
                         Text="触屏设置"
                         FontIcon="&#xf271;"
-                        OnClick="TouchSettingIcon_Click"
+                        Click="TouchSettingIcon_Click"
                         CornerRadius="5"/>
                 </ikw:SimpleStackPanel>
             </Border>
@@ -231,10 +192,9 @@
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
                     <localControls:ICB_Button
-                        ICBBorderThickness="2"
                         x:Name="ExitPPTIcon"
                         Text="退出PPT"
-                        OnClick="ExitPPTIcon_Click"
+                        Click="ExitPPTIcon_Click"
                         CornerRadius="5"/>
                 </ikw:SimpleStackPanel>
             </Border>

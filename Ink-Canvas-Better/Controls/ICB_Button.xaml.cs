@@ -1,14 +1,17 @@
-﻿using iNKORE.UI.WPF.Controls;
+﻿using iNKORE.UI.WPF.Common;
+using iNKORE.UI.WPF.Controls;
 using iNKORE.UI.WPF.Helpers;
 using iNKORE.UI.WPF.Modern.Controls;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Xml.Linq;
 using Application = System.Windows.Application;
 using Brush = System.Windows.Media.Brush;
 using FontFamily = System.Windows.Media.FontFamily;
@@ -22,222 +25,315 @@ namespace Ink_Canvas_Better.Controls
     public partial class ICB_Button : UserControl
     {
         private FontIcon fontIcon;
-        private Image img;
-        private int _CornerRadius;
-        private readonly int SQUEEZE = 5;
-        private bool _IsSqueezeHorizontally = false;
-        private bool _IsShowText = true;
-        private bool _IsStatusEnable = false;
-        private double _BorderThickness = 0;
 
-        private readonly Brush BORDER_BRUSH_DEFAULT = (Brush)Application.Current.Resources["floatingBarBackground"];
-        private readonly Brush BORDER_BRUSH_ENABLE = (Brush)Application.Current.Resources["ICB_ButtonStateEnable"];
-
-        #region 构造方法
-
-        public ICB_Button() {
-            InitializeComponent();
-        }
-
-        public ICB_Button(String text, FontIcon fontIcon)
+        public ICB_Button()
         {
             InitializeComponent();
-            PartOfInitialize(text, fontIcon);
+
+            InnerButton.Click += (sender, e) =>
+            {
+                RaiseEvent(new RoutedEventArgs(ClickEvent, this));
+            };
         }
 
-        public ICB_Button(String text, SimpleStackPanel simpleStackPanel)
+        #region Property
+
+        #region Property_Text
+
+        /// <summary>
+        /// Change the text
+        /// </summary>
+        public static readonly DependencyProperty TextProperty =
+            DependencyProperty.Register(
+                "Text",
+                typeof(String),
+                typeof(ICB_Button),
+                new PropertyMetadata(Text_OnValueChanged)
+            );
+
+        public String Text
         {
-            InitializeComponent();
-            PartOfInitialize(text, simpleStackPanel);
+            get => (String)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
+        }
+
+        private static void Text_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var control = (ICB_Button)dependencyObject;
+            control.TextBox_1.Text = (String)eventArgs.NewValue;
         }
 
         /// <summary>
-        /// 使用此方法以简化部分构造
+        /// Show or hide the text
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="text"></param>
-        /// <param name="a"></param>
-        /// <param name="isSqueezeHorizontally"></param>
-        private void PartOfInitialize<T>(String text, T a) where T : System.Windows.UIElement
+        public static readonly DependencyProperty ShowTextProperty =
+            DependencyProperty.Register(
+                "IsShowText",
+                typeof(bool),
+                typeof(ICB_Button),
+                new PropertyMetadata(true, ShowText_OnValueChanged)
+            );
+
+        public bool IsShowText
         {
-            TextBox_1.Text = text;
-            SimpleStackPanel_1.Children.Add(a);
+            get => (bool)GetValue(ShowTextProperty);
+            set => SetValue(ShowTextProperty, value);
+        }
+
+        private static void ShowText_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            ShowTextCheck(dependencyObject);
         }
 
         #endregion
 
-        #region 属性
+        #region Property_Squeeze
 
         /// <summary>
-        /// 文本
+        /// Squeeze the control
         /// </summary>
-        public String Text
-        {
-            get => TextBox_1.Text;
-            set => TextBox_1.Text = value;
-        }
+        public static readonly DependencyProperty SqueezeProperty =
+            DependencyProperty.Register(
+                "IsSqueezeHorizontally",
+                typeof(bool),
+                typeof(ICB_Button),
+                new PropertyMetadata(Squeeze_OnValueChanged)
+            );
 
-        /// <summary>
-        /// 是否扁化
-        /// </summary>
         public bool IsSqueezeHorizontally
         {
-            get { return _IsSqueezeHorizontally; }
-            set
-            {
-                _IsSqueezeHorizontally = value;
-                if (_IsSqueezeHorizontally)
-                {
-                    Width -= SQUEEZE;
-                    SimpleStackPanel_1.Width -= SQUEEZE;
-                    TextBox_1.Width -= SQUEEZE;
-                    InnerButton.Width -= SQUEEZE;
-                    ICBBorder.Width = Width - 5;
-                }
-
-            }
+            get => (bool)GetValue(SqueezeProperty);
+            set => SetValue(SqueezeProperty, value);
         }
 
-        /// <summary>
-        /// 是否显示文字
-        /// </summary>
-        public bool IsShowText
+        private static void Squeeze_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
         {
-            get { return _IsShowText; }
-            set
+            const int SQUEEZE = 5;
+            var control = (ICB_Button)dependencyObject;
+
+            if ((bool)eventArgs.NewValue)
             {
-                _IsShowText = value;
-                ShowTextCheck();
+                control.Width -= SQUEEZE;
+                control.SimpleStackPanel_1.Width -= SQUEEZE;
+                control.TextBox_1.Width -= SQUEEZE;
+                control.InnerButton.Width -= SQUEEZE;
+                control.Border.Width = control.Width - SQUEEZE;
             }
         }
 
+        #endregion
+
+        #region Property_CornerRadius
+
         /// <summary>
-        /// 圆角
+        /// CornerRadius
         /// </summary>
-        public int CornerRadius
+        public static readonly DependencyProperty CornerRadiusProperty =
+            DependencyProperty.Register(
+                "CornerRadius",
+                typeof(double),
+                typeof(ICB_Button),
+                new PropertyMetadata(CornerRadius_OnValueChanged)
+            );
+
+        public double CornerRadius
         {
-            get { return _CornerRadius; }
-            set
-            {
-                _CornerRadius = value;
-                CornerRadius cornerRadius = new CornerRadius(_CornerRadius);
-                ICBBorder.CornerRadius = cornerRadius;
-            }
+            get => (double)GetValue(CornerRadiusProperty);
+            set => SetValue(CornerRadiusProperty, value);
         }
 
+        private static void CornerRadius_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var control = (ICB_Button)dependencyObject;
+
+            control.Border.CornerRadius = new CornerRadius((double)eventArgs.NewValue);
+        }
+
+        #endregion
+
+        #region Property_Status
+
         /// <summary>
-        /// 状态
+        /// The status of the button
         /// </summary>
+        public static readonly DependencyProperty StatusEnableRadiusProperty =
+            DependencyProperty.Register(
+                "IsStatusEnable",
+                typeof(bool),
+                typeof(ICB_Button),
+                new PropertyMetadata(StatusEnable_OnValueChanged)
+            );
+
         public bool IsStatusEnable
         {
-            get { return _IsStatusEnable; }
-            set {
-                _IsStatusEnable = value;
-                if (_IsStatusEnable)
-                {
-                    Console.WriteLine("enabled");
-                    ICBBorder.Background = BORDER_BRUSH_ENABLE;
-                }
-                else
-                {
-                    ICBBorder.Background = BORDER_BRUSH_DEFAULT;
-                }
+            get => (bool)GetValue(CornerRadiusProperty);
+            set => SetValue(CornerRadiusProperty, value);
+        }
+
+        private static void StatusEnable_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var control = (ICB_Button)dependencyObject;
+            if ((bool)eventArgs.NewValue)
+            {
+                control.Border.SetResourceReference(Border.BackgroundProperty, "floatingBarBackground");
+            }
+            else
+            {
+                control.Border.SetResourceReference(Border.BackgroundProperty, "ICB_ButtonStateEnable");
             }
         }
 
-        public int ICBBorderThickness
-        {
-            get { return  ICBBorderThickness; }
-            set
-            {
-                _BorderThickness = value;
-                ICBBorder.BorderThickness = new Thickness(value);
-            }
-        }
+        #endregion
+
+        #region Property_Icon
 
         /// <summary>
-        /// 文字图标
+        /// Use fontIcon as its icon
         /// </summary>
+        public static readonly DependencyProperty FontIconProperty =
+            DependencyProperty.Register(
+                "FontIcon",
+                typeof(String),
+                typeof(ICB_Button),
+                new PropertyMetadata(FontIcon_OnValueChanged)
+            );
+
         public String FontIcon
         {
-            set {
-                fontIcon = new FontIcon(value, (FontFamily)System.Windows.Application.Current.Resources["FluentIconFontFamily"]);
-                SetIcon(fontIcon);
-            }
+            get => (String)GetValue(FontIconProperty);
+            set => SetValue(FontIconProperty, value);
+        }
+
+        private static void FontIcon_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var fontIcon = new FontIcon((string)eventArgs.NewValue, (FontFamily)System.Windows.Application.Current.Resources["FluentIconFontFamily"]);
+            SetIcon(dependencyObject, fontIcon);
         }
 
         /// <summary>
-        /// 图像图标
+        /// Use image as its icon
         /// </summary>
+        public static readonly DependencyProperty ImgProperty =
+            DependencyProperty.Register(
+                "Img",
+                typeof(String),
+                typeof(ICB_Button),
+                new PropertyMetadata(Img_OnValueChanged)
+            );
+
         public String Img
         {
-            set
-            {
-                img = new Image();
-                BitmapImage _ = new BitmapImage();
-                _.BeginInit();
-                _.UriSource = new Uri(value);
-                _.EndInit();
-                img.Source = _;
-                SetIcon(img);
-            }
+            get => (String)GetValue(ImgProperty);
+            set => SetValue(ImgProperty, value);
         }
 
-        public void SetIcon(UIElement element)
+        private static void Img_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
         {
-            SimpleStackPanel_1.Children.Clear();
-            SimpleStackPanel_1.Children.Add(element);
-            ShowTextCheck();
+            var img = new Image();
+            BitmapImage _ = new BitmapImage();
+            _.BeginInit();
+            _.UriSource = new Uri((string)eventArgs.NewValue);
+            _.EndInit();
+            img.Source = _;
+            SetIcon(dependencyObject, img);
         }
+
+        #endregion
+
+        #region Property_Event
 
         /// <summary>
-        /// 点击事件
+        /// Click event
         /// </summary>
-        public event RoutedEventHandler OnClick
+        public static readonly RoutedEvent ClickEvent =
+            EventManager.RegisterRoutedEvent(
+                "Click",
+                RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler),
+                typeof(ICB_Button)
+            );
+
+        public event RoutedEventHandler Click
         {
-            add => InnerButton.Click += value;
-            remove => InnerButton.Click -= value;
+            add { AddHandler(ClickEvent, value); }
+            remove { RemoveHandler(ClickEvent, value); }
         }
 
+        #endregion
+
+        #region Property_Background
+
         /// <summary>
-        /// background
+        /// Background (InnerButton)
         /// </summary>
+        public static new readonly DependencyProperty BackgroundProperty =
+            DependencyProperty.Register(
+                "Background",
+                typeof(Brush),
+                typeof(ICB_Button),
+                new PropertyMetadata(Background_OnValueChanged)
+            );
+
         public new Brush Background
         {
-            set
-            {
-                ICBBorder.Background = value;
-            }
+            get => (Brush)GetValue(CornerRadiusProperty);
+            set => SetValue(CornerRadiusProperty, value);
         }
+
+        private static void Background_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var control = (ICB_Button)dependencyObject;
+            control.InnerButton.Background = (Brush)eventArgs.NewValue;
+        }
+
+        #endregion
 
         #endregion
 
         /// <summary>
         /// 检查是否显示文本，对控件大小进行调整
         /// </summary>
-        public void ShowTextCheck()
+        /// <param name="dependencyObject"></param>
+        private static void ShowTextCheck(DependencyObject dependencyObject)
         {
-            if (_IsShowText)
+            var control = (ICB_Button)dependencyObject;
+
+            if (control.IsShowText)
             {
-                TextBox_1.Visibility = Visibility.Visible;
-                SimpleStackPanel_1.Height = 28;
-                if (SimpleStackPanel_1.Children[0] is FontIcon)
+                control.TextBox_1.Visibility = Visibility.Visible;
+                control.SimpleStackPanel_1.Height = 28;
+                if (control.SimpleStackPanel_1.Children[0] is FontIcon)
                 {
-                    fontIcon.Height = SimpleStackPanel_1.Height;
-                    fontIcon.FontSize = fontIcon.Height - 10;
+                    control.fontIcon.Height = control.SimpleStackPanel_1.Height;
+                    control.fontIcon.FontSize = control.fontIcon.Height - 10;
                 }
             }
             else
             {
-                TextBox_1.Visibility = Visibility.Collapsed;
-                SimpleStackPanel_1.Height = 43;
-                if (SimpleStackPanel_1.Children[0] is FontIcon)
+                control.TextBox_1.Visibility = Visibility.Collapsed;
+                control.SimpleStackPanel_1.Height = 43;
+                if (control.SimpleStackPanel_1.Children[0] is FontIcon)
                 {
-                    fontIcon.Height = SimpleStackPanel_1.Height;
-                    fontIcon.FontSize = fontIcon.Height - 10;
+                    control.fontIcon.Height = control.SimpleStackPanel_1.Height;
+                    control.fontIcon.FontSize = control.fontIcon.Height - 20;
                 }
             }
         }
 
+        /// <summary>
+        /// 设置图标
+        /// </summary>
+        /// <param name="dependencyObject"></param>
+        public static void SetIcon(DependencyObject dependencyObject, UIElement UIElement)
+        {
+            var control = (ICB_Button)dependencyObject;
+            control.SimpleStackPanel_1.Children.Clear();
+            control.SimpleStackPanel_1.Children.Add(UIElement);
+            if (UIElement is FontIcon icon)
+            {
+                control.fontIcon = icon;
+            }
+            ShowTextCheck(dependencyObject);
+        }
     }
 }

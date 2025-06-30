@@ -15,7 +15,7 @@
         BorderBrush="{DynamicResource BorderBrush}"
         Width="48"
         Height="48"
-        Name="ICBBorder"
+        Name="Border"
         Background="{DynamicResource floatingBarBackground}">
         <Button
             Width="43"
