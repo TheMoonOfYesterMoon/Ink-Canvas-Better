@@ -55,7 +55,7 @@
         <ikw:SimpleStackPanel
             Name="floatingBar"
             Spacing="2"
-            Height="48"
+            Height="50"
             Orientation="Horizontal"
             HorizontalAlignment="Left" VerticalAlignment="Top">
             <!-- 渲染变换 -->
@@ -64,6 +64,9 @@
             </ikw:SimpleStackPanel.RenderTransform>
 
             <Border
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="6"
                 Name="Border_Smile">
                 <localControls:ICB_Button
                     x:Name="SmileIcon"
@@ -76,13 +79,16 @@
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
-                Name="Border_DrawingTools"
-                Background="{DynamicResource floatingBarBackground}"
-                CornerRadius="5">
+                BorderThickness="1"
+                CornerRadius="6"
+                Name="Border_DrawingTools">
                 <ikw:SimpleStackPanel
-                    Margin="5, 0"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
+                    <Border 
+                        Width="5"
+                        Background="{DynamicResource floatingBarBackground}"
+                        CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="CursorIcon"
                         Text="鼠标"
@@ -136,21 +142,25 @@
                         FontIcon="&#xe7a6;"
                         Click="UndoIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <Border 
+                        Width="5"
+                        Background="{DynamicResource floatingBarBackground}"
+                        CornerRadius="0,5,5,0"/>
                 </ikw:SimpleStackPanel>
             </Border>
-            
-            <Grid
+
+            <Border
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="6"
                 Name="Border_Others">
-                <Border
-                    BorderThickness="2"
-                    CornerRadius="5"
-                    BorderBrush="{DynamicResource BorderBrush}"
-                    IsHitTestVisible="False"
-                    Background="{DynamicResource floatingBarBackground}"/>
                 <ikw:SimpleStackPanel
-                    Margin="6, -2"
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
+                    <Border 
+                        Width="5"
+                        Background="{DynamicResource floatingBarBackground}"
+                        CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="MagnifierIcon"
                         Text="放大镜"
@@ -169,10 +179,17 @@
                         FontIcon="&#xed1a;"
                         Click="HideIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <Border 
+                        Width="5"
+                        Background="{DynamicResource floatingBarBackground}"
+                        CornerRadius="0,5,5,0"/>
                 </ikw:SimpleStackPanel>
-            </Grid>
-            
+            </Border>
+
             <Border
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="6"
                 Name="Border_TouchSetting">
                 <ikw:SimpleStackPanel
                     HorizontalAlignment="Center"
@@ -187,6 +204,9 @@
             </Border>
 
             <Border
+                BorderBrush="{DynamicResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="6"
                 Name="Border_ExitPPT">
                 <ikw:SimpleStackPanel
                     HorizontalAlignment="Center"
