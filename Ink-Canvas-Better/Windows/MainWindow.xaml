@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
         xmlns:localControls="clr-namespace:Ink_Canvas_Better.Controls"
+        xmlns:floatingBar="clr-namespace:Ink_Canvas_Better.Windows.FloatingBarIcons"
         xmlns:local="clr-namespace:Ink_Canvas_Better"
         xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
@@ -21,7 +22,9 @@
         WindowState="Maximized">
     <Grid
         Name="MainWindow_Grid"
-        Background="#01FFFFFF">
+        Background="Transparent">
+        <!-- #01FFFFFF
+        -->
         <!-- 
         <InkCanvas
             x:Name="inkCanvas"
@@ -103,15 +106,10 @@
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <Grid
-                        Width="0">
-                        <localControls:ICB_SubPanel
-                            IsShowPinButton="True"
-                            Title="aaaa"
-                            Margin="0,-119,-172,50">
-                            <TextBlock>
-                                123aaaaaaaaaaaaaaaaaa
-                            </TextBlock>
-                        </localControls:ICB_SubPanel>
+                        Margin="0,-119,-240,50">
+                        <floatingBar:FloatingBar_Pen>
+                            
+                        </floatingBar:FloatingBar_Pen>
                     </Grid>
                     <localControls:ICB_Button
                         x:Name="PenIcon"

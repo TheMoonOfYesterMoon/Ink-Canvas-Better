@@ -1,6 +1,6 @@
-<div align="center">
-
-<img src="./Images/Ink Canvas Better.png" style="width:96px;"/>
+**:construction:这是一个测试中的 README :construction:**
+<div class="side-by-side">
+  <div class="text-content">
 
 # Ink Canvas Better
 [![UPSTREAM](https://img.shields.io/badge/UpStream-InkCanvas/Ink--Canvas--Artistry-red.svg "LICENSE")](https://github.com/InkCanvas/Ink-Canvas-Artistry)
@@ -9,6 +9,10 @@
 [![GitHub issues](https://img.shields.io/github/issues/BaiYang2238/Ink-Canvas-Better?logo=github)](https://github.com/BaiYang2238/Ink-Canvas-Better/issues)
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/BaiYang2238/Ink-Canvas-Better/total)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
 
+  </div>
+  <div class="image-content">
+    <img src="./Images/Ink Canvas Better.png" alt="InkCanvasBetter" style="max-width: 100%; height: auto;">
+  </div>
 </div>
 
 ## :eyes: 前言
@@ -42,10 +46,39 @@
 
 </details>
 
-### :bulb: 我该在何处提出功能需求和错误报告？
+## :bulb: 我该在何处提出功能需求和错误报告？
 如果有功能需求和错误报告，请在 GitHub 上提交 Issues  
 对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者  
 功能需求：[https://github.com/BaiYang2238/Ink-Canvas-Better/labels/enhancement/new](https://github.com/BaiYang2238/Ink-Canvas-Better/labels/enhancement/new)  
 错误报告：[https://github.com/BaiYang2238/Ink-Canvas-Better/labels/bug/new](https://github.com/BaiYang2238/Ink-Canvas-Better/labels/bug/new)
 
 当然，如果你有能力参与开发的话，也很欢迎提交代码
+
+<style>
+.side-by-side {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+ 
+.text-content {
+  flex: 1;
+  min-width: 250px;
+}
+ 
+.image-content {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+ 
+@media (max-width: 550px) {
+  .side-by-side {
+    flex-direction: column;
+  }
+  .image-content {
+    order: -1; /* 让图片在窄屏时显示在文字上方 */
+  }
+}
+</style>

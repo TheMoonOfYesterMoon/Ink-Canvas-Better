@@ -7,15 +7,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Ink;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Ink_Canvas_Better.Windows;
 using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Windows;
 
 namespace Ink_Canvas_Better
 {
@@ -25,6 +20,7 @@ namespace Ink_Canvas_Better
     public partial class MainWindow : Window
     {
         Mode CurrentMode = Mode.None;
+        DrawingAttributes drawingAttributes;
 
         public enum Mode
         {
@@ -34,18 +30,22 @@ namespace Ink_Canvas_Better
             Eraser
         }
 
-        #region init
+        #region Initialize
 
         readonly Magnifier MagnifierWindow = new Magnifier();
 
         /// <summary>
-        /// initialize MainWindow
+        /// Initialize MainWindow
         /// </summary>
         public MainWindow()
         {
             InitializeComponent();
 
-            CursorIcon_ChangeToCursor();
+            drawingAttributes = new DrawingAttributes();
+            inkCanvas.DefaultDrawingAttributes = drawingAttributes;
+
+            drawingAttributes.FitToCurve = true;
+
         }
 
         #endregion
