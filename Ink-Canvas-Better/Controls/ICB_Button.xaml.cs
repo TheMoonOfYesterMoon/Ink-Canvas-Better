@@ -36,7 +36,7 @@ namespace Ink_Canvas_Better.Controls
             };
         }
 
-        #region Property
+        #region Properties
 
         #region Property_Text
 

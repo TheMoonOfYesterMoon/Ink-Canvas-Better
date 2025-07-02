@@ -118,45 +118,45 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Cursor" xml:space="preserve">
-    <value>Cursor</value>
+    <value>鼠标</value>
   </data>
   <data name="Highlighter" xml:space="preserve">
-    <value>Highlighter</value>
+    <value>荧光笔</value>
   </data>
   <data name="Pencil" xml:space="preserve">
-    <value>Pencil</value>
+    <value>铅笔</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>Clear</value>
+    <value>清空</value>
   </data>
   <data name="Eraser" xml:space="preserve">
-    <value>Eraser</value>
+    <value>橡皮</value>
   </data>
   <data name="Shape" xml:space="preserve">
-    <value>Shape</value>
+    <value>图形</value>
   </data>
   <data name="Redo" xml:space="preserve">
-    <value>Redo</value>
+    <value>退笔</value>
   </data>
   <data name="Undo" xml:space="preserve">
-    <value>Undo</value>
+    <value>复笔</value>
   </data>
   <data name="Pick" xml:space="preserve">
-    <value>Pick</value>
+    <value>拾取</value>
   </data>
   <data name="Magnifier" xml:space="preserve">
-    <value>Magnifier</value>
+    <value>放大镜</value>
   </data>
   <data name="Tools" xml:space="preserve">
-    <value>Tools</value>
+    <value>工具</value>
   </data>
   <data name="Hide" xml:space="preserve">
-    <value>Hide</value>
+    <value>隐藏</value>
   </data>
   <data name="Touch" xml:space="preserve">
-    <value>Touch</value>
+    <value>触控设置</value>
   </data>
   <data name="ExitPPT" xml:space="preserve">
-    <value>Exit</value>
+    <value>退出放映</value>
   </data>
 </root>

@@ -3,11 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
 using System.Windows;
 
 namespace Ink_Canvas_Better
@@ -35,6 +36,9 @@ namespace Ink_Canvas_Better
 
         void App_Startup(object sender, StartupEventArgs e)
         {
+            // Change the default language
+            SetDefaultLanguage("en-US");
+
             RootPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
 
             if (!Directory.Exists($"{RootPath}Logs"))
@@ -58,5 +62,12 @@ namespace Ink_Canvas_Better
             StartArgs = e.Args;
         }
 
+        public static void SetDefaultLanguage(string cultureCode)
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureCode);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(cultureCode);
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(cultureCode);
+            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(cultureCode);
+        }
     }
 }

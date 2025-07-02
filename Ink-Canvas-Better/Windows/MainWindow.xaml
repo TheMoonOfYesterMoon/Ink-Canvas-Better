@@ -8,7 +8,8 @@
         xmlns:local="clr-namespace:Ink_Canvas_Better"
         xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-        Title="Ink Canvas Better 画板"
+        xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
+        Title="Ink Canvas Better"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Stylus.IsPressAndHoldEnabled="False"
@@ -91,54 +92,65 @@
                         CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="CursorIcon"
-                        Text="鼠标"
+                        Text="{x:Static text:Resources.Cursor}"
                         FontIcon="&#xe8b0;"
                         Click="CursorIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ClearIcon"
-                        Text="清空"
+                        Text="{x:Static text:Resources.Clear}"
                         FontIcon="&#xe74d;"
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <Grid
+                        Width="0">
+                        <localControls:ICB_SubPanel
+                            IsShowPinButton="True"
+                            Title="aaaa"
+                            Margin="0,-119,-172,50">
+                            <TextBlock>
+                                123aaaaaaaaaaaaaaaaaa
+                            </TextBlock>
+                        </localControls:ICB_SubPanel>
+                    </Grid>
                     <localControls:ICB_Button
                         x:Name="PenIcon"
-                        Text="铅笔"
+                        Text="{x:Static text:Resources.Pencil}"
                         FontIcon="&#xf0c6;"
                         Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="HighlighterIcon"
-                        Text="荧光笔"
+                        Text="{x:Static text:Resources.Highlighter}"
                         Click="HighlighterIcon_Click"
                         FontIcon="&#xe891;"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="EraserIcon"
-                        Text="橡皮擦"
+                        Text="{x:Static text:Resources.Eraser}"
                         FontIcon="&#xe75c;"
                         Click="EraserIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
-                        x:Name="SelectIcon"
-                        Text="圈选"
+                        x:Name="PickIcon"
+                        Text="{x:Static text:Resources.Pick}"
                         FontIcon="&#xe958;"
-                        Click="SelectIcon_Click"
+                        Click="PickIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ShapeIcon"
-                        Text="图形"
+                        Text="{x:Static text:Resources.Shape}"
                         FontIcon="&#xf158;"
                         Click="ShapeIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- TODO:合并redo和undo功能 -->
                     <localControls:ICB_Button
-                        Text="撤销"
+                        Text="{x:Static text:Resources.Redo}"
                         FontIcon="&#xe7a7;"
                         Click="RedoIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
-                        Text="重做"
+                        Text="{x:Static text:Resources.Undo}"
                         FontIcon="&#xe7a6;"
                         Click="UndoIcon_Click"
                         IsSqueezeHorizontally="True"/>
@@ -163,19 +175,19 @@
                         CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="MagnifierIcon"
-                        Text="放大镜"
+                        Text="{x:Static text:Resources.Magnifier}"
                         FontIcon="&#xf78b;"
                         Click="MagnifierIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ToolsIcon"
-                        Text="工具"
+                        Text="{x:Static text:Resources.Tools}"
                         FontIcon="&#xe8a9;"
                         Click="ToolsIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="HideIcon"
-                        Text="隐藏"
+                        Text="{x:Static text:Resources.Hide}"
                         FontIcon="&#xed1a;"
                         Click="HideIcon_Click"
                         IsSqueezeHorizontally="True"/>
@@ -196,7 +208,7 @@
                     Orientation="Horizontal">
                     <localControls:ICB_Button
                         x:Name="TouchSettingIcon"
-                        Text="触屏设置"
+                        Text="{x:Static text:Resources.Touch}"
                         FontIcon="&#xf271;"
                         Click="TouchSettingIcon_Click"
                         CornerRadius="5"/>
@@ -213,12 +225,12 @@
                     Orientation="Horizontal">
                     <localControls:ICB_Button
                         x:Name="ExitPPTIcon"
-                        Text="退出PPT"
+                        Text="{x:Static text:Resources.ExitPPT}"
                         Click="ExitPPTIcon_Click"
                         CornerRadius="5"/>
                 </ikw:SimpleStackPanel>
             </Border>
-            
+
         </ikw:SimpleStackPanel>
     </Grid>
 </Window>

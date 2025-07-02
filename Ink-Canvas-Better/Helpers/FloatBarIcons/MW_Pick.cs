@@ -9,7 +9,7 @@ namespace Ink_Canvas_Better
 {
     public partial class MainWindow
     {
-        public void SelectIcon_Click(object sender, RoutedEventArgs e)
+        public void PickIcon_Click(object sender, RoutedEventArgs e)
         {
             
         }

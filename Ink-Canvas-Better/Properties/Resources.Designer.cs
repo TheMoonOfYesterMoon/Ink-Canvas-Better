@@ -22,7 +22,7 @@ namespace Ink_Canvas_Better.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Ink_Canvas_Better.Properties {
         ///   返回此类使用的缓存的 ResourceManager 实例。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ink_Canvas_Better.Properties.Resources", typeof(Resources).Assembly);
@@ -51,12 +51,138 @@ namespace Ink_Canvas_Better.Properties {
         ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Clear 的本地化字符串。
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Cursor 的本地化字符串。
+        /// </summary>
+        public static string Cursor {
+            get {
+                return ResourceManager.GetString("Cursor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Eraser 的本地化字符串。
+        /// </summary>
+        public static string Eraser {
+            get {
+                return ResourceManager.GetString("Eraser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Exit 的本地化字符串。
+        /// </summary>
+        public static string ExitPPT {
+            get {
+                return ResourceManager.GetString("ExitPPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Hide 的本地化字符串。
+        /// </summary>
+        public static string Hide {
+            get {
+                return ResourceManager.GetString("Hide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Highlighter 的本地化字符串。
+        /// </summary>
+        public static string Highlighter {
+            get {
+                return ResourceManager.GetString("Highlighter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Magnifier 的本地化字符串。
+        /// </summary>
+        public static string Magnifier {
+            get {
+                return ResourceManager.GetString("Magnifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Pencil 的本地化字符串。
+        /// </summary>
+        public static string Pencil {
+            get {
+                return ResourceManager.GetString("Pencil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Pick 的本地化字符串。
+        /// </summary>
+        public static string Pick {
+            get {
+                return ResourceManager.GetString("Pick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Redo 的本地化字符串。
+        /// </summary>
+        public static string Redo {
+            get {
+                return ResourceManager.GetString("Redo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Shape 的本地化字符串。
+        /// </summary>
+        public static string Shape {
+            get {
+                return ResourceManager.GetString("Shape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tools 的本地化字符串。
+        /// </summary>
+        public static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Touch 的本地化字符串。
+        /// </summary>
+        public static string Touch {
+            get {
+                return ResourceManager.GetString("Touch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Undo 的本地化字符串。
+        /// </summary>
+        public static string Undo {
+            get {
+                return ResourceManager.GetString("Undo", resourceCulture);
             }
         }
     }

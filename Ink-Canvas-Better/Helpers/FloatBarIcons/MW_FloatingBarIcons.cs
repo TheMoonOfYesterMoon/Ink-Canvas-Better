@@ -19,7 +19,7 @@ namespace Ink_Canvas_Better
             // HighlighterIcon.IsStatusEnable = false;
             PenIcon.IsStatusEnable = false;
             // RetraceIcon.IsStatusEnable = false;
-            SelectIcon.IsStatusEnable = false;
+            PickIcon.IsStatusEnable = false;
             // ShapeIcon.IsStatusEnable = false;
             // ToolsIcon.IsStatusEnable = false;
             // TouchSettingIcon.IsStatusEnable = false;
