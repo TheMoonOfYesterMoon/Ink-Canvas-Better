@@ -123,8 +123,8 @@
   <data name="Highlighter" xml:space="preserve">
     <value>Highlighter</value>
   </data>
-  <data name="Pencil" xml:space="preserve">
-    <value>Pencil</value>
+  <data name="Pen" xml:space="preserve">
+    <value>Pen</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
@@ -158,5 +158,31 @@
   </data>
   <data name="ExitPPT" xml:space="preserve">
     <value>Exit</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Ink Canvas Better</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="SettingWindowTitle" xml:space="preserve">
+    <value>Ink Canvas Better Setting</value>
+    <comment>Setting</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>Setting</comment>
+  </data>
+  <data name="StartupAndUpdate" xml:space="preserve">
+    <value>Startup and Update</value>
+    <comment>Setting</comment>
+  </data>
+  <data name="PPT" xml:space="preserve">
+    <value>PPT</value>
+    <comment>Setting</comment>
+  </data>
+  <data name="ExperimentalFeatures" xml:space="preserve">
+    <value>Experimental Features</value>
+    <comment>Setting</comment>
   </data>
 </root>

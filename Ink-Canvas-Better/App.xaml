@@ -7,10 +7,10 @@
     <Application.Resources>
         <ResourceDictionary>
             <FontFamily x:Key="FluentIconFontFamily">pack://application:,,,/Resources/#Segoe Fluent Icons</FontFamily>
-
             <!-- TODO: 主题切换 -->
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemeResources RequestedTheme="Light" />
+                <ui:XamlControlsResources/>
                 <!--
                 <ui:XamlControlsResources />
                 -->

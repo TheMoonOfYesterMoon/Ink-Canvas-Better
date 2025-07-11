@@ -1,5 +1,6 @@
 ﻿using iNKORE.UI.WPF.Modern.Controls;
 using System;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -219,12 +220,7 @@ namespace Ink_Canvas_Better.Controls
 
         private static void Img_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
         {
-            var img = new Image();
-            BitmapImage _ = new BitmapImage();
-            _.BeginInit();
-            _.UriSource = new Uri((string)eventArgs.NewValue);
-            _.EndInit();
-            img.Source = _;
+            var img = new Image { Source = new BitmapImage(new Uri((string)eventArgs.NewValue, UriKind.Relative)) };
             SetIcon(dependencyObject, img);
         }
 

@@ -123,7 +123,7 @@
   <data name="Highlighter" xml:space="preserve">
     <value>荧光笔</value>
   </data>
-  <data name="Pencil" xml:space="preserve">
+  <data name="Pen" xml:space="preserve">
     <value>铅笔</value>
   </data>
   <data name="Clear" xml:space="preserve">
@@ -158,5 +158,26 @@
   </data>
   <data name="ExitPPT" xml:space="preserve">
     <value>退出放映</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Ink Canvas Better</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="SettingWindowTitle" xml:space="preserve">
+    <value>Ink Canvas Better 设置</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>主页</value>
+  </data>
+  <data name="StartupAndUpdate" xml:space="preserve">
+    <value>启动与更新</value>
+  </data>
+  <data name="PPT" xml:space="preserve">
+    <value>PPT</value>
+  </data>
+  <data name="ExperimentalFeatures" xml:space="preserve">
+    <value>实验性功能</value>
   </data>
 </root>

@@ -1,0 +1,70 @@
+﻿<Window x:Class="Ink_Canvas_Better.Windows.Setting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Controls="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
+        xmlns:localControls="clr-namespace:Ink_Canvas_Better.Controls"
+        xmlns:floatingBar="clr-namespace:Ink_Canvas_Better.Windows.FloatingBarIcons"
+        xmlns:local="clr-namespace:Ink_Canvas_Better"
+        xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+        xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+        xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
+        ui:WindowHelper.UseModernWindowStyle="True"
+        ui:WindowHelper.SystemBackdropType="Mica"
+        ui:TitleBar.Height="36"
+        Icon="/Resources/Ink Canvas Better.ico"
+        mc:Ignorable="d"
+        WindowStyle="SingleBorderWindow"
+        Title="{x:Static text:Resources.SettingWindowTitle}"
+        MinHeight="400"
+        MinWidth="650"
+        Height="450"
+        Width="800"
+        BorderThickness="0">
+
+    <!-- Navigation -->
+    <ui:NavigationView IsBackButtonVisible="Collapsed" IsTabStop="False" PaneDisplayMode="LeftCompact">
+        <ui:NavigationView.MenuItems>
+            <ui:NavigationViewItem Content="{x:Static text:Resources.Home}" ToolTipService.ToolTip="{x:Static text:Resources.Home}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xea8a;"/>
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+            <ui:NavigationViewItem Content="{x:Static text:Resources.StartupAndUpdate}" ToolTipService.ToolTip="{x:Static text:Resources.StartupAndUpdate}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xe7e8;"/>
+                </ui:NavigationViewItem.Icon>
+                <!--
+                <ui:NavigationViewItem.MenuItems>
+                    <ui:NavigationViewItem
+                        Content="Mail"
+                        ToolTipService.ToolTip="Mail">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Mail}"/>
+                        </ui:NavigationViewItem.Icon>
+                    </ui:NavigationViewItem>
+                    <ui:NavigationViewItem
+                        Content="Calendar"
+                        ToolTipService.ToolTip="Calendar">
+                        <ui:NavigationViewItem.Icon>
+                            <ui:FontIcon Icon="{x:Static ui:SegoeFluentIcons.Calendar}"/>
+                        </ui:NavigationViewItem.Icon>
+                    </ui:NavigationViewItem>
+                </ui:NavigationViewItem.MenuItems>
+                -->
+            </ui:NavigationViewItem>
+            <ui:NavigationViewItem Content="{x:Static text:Resources.PPT}" ToolTipService.ToolTip="{x:Static text:Resources.PPT}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xe786;"/>
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+            <ui:NavigationViewItem Content="{x:Static text:Resources.ExperimentalFeatures}" ToolTipService.ToolTip="{x:Static text:Resources.ExperimentalFeatures}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xeb50;"/>
+                </ui:NavigationViewItem.Icon>
+            </ui:NavigationViewItem>
+        </ui:NavigationView.MenuItems>
+        <ui:Frame x:Name="SettingFrame" />
+    </ui:NavigationView>
+</Window>

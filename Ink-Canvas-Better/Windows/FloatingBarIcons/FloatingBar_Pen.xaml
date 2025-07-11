@@ -11,9 +11,9 @@
     <Grid>
         <localControls:ICB_SubPanel
             IsShowPinButton="True"
-            Title="{x:Static text:Resources.Pencil}">
+            Title="{x:Static text:Resources.Pen}">
             <TextBlock>
-                123aaaaaaaaaaaaaaaaaa
+                aaaaaaaaaaaaaaaaaa
             </TextBlock>
         </localControls:ICB_SubPanel>
     </Grid>

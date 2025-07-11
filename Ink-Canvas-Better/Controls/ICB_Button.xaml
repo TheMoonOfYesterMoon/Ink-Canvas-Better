@@ -21,7 +21,8 @@
             Name="InnerButton"
             Padding="0"
             BorderThickness="0"
-            Background="{x:Null}">
+            Background="{x:Null}"
+            HorizontalAlignment="Center">
             <ikw:SimpleStackPanel
                 HorizontalAlignment="Center"
                 Background="Transparent"

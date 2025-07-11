@@ -97,6 +97,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Experimental Features 的本地化字符串。
+        /// </summary>
+        public static string ExperimentalFeatures {
+            get {
+                return ResourceManager.GetString("ExperimentalFeatures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Hide 的本地化字符串。
         /// </summary>
         public static string Hide {
@@ -115,6 +124,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Home 的本地化字符串。
+        /// </summary>
+        public static string Home {
+            get {
+                return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Magnifier 的本地化字符串。
         /// </summary>
         public static string Magnifier {
@@ -124,11 +142,11 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Pencil 的本地化字符串。
+        ///   查找类似 Pen 的本地化字符串。
         /// </summary>
-        public static string Pencil {
+        public static string Pen {
             get {
-                return ResourceManager.GetString("Pencil", resourceCulture);
+                return ResourceManager.GetString("Pen", resourceCulture);
             }
         }
         
@@ -142,6 +160,24 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 PPT 的本地化字符串。
+        /// </summary>
+        public static string PPT {
+            get {
+                return ResourceManager.GetString("PPT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ink Canvas Better 的本地化字符串。
+        /// </summary>
+        public static string ProductName {
+            get {
+                return ResourceManager.GetString("ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Redo 的本地化字符串。
         /// </summary>
         public static string Redo {
@@ -151,11 +187,38 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Setting 的本地化字符串。
+        /// </summary>
+        public static string Setting {
+            get {
+                return ResourceManager.GetString("Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ink Canvas Better Setting 的本地化字符串。
+        /// </summary>
+        public static string SettingWindowTitle {
+            get {
+                return ResourceManager.GetString("SettingWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Shape 的本地化字符串。
         /// </summary>
         public static string Shape {
             get {
                 return ResourceManager.GetString("Shape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Startup and Update 的本地化字符串。
+        /// </summary>
+        public static string StartupAndUpdate {
+            get {
+                return ResourceManager.GetString("StartupAndUpdate", resourceCulture);
             }
         }
         

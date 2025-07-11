@@ -1,18 +1,26 @@
-**:construction: 这是一个测试中的 README :construction:**
+**:construction: 这是一个测试中的 README :construction:**  
 **:construction: 本页面为 v2.X 的 README :construction:**
 
-# <img src="./Images/Ink Canvas Better.png" alt="InkCanvasBetter" style="width: 32px"> Ink Canvas Better
-[![UPSTREAM](https://img.shields.io/badge/UpStream-InkCanvas/Ink--Canvas--Artistry-red.svg "LICENSE")](https://github.com/InkCanvas/Ink-Canvas-Artistry)
+<div align="center">
+
+<img src="./Images/Ink Canvas Better.png" alt="Ink Canvas Better" style="width:96px;">
+
+# Ink Canvas Better
+
+[![iNKORE.UI.WPF.Modern](https://github.com/iNKORE-NET/UI.WPF.Modern/blob/main/assets/images/badges/UI.WPF.Modern_Main_Shield.svg?raw=true)](https://github.com/iNKORE-NET/UI.WPF.Modern)
 [![LICENSE](https://img.shields.io/badge/License-GPL--3.0-red.svg "LICENSE")](./LICENSE)
 [![Latest release](https://img.shields.io/github/release/BaiYang2238/Ink-Canvas-Better.svg?style=shield)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
 [![GitHub issues](https://img.shields.io/github/issues/BaiYang2238/Ink-Canvas-Better?logo=github)](https://github.com/BaiYang2238/Ink-Canvas-Better/issues)
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/BaiYang2238/Ink-Canvas-Better/total)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
+
+</div>
 
 <!-- 这里考虑放几张预览图 -->
 
 ## :eyes: 前言
 
 使用和分发本软件前，应当且务必知晓相关开源协议  
+
 [直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)  
 [使用说明](./Document/Manual.md)  
 [隐私政策](./Document/Privacy.md)
@@ -20,6 +28,7 @@
 ## :bulb: 我该在何处提出功能需求和错误报告？
 请先阅读下方的 Q&A 和 Github 上已有的 Issues ，确认您的问题或想法没有被提出后再考虑创建新的 Issues  
 对新功能的有效意见和合理建议，开发者会适时回复并进行开发。本软件并非商业性质软件，且开发者精力有限，请勿催促开发者  
+
 功能需求：[https://github.com/BaiYang2238/Ink-Canvas-Better/labels/enhancement/new](https://github.com/BaiYang2238/Ink-Canvas-Better/labels/enhancement/new)  
 错误报告：[https://github.com/BaiYang2238/Ink-Canvas-Better/labels/bug/new](https://github.com/BaiYang2238/Ink-Canvas-Better/labels/bug/new)
 

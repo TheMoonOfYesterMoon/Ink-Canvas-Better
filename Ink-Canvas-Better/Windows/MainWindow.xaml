@@ -10,7 +10,7 @@
         xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
         xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
-        Title="Ink Canvas Better"
+        Title="{x:Static text:Resources.ProductName}"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Stylus.IsPressAndHoldEnabled="False"
@@ -23,8 +23,6 @@
     <Grid
         Name="MainWindow_Grid"
         Background="Transparent">
-        <!-- #01FFFFFF
-        -->
         <!-- 
         <InkCanvas
             x:Name="inkCanvas"
@@ -76,7 +74,7 @@
                     x:Name="SmileIcon"
                     PreviewMouseDown="SmileIcon_MouseDown"
                     PreviewMouseUp="SmileIcon_MouseUp"
-                    Img="C:\github\Ink-Canvas-Better\Ink-Canvas-Better\Ink-Canvas-Better\Resources\Ink Canvas Better.ico"
+                    Img="/Resources/Ink Canvas Better.ico"
                     CornerRadius="5"
                     IsShowText="False"/>
             </Border>
@@ -105,15 +103,25 @@
                         FontIcon="&#xe74d;"
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <!-- 
                     <Grid
                         Margin="0,-119,-240,50">
                         <floatingBar:FloatingBar_Pen>
-                            
+
                         </floatingBar:FloatingBar_Pen>
                     </Grid>
+                     -->
+                    <Popup
+                        AllowsTransparency="True"
+                        IsOpen="True"
+                        StaysOpen="True">
+                        <floatingBar:FloatingBar_Pen>
+
+                        </floatingBar:FloatingBar_Pen>
+                    </Popup>
                     <localControls:ICB_Button
                         x:Name="PenIcon"
-                        Text="{x:Static text:Resources.Pencil}"
+                        Text="{x:Static text:Resources.Pen}"
                         FontIcon="&#xf0c6;"
                         Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
