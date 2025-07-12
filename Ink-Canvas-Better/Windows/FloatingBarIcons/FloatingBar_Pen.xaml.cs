@@ -5,13 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Windows.Ink;
+using Ink_Canvas_Better;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 {
@@ -23,6 +18,22 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         public FloatingBar_Pen()
         {
             InitializeComponent();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        private void PinButton_Click(object sender, RoutedEventArgs e)
+        {
+            // TODO: Implement pinning functionality
+        }
+
+        private void Slider_StrokeThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            MainWindow.DrawingAttributes.Width = e.NewValue;
+            MainWindow.DrawingAttributes.Height = e.NewValue;
         }
     }
 }

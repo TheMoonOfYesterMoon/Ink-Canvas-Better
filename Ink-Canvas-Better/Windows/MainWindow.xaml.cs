@@ -20,7 +20,7 @@ namespace Ink_Canvas_Better
     public partial class MainWindow : Window
     {
         Mode CurrentMode = Mode.None;
-        DrawingAttributes drawingAttributes;
+        private SettingWindow settingWindow;
 
         public enum Mode
         {
@@ -29,6 +29,8 @@ namespace Ink_Canvas_Better
             Highlighter,
             Eraser
         }
+
+        public static DrawingAttributes DrawingAttributes { get; set; } = new DrawingAttributes();
 
         #region Initialize
 
@@ -41,11 +43,9 @@ namespace Ink_Canvas_Better
         {
             InitializeComponent();
 
-            drawingAttributes = new DrawingAttributes();
-            inkCanvas.DefaultDrawingAttributes = drawingAttributes;
+            inkCanvas.DefaultDrawingAttributes = DrawingAttributes;
 
-            drawingAttributes.FitToCurve = true;
-
+            DrawingAttributes.FitToCurve = true;
         }
 
         #endregion

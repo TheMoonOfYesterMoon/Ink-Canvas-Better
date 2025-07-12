@@ -1,4 +1,4 @@
-﻿<Window x:Class="Ink_Canvas_Better.Windows.Setting"
+﻿<Window x:Class="Ink_Canvas_Better.Windows.SettingWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -53,6 +53,11 @@
                     </ui:NavigationViewItem>
                 </ui:NavigationViewItem.MenuItems>
                 -->
+            </ui:NavigationViewItem>
+            <ui:NavigationViewItem Content="{x:Static text:Resources.Appearance}" ToolTipService.ToolTip="{x:Static text:Resources.Appearance}">
+                <ui:NavigationViewItem.Icon>
+                    <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xe790;"/>
+                </ui:NavigationViewItem.Icon>
             </ui:NavigationViewItem>
             <ui:NavigationViewItem Content="{x:Static text:Resources.PPT}" ToolTipService.ToolTip="{x:Static text:Resources.PPT}">
                 <ui:NavigationViewItem.Icon>

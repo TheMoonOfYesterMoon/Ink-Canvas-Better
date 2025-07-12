@@ -17,9 +17,9 @@ namespace Ink_Canvas_Better.Windows
     /// <summary>
     /// Setting.xaml 的交互逻辑
     /// </summary>
-    public partial class Setting : Window
+    public partial class SettingWindow : Window
     {
-        public Setting()
+        public SettingWindow()
         {
             InitializeComponent();
         }

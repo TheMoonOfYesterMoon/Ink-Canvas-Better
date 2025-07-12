@@ -55,7 +55,7 @@ namespace Ink_Canvas_Better
             _isMouseDown = false;
             _mouseUpPosition = e.GetPosition(inkCanvas);
 
-            // 折叠判断
+            // fold the floating bar if the mouse movement is within the tolerance
             double deltaX = _mouseUpPosition.X - _mouseDownPosition.X;
             double deltaY = _mouseUpPosition.Y - _mouseDownPosition.Y;
             if (Math.Abs(deltaX) <= FOLD_TOLERANCE

@@ -123,8 +123,8 @@
   <data name="Highlighter" xml:space="preserve">
     <value>Highlighter</value>
   </data>
-  <data name="Pen" xml:space="preserve">
-    <value>Pen</value>
+  <data name="Pencil" xml:space="preserve">
+    <value>Pencil</value>
   </data>
   <data name="Clear" xml:space="preserve">
     <value>Clear</value>
@@ -145,7 +145,7 @@
     <value>Pick</value>
   </data>
   <data name="Magnifier" xml:space="preserve">
-    <value>Magnifier</value>
+    <value>cu'cu</value>
   </data>
   <data name="Tools" xml:space="preserve">
     <value>Tools</value>
@@ -184,5 +184,13 @@
   <data name="ExperimentalFeatures" xml:space="preserve">
     <value>Experimental Features</value>
     <comment>Setting</comment>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>Appearance</value>
+    <comment>Setting</comment>
+  </data>
+  <data name="StrokeThickness" xml:space="preserve">
+    <value>Stroke thickness</value>
+    <comment>Subpanel(FloatingBar)</comment>
   </data>
 </root>

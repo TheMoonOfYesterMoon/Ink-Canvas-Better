@@ -123,7 +123,7 @@
   <data name="Highlighter" xml:space="preserve">
     <value>荧光笔</value>
   </data>
-  <data name="Pen" xml:space="preserve">
+  <data name="Pencil" xml:space="preserve">
     <value>铅笔</value>
   </data>
   <data name="Clear" xml:space="preserve">
@@ -179,5 +179,11 @@
   </data>
   <data name="ExperimentalFeatures" xml:space="preserve">
     <value>实验性功能</value>
+  </data>
+  <data name="Appearance" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="StrokeThickness" xml:space="preserve">
+    <value>粗细</value>
   </data>
 </root>

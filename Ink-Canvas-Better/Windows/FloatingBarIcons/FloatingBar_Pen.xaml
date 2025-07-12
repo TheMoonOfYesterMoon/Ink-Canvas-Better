@@ -6,15 +6,168 @@
              xmlns:local="clr-namespace:Ink_Canvas_Better.Windows.FloatingBarIcons"
              xmlns:localControls="clr-namespace:Ink_Canvas_Better.Controls"
              xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
+             xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+             xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <localControls:ICB_SubPanel
-            IsShowPinButton="True"
-            Title="{x:Static text:Resources.Pen}">
-            <TextBlock>
-                aaaaaaaaaaaaaaaaaa
-            </TextBlock>
-        </localControls:ICB_SubPanel>
+    <Grid
+        VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Name="GridRow0"
+                Height="{Binding ElementName=TitleTextBlock, Path=Height}"/>
+            <RowDefinition
+                Name="GridRow1"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title -->
+        <Border
+            SnapsToDevicePixels="True"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1,1,1,0"
+            Background="{DynamicResource floatingBarBackground}"
+            Grid.Row="0"
+            CornerRadius="5,5,0,0">
+            <Grid>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Name="TitleTextBlock"
+                    Padding="5,2"
+                    FontSize="20"
+                    Text="{x:Static text:Resources.Pencil}">
+                </TextBlock>
+
+                <ikw:SimpleStackPanel
+                    Margin="0,0,5,0"
+                    HorizontalAlignment="Right"
+                    Spacing="5"
+                    Orientation="Horizontal">
+                    <Button
+                        Name="PinButton"
+                        Click="PinButton_Click"
+                        BorderThickness="0"
+                        Background="Transparent">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True"/>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                        <ui:FontIcon
+                            FontSize="20"
+                            FontFamily="{DynamicResource FluentIconFontFamily}"
+                            Glyph="&#xe840;"/>
+                    </Button>
+
+                    <Button
+                        Name="CloseButton"
+                        Click="CloseButton_Click"
+                        BorderThickness="0"
+                        Background="Transparent">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Foreground" Value="IndianRed" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                        <ui:FontIcon
+                            FontSize="20"
+                            FontFamily="{DynamicResource FluentIconFontFamily}"
+                            Glyph="&#xe8bb;"/>
+                    </Button>
+                </ikw:SimpleStackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Content -->
+        <Border
+            SnapsToDevicePixels="True"
+            BorderBrush="{DynamicResource BorderBrush}"
+            BorderThickness="1,0,1,1"
+            Background="{DynamicResource floatingBarBackground}"
+            Grid.Row="1"
+            CornerRadius="0,0,5,5">
+            <ikw:SimpleStackPanel>
+                <ikw:SimpleStackPanel>
+                     <!-- TODO -->
+                </ikw:SimpleStackPanel>
+                <ikw:SimpleStackPanel Orientation="Horizontal" Margin="5" Height="30" Spacing="5" VerticalAlignment="Top">
+                    <TextBlock TextAlignment="Center" Text="{x:Static text:Resources.StrokeThickness}" VerticalAlignment="Center" FontSize="16"/>
+                    <Slider
+                        Name="Slider_StrokeThickness"
+                        Width="140"
+                        IsSnapToTickEnabled="True"
+                        Minimum="1"
+                        Maximum="30"
+                        IsMoveToPointEnabled="True"
+                        TickFrequency="1"
+                        TickPlacement="Both"
+                        Value="1"
+                        ValueChanged="Slider_StrokeThickness_ValueChanged"/>
+                    <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="16" Width="30"/>
+                    <Grid Width="30">
+                        <Ellipse Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
+                    </Grid>
+                </ikw:SimpleStackPanel>
+                <!-- Color -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button
+                        Grid.Column="0"
+                        Background="Black"
+                        Height="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+                    <Button
+                        Grid.Column="1"
+                        Background="White"
+                        Height="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+                    <Button
+                        Grid.Column="2"
+                        Background="Red"
+                        Height="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+                    <Button
+                        Grid.Column="3"
+                        Background="Blue"
+                        Height="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+                    <Button
+                        Grid.Column="4"
+                        Background="Yellow"
+                        Height="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+                    <Button
+                        Grid.Column="5"
+                        Background="Green"
+                        Height="{Binding Path=ActualWidth, RelativeSource={RelativeSource Self}}"/>
+                </Grid>
+            </ikw:SimpleStackPanel>
+        </Border>
+
     </Grid>
+
 </UserControl>

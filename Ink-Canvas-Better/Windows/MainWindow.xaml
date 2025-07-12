@@ -103,25 +103,14 @@
                         FontIcon="&#xe74d;"
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
-                    <!-- 
-                    <Grid
-                        Margin="0,-119,-240,50">
-                        <floatingBar:FloatingBar_Pen>
+                    <!-- Pencil -->
+                    <floatingBar:FloatingBar_Pen
+                        Margin="0,-119,-300,50">
 
-                        </floatingBar:FloatingBar_Pen>
-                    </Grid>
-                     -->
-                    <Popup
-                        AllowsTransparency="True"
-                        IsOpen="True"
-                        StaysOpen="True">
-                        <floatingBar:FloatingBar_Pen>
-
-                        </floatingBar:FloatingBar_Pen>
-                    </Popup>
+                    </floatingBar:FloatingBar_Pen>
                     <localControls:ICB_Button
                         x:Name="PenIcon"
-                        Text="{x:Static text:Resources.Pen}"
+                        Text="{x:Static text:Resources.Pencil}"
                         FontIcon="&#xf0c6;"
                         Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>

@@ -61,6 +61,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Appearance 的本地化字符串。
+        /// </summary>
+        public static string Appearance {
+            get {
+                return ResourceManager.GetString("Appearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Clear 的本地化字符串。
         /// </summary>
         public static string Clear {
@@ -133,7 +142,7 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Magnifier 的本地化字符串。
+        ///   查找类似 cu&apos;cu 的本地化字符串。
         /// </summary>
         public static string Magnifier {
             get {
@@ -142,11 +151,11 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Pen 的本地化字符串。
+        ///   查找类似 Pencil 的本地化字符串。
         /// </summary>
-        public static string Pen {
+        public static string Pencil {
             get {
-                return ResourceManager.GetString("Pen", resourceCulture);
+                return ResourceManager.GetString("Pencil", resourceCulture);
             }
         }
         
@@ -219,6 +228,15 @@ namespace Ink_Canvas_Better.Properties {
         public static string StartupAndUpdate {
             get {
                 return ResourceManager.GetString("StartupAndUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Stroke thickness 的本地化字符串。
+        /// </summary>
+        public static string StrokeThickness {
+            get {
+                return ResourceManager.GetString("StrokeThickness", resourceCulture);
             }
         }
         

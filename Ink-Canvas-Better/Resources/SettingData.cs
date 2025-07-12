@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,76 @@ namespace Ink_Canvas_Better.Resources
 {
     public class SettingData
     {
-        public bool ShowWelcomeScreen { get; set; } = true;
+        // public bool ShowWelcomeScreen { get; set; } = true;
 
+    }
+
+    /// <summary>
+    /// Startup and update
+    /// </summary>
+    public class StartupAndUpdate
+    {
+        [JsonProperty("isAutoUpdate")]
+        public bool IsAutoUpdate { get; set; } = true;
+
+        [JsonProperty("isAutoUpdateWithProxy")]
+        public bool IsAutoUpdateWithProxy { get; set; } = false;
+
+        // TODO
+        [JsonProperty("autoUpdateProxy")]
+        public string AutoUpdateProxy { get; set; } = "https://mirror.ghproxy.com/";
+
+        [JsonProperty("isAutoUpdateWithSilence")]
+        public bool IsAutoUpdateWithSilence { get; set; } = false;
+
+        [JsonProperty("isAutoUpdateWithSilenceStartTime")]
+        public string AutoUpdateWithSilenceStartTime { get; set; } = "00:00";
+
+        [JsonProperty("isAutoUpdateWithSilenceEndTime")]
+        public string AutoUpdateWithSilenceEndTime { get; set; } = "00:00";
+
+        [JsonProperty("isFoldAtStartup")]
+        public bool IsFoldAtStartup { get; set; } = false;
+
+    }
+    public class Appearance
+    {
+        [JsonProperty("isEnableDisPlayFloatBarText")]
+        public bool IsEnableDisPlayFloatBarText { get; set; } = false;
+
+        [JsonProperty("isEnableDisPlayNibModeToggler")]
+        public bool IsEnableDisPlayNibModeToggler { get; set; } = true;
+
+        [JsonProperty("FloatingBarScaling")]
+        public float FloatingBarScaling { get; set; } = 1.0f;
+
+        [JsonProperty("isShowHideControlButton")]
+        public bool IsShowHideControlButton { get; set; } = false;
+
+        [JsonProperty("isShowLRSwitchButton")]
+        public bool IsShowLRSwitchButton { get; set; } = false;
+
+        [JsonProperty("isShowModeFingerToggleSwitch")]
+        public bool IsShowModeFingerToggleSwitch { get; set; } = true;
+
+        [JsonProperty("theme")]
+        public int Theme { get; set; } = 0;
+    }
+
+    /// <summary>
+    /// PPT
+    /// </summary>
+    public class PPT
+    {
+
+    }
+
+    /// <summary>
+    /// Experimental features
+    /// </summary>
+    public class ExperimentalFeatures
+    {
+        
     }
 
     public enum OptionalOperation
@@ -18,4 +87,5 @@ namespace Ink_Canvas_Better.Resources
         No,
         Ask
     }
+
 }

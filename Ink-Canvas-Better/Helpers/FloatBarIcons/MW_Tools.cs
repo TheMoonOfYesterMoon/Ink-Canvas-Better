@@ -13,8 +13,31 @@ namespace Ink_Canvas_Better
     {
         public void ToolsIcon_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Setting settingWindow = new Windows.Setting();
-            settingWindow.Show();
+            // Temp
+            if (settingWindow == null || !IsWindowValid(settingWindow))
+            {
+                settingWindow = new SettingWindow();
+                settingWindow.Closed += (s, args) => settingWindow = null;
+                settingWindow.Show();
+            }
+            else
+            {
+                settingWindow.Activate();
+
+                if (settingWindow.WindowState == WindowState.Minimized)
+                {
+                    settingWindow.WindowState = WindowState.Normal;
+                }
+
+                settingWindow.Topmost = true;
+                settingWindow.Topmost = false;
+            }
+        }
+
+        // Temp
+        private bool IsWindowValid(Window window)
+        {
+            return window != null && PresentationSource.FromVisual(window) != null;
         }
     }
 }
