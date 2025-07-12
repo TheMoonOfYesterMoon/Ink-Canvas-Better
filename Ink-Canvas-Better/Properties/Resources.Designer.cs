@@ -142,7 +142,7 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
-        ///   查找类似 cu&apos;cu 的本地化字符串。
+        ///   查找类似 Magnifier 的本地化字符串。
         /// </summary>
         public static string Magnifier {
             get {

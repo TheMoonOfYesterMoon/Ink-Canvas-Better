@@ -29,14 +29,14 @@
                 Height="40"
                 Margin="0,0,0,560"
                 Padding="15,5,5,5"
-                Background="{DynamicResource floatingBarBackground}"
+                Background="{DynamicResource DefaultBackgroundColor_Opacity}"
                 CornerRadius="5,5,0,0">
             <ikw:SimpleStackPanel Orientation="Horizontal">
                 <TextBlock
                     VerticalAlignment="Center"
                     FontSize="20"
                     FontWeight="Bold"
-                    Foreground="{DynamicResource FloatBarForeground}"
+                    Foreground="{DynamicResource DefaultForegroundColor}"
                     Text="放大镜" />
                 <Button
                     Background="Transparent"
@@ -54,7 +54,7 @@
                         HorizontalContentAlignment="Center"
                         Content="点击放大右侧"
                         FontSize="16"
-                        Foreground="{DynamicResource FloatBarForeground}"/>
+                        Foreground="{DynamicResource DefaultForegroundColor}"/>
                 </Button>
                 <ui:FontIcon
                     x:Name="BorderDrawShapePin"
@@ -64,7 +64,6 @@
                     VerticalAlignment="Center"
                     FontFamily="{StaticResource FluentIconFontFamily}"
                     FontSize="20"
-                    Foreground="{DynamicResource FloatBarForeground}"
                     Glyph="&#xef2c;"
                     MouseDown="HideMagnify_Click"/>
             </ikw:SimpleStackPanel>

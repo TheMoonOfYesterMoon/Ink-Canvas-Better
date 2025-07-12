@@ -166,7 +166,7 @@ namespace Ink_Canvas_Better.Controls
             var control = (ICB_Button)dependencyObject;
             if ((bool)eventArgs.NewValue)
             {
-                control.Border.SetResourceReference(Border.BackgroundProperty, "floatingBarBackground");
+                control.Border.SetResourceReference(Border.BackgroundProperty, "DefaultBackgroundColor_Opacity");
             }
             else
             {

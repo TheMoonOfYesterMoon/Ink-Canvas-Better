@@ -14,7 +14,7 @@
         Width="48"
         Height="48"
         Name="Border"
-        Background="{DynamicResource floatingBarBackground}">
+        Background="{DynamicResource DefaultBackgroundColor_Opacity}">
         <Button
             Width="43"
             Height="43"
@@ -40,7 +40,7 @@
                     Height="15"
                     Name="TextBox_1"
                     FontSize="10"
-                    Foreground="{DynamicResource floatingBarText}"
+                    Foreground="{DynamicResource DefaultForegroundColor}"
                     Text="Button"
                     TextAlignment="Center"/>
             </ikw:SimpleStackPanel>
