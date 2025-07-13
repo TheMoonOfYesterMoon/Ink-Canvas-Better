@@ -5,14 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Ink_Canvas_Better.Windows;
 
 namespace Ink_Canvas_Better.Controls
 {
@@ -47,7 +41,7 @@ namespace Ink_Canvas_Better.Controls
         private static void Color_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
         {
             var control = (ICB_PresetColor)dependencyObject;
-            control.InnerButton.Background = new SolidColorBrush((Color)eventArgs.NewValue);
+            control.InnerBorder.Background = new SolidColorBrush((Color)eventArgs.NewValue);
         }
 
         #endregion
@@ -56,7 +50,7 @@ namespace Ink_Canvas_Better.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.DrawingAttributes.Color = ((SolidColorBrush)InnerButton.Background).Color;
+            MainWindow.DrawingAttributes.Color = ((SolidColorBrush)InnerBorder.Background).Color;
         }
     }
 }

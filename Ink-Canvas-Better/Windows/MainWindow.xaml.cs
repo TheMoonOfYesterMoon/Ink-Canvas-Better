@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -11,6 +9,7 @@ using System.Windows.Ink;
 using System.Windows.Media;
 using Ink_Canvas_Better.Helpers;
 using Ink_Canvas_Better.Windows;
+using Ink_Canvas_Better.Windows.FloatingBarIcons;
 
 namespace Ink_Canvas_Better
 {

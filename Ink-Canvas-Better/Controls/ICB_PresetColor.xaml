@@ -12,7 +12,6 @@
         <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="4"/>
-
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="BorderBrush" Value="{DynamicResource ICBButtonHover}"/>
@@ -20,11 +19,15 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
+    
     <Border Style="{StaticResource BorderStyle}" Width="40" Height="40">
-        <Button Name="InnerButton" Width="38" Height="38" Click="Button_Click" Padding="0">
-            <Viewbox Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <ui:FontIcon Width="38" Height="38" Glyph="&#xe73a;" FontFamily="{DynamicResource FluentIconFontFamily}"/>
-            </Viewbox>
-        </Button>
+        <Grid>
+            <Border Name="InnerBorder" Width="36" Height="36" CornerRadius="4" BorderThickness="0"></Border>
+            <Button Name="InnerButton" Width="38" Height="38" Click="Button_Click" Padding="0" Background="Transparent">
+                <Viewbox Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <ui:FontIcon Width="38" Height="38" Glyph="&#xe73a;" FontFamily="{DynamicResource FluentIconFontFamily}"/>
+                </Viewbox>
+            </Button>
+        </Grid>
     </Border>
 </UserControl>

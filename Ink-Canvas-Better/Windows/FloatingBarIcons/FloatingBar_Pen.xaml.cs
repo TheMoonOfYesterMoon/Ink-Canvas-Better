@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Ink;
+using System.Windows.Media;
 using Ink_Canvas_Better;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
@@ -34,6 +35,11 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             MainWindow.DrawingAttributes.Width = e.NewValue;
             MainWindow.DrawingAttributes.Height = e.NewValue;
+        }
+
+        public void DrawingColorChanged()
+        {
+            ColorPreview.Fill = new SolidColorBrush(MainWindow.DrawingAttributes.Color);
         }
     }
 }

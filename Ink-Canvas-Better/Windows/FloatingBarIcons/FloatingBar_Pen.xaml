@@ -126,14 +126,17 @@
                         ValueChanged="Slider_StrokeThickness_ValueChanged"/>
                     <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="12" Width="24" Foreground="{DynamicResource DefaultForegroundColor}"/>
                     <Grid Width="30">
-                        <Ellipse Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
+                        <Ellipse x:Name="ColorPreview" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
                     </Grid>
                 </ikw:SimpleStackPanel>
                 <!-- Color -->
-                <ikw:SimpleStackPanel>
-                    <localControls:ICB_PresetColor Color="Aqua">
-                        
-                    </localControls:ICB_PresetColor>
+                <ikw:SimpleStackPanel Orientation="Horizontal">
+                    <localControls:ICB_PresetColor Color="Black"/>
+                    <localControls:ICB_PresetColor Color="White"/>
+                    <localControls:ICB_PresetColor Color="Red"/>
+                    <localControls:ICB_PresetColor Color="Yellow"/>
+                    <localControls:ICB_PresetColor Color="Blue"/>
+                    <localControls:ICB_PresetColor Color="Green"/>
                 </ikw:SimpleStackPanel>
             </ikw:SimpleStackPanel>
         </Border>
