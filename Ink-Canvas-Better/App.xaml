@@ -14,9 +14,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemeResources RequestedTheme="Light" />
                 <ui:XamlControlsResources/>
-                <!--
-                <ui:XamlControlsResources />
-                -->
                 <ResourceDictionary Source="Resources/Styles/Light.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

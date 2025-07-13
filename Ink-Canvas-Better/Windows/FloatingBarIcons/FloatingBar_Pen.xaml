@@ -131,7 +131,9 @@
                 </ikw:SimpleStackPanel>
                 <!-- Color -->
                 <ikw:SimpleStackPanel>
-                    
+                    <localControls:ICB_PresetColor Color="Aqua">
+                        
+                    </localControls:ICB_PresetColor>
                 </ikw:SimpleStackPanel>
             </ikw:SimpleStackPanel>
         </Border>

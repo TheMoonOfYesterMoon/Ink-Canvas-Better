@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -23,6 +24,39 @@ namespace Ink_Canvas_Better.Controls
         public ICB_PresetColor()
         {
             InitializeComponent();
+        }
+
+        #region Properties
+
+        #region Color
+
+        public static readonly DependencyProperty ColorProperty =
+            DependencyProperty.Register(
+                "Color", 
+                typeof(Color), 
+                typeof(ICB_PresetColor), 
+                new PropertyMetadata(Color_OnValueChanged)
+            );
+
+        public Color Color
+        {
+            get { return (Color)GetValue(ColorProperty); }
+            set { SetValue(ColorProperty, value); }
+        }
+
+        private static void Color_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var control = (ICB_PresetColor)dependencyObject;
+            control.InnerButton.Background = new SolidColorBrush((Color)eventArgs.NewValue);
+        }
+
+        #endregion
+
+        #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.DrawingAttributes.Color = ((SolidColorBrush)InnerButton.Background).Color;
         }
     }
 }
