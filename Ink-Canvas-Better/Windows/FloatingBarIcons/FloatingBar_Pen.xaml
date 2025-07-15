@@ -138,6 +138,14 @@
                     <localControls:ICB_PresetColor Color="Blue"/>
                     <localControls:ICB_PresetColor Color="Green"/>
                 </ikw:SimpleStackPanel>
+                <ikw:SimpleStackPanel Orientation="Horizontal">
+                    <localControls:ICB_CustomColor Color="DimGray"/>
+                    <localControls:ICB_CustomColor Color="LightGray"/>
+                    <localControls:ICB_CustomColor Color="LightCoral"/>
+                    <localControls:ICB_CustomColor Color="Wheat"/>
+                    <localControls:ICB_CustomColor Color="LightBlue"/>
+                    <localControls:ICB_CustomColor Color="lightGreen"/>
+                </ikw:SimpleStackPanel>
             </ikw:SimpleStackPanel>
         </Border>
 

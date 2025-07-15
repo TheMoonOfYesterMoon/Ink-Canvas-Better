@@ -193,4 +193,8 @@
     <value>Stroke thickness</value>
     <comment>Subpanel(FloatingBar)</comment>
   </data>
+  <data name="Customize" xml:space="preserve">
+    <value>Customize</value>
+    <comment>CustomColor</comment>
+  </data>
 </root>

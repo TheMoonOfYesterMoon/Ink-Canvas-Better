@@ -88,6 +88,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Customize 的本地化字符串。
+        /// </summary>
+        public static string Customize {
+            get {
+                return ResourceManager.GetString("Customize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Eraser 的本地化字符串。
         /// </summary>
         public static string Eraser {

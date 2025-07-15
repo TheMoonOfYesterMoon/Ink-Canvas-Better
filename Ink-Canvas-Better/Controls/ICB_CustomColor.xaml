@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Ink_Canvas_Better.Controls.ICB_CustomColor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ink_Canvas_Better.Controls"
+             xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+             xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+             xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="40">
+    <UserControl.Resources>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="4"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource ICBButtonHover}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Style="{StaticResource BorderStyle}" Width="40" Height="40">
+            <Grid>
+                <Border Name="InnerBorder" Width="36" Height="36" CornerRadius="4" BorderThickness="0"></Border>
+                <Button Name="InnerButton" Width="38" Height="38" Padding="0" Background="Transparent"> <!-- Click="Button_Click" -->
+                    <Viewbox Name="Viewbox1" Visibility="Collapsed" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <ui:FontIcon Width="38" Height="38" Glyph="&#xe73a;" FontFamily="{DynamicResource FluentIconFontFamily}"/>
+                    </Viewbox>
+                </Button>
+            </Grid>
+        </Border>
+        <Button Grid.Row="1" Height="19" Width="40" Padding="0">
+            <TextBlock Text="{x:Static text:Resources.Customize}" FontSize="8"/>
+        </Button>
+    </Grid>
+</UserControl>

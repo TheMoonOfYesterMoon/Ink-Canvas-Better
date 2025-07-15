@@ -105,7 +105,7 @@
                         IsSqueezeHorizontally="True"/>
                     <!-- Pencil -->
                     <floatingBar:FloatingBar_Pen
-                        Margin="0,-119,-360,50">
+                        Margin="0,-179,-360,50">
 
                     </floatingBar:FloatingBar_Pen>
                     <localControls:ICB_Button

@@ -186,4 +186,7 @@
   <data name="StrokeThickness" xml:space="preserve">
     <value>粗细</value>
   </data>
+  <data name="Customize" xml:space="preserve">
+    <value>自定义</value>
+  </data>
 </root>
