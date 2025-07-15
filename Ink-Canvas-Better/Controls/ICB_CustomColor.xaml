@@ -28,15 +28,19 @@
         <Border Grid.Row="0" Style="{StaticResource BorderStyle}" Width="40" Height="40">
             <Grid>
                 <Border Name="InnerBorder" Width="36" Height="36" CornerRadius="4" BorderThickness="0"></Border>
-                <Button Name="InnerButton" Width="38" Height="38" Padding="0" Background="Transparent"> <!-- Click="Button_Click" -->
+                <Button Name="InnerButton" Width="38" Height="38" Click="Button_Click" Padding="0" Background="Transparent">
                     <Viewbox Name="Viewbox1" Visibility="Collapsed" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <ui:FontIcon Width="38" Height="38" Glyph="&#xe73a;" FontFamily="{DynamicResource FluentIconFontFamily}"/>
                     </Viewbox>
                 </Button>
             </Grid>
         </Border>
-        <Button Grid.Row="1" Height="19" Width="40" Padding="0">
+        <Button Grid.Row="1" Height="19" Width="40" Padding="0" Click="Custom_Click">
             <TextBlock Text="{x:Static text:Resources.Customize}" FontSize="8"/>
         </Button>
+        <Popup Name="ColorPicker" AllowsTransparency="True" StaysOpen="False">
+            <!-- TODO -->
+            <ikw:SquarePicker/>
+        </Popup>
     </Grid>
 </UserControl>

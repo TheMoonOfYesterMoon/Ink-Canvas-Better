@@ -51,6 +51,37 @@ namespace Ink_Canvas_Better.Controls
 
         #endregion
 
+        #region IsSelected
+
+        public static readonly DependencyProperty IsSelectedProperty =
+            DependencyProperty.Register(
+                "IsSelected",
+                typeof(bool),
+                typeof(ICB_CustomColor),
+                new PropertyMetadata(IsSelected_OnValueChanged)
+            );
+
+        public bool IsSelected
+        {
+            get { return (bool)GetValue(ColorProperty); }
+            set { SetValue(ColorProperty, value); }
+        }
+
+        private static void IsSelected_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            var control = (ICB_CustomColor)dependencyObject;
+            if ((bool)eventArgs.NewValue)
+            {
+                control.Viewbox1.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                control.Viewbox1.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        #endregion
+
         #endregion
 
         #region Events
@@ -77,6 +108,11 @@ namespace Ink_Canvas_Better.Controls
             var args = new RoutedEventArgs(ColorSelectedEvent, this);
             RaiseEvent(args);
             e.Handled = true;
+        }
+
+        private void Custom_Click(object sender, RoutedEventArgs e)
+        {
+            ColorPicker.IsOpen = !ColorPicker.IsOpen;
         }
     }
 }

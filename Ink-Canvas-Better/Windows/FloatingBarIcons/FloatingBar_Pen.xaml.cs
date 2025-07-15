@@ -20,12 +20,16 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             InitializeComponent();
 
             AddHandler(ICB_PresetColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
+            AddHandler(ICB_CustomColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
         }
         private void OnColorSelected(object sender, RoutedEventArgs e)
         {
             if (e.OriginalSource is ICB_PresetColor selector)
             {
                 ColorPreview.Fill = new SolidColorBrush(selector.Color);
+            } else if (e.OriginalSource is ICB_CustomColor Selector)
+            {
+                ColorPreview.Fill = new SolidColorBrush(Selector.Color);
             }
         }
 
