@@ -112,7 +112,13 @@ namespace Ink_Canvas_Better.Controls
 
         private void Custom_Click(object sender, RoutedEventArgs e)
         {
-            ColorPicker.IsOpen = !ColorPicker.IsOpen;
+            Popup_ColorPicker.IsOpen = !Popup_ColorPicker.IsOpen;
+        }
+
+        private void SquarePicker_ColorChanged(object sender, RoutedEventArgs e)
+        {
+            this.Color = ColorPicker.SelectedColor;
+            Button_Click(sender, e);
         }
     }
 }
