@@ -6,18 +6,16 @@
              xmlns:local="clr-namespace:Ink_Canvas_Better.Controls"
              xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="48"
-             d:DesignWidth="48"
              Padding="0">
     <Border
         BorderBrush="{DynamicResource BorderBrush}"
-        Width="48"
-        Height="48"
+        Width="64"
+        Height="64"
         Name="Border"
         Background="{DynamicResource DefaultBackgroundColor_Opacity}">
         <Button
-            Width="43"
-            Height="43"
+            Width="58"
+            Height="58"
             Name="InnerButton"
             Padding="0"
             BorderThickness="0"
@@ -29,17 +27,17 @@
                 Orientation="Vertical">
                 <ikw:SimpleStackPanel
                     Name="SimpleStackPanel_1"
-                    Width="43"
-                    Height="28"
+                    Width="58"
+                    Height="38"
                     HorizontalAlignment="Center"
                     Background="Transparent"
                     Orientation="Vertical">
                     
                 </ikw:SimpleStackPanel>
                 <TextBlock
-                    Height="15"
+                    Height="20"
                     Name="TextBox_1"
-                    FontSize="10"
+                    FontSize="12"
                     Foreground="{DynamicResource DefaultForegroundColor}"
                     Text="Button"
                     TextAlignment="Center"/>

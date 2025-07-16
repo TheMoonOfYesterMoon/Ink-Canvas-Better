@@ -287,7 +287,7 @@ namespace Ink_Canvas_Better.Controls
             if (control.IsShowText)
             {
                 control.TextBox_1.Visibility = Visibility.Visible;
-                control.SimpleStackPanel_1.Height = 28;
+                control.SimpleStackPanel_1.Height = 38;
                 if (control.SimpleStackPanel_1.Children[0] is FontIcon)
                 {
                     control.fontIcon.Height = control.SimpleStackPanel_1.Height;
@@ -297,7 +297,7 @@ namespace Ink_Canvas_Better.Controls
             else
             {
                 control.TextBox_1.Visibility = Visibility.Collapsed;
-                control.SimpleStackPanel_1.Height = 43;
+                control.SimpleStackPanel_1.Height = 58;
                 if (control.SimpleStackPanel_1.Children[0] is FontIcon)
                 {
                     control.fontIcon.Height = control.SimpleStackPanel_1.Height;

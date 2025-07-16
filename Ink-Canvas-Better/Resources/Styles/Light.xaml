@@ -6,6 +6,6 @@
 
     <SolidColorBrush x:Key="BorderBrush" Opacity="0.85" Color="#121212"/>
 
-    <SolidColorBrush x:Key="ICBButtonHover" Opacity="1" Color="IndianRed"/>
+    <SolidColorBrush x:Key="ICBButtonHover" Opacity="1" Color="PaleVioletRed"/>
     
 </ResourceDictionary>

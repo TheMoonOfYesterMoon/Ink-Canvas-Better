@@ -57,7 +57,6 @@
         <ikw:SimpleStackPanel
             Name="floatingBar"
             Spacing="2"
-            Height="50"
             Orientation="Horizontal"
             HorizontalAlignment="Left" VerticalAlignment="Top">
             <!-- 渲染变换 -->
@@ -105,7 +104,7 @@
                         IsSqueezeHorizontally="True"/>
                     <!-- Pencil -->
                     <floatingBar:FloatingBar_Pen
-                        Margin="0,-179,-360,50">
+                        Margin="0,-309,-500,66">
 
                     </floatingBar:FloatingBar_Pen>
                     <localControls:ICB_Button

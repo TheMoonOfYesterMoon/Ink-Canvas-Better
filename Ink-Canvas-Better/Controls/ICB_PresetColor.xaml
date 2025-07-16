@@ -6,8 +6,7 @@
              xmlns:local="clr-namespace:Ink_Canvas_Better.Controls"
              xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
              xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-             mc:Ignorable="d" 
-             d:DesignHeight="40" d:DesignWidth="40">
+             mc:Ignorable="d" >
     <UserControl.Resources>
         <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="BorderThickness" Value="1"/>
@@ -20,12 +19,18 @@
         </Style>
     </UserControl.Resources>
     
-    <Border Style="{StaticResource BorderStyle}" Width="40" Height="40">
+    <Border Style="{StaticResource BorderStyle}" Width="64" Height="64">
         <Grid>
-            <Border Name="InnerBorder" Width="36" Height="36" CornerRadius="4" BorderThickness="0"></Border>
-            <Button Name="InnerButton" Width="38" Height="38" Click="Button_Click" Padding="0" Background="Transparent">
-                <Viewbox Name="Viewbox1" Visibility="Collapsed" Width="38" Height="38" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <ui:FontIcon Width="38" Height="38" Glyph="&#xe73a;" FontFamily="{DynamicResource FluentIconFontFamily}"/>
+            <Border Name="InnerBorder" Width="62" Height="62" CornerRadius="4" BorderThickness="0"></Border>
+            <Button Name="InnerButton" Click="Button_Click" Padding="0" Background="Transparent"
+                    Width="{Binding ElementName=InnerBorder, Path=ActualWidth}"
+                    Height="{Binding ElementName=InnerBorder, Path=ActualHeight}">
+                <Viewbox Name="Viewbox1" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center"
+                         Width="{Binding ElementName=InnerBorder, Path=ActualWidth}"
+                         Height="{Binding ElementName=InnerBorder, Path=ActualHeight}">
+                    <ui:FontIcon Glyph="&#xe73a;" FontFamily="{DynamicResource FluentIconFontFamily}"
+                                 Width="{Binding ElementName=InnerBorder, Path=ActualWidth}"
+                                 Height="{Binding ElementName=InnerBorder, Path=ActualHeight}"/>
                 </Viewbox>
             </Button>
         </Grid>
