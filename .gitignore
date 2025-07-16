@@ -8,3 +8,5 @@
 /.vs
 
 .claudiaideconfig
+/Ink-Canvas-Better/#temp/temp.xaml
+/Ink-Canvas-Better/#temp/temp.xaml.cs
