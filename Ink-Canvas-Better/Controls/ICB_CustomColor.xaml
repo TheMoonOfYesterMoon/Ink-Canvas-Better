@@ -56,22 +56,23 @@
             <!-- TODO -->
             <Border BorderThickness="1" CornerRadius="5" Background="{DynamicResource DefaultBackgroundColor}" BorderBrush="{DynamicResource BorderBrush}" Padding="16">
                 <ikw:SimpleStackPanel Spacing="5">
-                    <ikw:SquarePicker Name="ColorPicker" Width="200" Height="200"/>
+                    <ikw:SquarePicker Name="ColorPicker" Width="200" Height="200"
+                                      ColorChanged="SquarePicker_ColorChanged"/>
                     <ikw:SimpleStackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Text="RGB" FontSize="16" Width="36"/>
-                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="R" Maximum="255"/>
-                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="G" Maximum="255"/>
-                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="B" Maximum="255"/>
+                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="R" Maximum="255" Tag="RGB"/>
+                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="G" Maximum="255" Tag="RGB"/>
+                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="B" Maximum="255" Tag="RGB"/>
                     </ikw:SimpleStackPanel>
                     <ikw:SimpleStackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Text="HSL" FontSize="16" Width="36"/>
-                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="H" Maximum="360"/>
-                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="S" Maximum="1" SmallChange="0.01"/>
-                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="L" Maximum="1" SmallChange="0.01"/>
+                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="H" Maximum="360" Tag="HSL"/>
+                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="S" Maximum="1" SmallChange="0.01" Tag="HSL"/>
+                        <ui:NumberBox Style="{StaticResource NumberBoxStyle}" ui:ControlHelper.PlaceholderText="L" Maximum="1" SmallChange="0.01" Tag="HSL"/>
                     </ikw:SimpleStackPanel>
                     <ikw:SimpleStackPanel Orientation="Horizontal">
                         <TextBlock VerticalAlignment="Center" Text="Hex" FontSize="16" Width="36"/>
-                        <TextBox ui:ControlHelper.PlaceholderText="Hex" MinHeight="28" Height="28" FontSize="14" Padding="4" Width="288"/>
+                        <TextBox ui:ControlHelper.PlaceholderText="Hex" MinHeight="28" Height="28" FontSize="14" Padding="4" Width="288" Tag="Hex"/>
                     </ikw:SimpleStackPanel>
                 </ikw:SimpleStackPanel>
             </Border>

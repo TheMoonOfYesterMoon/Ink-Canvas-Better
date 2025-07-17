@@ -117,8 +117,9 @@ namespace Ink_Canvas_Better.Controls
 
         private void SquarePicker_ColorChanged(object sender, RoutedEventArgs e)
         {
-            this.Color = ColorPicker.SelectedColor;
+            Color = ColorPicker.SelectedColor;
             Button_Click(sender, e);
         }
+
     }
 }

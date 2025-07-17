@@ -62,7 +62,7 @@
                     HorizontalAlignment="Left"
                     Name="TitleTextBlock"
                     Padding="5,2"
-                    FontSize="20"
+                    FontSize="24"
                     Foreground="{DynamicResource DefaultForegroundColor}"
                     Text="{x:Static text:Resources.Pencil}">
                 </TextBlock>
@@ -70,7 +70,7 @@
                 <ikw:SimpleStackPanel
                     Margin="0,0,5,0"
                     HorizontalAlignment="Right"
-                    Spacing="5"
+                    Spacing="8"
                     Orientation="Horizontal">
                     <Button
                         Style="{StaticResource PinButtonStyle}"
@@ -112,19 +112,19 @@
                     <!-- TODO -->
                 </ikw:SimpleStackPanel>
                 <ikw:SimpleStackPanel Orientation="Horizontal" Height="32" Spacing="5" VerticalAlignment="Top">
-                    <TextBlock TextAlignment="Center" Text="{x:Static text:Resources.StrokeThickness}" VerticalAlignment="Center" FontSize="12" Foreground="{DynamicResource DefaultForegroundColor}"/>
+                    <TextBlock TextAlignment="Center" Text="{x:Static text:Resources.StrokeThickness}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                     <Slider
                         Name="Slider_StrokeThickness"
-                        Width="150"
+                        Width="180"
                         IsSnapToTickEnabled="True"
                         Minimum="1"
-                        Maximum="30"
+                        Maximum="60"
                         IsMoveToPointEnabled="True"
                         TickFrequency="1"
                         TickPlacement="Both"
                         Value="1"
                         ValueChanged="Slider_StrokeThickness_ValueChanged"/>
-                    <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="12" Width="24" Foreground="{DynamicResource DefaultForegroundColor}"/>
+                    <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="16" Width="24" Foreground="{DynamicResource DefaultForegroundColor}"/>
                     <Grid Width="30">
                         <Ellipse x:Name="ColorPreview" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
                     </Grid>
