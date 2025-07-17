@@ -182,9 +182,8 @@ namespace Ink_Canvas_Better.Controls
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            // TODO
             if (!Regex.IsMatch(((TextBox)sender).Text, @"^#?([0-9a-fA-F]{6})$"))
             {
                 Hex.Text = "000000";
@@ -204,6 +203,11 @@ namespace Ink_Canvas_Better.Controls
                 S.Value = s;
                 L.Value = l;
             }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Popup_ColorPicker.IsOpen = false;
         }
     }
 }
