@@ -197,4 +197,12 @@
     <value>Customize</value>
     <comment>CustomColor</comment>
   </data>
+  <data name="InkToShape" xml:space="preserve">
+    <value>Ink to Shape</value>
+    <comment>runtime</comment>
+  </data>
+  <data name="NibSimulation" xml:space="preserve">
+    <value>Nib Simulation</value>
+    <comment>runtime</comment>
+  </data>
 </root>

@@ -66,7 +66,7 @@
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
-                BorderThickness="1"
+                BorderThickness="2"
                 CornerRadius="6"
                 Name="Border_Smile">
                 <localControls:ICB_Button
@@ -80,7 +80,7 @@
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
-                BorderThickness="1"
+                BorderThickness="2"
                 CornerRadius="6"
                 Name="Border_DrawingTools">
                 <ikw:SimpleStackPanel
@@ -104,7 +104,7 @@
                         IsSqueezeHorizontally="True"/>
                     <!-- Pencil -->
                     <floatingBar:FloatingBar_Pen
-                        Margin="0,-309,-500,66">
+                        Margin="0,-360,-500,70">
 
                     </floatingBar:FloatingBar_Pen>
                     <localControls:ICB_Button
@@ -157,7 +157,7 @@
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
-                BorderThickness="1"
+                BorderThickness="2"
                 CornerRadius="6"
                 Name="Border_Others">
                 <ikw:SimpleStackPanel
@@ -194,7 +194,7 @@
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
-                BorderThickness="1"
+                BorderThickness="2"
                 CornerRadius="6"
                 Name="Border_TouchSetting">
                 <ikw:SimpleStackPanel
@@ -211,7 +211,7 @@
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
-                BorderThickness="1"
+                BorderThickness="2"
                 CornerRadius="6"
                 Name="Border_ExitPPT">
                 <ikw:SimpleStackPanel

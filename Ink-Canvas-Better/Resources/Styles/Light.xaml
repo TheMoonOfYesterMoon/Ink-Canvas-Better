@@ -4,7 +4,7 @@
     <SolidColorBrush x:Key="DefaultBackgroundColor_Opacity" Opacity="0.88" Color="#F0F2F5"/>
     <SolidColorBrush x:Key="DefaultForegroundColor" Opacity="1" Color="#333333"/>
 
-    <SolidColorBrush x:Key="BorderBrush" Opacity="0.85" Color="#121212"/>
+    <SolidColorBrush x:Key="BorderBrush" Opacity="0.85" Color="CadetBlue"/>
 
     <SolidColorBrush x:Key="ICBButtonHover" Opacity="1" Color="PaleVioletRed"/>
     

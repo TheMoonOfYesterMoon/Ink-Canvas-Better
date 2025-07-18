@@ -151,11 +151,29 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Ink to Shape 的本地化字符串。
+        /// </summary>
+        public static string InkToShape {
+            get {
+                return ResourceManager.GetString("InkToShape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Magnifier 的本地化字符串。
         /// </summary>
         public static string Magnifier {
             get {
                 return ResourceManager.GetString("Magnifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Nib Simulation 的本地化字符串。
+        /// </summary>
+        public static string NibSimulation {
+            get {
+                return ResourceManager.GetString("NibSimulation", resourceCulture);
             }
         }
         

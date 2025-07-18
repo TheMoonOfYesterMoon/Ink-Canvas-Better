@@ -189,4 +189,10 @@
   <data name="Customize" xml:space="preserve">
     <value>自定义</value>
   </data>
+  <data name="InkToShape" xml:space="preserve">
+    <value>墨迹识别</value>
+  </data>
+  <data name="NibSimulation" xml:space="preserve">
+    <value>模拟笔锋</value>
+  </data>
 </root>
