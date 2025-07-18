@@ -10,6 +10,7 @@
 [![iNKORE.UI.WPF.Modern](https://github.com/iNKORE-NET/UI.WPF.Modern/blob/main/assets/images/badges/UI.WPF.Modern_Main_Shield.svg?raw=true)](https://github.com/iNKORE-NET/UI.WPF.Modern)
 [![LICENSE](https://img.shields.io/badge/License-GPL--3.0-red.svg "LICENSE")](./LICENSE)
 [![Latest release](https://img.shields.io/github/release/BaiYang2238/Ink-Canvas-Better.svg?style=shield)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/BaiYang2238/Ink-Canvas-Better)](https://github.com/BaiYang2238/Ink-Canvas-Better/commits/master)
 [![GitHub issues](https://img.shields.io/github/issues/BaiYang2238/Ink-Canvas-Better?logo=github)](https://github.com/BaiYang2238/Ink-Canvas-Better/issues)
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/BaiYang2238/Ink-Canvas-Better/total)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
 
@@ -19,6 +20,7 @@
 
 ## :eyes: 前言
 
+`2.X` 版本完全重写，其代码不再基于 `ICA`，从 `1.X` 版本更新至 `2.X` 版本时可能出现错误  
 使用和分发本软件前，应当且务必知晓相关开源协议  
 
 [直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)  

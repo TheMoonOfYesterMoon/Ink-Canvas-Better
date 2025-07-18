@@ -1,11 +1,16 @@
+**:construction: 本软件正在重写 :construction:**
+
 <div align="center">
 
 <img src="./Images/Ink Canvas Better.png" style="width:96px;"/>
 
 # Ink Canvas Better
+
+[![iNKORE.UI.WPF.Modern](https://github.com/iNKORE-NET/UI.WPF.Modern/blob/main/assets/images/badges/UI.WPF.Modern_Main_Shield.svg?raw=true)](https://github.com/iNKORE-NET/UI.WPF.Modern)
 [![UPSTREAM](https://img.shields.io/badge/UpStream-InkCanvas/Ink--Canvas--Artistry-red.svg "LICENSE")](https://github.com/InkCanvas/Ink-Canvas-Artistry)
 [![LICENSE](https://img.shields.io/badge/License-GPL--3.0-red.svg "LICENSE")](./LICENSE)
 [![Latest release](https://img.shields.io/github/release/BaiYang2238/Ink-Canvas-Better.svg?style=shield)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/BaiYang2238/Ink-Canvas-Better)](https://github.com/BaiYang2238/Ink-Canvas-Better/commits/master)
 [![GitHub issues](https://img.shields.io/github/issues/BaiYang2238/Ink-Canvas-Better?logo=github)](https://github.com/BaiYang2238/Ink-Canvas-Better/issues)
 [![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/BaiYang2238/Ink-Canvas-Better/total)](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)
 
@@ -24,8 +29,6 @@
 
 ## :green_book: Q&A
 
-<details>
-
 ### 为什么会有这个分支版本？
 简而言之，就是作者在使用 Ink Canvas 时，发现有一些需要的功能它没有，再看看其他分支版本，都没有看到合适的，遂决定自己搓一个  
 精力有限，不出意外的话这个项目也会很快进入半死不活的状态
@@ -39,8 +42,6 @@
 
 ### 安装后程序无法正常启动？
 请检查你的电脑上是否安装了 `.Net Framework 4.7.2` 或更高版本。若没有，请前往官网下载 [.Net 4.7.2](https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net472-offline-installer)  
-
-</details>
 
 ### :bulb: 我该在何处提出功能需求和错误报告？
 如果有功能需求和错误报告，请在 GitHub 上提交 Issues  
