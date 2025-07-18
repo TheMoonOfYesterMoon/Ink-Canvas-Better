@@ -1027,14 +1027,9 @@ namespace Ink_Canvas
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             CloseIsFromButton = true;
-            try
+            if (MagnifyWindow != null)
             {
                 MagnifyWindow.Close();
-            }
-            catch (System.NullReferenceException ex)
-            {
-                Console.WriteLine(ex.Message);
-                // 如果触发了这个异常，不用管它
             }
             Close();
         }

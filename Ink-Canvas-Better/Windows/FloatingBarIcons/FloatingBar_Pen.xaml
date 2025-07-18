@@ -30,7 +30,7 @@
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="IndianRed" />
+                                <Setter Property="Foreground" Value="{DynamicResource ICBButtonHover}" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -73,6 +73,7 @@
                     Spacing="8"
                     Orientation="Horizontal">
                     <Button
+                        Visibility="Collapsed"
                         Style="{StaticResource PinButtonStyle}"
                         Name="PinButton"
                         Click="PinButton_Click"
@@ -91,6 +92,7 @@
                         BorderThickness="0"
                         Background="Transparent">
                         <ui:FontIcon
+                            Foreground="{Binding ElementName=CloseButton, Path=Foreground}"
                             FontSize="20"
                             FontFamily="{DynamicResource FluentIconFontFamily}"
                             Glyph="&#xe8bb;"/>
@@ -131,14 +133,14 @@
                 </DockPanel>
                 <!-- function -->
                 <WrapPanel Orientation="Horizontal">
-                    <ui:ToggleSplitButton>
+                    <ui:ToggleSplitButton Margin="2">
                         <ikw:SimpleStackPanel>
                             <TextBlock Text="{x:Static text:Resources.InkToShape}"/>
                             <TextBlock>Mode</TextBlock>
                             <!-- TODO:Mode -->
                         </ikw:SimpleStackPanel>
                     </ui:ToggleSplitButton>
-                    <ui:ToggleSplitButton>
+                    <ui:ToggleSplitButton Margin="2">
                         <ikw:SimpleStackPanel>
                             <TextBlock Text="{x:Static text:Resources.NibSimulation}"/>
                             <TextBlock>Mode</TextBlock>
