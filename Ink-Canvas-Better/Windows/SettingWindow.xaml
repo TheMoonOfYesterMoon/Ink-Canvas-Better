@@ -70,6 +70,6 @@
                 </ui:NavigationViewItem.Icon>
             </ui:NavigationViewItem>
         </ui:NavigationView.MenuItems>
-        <ui:Frame x:Name="SettingFrame" />
+        <ui:Frame x:Name="SettingFrame" Source="pack://application:,,,/Pages/SettingPages/Home.xaml"/>
     </ui:NavigationView>
 </Window>

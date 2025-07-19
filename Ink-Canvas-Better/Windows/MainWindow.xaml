@@ -55,6 +55,7 @@
             IsManipulationEnabled="True"/>
         <!-- // 浮动工具栏 // -->
         <ikw:SimpleStackPanel
+            Height="68"
             Name="floatingBar"
             Spacing="2"
             Orientation="Horizontal"

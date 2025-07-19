@@ -1,0 +1,99 @@
+﻿<Page x:Class="Ink_Canvas_Better.Pages.SettingPages.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ink_Canvas_Better.Pages.SettingPages"
+      xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Margin="5"
+      Title="Home">
+
+    <ikw:SimpleStackPanel Spacing="4">
+        <ui:SettingsCard>
+            <ui:SettingsCard.HeaderIcon>
+                <ui:FontIcon Glyph="&#xe7ba;"/>
+            </ui:SettingsCard.HeaderIcon>
+            <ui:SettingsCard.Content>
+                <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">
+                    <Button Click="ButtonLog_Click">
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="&#xeadf;"
+                                 BaselineAlignment="Center"
+                                 FontFamily="{DynamicResource FluentIconFontFamily}"
+                                 FontWeight="Bold"
+                                 FontSize="16"/>
+                            <Run Text="{x:Static text:Resources.OpenLog}"
+                                 BaselineAlignment="Center"
+                                 FontWeight="Bold"
+                                 FontSize="14"/>
+                        </TextBlock>
+                    </Button>
+                    <Button Click="ButtonResetToSuggestion_Click">
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="&#xe8f7;"
+                                 BaselineAlignment="Center"
+                                 FontFamily="{DynamicResource FluentIconFontFamily}"
+                                 FontWeight="Bold"
+                                 FontSize="16"/>
+                            <Run Text="{x:Static text:Resources.ResetSettings}"
+                                 BaselineAlignment="Center"
+                                 FontWeight="Bold"
+                                 FontSize="14"/>
+                        </TextBlock>
+                    </Button>
+                    <Line
+                        HorizontalAlignment="Center"
+                        Stroke="Black"
+                        StrokeThickness="1"
+                        Y1="26"
+                        Y2="4"/>
+                    <Button Click="ButtonRestart_Click"
+                            Style="{DynamicResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}">
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="&#xe72c;"
+                                 BaselineAlignment="Center"
+                                 FontFamily="{DynamicResource FluentIconFontFamily}"
+                                 FontWeight="Bold"
+                                 FontSize="16"/>
+                            <Run Text="{x:Static text:Resources.RestartApplication}"
+                                 BaselineAlignment="Center"
+                                 FontWeight="Bold"
+                                 FontSize="14"/>
+                        </TextBlock>
+                    </Button>
+                    <Button Click="ButtonExit_Click"
+                            Style="{DynamicResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}">
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="&#xe7e8;"
+                                 BaselineAlignment="Center"
+                                 FontFamily="{DynamicResource FluentIconFontFamily}"
+                                 FontWeight="Bold"
+                                 FontSize="16"/>
+                            <Run Text="{x:Static text:Resources.CloseApplication}"
+                                 BaselineAlignment="Center"
+                                 FontWeight="Bold"
+                                 FontSize="14"/>
+                        </TextBlock>
+                    </Button>
+                </ikw:SimpleStackPanel>
+            </ui:SettingsCard.Content>
+        </ui:SettingsCard>
+        <ui:SettingsCard 
+            Click="SettingsCard_About_Click"
+            IsClickEnabled="True"
+            Name="SettingPage_Home_About"
+            Header="Ink Cnavas Better"
+            Description="{x:Static text:Resources.Setting_AppDescription}">
+            <ui:SettingsCard.HeaderIcon>
+                <ui:FontIcon Glyph="&#xe946;"/>
+            </ui:SettingsCard.HeaderIcon>
+            <ui:SettingsCard.ActionIcon>
+                <ui:FontIcon Glyph="&#xE8A7;"/>
+            </ui:SettingsCard.ActionIcon>
+        </ui:SettingsCard>
+    </ikw:SimpleStackPanel>
+</Page>

@@ -79,6 +79,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Close Application 的本地化字符串。
+        /// </summary>
+        public static string CloseApplication {
+            get {
+                return ResourceManager.GetString("CloseApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Cursor 的本地化字符串。
         /// </summary>
         public static string Cursor {
@@ -178,6 +187,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Open Log 的本地化字符串。
+        /// </summary>
+        public static string OpenLog {
+            get {
+                return ResourceManager.GetString("OpenLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Pencil 的本地化字符串。
         /// </summary>
         public static string Pencil {
@@ -223,11 +241,38 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Reset Settings 的本地化字符串。
+        /// </summary>
+        public static string ResetSettings {
+            get {
+                return ResourceManager.GetString("ResetSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Restart Application 的本地化字符串。
+        /// </summary>
+        public static string RestartApplication {
+            get {
+                return ResourceManager.GetString("RestartApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Setting 的本地化字符串。
         /// </summary>
         public static string Setting {
             get {
                 return ResourceManager.GetString("Setting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ink Canvas Better is a completely open-source and free drawing tool. If you have any suggestions or issues, please visit our GitHub page. Thank you for using it! 的本地化字符串。
+        /// </summary>
+        public static string Setting_AppDescription {
+            get {
+                return ResourceManager.GetString("Setting_AppDescription", resourceCulture);
             }
         }
         

@@ -205,4 +205,20 @@
     <value>Nib Simulation</value>
     <comment>runtime</comment>
   </data>
+  <data name="Setting_AppDescription" xml:space="preserve">
+    <value>Ink Canvas Better is a completely open-source and free drawing tool. If you have any suggestions or issues, please visit our GitHub page. Thank you for using it!</value>
+    <comment>Setting -&gt; Home</comment>
+  </data>
+  <data name="OpenLog" xml:space="preserve">
+    <value>Open Log</value>
+  </data>
+  <data name="ResetSettings" xml:space="preserve">
+    <value>Reset Settings</value>
+  </data>
+  <data name="RestartApplication" xml:space="preserve">
+    <value>Restart Application</value>
+  </data>
+  <data name="CloseApplication" xml:space="preserve">
+    <value>Close Application</value>
+  </data>
 </root>

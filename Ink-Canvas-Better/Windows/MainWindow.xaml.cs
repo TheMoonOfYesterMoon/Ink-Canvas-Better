@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Windows;
+using Ink_Canvas_Better.Pages.SettingPages;
+using System;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Ink;
 using System.Windows.Media;
-using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Windows;
-using Ink_Canvas_Better.Windows.FloatingBarIcons;
 
 namespace Ink_Canvas_Better
 {
@@ -20,6 +20,7 @@ namespace Ink_Canvas_Better
     {
         Mode CurrentMode = Mode.None;
         private SettingWindow settingWindow;
+        public static bool CloseIsFromButton = false;
 
         public enum Mode
         {
@@ -43,10 +44,16 @@ namespace Ink_Canvas_Better
             InitializeComponent();
 
             inkCanvas.DefaultDrawingAttributes = DrawingAttributes;
-
             DrawingAttributes.FitToCurve = true;
+
+            this.Loaded += DockWindowToBottom;
         }
 
         #endregion
+
+        public void ICB_Close(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

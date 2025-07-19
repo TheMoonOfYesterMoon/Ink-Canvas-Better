@@ -195,4 +195,19 @@
   <data name="NibSimulation" xml:space="preserve">
     <value>模拟笔锋</value>
   </data>
+  <data name="Setting_AppDescription" xml:space="preserve">
+    <value>Ink Canvas Better 是一个完全开源免费的画板工具。如果您有任何建议或问题，请访问我们的 GitHub 页面。感谢您的使用！</value>
+  </data>
+  <data name="OpenLog" xml:space="preserve">
+    <value>打开日志</value>
+  </data>
+  <data name="ResetSettings" xml:space="preserve">
+    <value>重置设置</value>
+  </data>
+  <data name="RestartApplication" xml:space="preserve">
+    <value>重启软件</value>
+  </data>
+  <data name="CloseApplication" xml:space="preserve">
+    <value>关闭软件</value>
+  </data>
 </root>

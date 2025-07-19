@@ -7,5 +7,5 @@
     <SolidColorBrush x:Key="BorderBrush" Opacity="0.85" Color="CadetBlue"/>
 
     <SolidColorBrush x:Key="ICBButtonHover" Opacity="1" Color="PaleVioletRed"/>
-    
+
 </ResourceDictionary>

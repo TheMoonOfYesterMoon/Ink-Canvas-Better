@@ -5,7 +5,7 @@ namespace Ink_Canvas_Better.Helpers.Log
 {
     class Log
     {
-        public static string LogFile = "Logs/Log.txt";
+        public static string LogFilePath = Path.Combine("Logs", "Log.txt");
 
         public static void NewLog(string str)
         {
@@ -39,7 +39,7 @@ namespace Ink_Canvas_Better.Helpers.Log
             }
             try
             {
-                var file = App.RootPath + LogFile;
+                var file = App.RootPath + LogFilePath;
                 if (!Directory.Exists(App.RootPath))
                 {
                     Directory.CreateDirectory(App.RootPath);
