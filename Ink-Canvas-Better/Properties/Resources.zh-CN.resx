@@ -210,4 +210,13 @@
   <data name="CloseApplication" xml:space="preserve">
     <value>关闭软件</value>
   </data>
+  <data name="Setting_GoToGithubRepository" xml:space="preserve">
+    <value>源码托管于 Github，点此访问 Github 仓库</value>
+  </data>
+  <data name="Setting_Author" xml:space="preserve">
+    <value>作者</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>BaiYang2238</value>
+  </data>
 </root>

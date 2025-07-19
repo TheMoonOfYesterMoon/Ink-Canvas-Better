@@ -10,7 +10,8 @@
                 <Setter Property="Foreground" Value="{DynamicResource DefaultForegroundColor}"/>
             </Style>
             <FontFamily x:Key="FluentIconFontFamily">pack://application:,,,/Resources/#Segoe Fluent Icons</FontFamily>
-            <!-- TODO: 主题切换 -->
+            
+            <!-- TODO -->
             <ResourceDictionary.MergedDictionaries>
                 <ui:ThemeResources RequestedTheme="Light" />
                 <ui:XamlControlsResources/>

@@ -82,18 +82,33 @@
                 </ikw:SimpleStackPanel>
             </ui:SettingsCard.Content>
         </ui:SettingsCard>
-        <ui:SettingsCard 
-            Click="SettingsCard_About_Click"
-            IsClickEnabled="True"
-            Name="SettingPage_Home_About"
-            Header="Ink Cnavas Better"
-            Description="{x:Static text:Resources.Setting_AppDescription}">
-            <ui:SettingsCard.HeaderIcon>
-                <ui:FontIcon Glyph="&#xe946;"/>
-            </ui:SettingsCard.HeaderIcon>
-            <ui:SettingsCard.ActionIcon>
-                <ui:FontIcon Glyph="&#xE8A7;"/>
-            </ui:SettingsCard.ActionIcon>
-        </ui:SettingsCard>
+        <GroupBox Name="GroupBox_About_1" Header="Ink Cnavas Better">
+            <ikw:SimpleStackPanel Spacing="5">
+                <TextBlock TextWrapping="Wrap" FontSize="14" Text="{x:Static text:Resources.Setting_AppDescription}"/>
+                <ui:SettingsCard 
+                    Click="SettingsCard_Github_Click"
+                    IsClickEnabled="True"
+                    Description="{x:Static text:Resources.Setting_GoToGithubRepository}">
+                    <ui:SettingsCard.HeaderIcon>
+                        <Image Source="{StaticResource Icon_Github}"/>
+                    </ui:SettingsCard.HeaderIcon>
+                    <ui:SettingsCard.ActionIcon>
+                        <ui:FontIcon Glyph="&#xE8A7;"/>
+                    </ui:SettingsCard.ActionIcon>
+                </ui:SettingsCard>
+                <ui:SettingsCard
+                    Header="{x:Static text:Resources.Setting_Author}"
+                    Click="SettingsCard_Author_Click"
+                    IsClickEnabled="True"
+                    Description="{x:Static text:Resources.Author}">
+                    <ui:SettingsCard.HeaderIcon>
+                        <ui:FontIcon Glyph="&#xee57;"/>
+                    </ui:SettingsCard.HeaderIcon>
+                    <ui:SettingsCard.ActionIcon>
+                        <ui:FontIcon Glyph="&#xE8A7;"/>
+                    </ui:SettingsCard.ActionIcon>
+                </ui:SettingsCard>
+            </ikw:SimpleStackPanel>
+        </GroupBox>
     </ikw:SimpleStackPanel>
 </Page>

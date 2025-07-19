@@ -47,21 +47,27 @@ namespace Ink_Canvas_Better.Pages.SettingPages
         {
             // TODO
         }
-        private void SettingsCard_About_Click(object sender, RoutedEventArgs e)
+
+        private void SettingsCard_Github_Click(object sender, RoutedEventArgs e)
         {
             Process.Start(new ProcessStartInfo("https://github.com/BaiYang2238/Ink-Canvas-Better") { UseShellExecute = true });
+        }
+
+        private void SettingsCard_Author_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://github.com/BaiYang2238") { UseShellExecute = true });
         }
 
         private void Home_Loaded(object sender, RoutedEventArgs e)
         {
             string Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            SettingPage_Home_About.Header = $"Ink Canvas Better v{Version}";
+            GroupBox_About_1.Header = $"Ink Canvas Better v{Version}";
             String[] Version1 = Version.Split('.');
             if (int.TryParse(Version1[3], out int i))
             {
                 if (i > 0)
                 {
-                    SettingPage_Home_About.Header = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - beta";
+                    GroupBox_About_1.Header = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - beta";
                 }
             }
         }

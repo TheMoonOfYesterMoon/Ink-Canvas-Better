@@ -70,6 +70,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 BaiYang2238 的本地化字符串。
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Clear 的本地化字符串。
         /// </summary>
         public static string Clear {
@@ -273,6 +282,24 @@ namespace Ink_Canvas_Better.Properties {
         public static string Setting_AppDescription {
             get {
                 return ResourceManager.GetString("Setting_AppDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Author 的本地化字符串。
+        /// </summary>
+        public static string Setting_Author {
+            get {
+                return ResourceManager.GetString("Setting_Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 The source code is hosted on GitHub. Click here to visit the GitHub repository. 的本地化字符串。
+        /// </summary>
+        public static string Setting_GoToGithubRepository {
+            get {
+                return ResourceManager.GetString("Setting_GoToGithubRepository", resourceCulture);
             }
         }
         

@@ -221,4 +221,15 @@
   <data name="CloseApplication" xml:space="preserve">
     <value>Close Application</value>
   </data>
+  <data name="Setting_GoToGithubRepository" xml:space="preserve">
+    <value>The source code is hosted on GitHub. Click here to visit the GitHub repository.</value>
+    <comment>Setting -&gt; Home</comment>
+  </data>
+  <data name="Setting_Author" xml:space="preserve">
+    <value>Author</value>
+    <comment>Setting -&gt; Home</comment>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>BaiYang2238</value>
+  </data>
 </root>
