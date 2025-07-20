@@ -1,6 +1,7 @@
 ﻿using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Windows;
 using Ink_Canvas_Better.Pages.SettingPages;
+using Ink_Canvas_Better.Resources;
+using Ink_Canvas_Better.Windows;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -8,8 +9,6 @@ using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows;
-using System.Windows.Ink;
-using System.Windows.Media;
 
 namespace Ink_Canvas_Better
 {
@@ -18,20 +17,6 @@ namespace Ink_Canvas_Better
     /// </summary>
     public partial class MainWindow : Window
     {
-        Mode CurrentMode = Mode.None;
-        private SettingWindow settingWindow;
-        public static bool CloseIsFromButton = false;
-
-        public enum Mode
-        {
-            None,
-            Pen,
-            Highlighter,
-            Eraser
-        }
-
-        public static DrawingAttributes DrawingAttributes { get; set; } = new DrawingAttributes();
-
         #region Initialize
 
         readonly Magnifier MagnifierWindow = new Magnifier();
@@ -43,8 +28,8 @@ namespace Ink_Canvas_Better
         {
             InitializeComponent();
 
-            inkCanvas.DefaultDrawingAttributes = DrawingAttributes;
-            DrawingAttributes.FitToCurve = true;
+            inkCanvas.DefaultDrawingAttributes = RuntimeData.DrawingAttributes;
+            RuntimeData.DrawingAttributes.FitToCurve = true;
 
             this.Loaded += DockWindowToBottom;
         }

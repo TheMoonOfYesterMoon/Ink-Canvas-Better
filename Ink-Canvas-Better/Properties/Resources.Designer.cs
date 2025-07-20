@@ -304,6 +304,24 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Language 的本地化字符串。
+        /// </summary>
+        public static string Setting_Language {
+            get {
+                return ResourceManager.GetString("Setting_Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Changing this setting requires a software restart. 的本地化字符串。
+        /// </summary>
+        public static string Setting_RequireRestarting {
+            get {
+                return ResourceManager.GetString("Setting_RequireRestarting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Ink Canvas Better Setting 的本地化字符串。
         /// </summary>
         public static string SettingWindowTitle {

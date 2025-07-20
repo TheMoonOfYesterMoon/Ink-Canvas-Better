@@ -9,7 +9,7 @@
       xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Margin="5"
+      Margin="6"
       Title="Home">
 
     <ikw:SimpleStackPanel Spacing="4">
@@ -19,6 +19,35 @@
             </ui:SettingsCard.HeaderIcon>
             <ui:SettingsCard.Content>
                 <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">
+                    <Button Click="ButtonExit_Click"
+                            Style="{DynamicResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}">
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="&#xe7e8;"
+                                 BaselineAlignment="Center"
+                                 FontFamily="{DynamicResource FluentIconFontFamily}"
+                                 FontWeight="Bold"
+                                 FontSize="16"/>
+                            <Run Text="{x:Static text:Resources.CloseApplication}"
+                                 BaselineAlignment="Center"
+                                 FontWeight="Bold"
+                                 FontSize="14"/>
+                        </TextBlock>
+                    </Button>
+                    <Button Click="ButtonRestart_Click"
+                            Style="{DynamicResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}">
+                        <TextBlock VerticalAlignment="Center">
+                            <Run Text="&#xe72c;"
+                                 BaselineAlignment="Center"
+                                 FontFamily="{DynamicResource FluentIconFontFamily}"
+                                 FontWeight="Bold"
+                                 FontSize="16"/>
+                            <Run Text="{x:Static text:Resources.RestartApplication}"
+                                 BaselineAlignment="Center"
+                                 FontWeight="Bold"
+                                 FontSize="14"/>
+                        </TextBlock>
+                    </Button>
+                    <Line Stroke="Black" VerticalAlignment="Center" StrokeThickness="1" Y1="20"/>
                     <Button Click="ButtonLog_Click">
                         <TextBlock VerticalAlignment="Center">
                             <Run Text="&#xeadf;"
@@ -45,40 +74,6 @@
                                  FontSize="14"/>
                         </TextBlock>
                     </Button>
-                    <Line
-                        HorizontalAlignment="Center"
-                        Stroke="Black"
-                        StrokeThickness="1"
-                        Y1="26"
-                        Y2="4"/>
-                    <Button Click="ButtonRestart_Click"
-                            Style="{DynamicResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}">
-                        <TextBlock VerticalAlignment="Center">
-                            <Run Text="&#xe72c;"
-                                 BaselineAlignment="Center"
-                                 FontFamily="{DynamicResource FluentIconFontFamily}"
-                                 FontWeight="Bold"
-                                 FontSize="16"/>
-                            <Run Text="{x:Static text:Resources.RestartApplication}"
-                                 BaselineAlignment="Center"
-                                 FontWeight="Bold"
-                                 FontSize="14"/>
-                        </TextBlock>
-                    </Button>
-                    <Button Click="ButtonExit_Click"
-                            Style="{DynamicResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}">
-                        <TextBlock VerticalAlignment="Center">
-                            <Run Text="&#xe7e8;"
-                                 BaselineAlignment="Center"
-                                 FontFamily="{DynamicResource FluentIconFontFamily}"
-                                 FontWeight="Bold"
-                                 FontSize="16"/>
-                            <Run Text="{x:Static text:Resources.CloseApplication}"
-                                 BaselineAlignment="Center"
-                                 FontWeight="Bold"
-                                 FontSize="14"/>
-                        </TextBlock>
-                    </Button>
                 </ikw:SimpleStackPanel>
             </ui:SettingsCard.Content>
         </ui:SettingsCard>
@@ -93,7 +88,7 @@
                         <Image Source="{StaticResource Icon_Github}"/>
                     </ui:SettingsCard.HeaderIcon>
                     <ui:SettingsCard.ActionIcon>
-                        <ui:FontIcon Glyph="&#xE8A7;"/>
+                        <ui:FontIcon Glyph="&#xe8a7;"/>
                     </ui:SettingsCard.ActionIcon>
                 </ui:SettingsCard>
                 <ui:SettingsCard
@@ -105,8 +100,17 @@
                         <ui:FontIcon Glyph="&#xee57;"/>
                     </ui:SettingsCard.HeaderIcon>
                     <ui:SettingsCard.ActionIcon>
-                        <ui:FontIcon Glyph="&#xE8A7;"/>
+                        <ui:FontIcon Glyph="&#xe8a7;"/>
                     </ui:SettingsCard.ActionIcon>
+                </ui:SettingsCard>
+                <ui:SettingsCard
+                    Header="{x:Static text:Resources.Setting_Language}"
+                    Click="SettingsCard_Language_Click"
+                    IsClickEnabled="True"
+                    Description="{x:Static text:Resources.Setting_RequireRestarting}">
+                    <ui:SettingsCard.HeaderIcon>
+                        <ui:FontIcon Glyph="&#xf2b7;"/>
+                    </ui:SettingsCard.HeaderIcon>
                 </ui:SettingsCard>
             </ikw:SimpleStackPanel>
         </GroupBox>

@@ -72,5 +72,10 @@ namespace Ink_Canvas_Better.Pages.SettingPages
             }
         }
 
+        private void SettingsCard_Language_Click(object sender, RoutedEventArgs e)
+        {
+            Language languageWindow = new Language();
+            languageWindow.ShowDialog();
+        }
     }
 }

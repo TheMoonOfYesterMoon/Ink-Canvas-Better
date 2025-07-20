@@ -13,6 +13,17 @@ namespace Ink_Canvas_Better.Resources
 
     }
 
+    public class Others
+    {
+        [JsonProperty("isShowLanguageWindow")]
+        public bool IsShowLanguageWindow { get; set; } = true;
+
+        [JsonProperty("isShowWelcomeScreen")]
+        public bool IsShowWelcomeScreen { get; set; } = true;
+
+
+    }
+
     /// <summary>
     /// Startup and update
     /// </summary>

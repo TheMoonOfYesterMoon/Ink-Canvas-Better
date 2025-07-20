@@ -17,10 +17,10 @@
     <Compile Update="Controls\ICB_PresetColor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\SettingPages\Home.xaml.cs">
+    <Compile Update="Pages\SettingPages\Home\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Windows\SettingWindow.xaml.cs">
+    <Compile Update="Windows\Language.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

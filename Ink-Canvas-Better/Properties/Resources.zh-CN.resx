@@ -219,4 +219,10 @@
   <data name="Author" xml:space="preserve">
     <value>BaiYang2238</value>
   </data>
+  <data name="Setting_Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Setting_RequireRestarting" xml:space="preserve">
+    <value>更改此项设置需要重启本软件</value>
+  </data>
 </root>
