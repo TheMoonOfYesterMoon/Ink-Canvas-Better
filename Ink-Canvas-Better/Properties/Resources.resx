@@ -232,4 +232,12 @@
   <data name="Author" xml:space="preserve">
     <value>BaiYang2238</value>
   </data>
+  <data name="Setting_Language" xml:space="preserve">
+    <value>Language</value>
+    <comment>Setting -&gt; Home</comment>
+  </data>
+  <data name="Setting_RequireRestarting" xml:space="preserve">
+    <value>Changing this setting requires a software restart.</value>
+    <comment>Setting</comment>
+  </data>
 </root>

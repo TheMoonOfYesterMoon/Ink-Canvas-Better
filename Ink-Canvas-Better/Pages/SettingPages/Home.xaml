@@ -9,7 +9,7 @@
       xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Margin="5"
+      Margin="6"
       Title="Home">
 
     <ikw:SimpleStackPanel Spacing="4">
@@ -93,7 +93,7 @@
                         <Image Source="{StaticResource Icon_Github}"/>
                     </ui:SettingsCard.HeaderIcon>
                     <ui:SettingsCard.ActionIcon>
-                        <ui:FontIcon Glyph="&#xE8A7;"/>
+                        <ui:FontIcon Glyph="&#xe8a7;"/>
                     </ui:SettingsCard.ActionIcon>
                 </ui:SettingsCard>
                 <ui:SettingsCard
@@ -105,8 +105,16 @@
                         <ui:FontIcon Glyph="&#xee57;"/>
                     </ui:SettingsCard.HeaderIcon>
                     <ui:SettingsCard.ActionIcon>
-                        <ui:FontIcon Glyph="&#xE8A7;"/>
+                        <ui:FontIcon Glyph="&#xe8a7;"/>
                     </ui:SettingsCard.ActionIcon>
+                </ui:SettingsCard>
+                <ui:SettingsCard
+                    Header="{x:Static text:Resources.Setting_Language}"
+                    Description="{x:Static text:Resources.Setting_RequireRestarting}">
+                    <ui:SettingsCard.HeaderIcon>
+                        <ui:FontIcon Glyph="&#xf2b7;"/>
+                    </ui:SettingsCard.HeaderIcon>
+                    <!-- TODO -->
                 </ui:SettingsCard>
             </ikw:SimpleStackPanel>
         </GroupBox>
