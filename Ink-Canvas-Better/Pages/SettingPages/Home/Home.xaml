@@ -103,15 +103,6 @@
                         <ui:FontIcon Glyph="&#xe8a7;"/>
                     </ui:SettingsCard.ActionIcon>
                 </ui:SettingsCard>
-                <ui:SettingsCard
-                    Header="{x:Static text:Resources.Setting_Language}"
-                    Click="SettingsCard_Language_Click"
-                    IsClickEnabled="True"
-                    Description="{x:Static text:Resources.Setting_RequireRestarting}">
-                    <ui:SettingsCard.HeaderIcon>
-                        <ui:FontIcon Glyph="&#xf2b7;"/>
-                    </ui:SettingsCard.HeaderIcon>
-                </ui:SettingsCard>
             </ikw:SimpleStackPanel>
         </GroupBox>
     </ikw:SimpleStackPanel>
