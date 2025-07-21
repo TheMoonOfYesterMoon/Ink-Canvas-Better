@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas_Better.Helpers.Log;
+using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 using System;
 using System.Collections.Generic;
@@ -24,14 +25,14 @@ namespace Ink_Canvas_Better.Pages.SettingPages
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.CloseIsFromButton = true;
+            RuntimeData.CloseIsFromButton = true;
             Application.Current.Shutdown();
         }
 
         private void ButtonRestart_Click(object sender, RoutedEventArgs e)
         {
             Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location, "-m");
-            MainWindow.CloseIsFromButton = true;
+            RuntimeData.CloseIsFromButton = true;
             Application.Current.Shutdown();
         }
 

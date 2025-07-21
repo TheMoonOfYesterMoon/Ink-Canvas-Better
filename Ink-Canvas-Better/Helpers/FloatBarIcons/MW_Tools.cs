@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 
 namespace Ink_Canvas_Better
@@ -14,23 +15,23 @@ namespace Ink_Canvas_Better
         public void ToolsIcon_Click(object sender, RoutedEventArgs e)
         {
             // Temp
-            if (settingWindow == null || !IsWindowValid(settingWindow))
+            if (RuntimeData.settingWindow == null || !IsWindowValid(RuntimeData.settingWindow))
             {
-                settingWindow = new SettingWindow();
-                settingWindow.Closed += (s, args) => settingWindow = null;
-                settingWindow.Show();
+                RuntimeData.settingWindow = new SettingWindow();
+                RuntimeData.settingWindow.Closed += (s, args) => RuntimeData.settingWindow = null;
+                RuntimeData.settingWindow.Show();
             }
             else
             {
-                settingWindow.Activate();
+                RuntimeData.settingWindow.Activate();
 
-                if (settingWindow.WindowState == WindowState.Minimized)
+                if (RuntimeData.settingWindow.WindowState == WindowState.Minimized)
                 {
-                    settingWindow.WindowState = WindowState.Normal;
+                    RuntimeData.settingWindow.WindowState = WindowState.Normal;
                 }
 
-                settingWindow.Topmost = true;
-                settingWindow.Topmost = false;
+                RuntimeData.settingWindow.Topmost = true;
+                RuntimeData.settingWindow.Topmost = false;
             }
         }
 

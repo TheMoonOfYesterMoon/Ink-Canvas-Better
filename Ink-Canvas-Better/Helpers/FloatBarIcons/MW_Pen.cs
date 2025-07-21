@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,10 @@ namespace Ink_Canvas_Better
     {
         public void PenIcon_Click(Object sender, RoutedEventArgs e)
         {
-            if (CurrentMode != Mode.Pen)
+            if (RuntimeData.CurrentMode != RuntimeData.Mode.Pen)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                CurrentMode = Mode.Pen;
+                RuntimeData.CurrentMode = RuntimeData.Mode.Pen;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             }
             else

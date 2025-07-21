@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Ink_Canvas_Better
     {
         public void CursorIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentMode != Mode.None)
+            if (RuntimeData.CurrentMode != RuntimeData.Mode.None)
             {
                 CursorIcon_ChangeToCursor();
             }
@@ -22,7 +23,7 @@ namespace Ink_Canvas_Better
         public void CursorIcon_ChangeToCursor()
         {
             MainWindow_Grid.Background = Brushes.Transparent;
-            CurrentMode = Mode.None;
+            RuntimeData.CurrentMode = RuntimeData.Mode.None;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
         }
     }

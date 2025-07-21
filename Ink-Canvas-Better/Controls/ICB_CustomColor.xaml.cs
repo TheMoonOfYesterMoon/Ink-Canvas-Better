@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -117,7 +118,7 @@ namespace Ink_Canvas_Better.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.DrawingAttributes.Color = ((SolidColorBrush)InnerBorder.Background).Color;
+            RuntimeData.DrawingAttributes.Color = ((SolidColorBrush)InnerBorder.Background).Color;
 
             var args = new RoutedEventArgs(ColorSelectedEvent, this);
             RaiseEvent(args);

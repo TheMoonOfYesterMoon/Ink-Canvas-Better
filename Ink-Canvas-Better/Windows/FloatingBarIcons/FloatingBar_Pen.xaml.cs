@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas_Better.Controls;
+using Ink_Canvas_Better.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,13 +46,13 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void Slider_StrokeThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            MainWindow.DrawingAttributes.Width = e.NewValue;
-            MainWindow.DrawingAttributes.Height = e.NewValue;
+            RuntimeData.DrawingAttributes.Width = e.NewValue;
+            RuntimeData.DrawingAttributes.Height = e.NewValue;
         }
 
         public void DrawingColorChanged()
         {
-            ColorPreview.Fill = new SolidColorBrush(MainWindow.DrawingAttributes.Color);
+            ColorPreview.Fill = new SolidColorBrush(RuntimeData.DrawingAttributes.Color);
         }
     }
 }

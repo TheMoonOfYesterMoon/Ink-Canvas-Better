@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,10 +14,10 @@ namespace Ink_Canvas_Better
     {
         public void EraserIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentMode != Mode.Eraser)
+            if (RuntimeData.CurrentMode != RuntimeData.Mode.Eraser)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                CurrentMode = Mode.Eraser;
+                RuntimeData.CurrentMode = RuntimeData.Mode.Eraser;
                 // TODO
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                 

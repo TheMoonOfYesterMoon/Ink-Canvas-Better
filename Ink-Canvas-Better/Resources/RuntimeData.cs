@@ -12,8 +12,8 @@ namespace Ink_Canvas_Better.Resources
     static class RuntimeData
     {
         public static bool CloseIsFromButton = false;
-        static readonly Mode CurrentMode = Mode.None;
-        static readonly SettingWindow settingWindow;
+        public static Mode CurrentMode = Mode.None;
+        public static SettingWindow settingWindow;
 
         public static DrawingAttributes DrawingAttributes { get; set; } = new DrawingAttributes();
 
