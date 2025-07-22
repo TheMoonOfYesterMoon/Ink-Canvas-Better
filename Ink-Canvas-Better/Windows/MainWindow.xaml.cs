@@ -1,11 +1,7 @@
-﻿using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Pages.SettingPages;
-using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 using System;
-using System.Globalization;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows;

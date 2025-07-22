@@ -47,7 +47,7 @@
             TouchUp=""/>
         -->
         <!--  // 画板 //  -->
-        <InkCanvas
+        <localControls:CustomInkCanvas
             x:Name="inkCanvas"
             Background="Transparent"
             Cursor="Pen"

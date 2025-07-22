@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Ink;
+using System.Windows.Media;
 using static Ink_Canvas_Better.MainWindow;
 
 namespace Ink_Canvas_Better.Resources
@@ -27,7 +28,7 @@ namespace Ink_Canvas_Better.Resources
 
         public enum NibSimulationMode
         {
-            
+
         }
 
     }
