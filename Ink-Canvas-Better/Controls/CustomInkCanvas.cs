@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -7,11 +8,13 @@ using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Input.StylusPlugIns;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Ink_Canvas_Better.Resources;
 
 namespace Ink_Canvas_Better.Controls
 {
-    class CustomInkCanvas : System.Windows.Controls.InkCanvas
+    class CustomInkCanvas : InkCanvas
     {
         private CustomDynamicRenderer _customRenderer = new CustomDynamicRenderer();
 
@@ -27,59 +30,28 @@ namespace Ink_Canvas_Better.Controls
             };
 
             DynamicRenderer = _customRenderer;
-
-            SyncRendererWithAttributes();
-        }
-
-        protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
-        {
-            base.OnPropertyChanged(e);
-
-            if (e.Property == DefaultDrawingAttributesProperty)
-            {
-                SyncRendererWithAttributes();
-            }
-        }
-
-        private void SyncRendererWithAttributes()
-        {
-            _customRenderer.SetAttributes(DefaultDrawingAttributes.Clone());
         }
 
         protected override void OnStrokeCollected(InkCanvasStrokeCollectedEventArgs e)
         {
             this.Strokes.Remove(e.Stroke);
 
-            CustomStroke customStroke = new CustomStroke(
-                e.Stroke.StylusPoints,
-                _customRenderer.GetDynamicWidths(),
-                DefaultDrawingAttributes.Clone());
-
-            this.Strokes.Add(customStroke);
-
-            InkCanvasStrokeCollectedEventArgs args =
-                new InkCanvasStrokeCollectedEventArgs(customStroke);
-            base.OnStrokeCollected(args);
+            this.Strokes.Add(new CustomStroke(e.Stroke.StylusPoints, RuntimeData.DrawingAttributes));
         }
     }
 
     class CustomStroke : Stroke
     {
         private DrawingAttributes _drawingAttributes;
-        private List<double> _dynamicWidths;
-        private StreamGeometry _geometry;
-        private bool _isGeometryDirty = true;
         private Brush _brush;
         private Pen _pen;
 
         public CustomStroke(
             StylusPointCollection stylusPoints,
-            List<double> dynamicWidths,
             DrawingAttributes drawingAttributes)
             : base(stylusPoints)
         {
             _drawingAttributes = drawingAttributes;
-            _dynamicWidths = dynamicWidths;
 
             _brush = new SolidColorBrush(_drawingAttributes.Color);
             _brush.Freeze();
@@ -93,171 +65,91 @@ namespace Ink_Canvas_Better.Controls
             _pen.Freeze();
         }
 
-        private void BuildGeometry()
-        {
-            if (StylusPoints.Count == 0) return;
-
-            _geometry = new StreamGeometry();
-            using (var context = _geometry.Open())
-            {
-                context.BeginFigure((Point)StylusPoints[0], false, false);
-
-                for (int i = 1; i < StylusPoints.Count; i++)
-                {
-                    context.LineTo((Point)StylusPoints[i], true, false);
-                }
-            }
-
-            _geometry.Freeze();
-            _isGeometryDirty = false;
-        }
+        private readonly double width = 16;
 
         protected override void DrawCore(DrawingContext drawingContext, DrawingAttributes drawingAttributes)
         {
-            if (StylusPoints.Count == 0) return;
-
-            if (_isGeometryDirty || _geometry == null)
-            {
-                BuildGeometry();
-            }
-
-            if (StylusPoints.Count == 1)
-            {
-                double width = _dynamicWidths.Count > 0 ? _dynamicWidths[0] : _drawingAttributes.Width;
-                drawingContext.DrawEllipse(_brush, null, (Point)StylusPoints[0], width / 2, width / 2);
+            if (this.StylusPoints?.Count < 1)
                 return;
-            }
 
-            for (int i = 1; i < StylusPoints.Count; i++)
+            var p1 = new Point(double.NegativeInfinity, double.NegativeInfinity);
+            var w1 = this.width + 20;
+
+
+            for (int i = 0; i < StylusPoints.Count; i++)
             {
-                Point startPoint = (Point)StylusPoints[i - 1];
-                Point endPoint = (Point)StylusPoints[i];
+                var p2 = (Point)this.StylusPoints[i];
 
-                double startWidth = _dynamicWidths[i - 1];
-                double endWidth = _dynamicWidths[i];
-                double avgWidth = (startWidth + endWidth) / 2;
+                var vector = p1 - p2;
 
-                Pen dynamicPen = _pen.Clone();
-                dynamicPen.Thickness = avgWidth;
-                dynamicPen.Freeze();
+                var dx = (p2.X - p1.X) / vector.Length;
+                var dy = (p2.Y - p1.Y) / vector.Length;
 
-                drawingContext.DrawLine(dynamicPen, startPoint, endPoint);
+                var w2 = this.width;
+                if (w1 - vector.Length > this.width)
+                    w2 = w1 - vector.Length;
+
+                for (int j = 0; j < vector.Length; j++)
+                {
+                    var x = p2.X;
+                    var y = p2.Y;
+
+                    if (!double.IsInfinity(p1.X) && !double.IsInfinity(p1.Y))
+                    {
+                        x = p1.X + dx;
+                        y = p1.Y + dy;
+                    }
+
+                    drawingContext.DrawEllipse(new SolidColorBrush(this.DrawingAttributes.Color), null, new Point(x, y), w2, w2);
+
+                    p1 = new Point(x, y);
+                    if (double.IsInfinity(vector.Length)) break;
+                }
             }
         }
     }
 
     class CustomDynamicRenderer : DynamicRenderer
     {
-        private Point _previousPoint;
-        private StreamGeometry _currentGeometry;
-        private StreamGeometryContext _geometryContext;
-        private DrawingAttributes _currentAttributes = new DrawingAttributes();
-        private List<double> _dynamicWidths = new List<double>();
-        private Brush _brush;
-        private Pen _pen;
+        private readonly double width = 16;
 
-        public void SetAttributes(DrawingAttributes attributes)
+        protected override void OnDraw(DrawingContext drawingContext, StylusPointCollection stylusPoints, Geometry geometry, Brush fillBrush)
         {
-            _currentAttributes = attributes;
-            InvalidateCachedResources();
-        }
-
-        public List<double> GetDynamicWidths()
-        {
-            return new List<double>(_dynamicWidths);
-        }
-
-        private void InvalidateCachedResources()
-        {
-            _brush = null;
-            _pen = null;
-        }
-
-        private Brush GetBrush()
-        {
-            if (_brush == null)
-            {
-                _brush = new SolidColorBrush(_currentAttributes.Color);
-                _brush.Freeze();
-            }
-            return _brush;
-        }
-
-        private Pen GetPen(double width)
-        {
-            if (_pen == null || Math.Abs(_pen.Thickness - width) > 0.1)
-            {
-                _pen = new Pen(GetBrush(), width)
-                {
-                    StartLineCap = PenLineCap.Round,
-                    EndLineCap = PenLineCap.Round,
-                    LineJoin = PenLineJoin.Round
-                };
-                _pen.Freeze();
-            }
-            return _pen;
-        }
-
-        protected override void OnStylusDown(RawStylusInput rawStylusInput)
-        {
-            _dynamicWidths.Clear();
-
-            _currentGeometry = new StreamGeometry();
-            _geometryContext = _currentGeometry.Open();
-
-            var stylusPoints = rawStylusInput.GetStylusPoints();
-            _previousPoint = (Point)stylusPoints[0];
-
-            _geometryContext.BeginFigure(_previousPoint, false, false);
-
-            _dynamicWidths.Add(_currentAttributes.Width);
-
-            base.OnStylusDown(rawStylusInput);
-        }
-
-        protected override void OnStylusUp(RawStylusInput rawStylusInput)
-        {
-            if (_geometryContext != null)
-            {
-                _geometryContext.Close();
-                _geometryContext = null;
-                _currentGeometry.Freeze();
-            }
-
-            base.OnStylusUp(rawStylusInput);
-        }
-
-        protected override void OnDraw(DrawingContext drawingContext,
-                                      StylusPointCollection stylusPoints,
-                                      Geometry geometry, Brush fillBrush)
-        {
-            if (stylusPoints.Count == 0 || _geometryContext == null)
-                return;
+            var p1 = new Point(double.NegativeInfinity, double.NegativeInfinity);
+            var w1 = this.width + 20;
 
             for (int i = 0; i < stylusPoints.Count; i++)
             {
-                Point currentPoint = (Point)stylusPoints[i];
+                Point p2 = (Point)stylusPoints[i];
 
-                double width = _currentAttributes.Width;
-                double distance = (currentPoint - _previousPoint).Length;
-                double widthFactor = Math.Min(1.0, distance / 15);
-                width = Math.Max(1.0, _currentAttributes.Width * (1.0 - widthFactor * 0.7));
+                var vector = p1 - p2;
 
-                _geometryContext.LineTo(currentPoint, true, false);
+                var dx = (p2.X - p1.X) / vector.Length;
+                var dy = (p2.Y - p1.Y) / vector.Length;
 
-                _dynamicWidths.Add(width);
+                var w2 = this.width;
+                if (w1 - vector.Length > this.width)
+                    w2 = w1 - vector.Length;
 
-                if (i > 0 || _dynamicWidths.Count > 1)
+                for (int j = 0; j < vector.Length; j++)
                 {
-                    double startWidth = _dynamicWidths[_dynamicWidths.Count - 2];
-                    double endWidth = width;
-                    double avgWidth = (startWidth + endWidth) / 2;
+                    var x = p2.X;
+                    var y = p2.Y;
 
-                    drawingContext.DrawLine(GetPen(avgWidth), _previousPoint, currentPoint);
+                    if (!double.IsInfinity(p1.X) && !double.IsInfinity(p1.Y))
+                    {
+                        x = p1.X + dx;
+                        y = p1.Y + dy;
+                    }
+
+                    drawingContext.DrawEllipse(new SolidColorBrush(this.DrawingAttributes.Color), null, new Point(x, y), w2, w2);
+
+                    p1 = new Point(x, y);
+
+                    if (double.IsInfinity(vector.Length))
+                        break;
 
                 }
-
-                _previousPoint = currentPoint;
             }
         }
     }
