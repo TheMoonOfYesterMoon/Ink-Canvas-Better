@@ -121,7 +121,7 @@
                                 Width="260"
                                 IsSnapToTickEnabled="True"
                                 Minimum="1"
-                                Maximum="40"
+                                Maximum="30"
                                 IsMoveToPointEnabled="True"
                                 TickFrequency="1"
                                 TickPlacement="Both"
@@ -140,13 +140,12 @@
                             <!-- TODO:Mode -->
                         </ikw:SimpleStackPanel>
                     </ui:ToggleSplitButton>
-                    <ui:ToggleSplitButton Margin="2">
+                    <ToggleButton Margin="2" Name="ToggleButton_inkStyle" Checked="ToggleButton_inkStyle_Checked" Unchecked="ToggleButton_inkStyle_Unchecked">
                         <ikw:SimpleStackPanel>
-                            <TextBlock Text="{x:Static text:Resources.NibSimulation}"/>
-                            <TextBlock>Mode</TextBlock>
-                            <!-- TODO:Mode -->
+                            <TextBlock TextAlignment="Center" Text="{x:Static text:Resources.InkStyle}"/>
+                            <TextBlock TextAlignment="Center" Text="{x:Static text:Resources.Off}" Name="inkstyleTextBlock"/>
                         </ikw:SimpleStackPanel>
-                    </ui:ToggleSplitButton>
+                    </ToggleButton>
                 </WrapPanel>
                 <!-- Color -->
                 <ikw:SimpleStackPanel Orientation="Horizontal">

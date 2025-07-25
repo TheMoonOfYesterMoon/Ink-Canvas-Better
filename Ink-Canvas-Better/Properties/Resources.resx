@@ -201,8 +201,8 @@
     <value>Ink to Shape</value>
     <comment>runtime</comment>
   </data>
-  <data name="NibSimulation" xml:space="preserve">
-    <value>Nib Simulation</value>
+  <data name="InkStyle" xml:space="preserve">
+    <value>Ink Style</value>
     <comment>runtime</comment>
   </data>
   <data name="Setting_AppDescription" xml:space="preserve">
@@ -239,5 +239,18 @@
   <data name="Setting_RequireRestarting" xml:space="preserve">
     <value>Changing this setting requires a software restart.</value>
     <comment>Setting</comment>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Simulative" xml:space="preserve">
+    <value>Simulative</value>
+    <comment>runtime -&gt; inkstyle</comment>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
   </data>
 </root>

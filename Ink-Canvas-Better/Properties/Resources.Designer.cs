@@ -115,6 +115,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Default 的本地化字符串。
+        /// </summary>
+        public static string Default {
+            get {
+                return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Eraser 的本地化字符串。
         /// </summary>
         public static string Eraser {
@@ -169,6 +178,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Ink Style 的本地化字符串。
+        /// </summary>
+        public static string InkStyle {
+            get {
+                return ResourceManager.GetString("InkStyle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Ink to Shape 的本地化字符串。
         /// </summary>
         public static string InkToShape {
@@ -187,11 +205,20 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Nib Simulation 的本地化字符串。
+        ///   查找类似 Off 的本地化字符串。
         /// </summary>
-        public static string NibSimulation {
+        public static string Off {
             get {
-                return ResourceManager.GetString("NibSimulation", resourceCulture);
+                return ResourceManager.GetString("Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 On 的本地化字符串。
+        /// </summary>
+        public static string On {
+            get {
+                return ResourceManager.GetString("On", resourceCulture);
             }
         }
         
@@ -336,6 +363,15 @@ namespace Ink_Canvas_Better.Properties {
         public static string Shape {
             get {
                 return ResourceManager.GetString("Shape", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Simulative 的本地化字符串。
+        /// </summary>
+        public static string Simulative {
+            get {
+                return ResourceManager.GetString("Simulative", resourceCulture);
             }
         }
         

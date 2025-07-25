@@ -1,7 +1,6 @@
 ﻿using Ink_Canvas_Better.Controls;
 using Ink_Canvas_Better.Resources;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,6 +52,18 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         public void DrawingColorChanged()
         {
             ColorPreview.Fill = new SolidColorBrush(RuntimeData.DrawingAttributes.Color);
+        }
+
+        private void ToggleButton_inkStyle_Unchecked(object sender, RoutedEventArgs e)
+        {
+            RuntimeData.CurrentInkStyle = RuntimeData.InkStyle.Default;
+            inkstyleTextBlock.Text = Properties.Resources.Off;
+        }
+
+        private void ToggleButton_inkStyle_Checked(object sender, RoutedEventArgs e)
+        {
+            RuntimeData.CurrentInkStyle = RuntimeData.InkStyle.Simulative;
+            inkstyleTextBlock.Text = Properties.Resources.On;
         }
     }
 }
