@@ -9,19 +9,20 @@ namespace Ink_Canvas_Better.Resources
 {
     public class SettingData
     {
-        // public bool ShowWelcomeScreen { get; set; } = true;
+        [JsonProperty("startupAndUpdate")]
+        public StartupAndUpdate StartupAndUpdate { get; set; } = new StartupAndUpdate();
 
-    }
+        [JsonProperty("appearance")]
+        public Appearance Appearance { get; set; } = new Appearance();
 
-    public class Others
-    {
-        [JsonProperty("isShowLanguageWindow")]
-        public bool IsShowLanguageWindow { get; set; } = true;
+        [JsonProperty("ppt")]
+        public PPT PPT { get; set; } = new PPT();
 
-        [JsonProperty("isShowWelcomeScreen")]
-        public bool IsShowWelcomeScreen { get; set; } = true;
+        [JsonProperty("experimentalFeatures")]
+        public ExperimentalFeatures ExperimentalFeatures { get; set; } = new ExperimentalFeatures();
 
-
+        [JsonProperty("others")]
+        public Others Others { get; set; } = new Others();
     }
 
     /// <summary>
@@ -51,7 +52,10 @@ namespace Ink_Canvas_Better.Resources
         [JsonProperty("isFoldAtStartup")]
         public bool IsFoldAtStartup { get; set; } = false;
 
+        [JsonProperty("isAutoStartup")]
+        public bool IsAutoStartup { get; set; } = true;
     }
+
     public class Appearance
     {
         [JsonProperty("isEnableDisPlayFloatBarText")]
@@ -90,6 +94,15 @@ namespace Ink_Canvas_Better.Resources
     public class ExperimentalFeatures
     {
         
+    }
+
+    public class Others
+    {
+        [JsonProperty("isShowLanguageWindow")]
+        public bool IsShowLanguageWindow { get; set; } = true;
+
+        [JsonProperty("isShowWelcomeScreen")]
+        public bool IsShowWelcomeScreen { get; set; } = true;
     }
 
     public enum OptionalOperation

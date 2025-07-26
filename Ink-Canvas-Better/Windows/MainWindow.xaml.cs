@@ -1,5 +1,7 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,9 @@ namespace Ink_Canvas_Better
         public MainWindow()
         {
             InitializeComponent();
+
+            Setting.LoadSettings();
+            RuntimeData.mainWindow = this;
 
             inkCanvas.DefaultDrawingAttributes = RuntimeData.DrawingAttributes;
             RuntimeData.DrawingAttributes.FitToCurve = true;

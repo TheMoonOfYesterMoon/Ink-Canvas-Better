@@ -15,7 +15,9 @@ namespace Ink_Canvas_Better.Resources
         public static bool CloseIsFromButton = false;
         public static Mode CurrentMode = Mode.None;
         public static SettingWindow settingWindow;
-        
+        public static MainWindow mainWindow;
+        public static SettingData settingData = new SettingData();
+        public static String settingsFileName = "settings.json";
         /// <summary>
         /// influent writing style
         /// </summary>
@@ -38,6 +40,5 @@ namespace Ink_Canvas_Better.Resources
             Default,
             Simulative
         }
-
     }
 }

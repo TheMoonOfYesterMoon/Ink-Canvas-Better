@@ -1,6 +1,6 @@
-**:construction: 这是一个测试中的 README :construction:**  
-**:construction: 本页面为 v2.X 的 README :construction:**
-
+**:construction: 这是还没定下来的新版 README :construction:**  
+中文简体
+[English](./Document/Readme/README.en.md)
 <div align="center">
 
 <img src="./Images/Ink Canvas Better.png" alt="Ink Canvas Better" style="width:96px;">
@@ -18,10 +18,14 @@
 
 <!-- 这里考虑放几张预览图 -->
 
+## :question: 这是什么？
+
+`Ink Canvas Better` ，简称 `ICB` ，是一款开源免费的轻量级画板软件，针对教学环境进行开发，提供更好的教学体验  
+
 ## :eyes: 前言
 
 `2.X` 版本完全重写，其代码不再基于 `ICA`，从 `1.X` 版本更新至 `2.X` 版本时可能出现错误  
-使用和分发本软件前，应当且务必知晓相关开源协议  
+使用和分发本软件前，应当且务必知晓相关协议  
 
 [直接下载](https://github.com/BaiYang2238/Ink-Canvas-Better/releases/latest)  
 [使用说明](./Document/Manual.md)  

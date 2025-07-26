@@ -1,5 +1,4 @@
-﻿using Ink_Canvas_Better.Helpers.Log;
-using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 using System;
 using System.Collections.Generic;
@@ -38,9 +37,9 @@ namespace Ink_Canvas_Better.Pages.SettingPages
 
         private void ButtonLog_Click(object sender, RoutedEventArgs e)
         {
-            if (File.Exists(Log.LogFilePath))
+            if (File.Exists(Helpers.Log.LogFilePath))
             {
-                Process.Start(Log.LogFilePath);
+                Process.Start(Helpers.Log.LogFilePath);
             }
         }
 

@@ -1,5 +1,4 @@
-﻿using Ink_Canvas_Better.Helpers.Log;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -28,7 +27,7 @@ namespace Ink_Canvas_Better
         }
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            Log.NewLog(e.Exception.ToString());
+            Helpers.Log.NewLog(e.Exception.ToString());
             // TODO: 在消息框显示 
             // Ink_Canvas.MainWindow.ShowNewMessage($"抱歉，出现预料之外的异常，可能导致 Ink Canvas 画板运行不稳定。\n建议保存墨迹后重启应用。\n报错信息：\n{e.ToString()}", true);
             e.Handled = true;
@@ -48,16 +47,16 @@ namespace Ink_Canvas_Better
                 Directory.CreateDirectory($"{RootPath}Logs");
             }
 
-            Log.NewLog(string.Format("Ink Canvas Starting (Version: {0})", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
+            Helpers.Log.NewLog(string.Format("Ink Canvas Starting (Version: {0})", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
             
 
             Mutex _ = new Mutex(true, "Ink_Canvas_Better", out bool ret);
 
             if (!ret && !e.Args.Contains("-m")) // -m multiple
             {
-                Log.NewLog("Detected existing instance");
+                Helpers.Log.NewLog("Detected existing instance");
                 MessageBox.Show("已有一个程序实例正在运行");
-                Log.NewLog("Ink Canvas automatically closed");
+                Helpers.Log.NewLog("Ink Canvas automatically closed");
                 Environment.Exit(0);
             }
 
