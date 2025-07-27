@@ -23,6 +23,9 @@ namespace Ink_Canvas_Better.Resources
 
         [JsonProperty("others")]
         public Others Others { get; set; } = new Others();
+
+        [JsonProperty("runtime")]
+        public Runtime Runtime { get; set; } = new Runtime();
     }
 
     /// <summary>
@@ -30,7 +33,7 @@ namespace Ink_Canvas_Better.Resources
     /// </summary>
     public class StartupAndUpdate
     {
-        [JsonProperty("isAutoUpdate")]
+        [JsonProperty("isAutoUpdate")]//TODO
         public bool IsAutoUpdate { get; set; } = true;
 
         [JsonProperty("isAutoUpdateWithProxy")]
@@ -105,6 +108,15 @@ namespace Ink_Canvas_Better.Resources
         public bool IsShowWelcomeScreen { get; set; } = true;
     }
 
+    public class Runtime
+    {
+        [JsonProperty("inkStyle")]
+        public InkStyle InkStyle { get; set; } = InkStyle.Default;
+
+        [JsonProperty("bluntnessFactor")]
+        public float BluntnessFactor { get; set; } = (49f / 50f);// influent writing style
+    }
+
     public enum OptionalOperation
     {
         Yes,
@@ -112,4 +124,9 @@ namespace Ink_Canvas_Better.Resources
         Ask
     }
 
+    public enum InkStyle
+    {
+        Default,
+        Simulative
+    }
 }

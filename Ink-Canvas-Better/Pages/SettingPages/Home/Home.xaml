@@ -60,7 +60,7 @@
                                      FontSize="14"/>
                             </TextBlock>
                         </Button>
-                        <Button Click="ButtonResetToSuggestion_Click">
+                        <Button Click="ButtonResetSettings_Click">
                             <TextBlock VerticalAlignment="Center">
                                 <Run Text="&#xe8f7;"
                                      BaselineAlignment="Center"

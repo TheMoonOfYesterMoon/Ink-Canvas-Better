@@ -14,13 +14,16 @@ namespace Ink_Canvas_Better
     {
         public void EraserIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.CurrentMode != RuntimeData.Mode.Eraser)
+            if (RuntimeData.currentMode != RuntimeData.Mode.Eraser)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.CurrentMode = RuntimeData.Mode.Eraser;
+                RuntimeData.currentMode = RuntimeData.Mode.Eraser;
                 // TODO
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
-                
+            }
+            else
+            {
+                inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
             }
         }
     }

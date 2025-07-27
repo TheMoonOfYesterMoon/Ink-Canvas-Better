@@ -1,4 +1,5 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 using System;
 using System.Collections.Generic;
@@ -24,14 +25,14 @@ namespace Ink_Canvas_Better.Pages.SettingPages
 
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
-            RuntimeData.CloseIsFromButton = true;
+            RuntimeData.isCloseFromButton = true;
             Application.Current.Shutdown();
         }
 
         private void ButtonRestart_Click(object sender, RoutedEventArgs e)
         {
             Process.Start(System.Reflection.Assembly.GetExecutingAssembly().Location, "-m");
-            RuntimeData.CloseIsFromButton = true;
+            RuntimeData.isCloseFromButton = true;
             Application.Current.Shutdown();
         }
 
@@ -43,9 +44,9 @@ namespace Ink_Canvas_Better.Pages.SettingPages
             }
         }
 
-        private void ButtonResetToSuggestion_Click(object sender, RoutedEventArgs e)
+        private void ButtonResetSettings_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            Setting.ResetSettings();
         }
 
         private void SettingsCard_Github_Click(object sender, RoutedEventArgs e)

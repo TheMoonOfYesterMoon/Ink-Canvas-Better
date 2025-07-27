@@ -29,7 +29,7 @@ namespace Ink_Canvas_Better.Helpers
                 }
                 else
                 {
-                    //BtnResetToSuggestion_Click(null, null);
+                    ResetSettings();
                 }
             }
             catch (Exception ex)
@@ -37,9 +37,11 @@ namespace Ink_Canvas_Better.Helpers
                 Log.WriteLogToFile(ex.ToString(), Log.LogType.Error);
             }
 
+            #region Startup
             if (isStartup)
             {
-                RuntimeData.mainWindow.CursorIcon_Click(null, null);
+                // There hasn`t a need to check it.
+                // Pherhaps it will be used in the future.
             }
             try
             {
@@ -62,7 +64,72 @@ namespace Ink_Canvas_Better.Helpers
             {
                 Log.WriteLogToFile(ex.ToString(), Log.LogType.Error);
             }
+            #endregion
 
+            #region StartupAndUpdate
+            if (RuntimeData.settingData.StartupAndUpdate != null)
+            {
+                if (RuntimeData.settingData.StartupAndUpdate.IsAutoUpdate)
+                {
+                    //TODO
+                }
+                else
+                {
+                    //TODO
+                }
+            }
+            else
+            { RuntimeData.settingData.StartupAndUpdate = new StartupAndUpdate(); }
+            #endregion
+
+            #region Appearance
+            if (RuntimeData.settingData.Appearance != null)
+            {
+
+            }
+            else
+            { RuntimeData.settingData.Appearance = new Appearance(); }
+            #endregion
+
+            #region PPT
+            if (RuntimeData.settingData.PPT != null)
+            {
+
+            }
+            else { RuntimeData.settingData.PPT = new PPT(); }
+            #endregion
+
+            #region ExperimentalFeatures
+            if (RuntimeData.settingData.ExperimentalFeatures != null)
+            {
+
+            }
+            else { RuntimeData.settingData.ExperimentalFeatures = new ExperimentalFeatures(); }
+            #endregion
+
+            #region Others
+            if (RuntimeData.settingData.Others != null)
+            {
+
+            }
+            else { RuntimeData.settingData.Others = new Resources.Others(); }
+            #endregion
+
+            #region Runtime
+            if (RuntimeData.settingData.Runtime != null)
+            {
+                switch (RuntimeData.settingData.Runtime.InkStyle)
+                {
+                    case InkStyle.Default:
+                        RuntimeData.floatingBar_Pen.ToggleButton_inkStyle_Unchecked(null, null);
+                        break;
+                    case InkStyle.Simulative:
+                        RuntimeData.floatingBar_Pen.ToggleButton_inkStyle_Checked(null, null);
+                        break;
+                }
+            }
+            else { RuntimeData.settingData.Runtime = new Runtime(); }
+            #endregion
         }
 
         public static void SaveSettings()
@@ -73,6 +140,12 @@ namespace Ink_Canvas_Better.Helpers
                 File.WriteAllText(App.RootPath + RuntimeData.settingsFileName, text);
             }
             catch { }
+        }
+
+        public static void ResetSettings()
+        {
+            RuntimeData.settingData = new SettingData();
+            SaveSettings();
         }
 
         public static bool StartAutomaticallyCreate(string exeName)
@@ -106,5 +179,6 @@ namespace Ink_Canvas_Better.Helpers
             catch (Exception e) { Log.WriteLogToFile(e.ToString(), Log.LogType.Error); }
             return false;
         }
+
     }
 }

@@ -14,7 +14,7 @@ namespace Ink_Canvas_Better
     {
         public void CursorIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.CurrentMode != RuntimeData.Mode.None)
+            if (RuntimeData.currentMode != RuntimeData.Mode.None)
             {
                 CursorIcon_ChangeToCursor();
             }
@@ -23,7 +23,7 @@ namespace Ink_Canvas_Better
         public void CursorIcon_ChangeToCursor()
         {
             MainWindow_Grid.Background = Brushes.Transparent;
-            RuntimeData.CurrentMode = RuntimeData.Mode.None;
+            RuntimeData.currentMode = RuntimeData.Mode.None;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
         }
     }

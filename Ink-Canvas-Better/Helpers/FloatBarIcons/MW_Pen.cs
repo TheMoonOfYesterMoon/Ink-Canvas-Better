@@ -14,10 +14,10 @@ namespace Ink_Canvas_Better
     {
         public void PenIcon_Click(Object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.CurrentMode != RuntimeData.Mode.Pen)
+            if (RuntimeData.currentMode != RuntimeData.Mode.Pen)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.CurrentMode = RuntimeData.Mode.Pen;
+                RuntimeData.currentMode = RuntimeData.Mode.Pen;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
             }
             else

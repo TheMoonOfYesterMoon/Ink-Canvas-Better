@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas_Better.Windows;
+using Ink_Canvas_Better.Windows.FloatingBarIcons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,24 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Ink;
 using System.Windows.Media;
-using static Ink_Canvas_Better.MainWindow;
 
 namespace Ink_Canvas_Better.Resources
 {
     static class RuntimeData
     {
-        public static bool CloseIsFromButton = false;
-        public static Mode CurrentMode = Mode.None;
+        public static bool isCloseFromButton = false;
+        public static Mode currentMode = Mode.None;
         public static SettingWindow settingWindow;
         public static MainWindow mainWindow;
+        public static FloatingBar_Pen floatingBar_Pen;
         public static SettingData settingData = new SettingData();
         public static String settingsFileName = "settings.json";
-        /// <summary>
-        /// influent writing style
-        /// </summary>
-        public static float bluntnessFactor = (49f/50f);
-
-        public static InkStyle CurrentInkStyle = InkStyle.Default;
 
         public static DrawingAttributes DrawingAttributes { get; set; } = new DrawingAttributes();
 
@@ -35,10 +30,5 @@ namespace Ink_Canvas_Better.Resources
             Eraser
         }
 
-        public enum InkStyle
-        {
-            Default,
-            Simulative
-        }
     }
 }

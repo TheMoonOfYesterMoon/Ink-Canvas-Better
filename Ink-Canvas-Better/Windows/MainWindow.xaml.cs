@@ -26,7 +26,7 @@ namespace Ink_Canvas_Better
         {
             InitializeComponent();
 
-            Setting.LoadSettings();
+            Setting.LoadSettings(isStartup : true);
             RuntimeData.mainWindow = this;
 
             inkCanvas.DefaultDrawingAttributes = RuntimeData.DrawingAttributes;
@@ -37,9 +37,5 @@ namespace Ink_Canvas_Better
 
         #endregion
 
-        public void ICB_Close(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
     }
 }

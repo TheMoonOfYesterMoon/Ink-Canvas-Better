@@ -1,6 +1,8 @@
 ﻿using Ink_Canvas_Better.Controls;
+using Ink_Canvas_Better.Helpers;
 using Ink_Canvas_Better.Resources;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             InitializeComponent();
 
+            RuntimeData.floatingBar_Pen = this;
             AddHandler(ICB_PresetColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
             AddHandler(ICB_CustomColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
         }
@@ -54,16 +57,20 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             ColorPreview.Fill = new SolidColorBrush(RuntimeData.DrawingAttributes.Color);
         }
 
-        private void ToggleButton_inkStyle_Unchecked(object sender, RoutedEventArgs e)
+        public void ToggleButton_inkStyle_Unchecked(object sender, RoutedEventArgs e)
         {
-            RuntimeData.CurrentInkStyle = RuntimeData.InkStyle.Default;
+            RuntimeData.settingData.Runtime.InkStyle = InkStyle.Default;
             inkstyleTextBlock.Text = Properties.Resources.Off;
+            ToggleButton_inkStyle.IsChecked = false;
+            Setting.SaveSettings();
         }
 
-        private void ToggleButton_inkStyle_Checked(object sender, RoutedEventArgs e)
+        public void ToggleButton_inkStyle_Checked(object sender, RoutedEventArgs e)
         {
-            RuntimeData.CurrentInkStyle = RuntimeData.InkStyle.Simulative;
+            RuntimeData.settingData.Runtime.InkStyle = InkStyle.Simulative;
             inkstyleTextBlock.Text = Properties.Resources.On;
+            ToggleButton_inkStyle.IsChecked = true;
+            Setting.SaveSettings();
         }
     }
 }
