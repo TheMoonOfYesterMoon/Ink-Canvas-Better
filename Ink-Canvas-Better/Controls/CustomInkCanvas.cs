@@ -23,21 +23,6 @@ namespace Ink_Canvas_Better.Controls
                 Width = 3,
                 StylusTip = StylusTip.Ellipse
             };
-            this.Strokes.StrokesChanged += Strokes_StrokesChanged;
-        }
-
-        private void Strokes_StrokesChanged(object sender, StrokeCollectionChangedEventArgs e)
-        {
-            foreach (var stroke in e.Added)
-            {
-                if (!(stroke is CustomStroke))
-                {
-                    var custom = new CustomStroke(stroke.StylusPoints, RuntimeData.DrawingAttributes);
-                    int index = this.Strokes.IndexOf(stroke);
-                    this.Strokes.Remove(stroke);
-                    this.Strokes.Insert(index, custom);
-                }
-            }
         }
 
         protected override void OnStrokeCollected(InkCanvasStrokeCollectedEventArgs e)
@@ -134,40 +119,45 @@ namespace Ink_Canvas_Better.Controls
 
         private void DrawSimulativeStroke(DrawingContext drawingContext, StylusPointCollection stylusPoints)
         {
+            if (stylusPoints?.Count < 1)
+                return;
+
             var bluntnessFactor = RuntimeData.settingData.Runtime.BluntnessFactor;
-            var prevPoint = new Point(double.NegativeInfinity, double.NegativeInfinity);
-            var w1 = DrawingAttributes.Width;
+            var w1 = this.DrawingAttributes.Width;
+            var prevPoint = new Point(double.NaN, double.NaN);
+            var prevWidth = w1;
 
             for (int i = 0; i < stylusPoints.Count; i++)
             {
-                Point newPoint = (Point)stylusPoints[i];
+                var newPoint = (Point)stylusPoints[i];
+
+                if (double.IsNaN(prevPoint.X) || double.IsNaN(prevPoint.Y))
+                {
+                    drawingContext.DrawEllipse(new SolidColorBrush(DrawingAttributes.Color), null, newPoint, w1 / 2, w1 / 2);
+                    prevPoint = newPoint;
+                    prevWidth = w1;
+                    continue;
+                }
 
                 var vector = prevPoint - newPoint;
-
-                var dx = (newPoint.X - prevPoint.X) / vector.Length;
-                var dy = (newPoint.Y - prevPoint.Y) / vector.Length;
-
-                var w2 = DrawingAttributes.Width;
+                var newWidth = DrawingAttributes.Width;
                 if (vector.Length > 1)
                 {
-                    w2 = w1 * Math.Pow(bluntnessFactor, vector.Length);
+                    newWidth = w1 * Math.Pow(bluntnessFactor, vector.Length);
                 }
+                var dx = (newPoint.X - prevPoint.X) / vector.Length;
+                var dy = (newPoint.Y - prevPoint.Y) / vector.Length;
+                var dw = (newWidth - prevWidth) / vector.Length;
 
                 for (int j = 0; j < vector.Length; j++)
                 {
-                    var p3 = new Point(newPoint.X, newPoint.Y);
-
-                    if (!double.IsInfinity(prevPoint.X) && !double.IsInfinity(prevPoint.Y))
-                    {
-                        p3.X = prevPoint.X + dx;
-                        p3.Y = prevPoint.Y + dy;
-                    }
-
-                    drawingContext.DrawEllipse(new SolidColorBrush(this.DrawingAttributes.Color), null, p3, w2 / 2, w2 / 2);
-
-                    prevPoint = p3;
-                    if (double.IsInfinity(vector.Length)) break;
+                    var currentPoint = new Point(prevPoint.X + dx * j, prevPoint.Y + dy * j);
+                    var currentWidth = prevWidth + dw * j;
+                    drawingContext.DrawEllipse(new SolidColorBrush(DrawingAttributes.Color), null, currentPoint, currentWidth / 2, currentWidth / 2);
                 }
+
+                prevPoint = newPoint;
+                prevWidth = newWidth;
             }
         }
     }
