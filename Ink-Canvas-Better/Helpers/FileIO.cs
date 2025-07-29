@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Resources;
+using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -62,6 +64,36 @@ namespace Ink_Canvas_Better.Helpers
                     Directory.Delete(dir, false);
                 }
             }
+        }
+
+        public static void SaveStrokes(String filePath, String format = "icbetterstk")
+        {
+            switch (format.ToLower())
+            {
+                case "icbetterstk":
+                    if (!Directory.Exists(filePath))
+                    {
+                        Directory.CreateDirectory(filePath);
+                    }
+                    FileStream fileStream = new FileStream(filePath, FileMode.Create);
+                    RuntimeData.mainWindow.inkCanvas.Strokes.Save(fileStream);
+
+                    byte[] delimiter = Encoding.UTF8.GetBytes("<!--INK-CANVAS-BETTER-METADATA-->");
+                    fileStream.Write(delimiter, 0, delimiter.Length);
+
+                    var metadata = JsonConvert.SerializeObject(RuntimeData.currentMetadata, Formatting.Indented);
+                    byte[] metadataBytes = Encoding.UTF8.GetBytes(metadata);
+                    fileStream.Write(metadataBytes, 0, metadataBytes.Length);
+                    fileStream.Close();
+                    break;
+                default:
+                    throw new NotSupportedException($"Format '{format}' is not supported.");
+            }
+        }
+
+        public static void LoadStrokes(String filePath)
+        {
+
         }
     }
 }

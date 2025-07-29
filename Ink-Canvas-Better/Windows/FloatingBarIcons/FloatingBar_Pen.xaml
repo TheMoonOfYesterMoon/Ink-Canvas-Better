@@ -131,8 +131,8 @@
                     </ikw:SimpleStackPanel>
                     <!-- There should be an alpha slider here, but as you know, pencil doesn't support alpha property -->
                 </DockPanel>
-                <!-- function -->
-                <WrapPanel Orientation="Horizontal">
+                <!-- function (TODO) -->
+                <WrapPanel Orientation="Horizontal" Visibility="Collapsed">
                     <ui:ToggleSplitButton Margin="2" Visibility="Collapsed"><!-- TODO -->
                         <ikw:SimpleStackPanel>
                             <TextBlock Text="{x:Static text:Resources.InkToShape}"/>
