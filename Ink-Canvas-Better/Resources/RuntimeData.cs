@@ -36,8 +36,13 @@ namespace Ink_Canvas_Better.Resources
         [JsonProperty("metadataVer")]
         public String MetadataVer { get; set; } = "1.0";
 
+        [JsonProperty("dateTime")]
+        public DateTime DateTime { get; set; }
+
         [JsonProperty("icbMode")]
         public ICBMode CurrentICBMode { get; set; } = ICBMode.None;
+
+
 
         [JsonProperty("metadata_PPT")]
         public Metadata_PPT ExInfo_PPT { get; set; } = new Metadata_PPT();

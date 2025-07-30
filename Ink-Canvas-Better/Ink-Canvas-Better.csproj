@@ -38,6 +38,7 @@
     <Reference Include="netstandard" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.IO.Compression" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Segoe Fluent Icons.ttf" />
