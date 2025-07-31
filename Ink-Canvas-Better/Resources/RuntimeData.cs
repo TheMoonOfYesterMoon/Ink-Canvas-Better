@@ -29,6 +29,11 @@ namespace Ink_Canvas_Better.Resources
             Highlighter,
             Eraser
         }
+
+        public static void ApplyMetadata()
+        {
+            // TODO
+        }
     }
 
     public class Metadata

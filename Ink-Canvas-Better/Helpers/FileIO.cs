@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas_Better.Resources;
+using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
 using System;
 using System.IO;
@@ -7,6 +8,8 @@ using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Ink;
 
 namespace Ink_Canvas_Better.Helpers
 {
@@ -68,11 +71,11 @@ namespace Ink_Canvas_Better.Helpers
             }
         }
 
-        public static void SaveStrokes(String directoryPath, String format = "icbetterstk")
+        public static void SaveStrokes(String directoryPath, String format = ".icbpkg")
         {
             switch (format.ToLower())
             {
-                case "icbpkg":
+                case ".icbpkg":
                     if (!Directory.Exists(directoryPath))
                     {
                         Directory.CreateDirectory(directoryPath);
@@ -118,7 +121,45 @@ namespace Ink_Canvas_Better.Helpers
 
         public static void LoadStrokes(String filePath)
         {
-
+            if (RuntimeData.mainWindow.inkCanvas.Strokes != null || RuntimeData.mainWindow.inkCanvas.Strokes.Count != 0)
+            {
+                //SaveStrokes();
+            }
+            String format = Path.GetExtension(filePath).ToLower();
+            switch (format)
+            {
+                case ".icbpkg":
+                    using (FileStream zipToOpen = new FileStream(filePath, FileMode.Open))
+                    using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Read))
+                    {
+                        // load metadata
+                        ZipArchiveEntry metadataEntry = archive.Entries.First(
+                            entry => Path.GetExtension(entry.Name).Equals(".json", StringComparison.OrdinalIgnoreCase))
+                            ?? throw new FileNotFoundException("Metadata not found");
+                        using (Stream metadataStream = metadataEntry.Open())
+                        using (StreamReader metadataStreamReader = new StreamReader(metadataStream))
+                        {
+                            RuntimeData.currentMetadata = (Metadata)JsonConvert.DeserializeObject(metadataStreamReader.ReadToEnd());
+                        }
+                        Task.Run(() => RuntimeData.ApplyMetadata());
+                        // load strokes
+                        ZipArchiveEntry strokeEntry = archive.Entries.First(
+                            entry => Path.GetExtension(entry.Name).Equals(".icstk", StringComparison.OrdinalIgnoreCase))
+                            ?? throw new FileNotFoundException("Stroke data not found");
+                        // TODO: Check whether the file is too large or not
+                        //if (((double)strokeEntry.Length) / (1024d * 1024d) > 128)
+                        //{
+                        //    MessageBox.Show("");
+                        //}
+                        using (Stream strokeStream = strokeEntry.Open())
+                        {
+                            RuntimeData.mainWindow.inkCanvas.Strokes = new StrokeCollection(strokeStream);
+                        }
+                    }
+                    break;
+                default:
+                    throw new NotSupportedException($"Format '{format}' is not supported.");
+            }
         }
     }
 }
