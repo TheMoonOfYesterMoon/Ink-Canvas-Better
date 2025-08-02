@@ -8,7 +8,7 @@
              xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
              xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
              xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-             mc:Ignorable="d" 
+             mc:Ignorable="d"
              d:DesignHeight="450" Width="500">
     <UserControl.Resources>
         <Style x:Key="PinButtonStyle" TargetType="Button">
@@ -40,6 +40,7 @@
     </UserControl.Resources>
     
     <Grid
+        Margin="0,5"
         VerticalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition
@@ -73,7 +74,6 @@
                     Spacing="8"
                     Orientation="Horizontal">
                     <Button
-                        Visibility="Collapsed"
                         Style="{StaticResource PinButtonStyle}"
                         Name="PinButton"
                         Click="PinButton_Click"
@@ -82,7 +82,7 @@
                         <ui:FontIcon
                             FontSize="20"
                             FontFamily="{DynamicResource FluentIconFontFamily}"
-                            Glyph="&#xe840;"/>
+                            Glyph="&#xe718;"/>
                     </Button>
 
                     <Button

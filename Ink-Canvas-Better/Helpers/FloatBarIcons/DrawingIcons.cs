@@ -40,7 +40,8 @@ namespace Ink_Canvas_Better
             }
             else
             {
-                // TODO
+                HideAllSubpanel();
+                RuntimeData.mainWindow.Popup_Pen.IsOpen = true;
             }
         }
         #endregion
@@ -83,5 +84,9 @@ namespace Ink_Canvas_Better
         }
         #endregion
 
+        private void HideAllSubpanel()
+        {
+            RuntimeData.mainWindow.Popup_Pen.IsOpen = false;
+        }
     }
 }

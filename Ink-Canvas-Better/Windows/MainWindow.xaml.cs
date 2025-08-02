@@ -1,6 +1,7 @@
 ﻿using Ink_Canvas_Better.Helpers;
 using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
+using Ink_Canvas_Better.Windows.FloatingBarIcons;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;

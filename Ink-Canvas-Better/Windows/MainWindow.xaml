@@ -103,11 +103,16 @@
                         FontIcon="&#xe74d;"
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
-                    <!-- Pencil -->
-                    <floatingBar:FloatingBar_Pen
-                        Margin="0,-360,-500,70">
-
-                    </floatingBar:FloatingBar_Pen>
+                    <!-- Pen -->
+                    <Popup
+                        Name="Popup_Pen"
+                        IsOpen="False"
+                        StaysOpen="False"
+                        AllowsTransparency="True"
+                        Placement="Top"
+                        PlacementTarget="{Binding ElementName=PenIcon}">
+                        <floatingBar:FloatingBar_Pen/>
+                    </Popup>
                     <localControls:ICB_Button
                         x:Name="PenIcon"
                         Text="{x:Static text:Resources.Pencil}"
@@ -138,7 +143,7 @@
                         FontIcon="&#xf158;"
                         Click="ShapeIcon_Click"
                         IsSqueezeHorizontally="True"/>
-                    <!-- TODO:合并redo和undo功能 -->
+                    <!-- TODO: merge 'redo' and 'undo' -->
                     <localControls:ICB_Button
                         Text="{x:Static text:Resources.Redo}"
                         FontIcon="&#xe7a7;"
