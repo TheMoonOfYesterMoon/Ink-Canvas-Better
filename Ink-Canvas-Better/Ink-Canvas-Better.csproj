@@ -1,14 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-
 	<Title>Ink Canvas Better</Title>
 	<Product>Ink Canvas Better</Product>
-	<Copyright>Copyright © BaiYang2238 2025</Copyright>
+	<StartYear>2025</StartYear>
+	<CurrentYear>$([System.DateTime]::Now.ToString(yyyy))</CurrentYear>
+	<Copyright Condition="'$(StartYear)' == '$(CurrentYear)'">Copyright © $(CurrentYear) BaiYang2238</Copyright>
+	<Copyright Condition="'$(StartYear)' != '$(CurrentYear)'">Copyright © $(StartYear)-$(CurrentYear) BaiYang2238</Copyright>
 	<AssemblyName>Ink Canvas Better</AssemblyName>
 	<Description>An enhanced version of the Ink Canvas with additional features and better usability.</Description>
-	<AssemblyVersion>2.0.0.0</AssemblyVersion>
-	<FileVersion>2.0.0.0</FileVersion>
-	  
+	<Version>2.0.0.0</Version>
+	<InformationalVersion>$(Version)</InformationalVersion>
     <TargetFramework>net472</TargetFramework>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Ink_Canvas_Better</RootNamespace>
@@ -24,7 +25,6 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -54,6 +54,7 @@
       <Version>0.10.0</Version>
     </PackageReference>
     <PackageReference Include="Interop.IWshRuntimeLibrary" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Office.Interop.PowerPoint" Version="15.0.4420.1018" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>

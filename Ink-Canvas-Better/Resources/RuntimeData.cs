@@ -12,7 +12,6 @@ namespace Ink_Canvas_Better.Resources
     static class RuntimeData
     {
         public static bool isCloseFromButton = false;
-        public static DrawingMode currentDrawingMode = DrawingMode.None;
         public static SettingWindow settingWindow;
         public static MainWindow mainWindow;
         public static FloatingBar_Pen floatingBar_Pen;
@@ -22,12 +21,50 @@ namespace Ink_Canvas_Better.Resources
 
         public static DrawingAttributes DrawingAttributes { get; set; } = new DrawingAttributes();
 
+        private static DrawingMode _currentDrawingMode = DrawingMode.None;
+        public static DrawingMode currentDrawingMode
+        {
+            get { return _currentDrawingMode; }
+            set
+            {
+                _currentDrawingMode = value;
+                mainWindow.CursorIcon.IsStatusEnable = false;
+                mainWindow.PenIcon.IsStatusEnable = false;
+                mainWindow.HighlighterIcon.IsStatusEnable = false;
+                mainWindow.EraserIcon.IsStatusEnable = false;
+                mainWindow.PickIcon.IsStatusEnable = false;
+                switch (_currentDrawingMode)
+                {
+                    case DrawingMode.None:
+                        break;
+                    case DrawingMode.Cursor:
+                        mainWindow.CursorIcon.IsStatusEnable = true;
+                        break;
+                    case DrawingMode.Pen:
+                        mainWindow.PenIcon.IsStatusEnable = true;
+                        break;
+                    case DrawingMode.Highlighter:
+                        mainWindow.HighlighterIcon.IsStatusEnable = true;
+                        break;
+                    case DrawingMode.EraseByPoint:
+                    case DrawingMode.EraseByStroke:
+                        mainWindow.EraserIcon.IsStatusEnable = true;
+                        break;
+                    default:
+                        _currentDrawingMode = DrawingMode.None;
+                        throw new NotImplementedException();
+                }
+            }
+        }
+
         public enum DrawingMode
         {
             None,
+            Cursor,
             Pen,
             Highlighter,
-            Eraser
+            EraseByPoint,
+            EraseByStroke
         }
 
         public static void ApplyMetadata()

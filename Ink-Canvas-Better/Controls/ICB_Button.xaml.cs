@@ -157,8 +157,8 @@ namespace Ink_Canvas_Better.Controls
 
         public bool IsStatusEnable
         {
-            get => (bool)GetValue(CornerRadiusProperty);
-            set => SetValue(CornerRadiusProperty, value);
+            get => (bool)GetValue(StatusEnableRadiusProperty);
+            set => SetValue(StatusEnableRadiusProperty, value);
         }
 
         private static void StatusEnable_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
@@ -166,11 +166,11 @@ namespace Ink_Canvas_Better.Controls
             var control = (ICB_Button)dependencyObject;
             if ((bool)eventArgs.NewValue)
             {
-                control.Border.SetResourceReference(Border.BackgroundProperty, "DefaultBackgroundColor_Opacity");
+                control.Border.SetResourceReference(Border.BackgroundProperty, "ICBButtonStateEnable");
             }
             else
             {
-                control.Border.SetResourceReference(Border.BackgroundProperty, "ICB_ButtonStateEnable");
+                control.Border.SetResourceReference(Border.BackgroundProperty, "DefaultBackgroundColor_Opacity");
             }
         }
 

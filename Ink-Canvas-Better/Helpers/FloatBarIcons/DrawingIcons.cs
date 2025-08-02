@@ -14,7 +14,7 @@ namespace Ink_Canvas_Better
         #region Cursor
         public void CursorIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.None)
+            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.Cursor)
             {
                 CursorIcon_ChangeToCursor();
             }
@@ -23,7 +23,7 @@ namespace Ink_Canvas_Better
         public void CursorIcon_ChangeToCursor()
         {
             MainWindow_Grid.Background = Brushes.Transparent;
-            RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.None;
+            RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.Cursor;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
         }
 
@@ -55,10 +55,10 @@ namespace Ink_Canvas_Better
         #region Eraser
         public void EraserIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.Eraser)
+            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.EraseByPoint)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.Eraser;
+                RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.EraseByPoint;
                 // TODO
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             }
