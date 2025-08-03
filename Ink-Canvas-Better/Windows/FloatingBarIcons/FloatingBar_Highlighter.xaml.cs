@@ -16,15 +16,15 @@ using System.Windows.Media;
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 {
     /// <summary>
-    /// FloatingBar_Pen.xaml 的交互逻辑
+    /// FloatingBar_Highlighter.xaml 的交互逻辑
     /// </summary>
-    public partial class FloatingBar_Pen : UserControl
+    public partial class FloatingBar_Highlighter : UserControl
     {
-        public FloatingBar_Pen()
+        public FloatingBar_Highlighter()
         {
             InitializeComponent();
 
-            RuntimeData.floatingBar_Pen = this;
+            RuntimeData.floatingBar_Highlighter = this;
             AddHandler(ICB_PresetColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
             AddHandler(ICB_CustomColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
         }
@@ -34,11 +34,11 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             if (e.OriginalSource is ICB_PresetColor presetSelector)
             {
                 ColorPreview.Fill = new SolidColorBrush(presetSelector.Color);
-                RuntimeData.currentDrawingAttributes_Pen.Color = presetSelector.Color;
+                RuntimeData.currentDrawingAttributes_Highlighter.Color = presetSelector.Color;
             } else if (e.OriginalSource is ICB_CustomColor customSelector)
             {
                 ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
-                RuntimeData.currentDrawingAttributes_Pen.Color = customSelector.Color;
+                RuntimeData.currentDrawingAttributes_Highlighter.Color = customSelector.Color;
             }
         }
 
@@ -62,13 +62,13 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void Slider_StrokeThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            RuntimeData.currentDrawingAttributes_Pen.Width = e.NewValue;
-            RuntimeData.currentDrawingAttributes_Pen.Height = e.NewValue;
+            RuntimeData.currentDrawingAttributes_Highlighter.Width = e.NewValue;
+            RuntimeData.currentDrawingAttributes_Highlighter.Height = e.NewValue;
         }
 
         public void DrawingColorChanged()
         {
-            ColorPreview.Fill = new SolidColorBrush(RuntimeData.currentDrawingAttributes_Pen.Color);
+            ColorPreview.Fill = new SolidColorBrush(RuntimeData.currentDrawingAttributes_Highlighter.Color);
         }
 
         public void ToggleButton_inkStyle_Unchecked(object sender, RoutedEventArgs e)

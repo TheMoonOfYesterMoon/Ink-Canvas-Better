@@ -99,8 +99,6 @@ namespace Ink_Canvas_Better.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            RuntimeData.DrawingAttributes.Color = ((SolidColorBrush)InnerBorder.Background).Color;
-            
             var args = new RoutedEventArgs(ColorSelectedEvent, this);
             RaiseEvent(args);
             e.Handled = true;

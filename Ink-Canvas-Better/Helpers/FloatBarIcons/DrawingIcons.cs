@@ -37,6 +37,7 @@ namespace Ink_Canvas_Better
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.Pen;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                inkCanvas.DefaultDrawingAttributes = RuntimeData.currentDrawingAttributes_Pen;
             }
             else
             {
@@ -49,7 +50,18 @@ namespace Ink_Canvas_Better
         #region Highlighter
         public void HighlighterIcon_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.Highlighter)
+            {
+                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.Highlighter;
+                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                inkCanvas.DefaultDrawingAttributes = RuntimeData.currentDrawingAttributes_Highlighter;
+            }
+            else
+            {
+                HideAllSubpanel();
+                RuntimeData.mainWindow.Popup_Highlighter.IsOpen = true;
+            }
         }
         #endregion
 

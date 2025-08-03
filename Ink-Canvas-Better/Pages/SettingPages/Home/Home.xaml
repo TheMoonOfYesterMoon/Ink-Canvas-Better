@@ -10,11 +10,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Home">
-    <ScrollViewer PanningMode="VerticalOnly" Margin="2">
-        <ikw:SimpleStackPanel Spacing="4" Margin="4">
-            <ui:SettingsCard>
+    <ScrollViewer PanningMode="VerticalOnly">
+        <ikw:SimpleStackPanel Spacing="4" Margin="16,4">
+            <ui:SettingsCard Name="SettingsCard_About_1" Header="Ink Cnavas Better" Description="{x:Static text:Resources.Setting_AppDescription}">
                 <ui:SettingsCard.HeaderIcon>
-                    <ui:FontIcon Glyph="&#xe7ba;"/>
+                    <ui:FontIcon Glyph="&#xf167;"/>
                 </ui:SettingsCard.HeaderIcon>
                 <ui:SettingsCard.Content>
                     <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">
@@ -26,10 +26,6 @@
                                      FontFamily="{DynamicResource FluentIconFontFamily}"
                                      FontWeight="Bold"
                                      FontSize="16"/>
-                                <Run Text="{x:Static text:Resources.CloseApplication}"
-                                     BaselineAlignment="Center"
-                                     FontWeight="Bold"
-                                     FontSize="14"/>
                             </TextBlock>
                         </Button>
                         <Button Click="ButtonRestart_Click"
@@ -40,13 +36,17 @@
                                      FontFamily="{DynamicResource FluentIconFontFamily}"
                                      FontWeight="Bold"
                                      FontSize="16"/>
-                                <Run Text="{x:Static text:Resources.RestartApplication}"
-                                     BaselineAlignment="Center"
-                                     FontWeight="Bold"
-                                     FontSize="14"/>
                             </TextBlock>
                         </Button>
-                        <Line Stroke="Black" VerticalAlignment="Center" StrokeThickness="1" Y1="20"/>
+                    </ikw:SimpleStackPanel>
+                </ui:SettingsCard.Content>
+            </ui:SettingsCard>
+            <ui:SettingsCard>
+                <ui:SettingsCard.HeaderIcon>
+                    <ui:FontIcon Glyph="&#xec7a;"/>
+                </ui:SettingsCard.HeaderIcon>
+                <ui:SettingsCard.Content>
+                    <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">
                         <Button Click="ButtonLog_Click">
                             <TextBlock VerticalAlignment="Center">
                                 <Run Text="&#xeadf;"
@@ -76,43 +76,39 @@
                     </ikw:SimpleStackPanel>
                 </ui:SettingsCard.Content>
             </ui:SettingsCard>
-            <GroupBox Name="GroupBox_About_1" Header="Ink Cnavas Better">
-                <ikw:SimpleStackPanel Spacing="5">
-                    <TextBlock TextWrapping="Wrap" FontSize="14" Text="{x:Static text:Resources.Setting_AppDescription}"/>
-                    <ui:SettingsCard 
-                        Click="SettingsCard_Github_Click"
-                        IsClickEnabled="True"
-                        Description="{x:Static text:Resources.Setting_GoToGithubRepository}">
-                        <ui:SettingsCard.HeaderIcon>
-                            <Image Source="{StaticResource Icon_Github}"/>
-                        </ui:SettingsCard.HeaderIcon>
-                        <ui:SettingsCard.ActionIcon>
-                            <ui:FontIcon Glyph="&#xe8a7;"/>
-                        </ui:SettingsCard.ActionIcon>
-                    </ui:SettingsCard>
-                    <ui:SettingsCard
-                        Header="{x:Static text:Resources.Setting_Author}"
-                        Click="SettingsCard_Author_Click"
-                        IsClickEnabled="True"
-                        Description="{x:Static text:Resources.Author}">
-                        <ui:SettingsCard.HeaderIcon>
-                            <ui:FontIcon Glyph="&#xee57;"/>
-                        </ui:SettingsCard.HeaderIcon>
-                        <ui:SettingsCard.ActionIcon>
-                            <ui:FontIcon Glyph="&#xe8a7;"/>
-                        </ui:SettingsCard.ActionIcon>
-                    </ui:SettingsCard>
-                    <ui:SettingsCard
-                        Header="{x:Static text:Resources.Setting_Language}"
-                        Click="SettingsCard_Language_Click"
-                        IsClickEnabled="True"
-                        Description="{x:Static text:Resources.Setting_RequireRestarting}">
-                        <ui:SettingsCard.HeaderIcon>
-                            <ui:FontIcon Glyph="&#xf2b7;"/>
-                        </ui:SettingsCard.HeaderIcon>
-                    </ui:SettingsCard>
-                </ikw:SimpleStackPanel>
-            </GroupBox>
+            <ui:SettingsCard
+                Header="Github"
+                Click="SettingsCard_Github_Click"
+                IsClickEnabled="True"
+                Description="{x:Static text:Resources.Setting_GoToGithubRepository}">
+                <ui:SettingsCard.HeaderIcon>
+                    <Image Source="{StaticResource Icon_Github}"/>
+                </ui:SettingsCard.HeaderIcon>
+                <ui:SettingsCard.ActionIcon>
+                    <ui:FontIcon Glyph="&#xe8a7;"/>
+                </ui:SettingsCard.ActionIcon>
+            </ui:SettingsCard>
+            <ui:SettingsCard
+                Header="{x:Static text:Resources.Setting_Author}"
+                Click="SettingsCard_Author_Click"
+                IsClickEnabled="True"
+                Description="{x:Static text:Resources.Author}">
+                <ui:SettingsCard.HeaderIcon>
+                    <ui:FontIcon Glyph="&#xee57;"/>
+                </ui:SettingsCard.HeaderIcon>
+                <ui:SettingsCard.ActionIcon>
+                    <ui:FontIcon Glyph="&#xe8a7;"/>
+                </ui:SettingsCard.ActionIcon>
+            </ui:SettingsCard>
+            <ui:SettingsCard
+                Header="{x:Static text:Resources.Setting_Language}"
+                Click="SettingsCard_Language_Click"
+                IsClickEnabled="True"
+                Description="{x:Static text:Resources.Setting_RequireRestarting}">
+                <ui:SettingsCard.HeaderIcon>
+                    <ui:FontIcon Glyph="&#xf2b7;"/>
+                </ui:SettingsCard.HeaderIcon>
+            </ui:SettingsCard>
         </ikw:SimpleStackPanel>
     </ScrollViewer>
 </Page>

@@ -62,13 +62,13 @@ namespace Ink_Canvas_Better.Pages.SettingPages
         private void Home_Loaded(object sender, RoutedEventArgs e)
         {
             string Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            GroupBox_About_1.Header = $"Ink Canvas Better v{Version}";
+            SettingsCard_About_1.Header = $"Ink Canvas Better v{Version}";
             String[] Version1 = Version.Split('.');
             if (int.TryParse(Version1[3], out int i))
             {
                 if (i > 0)
                 {
-                    GroupBox_About_1.Header = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - beta";
+                    SettingsCard_About_1.Header = Assembly.GetExecutingAssembly().GetName().Version.ToString() + " - beta";
                 }
             }
         }

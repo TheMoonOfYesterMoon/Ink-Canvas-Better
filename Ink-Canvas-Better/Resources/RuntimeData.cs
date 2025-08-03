@@ -15,11 +15,13 @@ namespace Ink_Canvas_Better.Resources
         public static SettingWindow settingWindow;
         public static MainWindow mainWindow;
         public static FloatingBar_Pen floatingBar_Pen;
+        public static FloatingBar_Highlighter floatingBar_Highlighter;
         public static String settingsFileName = "settings.json";
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
 
-        public static DrawingAttributes DrawingAttributes { get; set; } = new DrawingAttributes();
+        public static DrawingAttributes currentDrawingAttributes_Pen { get; set; } = new DrawingAttributes();
+        public static DrawingAttributes currentDrawingAttributes_Highlighter { get; set; } = new DrawingAttributes();
 
         private static DrawingMode _currentDrawingMode = DrawingMode.None;
         public static DrawingMode currentDrawingMode

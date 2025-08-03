@@ -30,9 +30,6 @@ namespace Ink_Canvas_Better
             Setting.LoadSettings(isStartup : true);
             RuntimeData.mainWindow = this;
 
-            inkCanvas.DefaultDrawingAttributes = RuntimeData.DrawingAttributes;
-            RuntimeData.DrawingAttributes.FitToCurve = true;
-
             this.Loaded += DockWindowToBottom;
         }
 

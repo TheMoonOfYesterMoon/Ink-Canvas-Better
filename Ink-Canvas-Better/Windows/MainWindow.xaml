@@ -119,6 +119,16 @@
                         FontIcon="&#xf0c6;"
                         Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <!-- Highlighter -->
+                    <Popup
+                        Name="Popup_Highlighter"
+                        IsOpen="False"
+                        StaysOpen="False"
+                        AllowsTransparency="True"
+                        Placement="Top"
+                        PlacementTarget="{Binding ElementName=HighlighterIcon}">
+                        <floatingBar:FloatingBar_Highlighter/>
+                    </Popup>
                     <localControls:ICB_Button
                         x:Name="HighlighterIcon"
                         Text="{x:Static text:Resources.Highlighter}"
