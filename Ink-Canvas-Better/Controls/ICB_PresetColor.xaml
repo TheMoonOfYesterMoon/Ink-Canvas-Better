@@ -30,7 +30,8 @@
                          Height="{Binding ElementName=InnerBorder, Path=ActualHeight}">
                     <ui:FontIcon Glyph="&#xe73a;" FontFamily="{DynamicResource FluentIconFontFamily}"
                                  Width="{Binding ElementName=InnerBorder, Path=ActualWidth}"
-                                 Height="{Binding ElementName=InnerBorder, Path=ActualHeight}"/>
+                                 Height="{Binding ElementName=InnerBorder, Path=ActualHeight}"
+                                 FontSize="30"/>
                 </Viewbox>
             </Button>
         </Grid>

@@ -20,11 +20,15 @@ namespace Ink_Canvas_Better.Resources
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
 
-        public static DrawingAttributes currentDrawingAttributes_Pen { get; set; } = new DrawingAttributes();
-        public static DrawingAttributes currentDrawingAttributes_Highlighter { get; set; } = new DrawingAttributes();
+        public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes();
+        public static DrawingAttributes CurrentDrawingAttributes_Highlighter { get; set; } = new DrawingAttributes {
+            IsHighlighter = true,
+            StylusTip = StylusTip.Rectangle,
+            Width = 1
+        };
 
         private static DrawingMode _currentDrawingMode = DrawingMode.None;
-        public static DrawingMode currentDrawingMode
+        public static DrawingMode CurrentDrawingMode
         {
             get { return _currentDrawingMode; }
             set

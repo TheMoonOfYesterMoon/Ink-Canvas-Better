@@ -14,7 +14,7 @@ namespace Ink_Canvas_Better
         #region Cursor
         public void CursorIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.Cursor)
+            if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Cursor)
             {
                 CursorIcon_ChangeToCursor();
             }
@@ -23,7 +23,7 @@ namespace Ink_Canvas_Better
         public void CursorIcon_ChangeToCursor()
         {
             MainWindow_Grid.Background = Brushes.Transparent;
-            RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.Cursor;
+            RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Cursor;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
         }
 
@@ -32,12 +32,12 @@ namespace Ink_Canvas_Better
         #region Pen
         public void PenIcon_Click(Object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.Pen)
+            if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.Pen;
+                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pen;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                inkCanvas.DefaultDrawingAttributes = RuntimeData.currentDrawingAttributes_Pen;
+                inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
             }
             else
             {
@@ -50,12 +50,12 @@ namespace Ink_Canvas_Better
         #region Highlighter
         public void HighlighterIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.Highlighter)
+            if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Highlighter)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.Highlighter;
+                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Highlighter;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                inkCanvas.DefaultDrawingAttributes = RuntimeData.currentDrawingAttributes_Highlighter;
+                inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
             }
             else
             {
@@ -68,10 +68,10 @@ namespace Ink_Canvas_Better
         #region Eraser
         public void EraserIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.currentDrawingMode != RuntimeData.DrawingMode.EraseByPoint)
+            if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.EraseByPoint)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.currentDrawingMode = RuntimeData.DrawingMode.EraseByPoint;
+                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.EraseByPoint;
                 // TODO
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             }

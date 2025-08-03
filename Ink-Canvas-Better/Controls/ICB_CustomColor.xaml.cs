@@ -78,8 +78,8 @@ namespace Ink_Canvas_Better.Controls
 
         public bool IsSelected
         {
-            get { return (bool)GetValue(ColorProperty); }
-            set { SetValue(ColorProperty, value); }
+            get { return (bool)GetValue(IsSelectedProperty); }
+            set { SetValue(IsSelectedProperty, value); }
         }
 
         private static void IsSelected_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)

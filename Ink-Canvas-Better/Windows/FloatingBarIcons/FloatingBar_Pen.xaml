@@ -55,7 +55,7 @@
             SnapsToDevicePixels="True"
             BorderBrush="{DynamicResource BorderBrush}"
             BorderThickness="2,2,2,0"
-            Background="{DynamicResource DefaultBackgroundColor_Opacity}"
+            Background="{DynamicResource DefaultBackgroundColor}"
             Grid.Row="0"
             CornerRadius="5,5,0,0">
             <Grid>
@@ -106,7 +106,7 @@
             SnapsToDevicePixels="True"
             BorderBrush="{DynamicResource BorderBrush}"
             BorderThickness="2,0,2,2"
-            Background="{DynamicResource DefaultBackgroundColor_Opacity}"
+            Background="{DynamicResource DefaultBackgroundColor}"
             Grid.Row="1"
             CornerRadius="0,0,5,5">
             <ikw:SimpleStackPanel Margin="5">
@@ -149,20 +149,20 @@
                 </WrapPanel>
                 <!-- Color -->
                 <ikw:SimpleStackPanel Orientation="Horizontal">
-                    <localControls:ICB_PresetColor Color="Black"/>
-                    <localControls:ICB_PresetColor Color="White"/>
-                    <localControls:ICB_PresetColor Color="Red"/>
-                    <localControls:ICB_PresetColor Color="Yellow"/>
-                    <localControls:ICB_PresetColor Color="Blue"/>
-                    <localControls:ICB_PresetColor Color="Green"/>
+                    <localControls:ICB_PresetColor Color="Black" x:Name="Color0"/>
+                    <localControls:ICB_PresetColor Color="White" x:Name="Color1"/>
+                    <localControls:ICB_PresetColor Color="Red" x:Name="Color2"/>
+                    <localControls:ICB_PresetColor Color="Yellow" x:Name="Color3"/>
+                    <localControls:ICB_PresetColor Color="Blue" x:Name="Color4"/>
+                    <localControls:ICB_PresetColor Color="Green" x:Name="Color5"/>
                 </ikw:SimpleStackPanel>
                 <ikw:SimpleStackPanel Orientation="Horizontal">
-                    <localControls:ICB_CustomColor Color="DimGray"/>
-                    <localControls:ICB_CustomColor Color="LightGray"/>
-                    <localControls:ICB_CustomColor Color="LightCoral"/>
-                    <localControls:ICB_CustomColor Color="Wheat"/>
-                    <localControls:ICB_CustomColor Color="LightBlue"/>
-                    <localControls:ICB_CustomColor Color="lightGreen"/>
+                    <localControls:ICB_CustomColor Color="DimGray" x:Name="Color6"/>
+                    <localControls:ICB_CustomColor Color="LightGray" x:Name="Color7"/>
+                    <localControls:ICB_CustomColor Color="LightCoral" x:Name="Color8"/>
+                    <localControls:ICB_CustomColor Color="Wheat" x:Name="Color9"/>
+                    <localControls:ICB_CustomColor Color="LightBlue" x:Name="Color10"/>
+                    <localControls:ICB_CustomColor Color="lightGreen" x:Name="Color11"/>
                 </ikw:SimpleStackPanel>
             </ikw:SimpleStackPanel>
         </Border>
