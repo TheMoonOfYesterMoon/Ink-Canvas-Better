@@ -34,13 +34,21 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             if (e.OriginalSource is ICB_PresetColor presetSelector)
             {
                 ColorPreview.Fill = new SolidColorBrush(presetSelector.Color);
-                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = presetSelector.Color;
+                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
+                    (byte)(Slider_Opacity.Value / 100d * 255d),
+                    presetSelector.Color.R,
+                    presetSelector.Color.G,
+                    presetSelector.Color.B);
                 AllColorUnselected();
                 presetSelector.IsSelected = true;
             } else if (e.OriginalSource is ICB_CustomColor customSelector)
             {
                 ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
-                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = customSelector.Color;
+                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
+                    (byte)(Slider_Opacity.Value / 100d * 255d),
+                    customSelector.Color.R,
+                    customSelector.Color.G,
+                    customSelector.Color.B);
                 AllColorUnselected();
                 customSelector.IsSelected = true;
             }
@@ -84,6 +92,15 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             //RuntimeData.CurrentDrawingAttributes_Highlighter.Width = e.NewValue;
             RuntimeData.CurrentDrawingAttributes_Highlighter.Height = e.NewValue;
+        }
+
+        private void Slider_Opacity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
+                (byte)(e.NewValue/100d*255d),
+                RuntimeData.CurrentDrawingAttributes_Highlighter.Color.R,
+                RuntimeData.CurrentDrawingAttributes_Highlighter.Color.G,
+                RuntimeData.CurrentDrawingAttributes_Highlighter.Color.B);
         }
 
         public void DrawingColorChanged()

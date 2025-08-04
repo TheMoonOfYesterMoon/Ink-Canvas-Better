@@ -183,7 +183,7 @@
   <data name="Appearance" xml:space="preserve">
     <value>外观</value>
   </data>
-  <data name="StrokeThickness" xml:space="preserve">
+  <data name="Thickness" xml:space="preserve">
     <value>粗细</value>
   </data>
   <data name="Customize" xml:space="preserve">
@@ -236,5 +236,8 @@
   </data>
   <data name="Off" xml:space="preserve">
     <value>已禁用</value>
+  </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>透明度</value>
   </data>
 </root>

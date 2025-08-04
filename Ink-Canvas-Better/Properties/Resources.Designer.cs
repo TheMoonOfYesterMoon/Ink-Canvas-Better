@@ -223,6 +223,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Opacity 的本地化字符串。
+        /// </summary>
+        public static string Opacity {
+            get {
+                return ResourceManager.GetString("Opacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Open Log 的本地化字符串。
         /// </summary>
         public static string OpenLog {
@@ -385,11 +394,11 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
-        ///   查找类似 Stroke thickness 的本地化字符串。
+        ///   查找类似 Thickness 的本地化字符串。
         /// </summary>
-        public static string StrokeThickness {
+        public static string Thickness {
             get {
-                return ResourceManager.GetString("StrokeThickness", resourceCulture);
+                return ResourceManager.GetString("Thickness", resourceCulture);
             }
         }
         

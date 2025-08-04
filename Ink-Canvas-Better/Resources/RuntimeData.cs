@@ -22,7 +22,6 @@ namespace Ink_Canvas_Better.Resources
 
         public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes();
         public static DrawingAttributes CurrentDrawingAttributes_Highlighter { get; set; } = new DrawingAttributes {
-            IsHighlighter = true,
             StylusTip = StylusTip.Rectangle,
             Width = 1
         };
