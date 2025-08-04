@@ -39,7 +39,6 @@
                     Foreground="{DynamicResource DefaultForegroundColor}"
                     Text="放大镜" />
                 <Button
-                    Background="Transparent"
                     Width="120"
                     Height="40"
                     Padding="0"
@@ -50,8 +49,8 @@
                     <Label
                         Name="LabelSwitchMagnifyScream"
                         Height="30"
-                        Width="120"
-                        HorizontalContentAlignment="Center"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Center"
                         Content="点击放大右侧"
                         FontSize="16"
                         Foreground="{DynamicResource DefaultForegroundColor}"/>

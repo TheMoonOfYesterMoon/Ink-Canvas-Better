@@ -255,4 +255,10 @@
   <data name="Opacity" xml:space="preserve">
     <value>Opacity</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
 </root>

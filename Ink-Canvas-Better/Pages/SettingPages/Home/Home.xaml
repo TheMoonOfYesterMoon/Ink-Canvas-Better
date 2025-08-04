@@ -12,7 +12,7 @@
       Title="Home">
     <ScrollViewer PanningMode="VerticalOnly">
         <ikw:SimpleStackPanel Spacing="4" Margin="16,4">
-            <ui:SettingsCard Name="SettingsCard_About_1" Header="Ink Cnavas Better" Description="{x:Static text:Resources.Setting_AppDescription}">
+            <ui:SettingsCard Name="SettingsCard_About_1" Header="Ink Cnavas Better" Description="{DynamicResource Text_Setting_AppDescription}">
                 <ui:SettingsCard.HeaderIcon>
                     <ui:FontIcon Glyph="&#xf167;"/>
                 </ui:SettingsCard.HeaderIcon>
@@ -54,7 +54,7 @@
                                      FontFamily="{DynamicResource FluentIconFontFamily}"
                                      FontWeight="Bold"
                                      FontSize="16"/>
-                                <Run Text="{x:Static text:Resources.OpenLog}"
+                                <Run Text="{DynamicResource Text_OpenLog}"
                                      BaselineAlignment="Center"
                                      FontWeight="Bold"
                                      FontSize="14"/>
@@ -67,7 +67,7 @@
                                      FontFamily="{DynamicResource FluentIconFontFamily}"
                                      FontWeight="Bold"
                                      FontSize="16"/>
-                                <Run Text="{x:Static text:Resources.ResetSettings}"
+                                <Run Text="{DynamicResource Text_ResetSettings}"
                                      BaselineAlignment="Center"
                                      FontWeight="Bold"
                                      FontSize="14"/>
@@ -80,7 +80,7 @@
                 Header="Github"
                 Click="SettingsCard_Github_Click"
                 IsClickEnabled="True"
-                Description="{x:Static text:Resources.Setting_GoToGithubRepository}">
+                Description="{DynamicResource Text_Setting_GoToGithubRepository}">
                 <ui:SettingsCard.HeaderIcon>
                     <Image Source="{StaticResource Icon_Github}"/>
                 </ui:SettingsCard.HeaderIcon>
@@ -89,10 +89,10 @@
                 </ui:SettingsCard.ActionIcon>
             </ui:SettingsCard>
             <ui:SettingsCard
-                Header="{x:Static text:Resources.Setting_Author}"
+                Header="{DynamicResource Text_Setting_Author}"
                 Click="SettingsCard_Author_Click"
                 IsClickEnabled="True"
-                Description="{x:Static text:Resources.Author}">
+                Description="{DynamicResource Text_Author}">
                 <ui:SettingsCard.HeaderIcon>
                     <ui:FontIcon Glyph="&#xee57;"/>
                 </ui:SettingsCard.HeaderIcon>
@@ -101,10 +101,10 @@
                 </ui:SettingsCard.ActionIcon>
             </ui:SettingsCard>
             <ui:SettingsCard
-                Header="{x:Static text:Resources.Setting_Language}"
+                Header="{DynamicResource Text_Setting_Language}"
                 Click="SettingsCard_Language_Click"
                 IsClickEnabled="True"
-                Description="{x:Static text:Resources.Setting_RequireRestarting}">
+                Description="Language">
                 <ui:SettingsCard.HeaderIcon>
                     <ui:FontIcon Glyph="&#xf2b7;"/>
                 </ui:SettingsCard.HeaderIcon>

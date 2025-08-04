@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:Ink_Canvas_Better"
         xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+        xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
         ui:WindowHelper.UseModernWindowStyle="True"
         ui:WindowHelper.SystemBackdropType="Mica"
         ui:TitleBar.Height="36"
@@ -15,15 +16,15 @@
         Topmost="True"
         Icon="/Resources/Ink Canvas Better.ico"
         mc:Ignorable="d"
-        Title="Ink Cnavas Better" Height="450" Width="800">
+        Title="Ink Cnavas Better Language" Height="450" Width="800">
     <DockPanel Margin="15">
-        <ikw:SimpleStackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Spacing="8" Height="30" HorizontalAlignment="Right">
-            <Button Name="Cancel" Width="150" Content="Cancle" Click="ButtonCancel_Click"/>
-            <Button Name="OK" Width="150" IsEnabled="False" Click="ButtonOK_Click" Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}" Content="OK"/>
+        <ikw:SimpleStackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Spacing="10" Height="30" HorizontalAlignment="Right">
+            <Button Name="Cancel" Width="150" Content="{DynamicResource Text_Cancel}" Click="ButtonCancel_Click"/>
+            <Button Name="OK" Width="150" Content="{DynamicResource Text_Confirm}" IsEnabled="False" Click="ButtonOK_Click" Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}"/>
         </ikw:SimpleStackPanel>
         <TextBlock FontSize="24" DockPanel.Dock="Top">
-            <Run BaselineAlignment="Bottom" FontFamily="{DynamicResource FluentIconFontFamily}">&#xf2b7;</Run>
-            <Run>Language</Run>
+            <Run BaselineAlignment="Bottom" FontFamily="{DynamicResource FluentIconFontFamily}" Text="&#xf2b7;"/>
+            <Run Text="{DynamicResource Text_Setting_Language}"/>
         </TextBlock>
         <ListBox Name="LanguageListBox" SelectionChanged="LanguageListBox_SelectionChanged" Margin="4,10"/>
     </DockPanel>

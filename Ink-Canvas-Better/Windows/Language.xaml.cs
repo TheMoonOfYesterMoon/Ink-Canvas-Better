@@ -1,17 +1,15 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Ink_Canvas_Better.Windows
 {
@@ -23,19 +21,16 @@ namespace Ink_Canvas_Better.Windows
         public Language()
         {
             InitializeComponent();
-            Loaded += Window_Loaded;
+            LanguageListBox.ItemsSource = new List<String>(SupportedLanguage.Keys);
         }
 
-        private readonly ArrayList languages = new ArrayList()
+        private readonly Dictionary<String, String> SupportedLanguage = new Dictionary<String, String>()
         {
-            "zh-CN => 简体中文",
-            "en-US => English"
+            { "English", "en" },
+            { "简体中文", "zh-CN" },
+            { "繁体中文", "zh-TW" },
         };
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            LanguageListBox.ItemsSource = languages;
-        }
         private void LanguageListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _ = LanguageListBox.SelectedIndex != -1 ? OK.IsEnabled = true : OK.IsEnabled = false;
@@ -48,8 +43,37 @@ namespace Ink_Canvas_Better.Windows
 
         private void ButtonOK_Click(object sender, RoutedEventArgs e)
         {
+            SupportedLanguage.TryGetValue((String)LanguageListBox.SelectedItem, out String value);
+            RuntimeData.settingData.Others.Language = value;
+            Setting.SaveSettings();
+            SwitchLanguage(value);
 
+            this.Close();
         }
 
+        private void SwitchLanguage(string languageCode)
+        {
+            string path = $"Resources/Language/{languageCode}.xaml";
+            ResourceDictionary newDict;
+            try
+            {
+                newDict = new ResourceDictionary { Source = new Uri(path, UriKind.Relative) };
+            }
+            catch (Exception)
+            {
+                //Log.WriteLogToFile("");
+                newDict = new ResourceDictionary { Source = new Uri ("Resources/Language/en.xaml", UriKind.Relative) };
+            }
+
+            var oldDict = Application.Current.Resources.MergedDictionaries
+                .FirstOrDefault(d => d.Source?.OriginalString.Contains("Languages/") == true);
+
+            if (oldDict != null)
+            {
+                Application.Current.Resources.MergedDictionaries.Remove(oldDict);
+            }
+
+            Application.Current.Resources.MergedDictionaries.Add(newDict);
+        }
     }
 }

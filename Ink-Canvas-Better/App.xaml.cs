@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -28,18 +31,13 @@ namespace Ink_Canvas_Better
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             Helpers.Log.NewLog(e.Exception.ToString());
-            // TODO: 在消息框显示 
+            // TODO: show in the messagebox
             // Ink_Canvas.MainWindow.ShowNewMessage($"抱歉，出现预料之外的异常，可能导致 Ink Canvas 画板运行不稳定。\n建议保存墨迹后重启应用。\n报错信息：\n{e.ToString()}", true);
             e.Handled = true;
         }
 
         void App_Startup(object sender, StartupEventArgs e)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
-            CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-US");
-
             RootPath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
 
             if (!Directory.Exists($"{RootPath}Logs"))

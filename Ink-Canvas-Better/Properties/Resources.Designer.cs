@@ -79,6 +79,15 @@ namespace Ink_Canvas_Better.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Cancel 的本地化字符串。
+        /// </summary>
+        public static string Cancel {
+            get {
+                return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Clear 的本地化字符串。
         /// </summary>
         public static string Clear {
@@ -93,6 +102,15 @@ namespace Ink_Canvas_Better.Properties {
         public static string CloseApplication {
             get {
                 return ResourceManager.GetString("CloseApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Confirm 的本地化字符串。
+        /// </summary>
+        public static string Confirm {
+            get {
+                return ResourceManager.GetString("Confirm", resourceCulture);
             }
         }
         

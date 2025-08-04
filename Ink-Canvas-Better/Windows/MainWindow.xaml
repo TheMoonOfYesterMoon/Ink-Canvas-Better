@@ -10,7 +10,7 @@
         xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
         xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
-        Title="{x:Static text:Resources.ProductName}"
+        Title="{DynamicResource Text_ProductName}"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         Stylus.IsPressAndHoldEnabled="False"
@@ -93,13 +93,13 @@
                         CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="CursorIcon"
-                        Text="{x:Static text:Resources.Cursor}"
+                        Text="{DynamicResource Text_Cursor}"
                         FontIcon="&#xe8b0;"
                         Click="CursorIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ClearIcon"
-                        Text="{x:Static text:Resources.Clear}"
+                        Text="{DynamicResource Text_Clear}"
                         FontIcon="&#xe74d;"
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
@@ -115,7 +115,7 @@
                     </Popup>
                     <localControls:ICB_Button
                         x:Name="PenIcon"
-                        Text="{x:Static text:Resources.Pencil}"
+                        Text="{DynamicResource Text_Pen}"
                         FontIcon="&#xf0c6;"
                         Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
@@ -131,36 +131,36 @@
                     </Popup>
                     <localControls:ICB_Button
                         x:Name="HighlighterIcon"
-                        Text="{x:Static text:Resources.Highlighter}"
+                        Text="{DynamicResource Text_Highlighter}"
                         Click="HighlighterIcon_Click"
                         FontIcon="&#xe891;"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="EraserIcon"
-                        Text="{x:Static text:Resources.Eraser}"
+                        Text="{DynamicResource Text_Eraser}"
                         FontIcon="&#xe75c;"
                         Click="EraserIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="PickIcon"
-                        Text="{x:Static text:Resources.Pick}"
+                        Text="{DynamicResource Text_Pick}"
                         FontIcon="&#xe958;"
                         Click="PickIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ShapeIcon"
-                        Text="{x:Static text:Resources.Shape}"
+                        Text="{DynamicResource Text_Shape}"
                         FontIcon="&#xf158;"
                         Click="ShapeIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- TODO: merge 'redo' and 'undo' -->
                     <localControls:ICB_Button
-                        Text="{x:Static text:Resources.Redo}"
+                        Text="{DynamicResource Text_Redo}"
                         FontIcon="&#xe7a7;"
                         Click="RedoIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
-                        Text="{x:Static text:Resources.Undo}"
+                        Text="{DynamicResource Text_Undo}"
                         FontIcon="&#xe7a6;"
                         Click="UndoIcon_Click"
                         IsSqueezeHorizontally="True"/>
@@ -185,19 +185,19 @@
                         CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="MagnifierIcon"
-                        Text="{x:Static text:Resources.Magnifier}"
+                        Text="{DynamicResource Text_Magnifier}"
                         FontIcon="&#xf78b;"
                         Click="MagnifierIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="ToolsIcon"
-                        Text="{x:Static text:Resources.Tools}"
+                        Text="{DynamicResource Text_Tools}"
                         FontIcon="&#xe8a9;"
                         Click="ToolsIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
                         x:Name="HideIcon"
-                        Text="{x:Static text:Resources.Hide}"
+                        Text="{DynamicResource Text_Hide}"
                         FontIcon="&#xed1a;"
                         Click="HideIcon_Click"
                         IsSqueezeHorizontally="True"/>
@@ -218,7 +218,7 @@
                     Orientation="Horizontal">
                     <localControls:ICB_Button
                         x:Name="TouchSettingIcon"
-                        Text="{x:Static text:Resources.Touch}"
+                        Text="{DynamicResource Text_Touch}"
                         FontIcon="&#xf271;"
                         Click="TouchSettingIcon_Click"
                         CornerRadius="5"/>
@@ -235,7 +235,7 @@
                     Orientation="Horizontal">
                     <localControls:ICB_Button
                         x:Name="ExitPPTIcon"
-                        Text="{x:Static text:Resources.ExitPPT}"
+                        Text="{DynamicResource Text_ExitPPT}"
                         Click="ExitPPTIcon_Click"
                         CornerRadius="5"/>
                 </ikw:SimpleStackPanel>

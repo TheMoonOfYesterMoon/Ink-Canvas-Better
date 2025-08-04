@@ -64,7 +64,7 @@
             </Grid>
         </Border>
         <Button Grid.Row="1" Height="24" Width="63" Padding="0" Click="Custom_Click" HorizontalAlignment="Center">
-            <TextBlock Text="{x:Static text:Resources.Customize}" FontSize="10"/>
+            <TextBlock Text="{DynamicResource Text_Customize}" FontSize="10"/>
         </Button>
         <Popup Name="Popup_ColorPicker" AllowsTransparency="True" StaysOpen="False">
             <!-- TODO -->

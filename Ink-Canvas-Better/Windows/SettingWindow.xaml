@@ -15,7 +15,7 @@
         Icon="/Resources/Ink Canvas Better.ico"
         mc:Ignorable="d"
         WindowStyle="SingleBorderWindow"
-        Title="{x:Static text:Resources.SettingWindowTitle}"
+        Title="{DynamicResource Text_SettingWindowTitle}"
         MinHeight="500"
         MinWidth="750"
         Height="450"
@@ -29,12 +29,12 @@
         PaneDisplayMode="LeftCompact"
         Background="{DynamicResource DefaultBackgroundColor}">
         <ui:NavigationView.MenuItems>
-            <ui:NavigationViewItem Content="{x:Static text:Resources.Home}" ToolTipService.ToolTip="{x:Static text:Resources.Home}">
+            <ui:NavigationViewItem Content="{DynamicResource Text_Home}" ToolTipService.ToolTip="{DynamicResource Text_Home}">
                 <ui:NavigationViewItem.Icon>
                     <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xea8a;"/>
                 </ui:NavigationViewItem.Icon>
             </ui:NavigationViewItem>
-            <ui:NavigationViewItem Content="{x:Static text:Resources.StartupAndUpdate}" ToolTipService.ToolTip="{x:Static text:Resources.StartupAndUpdate}">
+            <ui:NavigationViewItem Content="{DynamicResource Text_StartupAndUpdate}" ToolTipService.ToolTip="{DynamicResource Text_StartupAndUpdate}">
                 <ui:NavigationViewItem.Icon>
                     <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xe7e8;"/>
                 </ui:NavigationViewItem.Icon>
@@ -57,17 +57,17 @@
                 </ui:NavigationViewItem.MenuItems>
                 -->
             </ui:NavigationViewItem>
-            <ui:NavigationViewItem Content="{x:Static text:Resources.Appearance}" ToolTipService.ToolTip="{x:Static text:Resources.Appearance}">
+            <ui:NavigationViewItem Content="{DynamicResource Text_Appearance}" ToolTipService.ToolTip="{DynamicResource Text_Appearance}">
                 <ui:NavigationViewItem.Icon>
                     <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xe790;"/>
                 </ui:NavigationViewItem.Icon>
             </ui:NavigationViewItem>
-            <ui:NavigationViewItem Content="{x:Static text:Resources.PPT}" ToolTipService.ToolTip="{x:Static text:Resources.PPT}">
+            <ui:NavigationViewItem Content="{DynamicResource Text_PPT}" ToolTipService.ToolTip="{DynamicResource Text_PPT}">
                 <ui:NavigationViewItem.Icon>
                     <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xe786;"/>
                 </ui:NavigationViewItem.Icon>
             </ui:NavigationViewItem>
-            <ui:NavigationViewItem Content="{x:Static text:Resources.ExperimentalFeatures}" ToolTipService.ToolTip="{x:Static text:Resources.ExperimentalFeatures}">
+            <ui:NavigationViewItem Content="{DynamicResource Text_ExperimentalFeatures}" ToolTipService.ToolTip="{DynamicResource Text_ExperimentalFeatures}">
                 <ui:NavigationViewItem.Icon>
                     <ui:FontIcon FontFamily="{DynamicResource FluentIconFontFamily}" Glyph="&#xeb50;"/>
                 </ui:NavigationViewItem.Icon>

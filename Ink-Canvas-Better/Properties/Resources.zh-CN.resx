@@ -240,4 +240,10 @@
   <data name="Opacity" xml:space="preserve">
     <value>透明度</value>
   </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
 </root>

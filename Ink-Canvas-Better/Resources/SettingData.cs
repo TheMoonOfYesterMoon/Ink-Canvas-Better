@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -106,6 +107,9 @@ namespace Ink_Canvas_Better.Resources
 
         [JsonProperty("isShowWelcomeScreen")]
         public bool IsShowWelcomeScreen { get; set; } = true;
+
+        [JsonProperty("language")]
+        public String Language { get; set; } = "en";
     }
 
     public class Runtime
