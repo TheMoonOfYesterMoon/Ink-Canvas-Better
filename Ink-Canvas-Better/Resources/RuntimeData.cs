@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Ink;
+using System.Windows.Media;
 
 namespace Ink_Canvas_Better.Resources
 {
@@ -20,8 +21,12 @@ namespace Ink_Canvas_Better.Resources
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
 
-        public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes();
+        public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes()
+        {
+            Color = Color.FromRgb(255,0,0)
+        };
         public static DrawingAttributes CurrentDrawingAttributes_Highlighter { get; set; } = new DrawingAttributes {
+            Color = Color.FromRgb(255,255,0),
             StylusTip = StylusTip.Rectangle,
             Width = 1
         };

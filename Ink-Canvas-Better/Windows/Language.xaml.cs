@@ -13,9 +13,6 @@ using System.Windows.Controls;
 
 namespace Ink_Canvas_Better.Windows
 {
-    /// <summary>
-    /// Language.xaml 的交互逻辑
-    /// </summary>
     public partial class Language : Window
     {
         public Language()

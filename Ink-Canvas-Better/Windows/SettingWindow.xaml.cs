@@ -14,9 +14,6 @@ using System.Windows.Shapes;
 
 namespace Ink_Canvas_Better.Windows
 {
-    /// <summary>
-    /// Setting.xaml 的交互逻辑
-    /// </summary>
     public partial class SettingWindow : Window
     {
         public SettingWindow()

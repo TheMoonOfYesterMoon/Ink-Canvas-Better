@@ -12,10 +12,6 @@ using ColorConverter = Ink_Canvas_Better.Helpers.Others.ColorConverter;
 
 namespace Ink_Canvas_Better.Controls
 {
-
-    /// <summary>
-    /// ICB_CustomColor.xaml 的交互逻辑
-    /// </summary>
     public partial class ICB_CustomColor : UserControl
     {
         bool _IsFirstSetColor = true;

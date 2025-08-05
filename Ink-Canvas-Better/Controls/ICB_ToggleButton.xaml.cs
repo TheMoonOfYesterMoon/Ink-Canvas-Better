@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Ink_Canvas_Better.Controls
 {
-    /// <summary>
-    /// ICB_ToggleButton.xaml 的交互逻辑
-    /// </summary>
     public partial class ICB_ToggleButton : UserControl
     {
         public ICB_ToggleButton()

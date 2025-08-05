@@ -15,9 +15,6 @@ using System.Windows.Media;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 {
-    /// <summary>
-    /// FloatingBar_Highlighter.xaml 的交互逻辑
-    /// </summary>
     public partial class FloatingBar_Highlighter : UserControl
     {
         public FloatingBar_Highlighter()

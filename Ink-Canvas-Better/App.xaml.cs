@@ -15,9 +15,6 @@ using System.Windows;
 
 namespace Ink_Canvas_Better
 {
-    /// <summary>
-    /// App.xaml 的交互逻辑
-    /// </summary>
     public partial class App : Application
     {
 

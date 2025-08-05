@@ -12,7 +12,7 @@
       Title="Home">
     <ScrollViewer PanningMode="VerticalOnly">
         <ikw:SimpleStackPanel Spacing="4" Margin="16,4">
-            <ui:SettingsCard Name="SettingsCard_About_1" Header="Ink Cnavas Better" Description="{DynamicResource Text_Setting_AppDescription}">
+            <ui:SettingsCard Name="SettingsCard_About_1" Header="Ink Cnavas Better" Description="{DynamicResource Text_Setting_AppDescription}" IsClickEnabled="True">
                 <ui:SettingsCard.HeaderIcon>
                     <ui:FontIcon Glyph="&#xf167;"/>
                 </ui:SettingsCard.HeaderIcon>
@@ -40,6 +40,9 @@
                         </Button>
                     </ikw:SimpleStackPanel>
                 </ui:SettingsCard.Content>
+                <ui:SettingsCard.ActionIcon>
+                    <ui:FontIcon Glyph=""/>
+                </ui:SettingsCard.ActionIcon>
             </ui:SettingsCard>
             <ui:SettingsCard>
                 <ui:SettingsCard.HeaderIcon>

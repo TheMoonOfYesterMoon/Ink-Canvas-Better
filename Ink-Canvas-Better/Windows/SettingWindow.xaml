@@ -16,6 +16,7 @@
         mc:Ignorable="d"
         WindowStyle="SingleBorderWindow"
         Title="{DynamicResource Text_SettingWindowTitle}"
+        Topmost="True"
         MinHeight="500"
         MinWidth="750"
         Height="450"

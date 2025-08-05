@@ -15,9 +15,6 @@ using System.Windows.Media;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 {
-    /// <summary>
-    /// FloatingBar_Pen.xaml 的交互逻辑
-    /// </summary>
     public partial class FloatingBar_Pen : UserControl
     {
         public FloatingBar_Pen()

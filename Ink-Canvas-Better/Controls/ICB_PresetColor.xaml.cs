@@ -11,9 +11,6 @@ using System.Windows.Media;
 
 namespace Ink_Canvas_Better.Controls
 {
-    /// <summary>
-    /// ICB_PresetColor.xaml 的交互逻辑
-    /// </summary>
     public partial class ICB_PresetColor : UserControl
     {
         public ICB_PresetColor()

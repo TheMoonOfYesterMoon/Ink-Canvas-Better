@@ -236,6 +236,7 @@
                     <localControls:ICB_Button
                         x:Name="ExitPPTIcon"
                         Text="{DynamicResource Text_ExitPPT}"
+                        FontIcon="&#xe944;"
                         Click="ExitPPTIcon_Click"
                         CornerRadius="5"/>
                 </ikw:SimpleStackPanel>
