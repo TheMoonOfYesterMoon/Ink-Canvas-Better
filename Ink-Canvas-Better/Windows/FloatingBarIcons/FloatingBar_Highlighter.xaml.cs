@@ -35,7 +35,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             {
                 ColorPreview.Fill = new SolidColorBrush(presetSelector.Color);
                 RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
-                    (byte)(Slider_Opacity.Value / 100d * 255d),
+                    (byte)(Slider_Alpha.Value / 100d * 255d),
                     presetSelector.Color.R,
                     presetSelector.Color.G,
                     presetSelector.Color.B);
@@ -45,7 +45,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             {
                 ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
                 RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
-                    (byte)(Slider_Opacity.Value / 100d * 255d),
+                    (byte)(Slider_Alpha.Value / 100d * 255d),
                     customSelector.Color.R,
                     customSelector.Color.G,
                     customSelector.Color.B);
@@ -94,7 +94,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             RuntimeData.CurrentDrawingAttributes_Highlighter.Height = e.NewValue;
         }
 
-        private void Slider_Opacity_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void Slider_Alpha_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
                 (byte)(e.NewValue/100d*255d),
@@ -111,7 +111,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         public void ToggleButton_inkStyle_Unchecked(object sender, RoutedEventArgs e)
         {
             RuntimeData.settingData.Runtime.InkStyle = InkStyle.Default;
-            inkstyleTextBlock.Text = Properties.Resources.Off;
+            inkstyleTextBlock.Text = Application.Current.Resources["Off"].ToString();
             ToggleButton_inkStyle.IsChecked = false;
             Setting.SaveSettings();
         }
@@ -119,7 +119,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         public void ToggleButton_inkStyle_Checked(object sender, RoutedEventArgs e)
         {
             RuntimeData.settingData.Runtime.InkStyle = InkStyle.Simulative;
-            inkstyleTextBlock.Text = Properties.Resources.On;
+            inkstyleTextBlock.Text = Application.Current.Resources["On"].ToString();
             ToggleButton_inkStyle.IsChecked = true;
             Setting.SaveSettings();
         }

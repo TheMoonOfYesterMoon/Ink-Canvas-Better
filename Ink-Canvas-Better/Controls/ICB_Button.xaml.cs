@@ -51,7 +51,7 @@ namespace Ink_Canvas_Better.Controls
         private static void Text_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
         {
             var control = (ICB_Button)dependencyObject;
-            control.TextBox_1.Text = (String)eventArgs.NewValue;
+            control.TextBlock_1.Text = (String)eventArgs.NewValue;
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Ink_Canvas_Better.Controls
             {
                 control.Width -= SQUEEZE;
                 control.SimpleStackPanel_1.Width -= SQUEEZE;
-                control.TextBox_1.Width -= SQUEEZE;
+                control.TextBlock_1.Width -= SQUEEZE;
                 control.InnerButton.Width -= SQUEEZE;
                 control.Border.Width = control.Width - SQUEEZE;
             }
@@ -286,7 +286,7 @@ namespace Ink_Canvas_Better.Controls
 
             if (control.IsShowText)
             {
-                control.TextBox_1.Visibility = Visibility.Visible;
+                control.TextBlock_1.Visibility = Visibility.Visible;
                 control.SimpleStackPanel_1.Height = 38;
                 if (control.SimpleStackPanel_1.Children[0] is FontIcon)
                 {
@@ -296,7 +296,7 @@ namespace Ink_Canvas_Better.Controls
             }
             else
             {
-                control.TextBox_1.Visibility = Visibility.Collapsed;
+                control.TextBlock_1.Visibility = Visibility.Collapsed;
                 control.SimpleStackPanel_1.Height = 58;
                 if (control.SimpleStackPanel_1.Children[0] is FontIcon)
                 {

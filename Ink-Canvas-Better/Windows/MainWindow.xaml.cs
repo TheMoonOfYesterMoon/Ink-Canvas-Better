@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Helpers.Others;
 using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 using Ink_Canvas_Better.Windows.FloatingBarIcons;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
+using System.Windows.Interop;
 
 namespace Ink_Canvas_Better
 {
@@ -30,6 +32,7 @@ namespace Ink_Canvas_Better
             Setting.LoadSettings(isStartup : true);
             RuntimeData.mainWindow = this;
 
+            this.SourceInitialized += Win32Helper.MainWindow_SourceInitialized;
             this.Loaded += DockWindowToBottom;
         }
 

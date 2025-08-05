@@ -46,34 +46,9 @@ namespace Ink_Canvas_Better.Windows
             SupportedLanguage.TryGetValue((String)LanguageListBox.SelectedItem, out String value);
             RuntimeData.settingData.Others.Language = value;
             Setting.SaveSettings();
-            SwitchLanguage(value);
+            Setting.SwitchLanguage(value);
 
             this.Close();
-        }
-
-        private void SwitchLanguage(string languageCode)
-        {
-            string path = $"Resources/Language/{languageCode}.xaml";
-            ResourceDictionary newDict;
-            try
-            {
-                newDict = new ResourceDictionary { Source = new Uri(path, UriKind.Relative) };
-            }
-            catch (Exception)
-            {
-                //Log.WriteLogToFile("");
-                newDict = new ResourceDictionary { Source = new Uri ("Resources/Language/en.xaml", UriKind.Relative) };
-            }
-
-            var oldDict = Application.Current.Resources.MergedDictionaries
-                .FirstOrDefault(d => d.Source?.OriginalString.Contains("Languages/") == true);
-
-            if (oldDict != null)
-            {
-                Application.Current.Resources.MergedDictionaries.Remove(oldDict);
-            }
-
-            Application.Current.Resources.MergedDictionaries.Add(newDict);
         }
     }
 }

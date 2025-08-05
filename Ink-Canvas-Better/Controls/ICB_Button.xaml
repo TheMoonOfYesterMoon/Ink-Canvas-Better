@@ -28,16 +28,16 @@
                 <ikw:SimpleStackPanel
                     Name="SimpleStackPanel_1"
                     Width="58"
-                    Height="38"
+                    Height="42"
                     HorizontalAlignment="Center"
                     Background="Transparent"
                     Orientation="Vertical">
                     
                 </ikw:SimpleStackPanel>
                 <TextBlock
-                    Height="20"
-                    Name="TextBox_1"
-                    FontSize="12"
+                    Height="16"
+                    Name="TextBlock_1"
+                    FontSize="11"
                     Foreground="{DynamicResource DefaultForegroundColor}"
                     Text="Button"
                     TextAlignment="Center"/>

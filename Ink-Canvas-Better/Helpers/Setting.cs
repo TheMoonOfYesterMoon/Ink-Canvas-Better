@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using File = System.IO.File;
 
 namespace Ink_Canvas_Better.Helpers
@@ -112,7 +113,7 @@ namespace Ink_Canvas_Better.Helpers
             #region Others
             if (RuntimeData.settingData.Others != null)
             {
-
+                SwitchLanguage(RuntimeData.settingData.Others.Language);
             }
             else { RuntimeData.settingData.Others = new Resources.Others(); }
             #endregion
@@ -182,5 +183,29 @@ namespace Ink_Canvas_Better.Helpers
             return false;
         }
 
+        public static void SwitchLanguage(string languageCode)
+        {
+            string path = $"Resources/Language/{languageCode}.xaml";
+            ResourceDictionary newDict;
+            try
+            {
+                newDict = new ResourceDictionary { Source = new Uri(path, UriKind.Relative) };
+            }
+            catch (Exception)
+            {
+                //Log.WriteLogToFile("");
+                newDict = new ResourceDictionary { Source = new Uri("Resources/Language/en.xaml", UriKind.Relative) };
+            }
+
+            var oldDict = Application.Current.Resources.MergedDictionaries
+                .FirstOrDefault(d => d.Source?.OriginalString.Contains("Languages/") == true);
+
+            if (oldDict != null)
+            {
+                Application.Current.Resources.MergedDictionaries.Remove(oldDict);
+            }
+
+            Application.Current.Resources.MergedDictionaries.Add(newDict);
+        }
     }
 }

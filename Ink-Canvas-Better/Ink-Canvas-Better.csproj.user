@@ -17,19 +17,14 @@
     <Compile Update="Controls\ICB_PresetColor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\ICB_ToggleButton.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\SettingPages\Home\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Windows\Language.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Resources.zh-CN.resx">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
