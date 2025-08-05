@@ -28,6 +28,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void OnColorSelected(object sender, RoutedEventArgs e)
         {
+            SwitchEdittingMode();
             if (e.OriginalSource is ICB_PresetColor presetSelector)
             {
                 ColorPreview.Fill = new SolidColorBrush(presetSelector.Color);
@@ -79,17 +80,14 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void Slider_StrokeThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            SwitchEdittingMode();
             RuntimeData.CurrentDrawingAttributes_Pen.Width = e.NewValue;
             RuntimeData.CurrentDrawingAttributes_Pen.Height = e.NewValue;
         }
 
-        public void DrawingColorChanged()
-        {
-            ColorPreview.Fill = new SolidColorBrush(RuntimeData.CurrentDrawingAttributes_Pen.Color);
-        }
-
         public void ToggleButton_inkStyle_Unchecked(object sender, RoutedEventArgs e)
         {
+            SwitchEdittingMode();
             RuntimeData.settingData.Runtime.InkStyle = InkStyle.Default;
             //inkstyleTextBlock.Text = Application.Current.Resources["Off"].ToString();
             ToggleButton_inkStyle.IsChecked = false;
@@ -98,10 +96,21 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         public void ToggleButton_inkStyle_Checked(object sender, RoutedEventArgs e)
         {
+            SwitchEdittingMode();
             RuntimeData.settingData.Runtime.InkStyle = InkStyle.Simulative;
             //inkstyleTextBlock.Text = Application.Current.Resources["On"].ToString();
             ToggleButton_inkStyle.IsChecked = true;
             Setting.SaveSettings();
+        }
+        private void SwitchEdittingMode()
+        {
+            if (RuntimeData.mainWindow != null && RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
+            {
+                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pen;
+                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                RuntimeData.mainWindow.inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
+            }
         }
     }
 }

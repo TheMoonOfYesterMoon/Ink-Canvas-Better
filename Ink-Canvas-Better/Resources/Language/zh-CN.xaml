@@ -30,6 +30,8 @@
         <s:String x:Key="Text_Thickness">粗细</s:String>
         <s:String x:Key="Text_EraseByStroke">墨迹擦</s:String>
         <s:String x:Key="Text_EraseByPoint">面积擦</s:String>
+        <s:String x:Key="Text_Square">方形</s:String>
+        <s:String x:Key="Text_Circular">圆形</s:String>
 
     <!-- Setting -->
     <s:String x:Key="Text_Setting">设置</s:String>

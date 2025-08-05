@@ -135,6 +135,16 @@
                         Click="HighlighterIcon_Click"
                         FontIcon="&#xe891;"
                         IsSqueezeHorizontally="True"/>
+                    <!-- Eraser -->
+                    <Popup
+                        Name="Popup_Eraser"
+                        IsOpen="False"
+                        StaysOpen="False"
+                        AllowsTransparency="True"
+                        Placement="Top"
+                        PlacementTarget="{Binding ElementName=EraserIcon}">
+                        <floatingBar:FloatingBar_Eraser/>
+                    </Popup>
                     <localControls:ICB_Button
                         x:Name="EraserIcon"
                         Text="{DynamicResource Text_Eraser}"

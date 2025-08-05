@@ -41,7 +41,6 @@ namespace Ink_Canvas_Better
             }
             else
             {
-                HideAllSubpanel();
                 RuntimeData.mainWindow.Popup_Pen.IsOpen = true;
             }
         }
@@ -52,14 +51,13 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Highlighter)
             {
-                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Highlighter;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
             }
             else
             {
-                HideAllSubpanel();
                 RuntimeData.mainWindow.Popup_Highlighter.IsOpen = true;
             }
         }
@@ -72,12 +70,11 @@ namespace Ink_Canvas_Better
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.EraseByPoint;
-                // TODO
                 inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             }
             else
             {
-                inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                Popup_Eraser.IsOpen = true;
             }
         }
         #endregion
@@ -95,10 +92,5 @@ namespace Ink_Canvas_Better
             inkCanvas.Strokes.Clear();
         }
         #endregion
-
-        private void HideAllSubpanel()
-        {
-            RuntimeData.mainWindow.Popup_Pen.IsOpen = false;
-        }
     }
 }
