@@ -41,28 +41,40 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void Slider_StrokeThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            ChangeToEraserMode();
             ChangeEraserShape();
         }
 
         private void ToggleButton_EraseByStroke_Click(object sender, RoutedEventArgs e)
         {
+            ToggleButton_Circular.IsEnabled = false;
+            ToggleButton_Square.IsEnabled = false;
             ToggleButton_EraseByStroke.IsChecked = true;
             ToggleButton_EraseByPoint.IsChecked = false;
             RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+            RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
+            RuntimeData.CurrentEraserMode = RuntimeData.EraserMode.Stroke;
         }
 
         private void ToggleButton_EraseByPoint_Click(object sender, RoutedEventArgs e)
         {
+            ToggleButton_Circular.IsEnabled = true;
+            ToggleButton_Square.IsEnabled = true;
             ToggleButton_EraseByStroke.IsChecked = false;
             ToggleButton_EraseByPoint.IsChecked = true;
             RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+            RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
+            RuntimeData.CurrentEraserMode = RuntimeData.EraserMode.Point;
         }
 
         private void ToggleButton_Square_Click(object sender, RoutedEventArgs e)
         {
             ToggleButton_Square.IsChecked = true;
             ToggleButton_Circular.IsChecked = false;
+            Preview_Square.Visibility = Visibility.Visible;
+            Preview_Circular.Visibility = Visibility.Collapsed;
             _isSquare = true;
+            ChangeToEraserMode();
             ChangeEraserShape();
         }
 
@@ -70,32 +82,46 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             ToggleButton_Square.IsChecked= false;
             ToggleButton_Circular.IsChecked = true;
+            Preview_Square.Visibility = Visibility.Collapsed;
+            Preview_Circular.Visibility = Visibility.Visible;
             _isSquare = false;
+            ChangeToEraserMode();
             ChangeEraserShape();
         }
 
         private void ChangeEraserShape()
         {
-            if (RuntimeData.mainWindow != null && RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Highlighter)
-            {
-                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Highlighter;
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                RuntimeData.mainWindow.inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
-            }
             var value = Slider_StrokeThickness.Value;
-            if (RuntimeData.mainWindow?.inkCanvas != null)
+            if (RuntimeData.mainWindow != null)
             {
-                // it`s necessary
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                 if (_isSquare)
                 {
-                    RuntimeData.mainWindow.inkCanvas.EraserShape = new RectangleStylusShape(value * 0.8, value);
+                    RuntimeData.CurrentEraserShape = new RectangleStylusShape(value, value);
                 }
                 else
                 {
-                    RuntimeData.mainWindow.inkCanvas.EraserShape = new EllipseStylusShape(value, value);
+                    RuntimeData.CurrentEraserShape = new EllipseStylusShape(value, value);
+                }
+                // it's necessary
+                RuntimeData.mainWindow.inkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
+                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+            }
+        }
+
+        private void ChangeToEraserMode()
+        {
+            if (RuntimeData.mainWindow != null && (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser))
+            {
+                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
+                if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
+                {
+                    RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                }
+                else
+                {
+                    RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                 }
             }
         }

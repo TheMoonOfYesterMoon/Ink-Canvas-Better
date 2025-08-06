@@ -66,11 +66,19 @@ namespace Ink_Canvas_Better
         #region Eraser
         public void EraserIcon_Click(object sender, RoutedEventArgs e)
         {
-            if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.EraseByPoint)
+            if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
-                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.EraseByPoint;
-                inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
+                inkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
+                if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
+                {
+                    inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                }
+                else
+                {
+                    inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                }
             }
             else
             {

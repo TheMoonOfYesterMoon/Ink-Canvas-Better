@@ -21,6 +21,8 @@ namespace Ink_Canvas_Better.Resources
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
 
+        public static StylusShape CurrentEraserShape { get; set; } = new EllipseStylusShape(30, 30);
+
         public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes()
         {
             Color = Color.FromRgb(255,0,0)
@@ -56,8 +58,7 @@ namespace Ink_Canvas_Better.Resources
                     case DrawingMode.Highlighter:
                         mainWindow.HighlighterIcon.IsStatusEnable = true;
                         break;
-                    case DrawingMode.EraseByPoint:
-                    case DrawingMode.EraseByStroke:
+                    case DrawingMode.Eraser:
                         mainWindow.EraserIcon.IsStatusEnable = true;
                         break;
                     default:
@@ -67,20 +68,36 @@ namespace Ink_Canvas_Better.Resources
             }
         }
 
-        public enum DrawingMode
+        private static EraserMode _currentEraserMode = EraserMode.Point;
+        public static EraserMode CurrentEraserMode
         {
-            None,
-            Cursor,
-            Pen,
-            Highlighter,
-            EraseByPoint,
-            EraseByStroke
+            get { return _currentEraserMode; }
+            set
+            {
+                _currentEraserMode = value;
+            }
         }
 
         public static void ApplyMetadata()
         {
             // TODO
         }
+
+        public enum DrawingMode
+        {
+            None,
+            Cursor,
+            Pen,
+            Highlighter,
+            Eraser
+        }
+
+        public enum EraserMode
+        {
+            Stroke,
+            Point
+        }
+
     }
 
     public class Metadata
