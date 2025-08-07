@@ -133,7 +133,8 @@
                 </DockPanel>
                 <!-- function (TODO) -->
                 <WrapPanel Orientation="Horizontal" Visibility="Collapsed">
-                    <ui:ToggleSplitButton Margin="2" Visibility="Collapsed"><!-- TODO -->
+                    <ui:ToggleSplitButton Margin="2" Visibility="Collapsed">
+                        <!-- TODO -->
                         <ikw:SimpleStackPanel>
                             <TextBlock Text="{DynamicResource Text_InkToShape}"/>
                             <TextBlock>Mode</TextBlock>

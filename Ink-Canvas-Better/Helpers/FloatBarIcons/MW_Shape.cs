@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Ink_Canvas_Better
     {
         public void ShapeIcon_Click(object sender, RoutedEventArgs e)
         {
-
+            RuntimeData.mainWindow.Popup_Shape.IsOpen = true;
         }
     }
 }

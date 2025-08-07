@@ -61,6 +61,9 @@ namespace Ink_Canvas_Better.Resources
                     case DrawingMode.Eraser:
                         mainWindow.EraserIcon.IsStatusEnable = true;
                         break;
+                    case DrawingMode.Pick:
+                        mainWindow.PickIcon.IsStatusEnable = true;
+                        break;
                     default:
                         _currentDrawingMode = DrawingMode.None;
                         throw new NotImplementedException();
@@ -89,7 +92,8 @@ namespace Ink_Canvas_Better.Resources
             Cursor,
             Pen,
             Highlighter,
-            Eraser
+            Eraser,
+            Pick // Select
         }
 
         public enum EraserMode

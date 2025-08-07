@@ -151,12 +151,23 @@
                         FontIcon="&#xe75c;"
                         Click="EraserIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <!-- Pick -->
                     <localControls:ICB_Button
                         x:Name="PickIcon"
                         Text="{DynamicResource Text_Pick}"
                         FontIcon="&#xe958;"
                         Click="PickIcon_Click"
                         IsSqueezeHorizontally="True"/>
+                    <!-- Shape -->
+                    <Popup
+                        Name="Popup_Shape"
+                        IsOpen="False"
+                        StaysOpen="False"
+                        AllowsTransparency="True"
+                        Placement="Top"
+                        PlacementTarget="{Binding ElementName=ShapeIcon}">
+                        <floatingBar:FloatingBar_Shape/>
+                    </Popup>
                     <localControls:ICB_Button
                         x:Name="ShapeIcon"
                         Text="{DynamicResource Text_Shape}"

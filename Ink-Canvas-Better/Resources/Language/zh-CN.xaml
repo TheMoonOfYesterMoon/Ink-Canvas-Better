@@ -32,6 +32,8 @@
         <s:String x:Key="Text_EraseByPoint">面积擦</s:String>
         <s:String x:Key="Text_Square">方形</s:String>
         <s:String x:Key="Text_Circular">圆形</s:String>
+        <s:String x:Key="Text_2DSahpes">平面图形</s:String>
+        <s:String x:Key="Text_3DSahpes">立体图形</s:String>
 
     <!-- Setting -->
     <s:String x:Key="Text_Setting">设置</s:String>

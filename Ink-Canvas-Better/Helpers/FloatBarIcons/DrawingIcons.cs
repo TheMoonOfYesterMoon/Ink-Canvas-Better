@@ -18,6 +18,10 @@ namespace Ink_Canvas_Better
             {
                 CursorIcon_ChangeToCursor();
             }
+            else
+            {
+                // hide part of the floatingbar
+            }
         }
 
         public void CursorIcon_ChangeToCursor()
@@ -90,7 +94,12 @@ namespace Ink_Canvas_Better
         #region Pick
         public void PickIcon_Click(object sender, RoutedEventArgs e)
         {
-
+            if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pick)
+            {
+                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pick;
+                inkCanvas.EditingMode = InkCanvasEditingMode.Select;
+            }
         }
         #endregion
 
