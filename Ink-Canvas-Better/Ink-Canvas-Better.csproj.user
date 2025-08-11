@@ -11,10 +11,10 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Controls\ICB_CustomColor.xaml.cs">
+    <Compile Update="Controls\ICB_ColorPicker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\ICB_PresetColor.xaml.cs">
+    <Compile Update="Controls\ICB_CustomColor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\ICB_ToggleButton.xaml.cs">
@@ -26,5 +26,10 @@
     <Compile Update="Windows\Language.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\ICB_ColorPicker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

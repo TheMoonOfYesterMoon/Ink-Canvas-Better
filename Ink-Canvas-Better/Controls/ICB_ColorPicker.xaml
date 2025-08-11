@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="Ink_Canvas_Better.Controls.ICB_ColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ink_Canvas_Better.Controls"
+             xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+             xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+             xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" Value="{DynamicResource ICBButtonHover}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="NumberBoxStyle" TargetType="ui:NumberBox">
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="MinHeight" Value="32"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="SpinButtonPlacementMode" Value="Inline"/>
+            <Setter Property="ValidationMode" Value="InvalidInputOverwritten"/>
+            <Setter Property="AcceptsExpression" Value="True"/>
+            <Setter Property="Minimum" Value="0"/>
+            <Setter Property="SmallChange" Value="1"/>
+            <Setter Property="Margin" Value="0,2,0,0"/>
+        </Style>
+        <Style x:Key="CloseButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="IndianRed" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Border BorderThickness="1" CornerRadius="5" Background="{DynamicResource DefaultBackgroundColor}" BorderBrush="{DynamicResource BorderBrush}" Padding="16">
+            <ikw:SimpleStackPanel Spacing="2">
+                <Grid>
+                    <TextBlock Text="{DynamicResource Text_ColorPicker}" FontSize="20"></TextBlock>
+                    <Button
+                        Style="{StaticResource CloseButtonStyle}"
+                        Name="CloseButton"
+                        Click="CloseButton_Click"
+                        BorderThickness="0"
+                        Background="Transparent" HorizontalAlignment="Right">
+                        <ui:FontIcon
+                            FontSize="20"
+                            FontFamily="{DynamicResource FluentIconFontFamily}"
+                            Glyph="&#xe8bb;"/>
+                    </Button>
+                </Grid>
+                <ikw:SquarePicker Name="ColorPicker" Width="200" Height="200"
+                                  ColorChanged="SquarePicker_ColorChanged"/>
+                <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="2" HorizontalAlignment="Center">
+                    <ikw:SimpleStackPanel Orientation="Vertical">
+                        <TextBlock VerticalAlignment="Center" Text="RGB" FontSize="16" Width="36"/>
+                        <ui:NumberBox Maximum="255" Tag="RGB" Name="R"
+                                      ValueChanged="NumberBox_ValueChanged"
+                                      Style="{StaticResource NumberBoxStyle}"
+                                      ui:ControlHelper.PlaceholderText="R"/>
+                        <ui:NumberBox Maximum="255" Tag="RGB" Name="G"
+                                      ValueChanged="NumberBox_ValueChanged"
+                                      Style="{StaticResource NumberBoxStyle}"
+                                      ui:ControlHelper.PlaceholderText="G"/>
+                        <ui:NumberBox Maximum="255" Tag="RGB" Name="B"
+                                      ValueChanged="NumberBox_ValueChanged"
+                                      Style="{StaticResource NumberBoxStyle}"
+                                      ui:ControlHelper.PlaceholderText="B"/>
+                    </ikw:SimpleStackPanel>
+                    <ikw:SimpleStackPanel Orientation="Vertical">
+                        <TextBlock VerticalAlignment="Center" Text="HSL" FontSize="16" Width="36"/>
+                        <ui:NumberBox Maximum="360" Tag="HSL" Name="H"
+                                      ValueChanged="NumberBox_ValueChanged"
+                                      Style="{StaticResource NumberBoxStyle}"
+                                      ui:ControlHelper.PlaceholderText="H"/>
+                        <ui:NumberBox Maximum="1" SmallChange="0.01" Tag="HSL" Name="S"
+                                      ValueChanged="NumberBox_ValueChanged"
+                                      Style="{StaticResource NumberBoxStyle}"
+                                      ui:ControlHelper.PlaceholderText="S"/>
+                        <ui:NumberBox Maximum="1" SmallChange="0.01" Tag="HSL" Name="L"
+                                      ValueChanged="NumberBox_ValueChanged"
+                                      Style="{StaticResource NumberBoxStyle}"
+                                      ui:ControlHelper.PlaceholderText="L"/>
+                    </ikw:SimpleStackPanel>
+                </ikw:SimpleStackPanel>
+                <ikw:SimpleStackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="Hex" FontSize="16" Width="36"/>
+                    <TextBox MinHeight="28" Height="28" FontSize="14" Padding="4" HorizontalAlignment="Stretch" Width="286"
+                             ui:ControlHelper.PlaceholderText="Hex" Tag="Hex" Name="Hex" LostFocus="TextBox_LostFocus"/>
+                </ikw:SimpleStackPanel>
+            </ikw:SimpleStackPanel>
+        </Border>
+
+    </Grid>
+</UserControl>
