@@ -120,11 +120,33 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void ToggleButton_CustomColor_Checked(object sender, RoutedEventArgs e)
         {
+            Color0.IsCustomizingColor = true;
+            Color1.IsCustomizingColor = true;
+            Color2.IsCustomizingColor = true;
+            Color3.IsCustomizingColor = true;
+            Color4.IsCustomizingColor = true;
+            Color5.IsCustomizingColor = true;
+            Color6.IsCustomizingColor = true;
+            Color7.IsCustomizingColor = true;
+            Color8.IsCustomizingColor = true;
+            Color9.IsCustomizingColor = true;
+            Color10.IsCustomizingColor = true;
 
         }
 
         private void ToggleButton_CustomColor_Unchecked(object sender, RoutedEventArgs e)
         {
+            Color2.IsCustomizingColor = false;
+            Color1.IsCustomizingColor = false;
+            Color0.IsCustomizingColor = false;
+            Color3.IsCustomizingColor = false;
+            Color4.IsCustomizingColor = false;
+            Color5.IsCustomizingColor = false;
+            Color6.IsCustomizingColor = false;
+            Color7.IsCustomizingColor = false;
+            Color8.IsCustomizingColor = false;
+            Color9.IsCustomizingColor = false;
+            Color10.IsCustomizingColor = false;
 
         }
     }

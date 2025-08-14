@@ -22,20 +22,13 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             InitializeComponent();
 
             RuntimeData.floatingBar_Pen = this;
-            AddHandler(ICB_PresetColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
             AddHandler(ICB_CustomColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
         }
-
+        
         private void OnColorSelected(object sender, RoutedEventArgs e)
         {
             SwitchEdittingMode();
-            if (e.OriginalSource is ICB_PresetColor presetSelector)
-            {
-                ColorPreview.Fill = new SolidColorBrush(presetSelector.Color);
-                RuntimeData.CurrentDrawingAttributes_Pen.Color = presetSelector.Color;
-                AllColorUnselected();
-                presetSelector.IsSelected = true;
-            } else if (e.OriginalSource is ICB_CustomColor customSelector)
+            if (e.OriginalSource is ICB_CustomColor customSelector)
             {
                 ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
                 RuntimeData.CurrentDrawingAttributes_Pen.Color = customSelector.Color;
@@ -57,7 +50,6 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             Color8.IsSelected = false;
             Color9.IsSelected = false;
             Color10.IsSelected = false;
-            Color11.IsSelected = false;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -102,6 +94,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             ToggleButton_inkStyle.IsChecked = true;
             Setting.SaveSettings();
         }
+
         private void SwitchEdittingMode()
         {
             if (RuntimeData.mainWindow != null && RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
@@ -111,6 +104,16 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
                 RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 RuntimeData.mainWindow.inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
             }
+        }
+
+        private void ToggleButton_CustomColor_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ToggleButton_CustomColor_Unchecked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

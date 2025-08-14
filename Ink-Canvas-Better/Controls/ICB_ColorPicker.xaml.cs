@@ -31,7 +31,7 @@ namespace Ink_Canvas_Better.Controls
                 typeof(RoutedEventHandler),
                 typeof(ICB_ColorPicker));
 
-        public event RoutedEventHandler ColrPicker_ColorSelected { add => AddHandler(ColorPicker_ColorSelectedEvent, value); remove => RemoveHandler(ColorSelectedEvent, value); }
+        public event RoutedEventHandler ColrPicker_ColorSelected { add => AddHandler(ColorPicker_ColorSelectedEvent, value); remove => RemoveHandler(ColorPicker_ColorSelectedEvent, value); }
 
         #endregion
 
@@ -83,7 +83,6 @@ namespace Ink_Canvas_Better.Controls
                 }
                 var args1 = new RoutedEventArgs(ColorPicker_ColorSelectedEvent, this);
                 RaiseEvent(args1);
-                e.Handled = true;
                 _temp = true;
             }
         }
@@ -115,6 +114,11 @@ namespace Ink_Canvas_Better.Controls
                 e.Handled = true;
                 _temp = true;
             }
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

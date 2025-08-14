@@ -1,4 +1,4 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using ColorConverter = Ink_Canvas_Better.Helpers.Others.ColorConverter;
 
@@ -79,6 +80,29 @@ namespace Ink_Canvas_Better.Controls
 
         #endregion
 
+        #region IsCustomizingColor
+
+        public static readonly DependencyProperty IsCustomizingColorProperty =
+            DependencyProperty.Register(
+                "IsCustomizingColor",
+                typeof(bool),
+                typeof(ICB_CustomColor),
+                new PropertyMetadata(IsCustomizingColor_OnValueChanged)
+            );
+
+        public bool IsCustomizingColor
+        {
+            get { return (bool)GetValue(IsCustomizingColorProperty); }
+            set { SetValue(IsCustomizingColorProperty, value); }
+        }
+
+        private static void IsCustomizingColor_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
+        {
+            // do nothing
+        }
+
+        #endregion
+
         #endregion
 
         #region Events
@@ -100,9 +124,21 @@ namespace Ink_Canvas_Better.Controls
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var args = new RoutedEventArgs(ColorSelectedEvent, this);
-            RaiseEvent(args);
-            e.Handled = true;
+            if (IsCustomizingColor)
+            {
+                AddHandler(ICB_ColorPicker.ColorPicker_ColorSelectedEvent, new RoutedEventHandler(ColorPicker_ColorSelectedEventHandler));
+            }
+            else
+            {
+                var args = new RoutedEventArgs(ColorSelectedEvent, this);
+                RaiseEvent(args);
+                e.Handled = true;
+            }
+        }
+
+        private void ColorPicker_ColorSelectedEventHandler(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
