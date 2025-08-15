@@ -1,6 +1,8 @@
 ﻿using Ink_Canvas_Better.Controls;
+using Ink_Canvas_Better.Resources;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -21,6 +23,7 @@ namespace Ink_Canvas_Better.Controls
         public ICB_CustomColor()
         {
             InitializeComponent();
+            AddHandler(ICB_ColorPicker.ColorPicker_ColorSelectedEvent, new RoutedEventHandler(ColorPicker_ColorSelectedEventHandler));
         }
 
         #region Properties
@@ -126,7 +129,16 @@ namespace Ink_Canvas_Better.Controls
         {
             if (IsCustomizingColor)
             {
-                AddHandler(ICB_ColorPicker.ColorPicker_ColorSelectedEvent, new RoutedEventHandler(ColorPicker_ColorSelectedEventHandler));
+                Debug.WriteLine("a");
+                if (RuntimeData.colorPicker == null)
+                {
+                    Debug.WriteLine("c");
+                    RuntimeData.colorPicker = new ICB_ColorPicker();
+                    RuntimeData.mainWindow.MainWindow_Grid.Children.Add(RuntimeData.colorPicker);
+                }
+                RuntimeData.colorPicker.PlacementTarget = sender as UIElement;
+                RuntimeData.colorPicker.IsOpen = false;
+                RuntimeData.colorPicker.IsOpen = true;
             }
             else
             {

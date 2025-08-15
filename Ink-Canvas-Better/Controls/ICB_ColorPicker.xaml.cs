@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -21,6 +22,58 @@ namespace Ink_Canvas_Better.Controls
         {
             InitializeComponent();
         }
+
+        #region Properties
+
+        #region IsOpen
+
+        DependencyProperty IsOpenProperty =
+            DependencyProperty.Register(
+                "IsOpen",
+                typeof(bool),
+                typeof(ICB_ColorPicker),
+                new PropertyMetadata(IsOpen_OnValueChanged)
+            );
+
+        public bool IsOpen
+        {
+            get { return (bool)GetValue(IsOpenProperty); }
+            set { SetValue(IsOpenProperty, value); }
+        }
+
+        public static void IsOpen_OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as ICB_ColorPicker;
+            control.ColorPicker_Popup.IsOpen = (bool)e.NewValue;
+        }
+
+        #endregion
+
+        #region PlacementTarget
+
+        DependencyProperty PlacementTargetProperty =
+            DependencyProperty.Register(
+                "PlacementTarget",
+                typeof(UIElement),
+                typeof(ICB_ColorPicker),
+                new PropertyMetadata(PlacementTarget_OnValueChanged)
+            );
+
+        public UIElement PlacementTarget
+        {
+            get { return (UIElement)GetValue(PlacementTargetProperty); }
+            set { SetValue(PlacementTargetProperty, value); }
+        }
+
+        public static void PlacementTarget_OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as ICB_ColorPicker;
+            control.ColorPicker_Popup.PlacementTarget = (UIElement)e.NewValue;
+        }
+
+        #endregion
+
+        #endregion
 
         #region Events
 
@@ -118,7 +171,7 @@ namespace Ink_Canvas_Better.Controls
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ColorPicker_Popup.IsOpen = false;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Ink_Canvas_Better.Windows;
+﻿using Ink_Canvas_Better.Controls;
+using Ink_Canvas_Better.Windows;
 using Ink_Canvas_Better.Windows.FloatingBarIcons;
 using Newtonsoft.Json;
 using System;
@@ -17,6 +18,7 @@ namespace Ink_Canvas_Better.Resources
         public static MainWindow mainWindow;
         public static FloatingBar_Pen floatingBar_Pen;
         public static FloatingBar_Highlighter floatingBar_Highlighter;
+        public static ICB_ColorPicker colorPicker;
         public static String settingsFileName = "settings.json";
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
