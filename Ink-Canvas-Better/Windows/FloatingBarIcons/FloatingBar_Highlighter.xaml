@@ -166,20 +166,22 @@
                 </WrapPanel>
                 <!-- Color -->
                 <ikw:SimpleStackPanel Orientation="Horizontal">
-                    <localControls:ICB_PresetColor Color="Black" x:Name="Color0"/>
-                    <localControls:ICB_PresetColor Color="White" x:Name="Color1"/>
-                    <localControls:ICB_PresetColor Color="Red" x:Name="Color2"/>
-                    <localControls:ICB_PresetColor Color="Yellow" x:Name="Color3"/>
-                    <localControls:ICB_PresetColor Color="Blue" x:Name="Color4"/>
-                    <localControls:ICB_PresetColor Color="Green" x:Name="Color5"/>
+                    <localControls:ICB_CustomColor Color="Red" x:Name="Color0"/>
+                    <localControls:ICB_CustomColor Color="Yellow" x:Name="Color1"/>
+                    <localControls:ICB_CustomColor Color="Blue" x:Name="Color2"/>
+                    <localControls:ICB_CustomColor Color="Green" x:Name="Color3"/>
+                    <localControls:ICB_CustomColor Color="Black" x:Name="Color4"/>
+                    <localControls:ICB_CustomColor Color="White" x:Name="Color5"/>
                 </ikw:SimpleStackPanel>
                 <ikw:SimpleStackPanel Orientation="Horizontal">
-                    <localControls:ICB_CustomColor Color="DimGray" x:Name="Color6"/>
-                    <localControls:ICB_CustomColor Color="LightGray" x:Name="Color7"/>
-                    <localControls:ICB_CustomColor Color="LightCoral" x:Name="Color8"/>
-                    <localControls:ICB_CustomColor Color="Wheat" x:Name="Color9"/>
-                    <localControls:ICB_CustomColor Color="LightBlue" x:Name="Color10"/>
-                    <localControls:ICB_CustomColor Color="lightGreen" x:Name="Color11"/>
+                    <localControls:ICB_CustomColor Color="LightCoral" x:Name="Color6"/>
+                    <localControls:ICB_CustomColor Color="Wheat" x:Name="Color7"/>
+                    <localControls:ICB_CustomColor Color="LightBlue" x:Name="Color8"/>
+                    <localControls:ICB_CustomColor Color="lightGreen" x:Name="Color9"/>
+                    <localControls:ICB_CustomColor Color="DimGray" x:Name="Color10"/>
+                    <ToggleButton Padding="0" Width="64" Height="64" Checked="ToggleButton_CustomColor_Checked" Unchecked="ToggleButton_CustomColor_Unchecked">
+                        <ui:IconAndText Name="IconAndText_CustomizeColor" Content="{DynamicResource Text_Customize}" FontSize="10" Icon="{x:Static ui:SegoeFluentIcons.Color}" Orientation="Vertical"/>
+                    </ToggleButton>
                 </ikw:SimpleStackPanel>
             </ikw:SimpleStackPanel>
         </Border>

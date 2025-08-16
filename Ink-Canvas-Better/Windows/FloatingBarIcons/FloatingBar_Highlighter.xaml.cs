@@ -22,34 +22,21 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             InitializeComponent();
 
             RuntimeData.floatingBar_Highlighter = this;
-            AddHandler(ICB_PresetColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
             AddHandler(ICB_CustomColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
         }
 
         private void OnColorSelected(object sender, RoutedEventArgs e)
         {
             SwitchEdittingMode();
-            if (e.OriginalSource is ICB_PresetColor presetSelector)
-            {
-                ColorPreview.Fill = new SolidColorBrush(presetSelector.Color);
-                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
-                    (byte)(Slider_Alpha.Value / 100d * 255d),
-                    presetSelector.Color.R,
-                    presetSelector.Color.G,
-                    presetSelector.Color.B);
-                AllColorUnselected();
-                presetSelector.IsSelected = true;
-            } else if (e.OriginalSource is ICB_CustomColor customSelector)
-            {
-                ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
-                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
-                    (byte)(Slider_Alpha.Value / 100d * 255d),
-                    customSelector.Color.R,
-                    customSelector.Color.G,
-                    customSelector.Color.B);
-                AllColorUnselected();
-                customSelector.IsSelected = true;
-            }
+            var customSelector = (ICB_CustomColor)sender;
+            ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
+            RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
+                (byte)(Slider_Alpha.Value / 100d * 255d),
+                customSelector.Color.R,
+                customSelector.Color.G,
+                customSelector.Color.B);
+            AllColorUnselected();
+            customSelector.IsSelected = true;
         }
 
         private void AllColorUnselected()
@@ -65,7 +52,6 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             Color8.IsSelected = false;
             Color9.IsSelected = false;
             Color10.IsSelected = false;
-            Color11.IsSelected = false;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -130,6 +116,38 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
                 RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 RuntimeData.mainWindow.inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
             }
+        }
+
+        private void ToggleButton_CustomColor_Checked(object sender, RoutedEventArgs e)
+        {
+            Color0.IsCustomizingColor = true;
+            Color1.IsCustomizingColor = true;
+            Color2.IsCustomizingColor = true;
+            Color3.IsCustomizingColor = true;
+            Color4.IsCustomizingColor = true;
+            Color5.IsCustomizingColor = true;
+            Color6.IsCustomizingColor = true;
+            Color7.IsCustomizingColor = true;
+            Color8.IsCustomizingColor = true;
+            Color9.IsCustomizingColor = true;
+            Color10.IsCustomizingColor = true;
+
+        }
+
+        private void ToggleButton_CustomColor_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Color2.IsCustomizingColor = false;
+            Color1.IsCustomizingColor = false;
+            Color0.IsCustomizingColor = false;
+            Color3.IsCustomizingColor = false;
+            Color4.IsCustomizingColor = false;
+            Color5.IsCustomizingColor = false;
+            Color6.IsCustomizingColor = false;
+            Color7.IsCustomizingColor = false;
+            Color8.IsCustomizingColor = false;
+            Color9.IsCustomizingColor = false;
+            Color10.IsCustomizingColor = false;
+
         }
     }
 }

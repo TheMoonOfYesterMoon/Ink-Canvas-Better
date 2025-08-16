@@ -22,6 +22,7 @@
     <s:String x:Key="Text_Touch">触屏设置</s:String>
     <s:String x:Key="Text_ExitPPT">退出PPT</s:String>
         <!-- subpanel -->
+        <s:String x:Key="Text_ColorPicker">颜色选择器</s:String>
         <s:String x:Key="Text_InkStyle">模拟笔锋</s:String>
         <s:String x:Key="Text_InkToShape">墨迹识别</s:String>
         <s:String x:Key="Text_Simulative">模拟笔锋</s:String>
