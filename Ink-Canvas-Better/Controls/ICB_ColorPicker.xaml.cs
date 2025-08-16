@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Ink_Canvas_Better.Resources;
 using ColorConverter = Ink_Canvas_Better.Helpers.Others.ColorConverter;
 
 namespace Ink_Canvas_Better.Controls
@@ -27,7 +29,7 @@ namespace Ink_Canvas_Better.Controls
 
         #region IsOpen
 
-        DependencyProperty IsOpenProperty =
+        public static readonly DependencyProperty IsOpenProperty =
             DependencyProperty.Register(
                 "IsOpen",
                 typeof(bool),
@@ -45,6 +47,30 @@ namespace Ink_Canvas_Better.Controls
         {
             var control = d as ICB_ColorPicker;
             control.ColorPicker_Popup.IsOpen = (bool)e.NewValue;
+        }
+
+        #endregion
+
+        #region SelectedColor
+
+        public static readonly DependencyProperty SelectedColorProperty =
+            DependencyProperty.Register(
+                "SelectedColor",
+                typeof(Color),
+                typeof(ICB_ColorPicker),
+                new PropertyMetadata(SelectedColor_OnValueChanged)
+            );
+
+        public Color SelectedColor
+        {
+            get { return (Color)GetValue(SelectedColorProperty); }
+            set { SetValue(SelectedColorProperty, value); }
+        }
+
+        public static void SelectedColor_OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as ICB_ColorPicker;
+            control.SquareColorPicker.SelectedColor = (Color)e.NewValue;
         }
 
         #endregion
@@ -84,7 +110,21 @@ namespace Ink_Canvas_Better.Controls
                 typeof(RoutedEventHandler),
                 typeof(ICB_ColorPicker));
 
-        public event RoutedEventHandler ColrPicker_ColorSelected { add => AddHandler(ColorPicker_ColorSelectedEvent, value); remove => RemoveHandler(ColorPicker_ColorSelectedEvent, value); }
+        public static void AddColorPicker_ColorSelectedEventHandler(DependencyObject d, RoutedEventHandler handler)
+        {
+            if (d is UIElement element)
+            {
+                element.AddHandler(ColorPicker_ColorSelectedEvent, handler);
+            }
+        }
+
+        public static void RemoveColorPicker_ColorSelectedEventHandler(DependencyObject d, RoutedEventHandler handler)
+        {
+            if (d is UIElement element)
+            {
+                element.RemoveHandler(ColorPicker_ColorSelectedEvent, handler);
+            }
+        }
 
         #endregion
 
@@ -93,14 +133,10 @@ namespace Ink_Canvas_Better.Controls
             if (_temp)
             {
                 _temp = false;
-                Color c = ColorPicker.SelectedColor;
+                Color c = SquareColorPicker.SelectedColor;
                 R.Value = c.R;
                 G.Value = c.G;
                 B.Value = c.B;
-                ColorConverter.ColorToHsl(c, out double h, out double s, out double l);
-                H.Value = h;
-                S.Value = s;
-                L.Value = l;
                 Hex.Text = ColorConverter.ColorToHex(c);
                 var args = new RoutedEventArgs(ColorPicker_ColorSelectedEvent, this);
                 RaiseEvent(args);
@@ -118,20 +154,8 @@ namespace Ink_Canvas_Better.Controls
                 {
                     case "RGB":
                         Color c0 = Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value);
-                        ColorPicker.SelectedColor = c0;
-                        ColorConverter.ColorToHsl(c0, out double h, out double s, out double l);
-                        H.Value = h;
-                        S.Value = s;
-                        L.Value = l;
+                        SquareColorPicker.SelectedColor = c0;
                         Hex.Text = ColorConverter.ColorToHex(c0);
-                        break;
-                    case "HSL":
-                        Color c1 = ColorConverter.HslToColor(H.Value, S.Value, L.Value);
-                        ColorPicker.SelectedColor = c1;
-                        R.Value = c1.R;
-                        G.Value = c1.G;
-                        B.Value = c1.B;
-                        Hex.Text = ColorConverter.ColorToHex(c1);
                         break;
                 }
                 var args1 = new RoutedEventArgs(ColorPicker_ColorSelectedEvent, this);
@@ -153,14 +177,10 @@ namespace Ink_Canvas_Better.Controls
                 else
                 {
                     Color c = ColorConverter.HexToColor(Hex.Text);
-                    ColorPicker.SelectedColor = c;
+                    SquareColorPicker.SelectedColor = c;
                     R.Value = c.R;
                     G.Value = c.G;
                     B.Value = c.B;
-                    ColorConverter.ColorToHsl(c, out double h, out double s, out double l);
-                    H.Value = h;
-                    S.Value = s;
-                    L.Value = l;
                 }
                 var args = new RoutedEventArgs(ColorPicker_ColorSelectedEvent, this);
                 RaiseEvent(args);

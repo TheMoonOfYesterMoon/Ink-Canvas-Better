@@ -1,17 +1,11 @@
-﻿using Ink_Canvas_Better.Controls;
-using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Resources;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using ColorConverter = Ink_Canvas_Better.Helpers.Others.ColorConverter;
 
 namespace Ink_Canvas_Better.Controls
 {
@@ -129,16 +123,16 @@ namespace Ink_Canvas_Better.Controls
         {
             if (IsCustomizingColor)
             {
-                Debug.WriteLine("a");
                 if (RuntimeData.colorPicker == null)
                 {
-                    Debug.WriteLine("c");
                     RuntimeData.colorPicker = new ICB_ColorPicker();
+                    RuntimeData.colorPicker.ColorPicker_Popup.StaysOpen = false;
                     RuntimeData.mainWindow.MainWindow_Grid.Children.Add(RuntimeData.colorPicker);
                 }
                 RuntimeData.colorPicker.PlacementTarget = sender as UIElement;
                 RuntimeData.colorPicker.IsOpen = false;
                 RuntimeData.colorPicker.IsOpen = true;
+                RuntimeData.colorPicker.SelectedColor = this.Color;
             }
             else
             {
@@ -150,7 +144,8 @@ namespace Ink_Canvas_Better.Controls
 
         private void ColorPicker_ColorSelectedEventHandler(object sender, RoutedEventArgs e)
         {
-
+            var colorPicker = sender as ICB_ColorPicker;
+            this.Color = colorPicker.SelectedColor;
         }
     }
 }

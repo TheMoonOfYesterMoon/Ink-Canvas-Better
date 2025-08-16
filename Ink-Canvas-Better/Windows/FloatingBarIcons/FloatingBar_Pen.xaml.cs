@@ -119,6 +119,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             {
                 item.IsCustomizingColor = true;
             }
+            PinButton_Click(null, null);
         }
 
         private void ToggleButton_CustomColor_Unchecked(object sender, RoutedEventArgs e)

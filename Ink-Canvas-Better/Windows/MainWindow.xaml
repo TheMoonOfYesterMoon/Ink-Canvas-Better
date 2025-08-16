@@ -46,25 +46,25 @@
             TouchMove=""
             TouchUp=""/>
         -->
-        <!--  // 画板 //  -->
+        <!--  // Canvas //  -->
         <localControls:CustomInkCanvas
             x:Name="inkCanvas"
             Background="Transparent"
             Cursor="Pen"
             ForceCursor="False"
             IsManipulationEnabled="True"/>
-        <!-- // 浮动工具栏 // -->
+        <!-- // Floatingbar // -->
         <ikw:SimpleStackPanel
             Height="68"
             Name="floatingBar"
             Spacing="2"
             Orientation="Horizontal"
             HorizontalAlignment="Left" VerticalAlignment="Top">
-            <!-- 渲染变换 -->
+            <!-- Render -->
             <ikw:SimpleStackPanel.RenderTransform>
                 <TranslateTransform/>
             </ikw:SimpleStackPanel.RenderTransform>
-
+            
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
                 BorderThickness="2"
