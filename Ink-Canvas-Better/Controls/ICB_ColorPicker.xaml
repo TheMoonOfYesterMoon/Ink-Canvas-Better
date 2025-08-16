@@ -45,7 +45,7 @@
         </Style>
     </UserControl.Resources>
 
-    <Popup Name="ColorPicker_Popup" AllowsTransparency="True">
+    <Popup Name="ColorPicker_Popup" AllowsTransparency="True" StaysOpen="False">
         <Border BorderThickness="1" CornerRadius="5" Background="{DynamicResource DefaultBackgroundColor}" BorderBrush="{DynamicResource BorderBrush}" Padding="16">
             <ikw:SimpleStackPanel Spacing="2">
                 <Grid>

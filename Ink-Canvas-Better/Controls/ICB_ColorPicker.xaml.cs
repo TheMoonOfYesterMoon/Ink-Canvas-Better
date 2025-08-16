@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Resources;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,8 +9,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
-using Ink_Canvas_Better.Resources;
 using ColorConverter = Ink_Canvas_Better.Helpers.Others.ColorConverter;
 
 namespace Ink_Canvas_Better.Controls
@@ -77,7 +78,7 @@ namespace Ink_Canvas_Better.Controls
 
         #region PlacementTarget
 
-        DependencyProperty PlacementTargetProperty =
+        readonly DependencyProperty PlacementTargetProperty =
             DependencyProperty.Register(
                 "PlacementTarget",
                 typeof(UIElement),
@@ -138,9 +139,9 @@ namespace Ink_Canvas_Better.Controls
                 G.Value = c.G;
                 B.Value = c.B;
                 Hex.Text = ColorConverter.ColorToHex(c);
+                SelectedColor = c;
                 var args = new RoutedEventArgs(ColorPicker_ColorSelectedEvent, this);
-                RaiseEvent(args);
-                e.Handled = true;
+                this.PlacementTarget.RaiseEvent(args);
                 _temp = true;
             }
         }
@@ -150,16 +151,18 @@ namespace Ink_Canvas_Better.Controls
             if (_temp)
             {
                 _temp = false;
+                Color c = new Color();
                 switch (sender.Tag)
                 {
                     case "RGB":
-                        Color c0 = Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value);
-                        SquareColorPicker.SelectedColor = c0;
-                        Hex.Text = ColorConverter.ColorToHex(c0);
+                        c = Color.FromRgb((byte)R.Value, (byte)G.Value, (byte)B.Value);
+                        SquareColorPicker.SelectedColor = c;
+                        Hex.Text = ColorConverter.ColorToHex(c);
                         break;
                 }
+                SelectedColor = c;
                 var args1 = new RoutedEventArgs(ColorPicker_ColorSelectedEvent, this);
-                RaiseEvent(args1);
+                this.PlacementTarget.RaiseEvent(args1);
                 _temp = true;
             }
         }
@@ -169,6 +172,7 @@ namespace Ink_Canvas_Better.Controls
             if (_temp)
             {
                 _temp = false;
+                Color c;
                 if (!Regex.IsMatch(((TextBox)sender).Text, @"^#?([0-9a-fA-F]{6})$"))
                 {
                     Hex.Text = "000000";
@@ -176,15 +180,15 @@ namespace Ink_Canvas_Better.Controls
                 }
                 else
                 {
-                    Color c = ColorConverter.HexToColor(Hex.Text);
+                    c = ColorConverter.HexToColor(Hex.Text);
                     SquareColorPicker.SelectedColor = c;
                     R.Value = c.R;
                     G.Value = c.G;
                     B.Value = c.B;
                 }
+                SelectedColor = c;
                 var args = new RoutedEventArgs(ColorPicker_ColorSelectedEvent, this);
-                RaiseEvent(args);
-                e.Handled = true;
+                this.PlacementTarget.RaiseEvent(args);
                 _temp = true;
             }
         }

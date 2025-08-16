@@ -4,8 +4,8 @@
 	<Product>Ink Canvas Better</Product>
 	<StartYear>2025</StartYear>
 	<CurrentYear>$([System.DateTime]::Now.ToString(yyyy))</CurrentYear>
-	<Copyright Condition="'$(StartYear)' == '$(CurrentYear)'">Copyright © $(CurrentYear) BaiYang2238</Copyright>
-	<Copyright Condition="'$(StartYear)' != '$(CurrentYear)'">Copyright © $(StartYear)-$(CurrentYear) BaiYang2238</Copyright>
+	<Copyright Condition="'$(StartYear)' == '$(CurrentYear)'">Copyright © $(CurrentYear) Github@BaiYang2238 and Github@TheMonthBeforeLastMonth</Copyright>
+	<Copyright Condition="'$(StartYear)' != '$(CurrentYear)'">Copyright © $(StartYear)-$(CurrentYear) Github@BaiYang2238 and Github@TheMonthBeforeLastMonth</Copyright>
 	<AssemblyName>Ink Canvas Better</AssemblyName>
 	<Description>An enhanced version of the Ink Canvas with additional features and better usability.</Description>
 	<Version>2.0.0.0</Version>

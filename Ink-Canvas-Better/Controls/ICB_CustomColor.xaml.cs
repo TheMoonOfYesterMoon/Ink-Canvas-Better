@@ -1,4 +1,6 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Helpers.Others;
+using Ink_Canvas_Better.Resources;
+using Ink_Canvas_Better.Windows.FloatingBarIcons;
 using System;
 using System.Linq;
 using System.Text;
@@ -11,13 +13,10 @@ namespace Ink_Canvas_Better.Controls
 {
     public partial class ICB_CustomColor : UserControl
     {
-        bool _IsFirstSetColor = true;
-        bool _temp = false;
-
         public ICB_CustomColor()
         {
             InitializeComponent();
-            AddHandler(ICB_ColorPicker.ColorPicker_ColorSelectedEvent, new RoutedEventHandler(ColorPicker_ColorSelectedEventHandler));
+            ICB_ColorPicker.AddColorPicker_ColorSelectedEventHandler(this, ColorPicker_ColorSelectedEventHandler);
         }
 
         #region Properties
@@ -126,7 +125,15 @@ namespace Ink_Canvas_Better.Controls
                 if (RuntimeData.colorPicker == null)
                 {
                     RuntimeData.colorPicker = new ICB_ColorPicker();
-                    RuntimeData.colorPicker.ColorPicker_Popup.StaysOpen = false;
+                    var temp = this.FindFirstParent(typeof(FloatingBar_Pen), typeof(FloatingBar_Highlighter));
+                    if (temp.GetType() == typeof(FloatingBar_Pen))
+                    {
+                        RuntimeData.floatingBar_Pen.StaysOpen = true;
+                    }
+                    else
+                    {
+                       // RuntimeData.floatingBar_Highlighter.StaysOpen = true;
+                    }
                     RuntimeData.mainWindow.MainWindow_Grid.Children.Add(RuntimeData.colorPicker);
                 }
                 RuntimeData.colorPicker.PlacementTarget = sender as UIElement;
@@ -144,8 +151,10 @@ namespace Ink_Canvas_Better.Controls
 
         private void ColorPicker_ColorSelectedEventHandler(object sender, RoutedEventArgs e)
         {
-            var colorPicker = sender as ICB_ColorPicker;
-            this.Color = colorPicker.SelectedColor;
+            if (e.OriginalSource is ICB_ColorPicker colorPicker)
+            {
+                this.Color = colorPicker.SelectedColor;
+            }
         }
     }
 }
