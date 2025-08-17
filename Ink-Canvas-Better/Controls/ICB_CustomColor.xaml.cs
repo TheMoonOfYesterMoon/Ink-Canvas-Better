@@ -1,6 +1,7 @@
 ﻿using Ink_Canvas_Better.Helpers.Others;
 using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows.FloatingBarIcons;
+using iNKORE.UI.WPF.Helpers;
 using System;
 using System.Linq;
 using System.Text;
@@ -125,12 +126,11 @@ namespace Ink_Canvas_Better.Controls
                 if (RuntimeData.colorPicker == null)
                 {
                     RuntimeData.colorPicker = new ICB_ColorPicker();
-                    var temp = this.FindFirstParent(typeof(FloatingBar_Pen), typeof(FloatingBar_Highlighter));
-                    if (temp.GetType() == typeof(FloatingBar_Pen))
+                    if (this.FindAscendant<FloatingBar_Pen>() != null)
                     {
                         RuntimeData.floatingBar_Pen.StaysOpen = true;
                     }
-                    else
+                    else if (this.FindAscendant<FloatingBar_Highlighter>() != null)
                     {
                        // RuntimeData.floatingBar_Highlighter.StaysOpen = true;
                     }
