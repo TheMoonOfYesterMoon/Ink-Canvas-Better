@@ -100,7 +100,7 @@
                         IsClickEnabled="True"
                         Description="{DynamicResource Text_Setting_GoToGithubRepository}">
                         <ui:SettingsCard.HeaderIcon>
-                            <Image Source="{StaticResource Icon_Github}"/>
+                            <Image Source="{DynamicResource Image.Others.Github}"/>
                         </ui:SettingsCard.HeaderIcon>
                         <ui:SettingsCard.ActionIcon>
                             <ui:FontIcon Glyph="&#xe8a7;"/>

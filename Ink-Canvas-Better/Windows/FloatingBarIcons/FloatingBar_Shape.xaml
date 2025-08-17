@@ -112,7 +112,7 @@
             <ikw:SimpleStackPanel Margin="5">
                 <TextBlock Text="{DynamicResource Text_2DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                 <WrapPanel>
-
+                    
                 </WrapPanel>
                 <TextBlock Text="{DynamicResource Text_3DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                 <WrapPanel>
