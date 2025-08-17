@@ -5,7 +5,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -18,7 +18,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -37,7 +37,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             DashCap="Round"
                             EndLineCap="Round"
                             LineJoin="Miter"
@@ -55,7 +55,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -74,7 +74,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -87,7 +87,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -100,7 +100,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -113,7 +113,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -126,7 +126,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -139,7 +139,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -152,7 +152,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -165,7 +165,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -178,7 +178,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -191,7 +191,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -204,7 +204,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             DashCap="Round"
                             EndLineCap="Round"
                             LineJoin="Miter"
@@ -222,7 +222,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -235,7 +235,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -248,7 +248,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             DashCap="Round"
                             EndLineCap="Round"
                             LineJoin="Miter"
@@ -266,7 +266,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -279,7 +279,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -292,7 +292,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             DashCap="Round"
                             EndLineCap="Round"
                             LineJoin="Miter"
@@ -310,7 +310,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -330,7 +330,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,750z M0,0z M764.5,800C764.5,855.23 646.08,900 500,900 353.92,900 235.5,855.23 235.5,800">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -342,7 +342,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,750z M0,0z M235.5,800C235.5,785,244.17,770.87,259.72,758.14">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -354,7 +354,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,750z M0,0z M350.75,717.43C393.23,706.43 444.63,700 500,700 578.18,700 648.44,712.82 696.87,733.21">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 DashCap="Round"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
@@ -371,7 +371,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,750z M0,0z M740.28,758.14C755.83,770.87,764.5,785.05,764.5,800">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -382,7 +382,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -395,7 +395,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -414,7 +414,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -428,7 +428,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,850z M0,0z M764.5,800C764.5,855.23 646.08,900 500,900 353.92,900 235.5,855.23 235.5,800">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -440,7 +440,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,850z M0,0z M235.5,800C235.5,785,244.17,770.87,259.72,758.14">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -452,7 +452,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,850z M0,0z M350.75,717.43C393.23,706.43 444.63,700 500,700 578.18,700 648.44,712.82 696.87,733.21">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 DashCap="Round"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
@@ -469,7 +469,7 @@
                     <GeometryDrawing Geometry="F1 M579.5,850z M0,0z M740.28,758.14C755.83,770.87,764.5,785.05,764.5,800">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -480,7 +480,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -493,7 +493,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -512,7 +512,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -531,7 +531,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -544,7 +544,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -557,7 +557,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -570,7 +570,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -589,7 +589,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -602,7 +602,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             DashCap="Round"
                             EndLineCap="Round"
                             LineJoin="Miter"
@@ -620,7 +620,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -639,7 +639,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -652,7 +652,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -665,7 +665,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -684,7 +684,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -697,7 +697,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -710,7 +710,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -723,7 +723,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -742,7 +742,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -759,13 +759,13 @@
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V806.56 H868.59 V0 H0 Z">
                 <DrawingGroup Transform="1,0,0,1,-65.71,-96.72">
-                    <GeometryDrawing Brush="{DynamicResource DefaultBackgroundColor}" Geometry="F1 M868.59,806.56z M0,0z M562,655.39C561.93,792.12 450.68,903.27 313.89,903.28 176.7,903.28 65.51,791.82 65.73,654.48 65.94,517.88 177.42,406.93 314.32,407.07 451,407.21 562.05,518.56 562,655.39z M500.25,655.54C500.35,552.64 417.25,469.02 314.71,468.81 211.25,468.59 127.57,551.72 127.47,654.81 127.38,757.71 210.47,841.32 313.01,841.54 416.45,841.76 500.14,758.62 500.23,655.54z" />
+                    <GeometryDrawing Brush="{DynamicResource DefaultForegroundColor}" Geometry="F1 M868.59,806.56z M0,0z M562,655.39C561.93,792.12 450.68,903.27 313.89,903.28 176.7,903.28 65.51,791.82 65.73,654.48 65.94,517.88 177.42,406.93 314.32,407.07 451,407.21 562.05,518.56 562,655.39z M500.25,655.54C500.35,552.64 417.25,469.02 314.71,468.81 211.25,468.59 127.57,551.72 127.47,654.81 127.38,757.71 210.47,841.32 313.01,841.54 416.45,841.76 500.14,758.62 500.23,655.54z" />
                 </DrawingGroup>
                 <DrawingGroup Transform="1,0,0,1,-65.71,-96.72">
-                    <GeometryDrawing Brush="{DynamicResource DefaultBackgroundColor}" Geometry="F1 M868.59,806.56z M0,0z M587.75,717.08C590.08,696.17,592.29,676.36,594.63,655.48L849.63,655.48 665.33,341.9 559.18,518.72C557.47,516.72 556.07,515.23 554.89,513.61 544.47,499.26 534.31,484.7 523.53,470.61 520.53,466.67 519.89,464.18 522.53,459.79 561.22,395.63 599.59,331.27 638.32,267.13 652.23,244.13 679.84,244.98 693.8,268.7Q776.62,409.4,859.25,550.18C881.99,588.88 904.58,627.67 927.57,666.23 934.57,677.94 937.26,689.46 929.99,701.77 922.99,713.65 911.99,717.2 898.71,717.17Q748.39,716.92,598.07,717.08z" />
+                    <GeometryDrawing Brush="{DynamicResource DefaultForegroundColor}" Geometry="F1 M868.59,806.56z M0,0z M587.75,717.08C590.08,696.17,592.29,676.36,594.63,655.48L849.63,655.48 665.33,341.9 559.18,518.72C557.47,516.72 556.07,515.23 554.89,513.61 544.47,499.26 534.31,484.7 523.53,470.61 520.53,466.67 519.89,464.18 522.53,459.79 561.22,395.63 599.59,331.27 638.32,267.13 652.23,244.13 679.84,244.98 693.8,268.7Q776.62,409.4,859.25,550.18C881.99,588.88 904.58,627.67 927.57,666.23 934.57,677.94 937.26,689.46 929.99,701.77 922.99,713.65 911.99,717.2 898.71,717.17Q748.39,716.92,598.07,717.08z" />
                 </DrawingGroup>
                 <DrawingGroup Transform="1,0,0,1,-65.71,-96.72">
-                    <GeometryDrawing Brush="{DynamicResource DefaultBackgroundColor}" Geometry="F1 M868.59,806.56z M0,0z M562.23,328.74L562.23,159 251.88,159 251.88,381.15 190.34,402.94C190.19,400.16,189.88,397.13,189.88,394.11Q189.88,263.25 189.88,132.39 189.88,96.75 225.73,96.73 407.01,96.73 588.3,96.73 624.05,96.73 624.07,132.46C624.07,164.13 624.24,195.79 623.89,227.46 623.89,231.46 621.66,235.77 619.56,239.46 616.56,244.74 612.34,249.36 609.18,254.59 594.18,279.42 579.28,304.36 564.35,329.26z" />
+                    <GeometryDrawing Brush="{DynamicResource DefaultForegroundColor}" Geometry="F1 M868.59,806.56z M0,0z M562.23,328.74L562.23,159 251.88,159 251.88,381.15 190.34,402.94C190.19,400.16,189.88,397.13,189.88,394.11Q189.88,263.25 189.88,132.39 189.88,96.75 225.73,96.73 407.01,96.73 588.3,96.73 624.05,96.73 624.07,132.46C624.07,164.13 624.24,195.79 623.89,227.46 623.89,231.46 621.66,235.77 619.56,239.46 616.56,244.74 612.34,249.36 609.18,254.59 594.18,279.42 579.28,304.36 564.35,329.26z" />
                 </DrawingGroup>
             </DrawingGroup>
         </DrawingImage.Drawing>
@@ -776,7 +776,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -789,7 +789,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -802,7 +802,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -815,7 +815,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -828,7 +828,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -841,7 +841,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -860,7 +860,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -873,7 +873,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -886,7 +886,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -899,7 +899,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -912,7 +912,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -925,7 +925,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -944,7 +944,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -957,7 +957,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -970,7 +970,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -983,7 +983,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -996,7 +996,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1009,7 +1009,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1028,7 +1028,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1041,7 +1041,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1054,7 +1054,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1067,7 +1067,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1080,7 +1080,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1093,7 +1093,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1112,7 +1112,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1125,7 +1125,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1138,7 +1138,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1151,7 +1151,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1164,7 +1164,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1177,7 +1177,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1190,7 +1190,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             DashCap="Round"
                             EndLineCap="Round"
                             LineJoin="Miter"
@@ -1208,7 +1208,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1227,7 +1227,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1240,7 +1240,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1253,7 +1253,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1266,7 +1266,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1279,7 +1279,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1292,7 +1292,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1305,7 +1305,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1318,7 +1318,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1331,7 +1331,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1350,7 +1350,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1363,7 +1363,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1376,7 +1376,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1389,7 +1389,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1402,7 +1402,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1421,7 +1421,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1434,7 +1434,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1453,7 +1453,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             DashCap="Round"
                             EndLineCap="Round"
                             LineJoin="Miter"
@@ -1478,7 +1478,7 @@
                     <GeometryDrawing Geometry="F1 M684.27,635.2z M0,0z M182.87,207.4C191.75,296.78 210.54,423.16 252.87,553.03 260.15,575.33 290.28,665.09 352.09,727.67 378.68,754.59 401.88,767.11 413.96,772.86A203.34,203.34,0,0,0,496.84,792.4">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1490,7 +1490,7 @@
                     <GeometryDrawing Geometry="F1 M684.27,635.2z M0,0z M817.13,207.6C808.25,296.98 789.46,423.36 747.13,553.23 739.85,575.53 709.72,665.29 647.91,727.87 621.32,754.79 598.12,767.31 586.04,773.06A203.34,203.34,0,0,1,503.16,792.6">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1508,7 +1508,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M136.54,861.37A395.1,395.1,0,0,0,216.54,814.37C254.61,785.46,277.79,756.9,284.54,748.37A351.08,351.08,0,0,0,330.54,672.37C345.4,638.21,350.64,610.37,355.54,583.37A523.22,523.22,0,0,0,363.85,500.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1519,7 +1519,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1533,7 +1533,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M136.15,138.63A395.1,395.1,0,0,1,216.15,185.63C254.22,214.54,277.41,243.1,284.15,251.63A350.65,350.65,0,0,1,330.15,327.63C345.01,361.79,350.25,389.63,355.15,416.63A522,522,0,0,1,363.46,499.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1545,7 +1545,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M863.46,861.37A395.1,395.1,0,0,1,783.46,814.37C745.39,785.46,722.21,756.9,715.46,748.37A351.08,351.08,0,0,1,669.46,672.37C654.6,638.21,649.36,610.37,644.46,583.37A523.22,523.22,0,0,1,636.15,500.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1557,7 +1557,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M863.85,138.63A395.1,395.1,0,0,0,783.85,185.63C745.78,214.54,722.59,243.1,715.85,251.63A350.65,350.65,0,0,0,669.85,327.63C654.99,361.79,649.75,389.63,644.85,416.63A522,522,0,0,0,636.54,499.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1568,7 +1568,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1588,7 +1588,7 @@
                     <GeometryDrawing Geometry="F1 M684.27,635.2z M0,0z M182.87,207.4C191.75,296.78 210.54,423.16 252.87,553.03 260.15,575.33 290.28,665.09 352.09,727.67 378.68,754.59 401.88,767.11 413.96,772.86A203.34,203.34,0,0,0,496.84,792.4">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1600,7 +1600,7 @@
                     <GeometryDrawing Geometry="F1 M684.27,635.2z M0,0z M817.13,207.6C808.25,296.98 789.46,423.36 747.13,553.23 739.85,575.53 709.72,665.29 647.91,727.87 621.32,754.79 598.12,767.31 586.04,773.06A203.34,203.34,0,0,1,503.16,792.6">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1611,7 +1611,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1630,7 +1630,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1643,7 +1643,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1656,7 +1656,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1669,7 +1669,7 @@
                 <GeometryDrawing>
                     <GeometryDrawing.Pen>
                         <Pen
-                            Brush="{DynamicResource DefaultBackgroundColor}"
+                            Brush="{DynamicResource DefaultForegroundColor}"
                             EndLineCap="Round"
                             LineJoin="Miter"
                             StartLineCap="Round"
@@ -1689,7 +1689,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M136.54,861.37A395.1,395.1,0,0,0,216.54,814.37C254.61,785.46,277.79,756.9,284.54,748.37A351.08,351.08,0,0,0,330.54,672.37C345.4,638.21,350.64,610.37,355.54,583.37A523.22,523.22,0,0,0,363.85,500.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1701,7 +1701,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M136.15,138.63A395.1,395.1,0,0,1,216.15,185.63C254.22,214.54,277.41,243.1,284.15,251.63A350.65,350.65,0,0,1,330.15,327.63C345.01,361.79,350.25,389.63,355.15,416.63A522,522,0,0,1,363.46,499.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1713,7 +1713,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M863.46,861.37A395.1,395.1,0,0,1,783.46,814.37C745.39,785.46,722.21,756.9,715.46,748.37A351.08,351.08,0,0,1,669.46,672.37C654.6,638.21,649.36,610.37,644.46,583.37A523.22,523.22,0,0,1,636.15,500.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
@@ -1725,7 +1725,7 @@
                     <GeometryDrawing Geometry="F1 M777.7,772.73z M0,0z M863.85,138.63A395.1,395.1,0,0,0,783.85,185.63C745.78,214.54,722.59,243.1,715.85,251.63A350.65,350.65,0,0,0,669.85,327.63C654.99,361.79,649.75,389.63,644.85,416.63A522,522,0,0,0,636.54,499.5">
                         <GeometryDrawing.Pen>
                             <Pen
-                                Brush="{DynamicResource DefaultBackgroundColor}"
+                                Brush="{DynamicResource DefaultForegroundColor}"
                                 EndLineCap="Round"
                                 LineJoin="Miter"
                                 StartLineCap="Round"
