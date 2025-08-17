@@ -205,6 +205,12 @@
                         Background="{DynamicResource DefaultBackgroundColor_Opacity}"
                         CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
+                        x:Name="WhiteBoardIcon"
+                        Text="{DynamicResource Text_WhiteBoardIcon}"
+                        FontIcon="&#xe70a;"
+                        Click="WhiteBoardIcon_Click"
+                        IsSqueezeHorizontally="True"/>
+                    <localControls:ICB_Button
                         x:Name="MagnifierIcon"
                         Text="{DynamicResource Text_Magnifier}"
                         FontIcon="&#xf78b;"

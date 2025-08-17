@@ -16,6 +16,7 @@
     <s:String x:Key="Text_Shape">圖形</s:String>
     <s:String x:Key="Text_Redo">退筆</s:String>
     <s:String x:Key="Text_Undo">復筆</s:String>
+    <s:String x:Key="Text_WhiteBoardIcon">白板</s:String>
     <s:String x:Key="Text_Magnifier">放大鏡</s:String>
     <s:String x:Key="Text_Tools">工具</s:String>
     <s:String x:Key="Text_Hide">隱藏</s:String>
