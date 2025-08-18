@@ -2,9 +2,6 @@ name: .NET Build
 
 on:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
 
@@ -41,21 +38,21 @@ jobs:
     - name: Build the solution
       run: |
         msbuild -t:restore /p:GitFlow="Github Action"
-        msbuild -target:"Ink Canvas" /p:Configuration=Release /p:Platform="Any CPU" /p:GitFlow="Github Action"
+        msbuild -target:"Ink-Canvas-Better" /p:Configuration=Release /p:Platform="Any CPU" /p:GitFlow="Github Action"
       env:
         Configuration: ${{ matrix.configuration }}
 
     - name: Build the solution (x64)
       run: |
         msbuild -t:restore /p:GitFlow="Github Action"
-        msbuild -target:"Ink Canvas" /p:Configuration=Release /p:Platform="x64" /p:GitFlow="Github Action"
+        msbuild -target:"Ink-Canvas-Better" /p:Configuration=Release /p:Platform="x64" /p:GitFlow="Github Action"
       env:
         Configuration: ${{ matrix.configuration }}
 
     - name: Build the solution (ARM64)
       run: |
         msbuild -t:restore /p:GitFlow="Github Action"
-        msbuild -target:"Ink Canvas" /p:Configuration=Release /p:Platform="ARM64" /p:GitFlow="Github Action"
+        msbuild -target:"Ink-Canvas-Better" /p:Configuration=Release /p:Platform="ARM64" /p:GitFlow="Github Action"
       env:
         Configuration: ${{ matrix.configuration }}
         
@@ -64,16 +61,16 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: Ink Canvas Better
-        path: Ink Canvas/bin/Release
+        path: Ink-Canvas-Better/bin/Release
         
     - name: Upload to artifact (x64)
       uses: actions/upload-artifact@main
       with:
         name: Ink Canvas Better (x64)
-        path: Ink Canvas/bin/x64/Release
+        path: Ink-Canvas-Better/bin/x64/Release
         
     - name: Upload to artifact (ARM64)
       uses: actions/upload-artifact@main
       with:
         name: Ink Canvas Better (ARM64)
-        path: Ink Canvas/bin/ARM64/Release
+        path: Ink-Canvas-Better/bin/ARM64/Release
