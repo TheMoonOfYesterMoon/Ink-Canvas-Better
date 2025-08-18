@@ -63,14 +63,3 @@ jobs:
         name: Ink Canvas Better
         path: Ink-Canvas-Better/bin/Release
         
-    - name: Upload to artifact (x64)
-      uses: actions/upload-artifact@main
-      with:
-        name: Ink Canvas Better (x64)
-        path: Ink-Canvas-Better/bin/x64/Release
-        
-    - name: Upload to artifact (ARM64)
-      uses: actions/upload-artifact@main
-      with:
-        name: Ink Canvas Better (ARM64)
-        path: Ink-Canvas-Better/bin/ARM64/Release
