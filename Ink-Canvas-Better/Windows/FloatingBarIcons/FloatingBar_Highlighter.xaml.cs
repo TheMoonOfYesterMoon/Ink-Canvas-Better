@@ -3,73 +3,104 @@ using Ink_Canvas_Better.Helpers;
 using Ink_Canvas_Better.Resources;
 using iNKORE.UI.WPF.Helpers;
 using System;
-using System.Diagnostics;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Ink;
 using System.Windows.Media;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 {
     public partial class FloatingBar_Highlighter : UserControl
     {
+        private readonly Collection<UIElement> CustomColorCollection = new Collection<UIElement>();
+
         public FloatingBar_Highlighter()
         {
             InitializeComponent();
 
+            AddAllCustomColorToCollection();
             RuntimeData.floatingBar_Highlighter = this;
             AddHandler(ICB_CustomColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
         }
 
+        #region Properties
+
+        #region StaysOpen
+
+        readonly DependencyProperty StaysOpenProperty =
+            DependencyProperty.Register(
+                "StaysOpen",
+                typeof(bool),
+                typeof(FloatingBar_Highlighter),
+                new PropertyMetadata(StaysOpen_OnValueChanged)
+            );
+
+        public bool StaysOpen
+        {
+            get { return (bool)GetValue(StaysOpenProperty); }
+            set { SetValue(StaysOpenProperty, value); }
+        }
+
+        public static void StaysOpen_OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var control = d as FloatingBar_Highlighter;
+            control.FindAscendant<Popup>().StaysOpen = (bool)e.NewValue;
+            if ((bool)e.NewValue)
+            {
+                control.PinButton.FindDescendant<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue77a";
+            }
+            else
+            {
+                control.PinButton.FindDescendant<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue718";
+            }
+        }
+
+        #endregion
+
+        #endregion
+
         private void OnColorSelected(object sender, RoutedEventArgs e)
         {
             SwitchEdittingMode();
-            var customSelector = (ICB_CustomColor)sender;
-            ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
-            RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
-                (byte)(Slider_Alpha.Value / 100d * 255d),
-                customSelector.Color.R,
-                customSelector.Color.G,
-                customSelector.Color.B);
-            AllColorUnselected();
-            customSelector.IsSelected = true;
+            if (e.OriginalSource is ICB_CustomColor customSelector)
+            {
+                ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
+                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = customSelector.Color;
+                foreach (ICB_CustomColor item in CustomColorCollection.Cast<ICB_CustomColor>())
+                {
+                    item.IsSelected = false;
+                }
+                customSelector.IsSelected = true;
+            }
         }
 
-        private void AllColorUnselected()
+        private void AddAllCustomColorToCollection()
         {
-            Color0.IsSelected = false;
-            Color1.IsSelected = false;
-            Color2.IsSelected = false;
-            Color3.IsSelected = false;
-            Color4.IsSelected = false;
-            Color5.IsSelected = false;
-            Color6.IsSelected = false;
-            Color7.IsSelected = false;
-            Color8.IsSelected = false;
-            Color9.IsSelected = false;
-            Color10.IsSelected = false;
+            CustomColorCollection.Add(Color0);
+            CustomColorCollection.Add(Color1);
+            CustomColorCollection.Add(Color2);
+            CustomColorCollection.Add(Color3);
+            CustomColorCollection.Add(Color4);
+            CustomColorCollection.Add(Color5);
+            CustomColorCollection.Add(Color6);
+            CustomColorCollection.Add(Color7);
+            CustomColorCollection.Add(Color8);
+            CustomColorCollection.Add(Color9);
+            CustomColorCollection.Add(Color10);
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            RuntimeData.mainWindow.Popup_Highlighter.IsOpen = false;
+            this.FindAscendant<Popup>().IsOpen = false;
         }
 
         private void PinButton_Click(object sender, RoutedEventArgs e)
         {
-            RuntimeData.mainWindow.Popup_Highlighter.StaysOpen = !RuntimeData.mainWindow.Popup_Highlighter.StaysOpen;
-            if (RuntimeData.mainWindow.Popup_Highlighter.StaysOpen)
-            {
-                PinButton.FindVisualChild<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue77a";
-            }
-            else
-            {
-                PinButton.FindVisualChild<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue718";
-            }
+            StaysOpen = !StaysOpen;
         }
 
         private void Slider_StrokeThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -120,34 +151,18 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void ToggleButton_CustomColor_Checked(object sender, RoutedEventArgs e)
         {
-            Color0.IsCustomizingColor = true;
-            Color1.IsCustomizingColor = true;
-            Color2.IsCustomizingColor = true;
-            Color3.IsCustomizingColor = true;
-            Color4.IsCustomizingColor = true;
-            Color5.IsCustomizingColor = true;
-            Color6.IsCustomizingColor = true;
-            Color7.IsCustomizingColor = true;
-            Color8.IsCustomizingColor = true;
-            Color9.IsCustomizingColor = true;
-            Color10.IsCustomizingColor = true;
-
+            foreach (ICB_CustomColor item in CustomColorCollection.Cast<ICB_CustomColor>())
+            {
+                item.IsCustomizingColor = true;
+            }
         }
 
         private void ToggleButton_CustomColor_Unchecked(object sender, RoutedEventArgs e)
         {
-            Color2.IsCustomizingColor = false;
-            Color1.IsCustomizingColor = false;
-            Color0.IsCustomizingColor = false;
-            Color3.IsCustomizingColor = false;
-            Color4.IsCustomizingColor = false;
-            Color5.IsCustomizingColor = false;
-            Color6.IsCustomizingColor = false;
-            Color7.IsCustomizingColor = false;
-            Color8.IsCustomizingColor = false;
-            Color9.IsCustomizingColor = false;
-            Color10.IsCustomizingColor = false;
-
+            foreach (ICB_CustomColor item in CustomColorCollection.Cast<ICB_CustomColor>())
+            {
+                item.IsCustomizingColor = false;
+            }
         }
     }
 }
