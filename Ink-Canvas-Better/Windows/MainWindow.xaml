@@ -47,12 +47,15 @@
             TouchUp=""/>
         -->
         <!--  // Canvas //  -->
-        <localControls:CustomInkCanvas
+        <InkCanvas
             x:Name="inkCanvas"
             Background="Transparent"
             Cursor="Pen"
             ForceCursor="False"
-            IsManipulationEnabled="True"/>
+            IsManipulationEnabled="True"
+            TouchDown="inkCanvas_TouchDown"
+            TouchMove="inkCanvas_TouchMove"
+            TouchUp="inkCanvas_TouchUp"/>
         <!-- // Floatingbar // -->
         <ikw:SimpleStackPanel
             Opacity="0.88"

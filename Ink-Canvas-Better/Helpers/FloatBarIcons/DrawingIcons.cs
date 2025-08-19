@@ -26,7 +26,7 @@ namespace Ink_Canvas_Better
 
         public void CursorIcon_ChangeToCursor()
         {
-            MainWindow_Grid.Background = Brushes.Transparent;
+            inkCanvas.Background = Brushes.Transparent;
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Cursor;
             inkCanvas.EditingMode = InkCanvasEditingMode.None;
         }
@@ -38,7 +38,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
             {
-                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pen;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
@@ -55,7 +55,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Highlighter)
             {
-                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Highlighter;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
@@ -72,7 +72,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser)
             {
-                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
                 inkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
                 if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
@@ -96,7 +96,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pick)
             {
-                MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pick;
                 inkCanvas.EditingMode = InkCanvasEditingMode.Select;
             }

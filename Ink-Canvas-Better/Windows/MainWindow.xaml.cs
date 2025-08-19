@@ -2,14 +2,12 @@
 using Ink_Canvas_Better.Helpers.Others;
 using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
-using Ink_Canvas_Better.Windows.FloatingBarIcons;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
-using System.Windows.Interop;
+using System.Windows.Input;
 
 namespace Ink_Canvas_Better
 {
@@ -28,12 +26,26 @@ namespace Ink_Canvas_Better
 
             Setting.LoadSettings(isStartup : true);
             RuntimeData.mainWindow = this;
-
+            
             this.SourceInitialized += Win32Helper.MainWindow_SourceInitialized;
             this.Loaded += DockWindowToBottom;
         }
 
         #endregion
 
+        private void inkCanvas_TouchDown(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void inkCanvas_TouchMove(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void inkCanvas_TouchUp(object sender, TouchEventArgs e)
+        {
+
+        }
     }
 }

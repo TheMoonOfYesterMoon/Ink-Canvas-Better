@@ -134,7 +134,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             if (RuntimeData.mainWindow != null && RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
             {
-                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pen;
                 RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                 RuntimeData.mainWindow.inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;

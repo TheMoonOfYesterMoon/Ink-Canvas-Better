@@ -95,7 +95,8 @@ namespace Ink_Canvas_Better.Resources
             Pen,
             Highlighter,
             Eraser,
-            Pick // Select
+            Pick, // Select
+            Shape
         }
 
         public enum EraserMode
