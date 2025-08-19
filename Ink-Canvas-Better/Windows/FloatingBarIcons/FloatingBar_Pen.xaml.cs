@@ -1,5 +1,6 @@
 ﻿using Ink_Canvas_Better.Controls;
 using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Helpers.Others;
 using Ink_Canvas_Better.Resources;
 using iNKORE.UI.WPF.Helpers;
 using System;
@@ -96,7 +97,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            this.FindAscendant<Popup>().IsOpen = false;
+            ((Popup)this.GetFirstLogicalTreeParent(typeof(Popup))).IsOpen = false;
         }
 
         private void PinButton_Click(object sender, RoutedEventArgs e)
