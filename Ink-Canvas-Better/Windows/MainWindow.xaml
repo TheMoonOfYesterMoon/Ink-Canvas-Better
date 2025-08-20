@@ -176,11 +176,13 @@
                         IsSqueezeHorizontally="True"/>
                     <!-- TODO: merge 'redo' and 'undo' -->
                     <localControls:ICB_Button
+                        x:Name="RedoIcon"
                         Text="{DynamicResource Text_Redo}"
                         FontIcon="&#xe7a7;"
                         Click="RedoIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <localControls:ICB_Button
+                        x:Name="UndoIcon"
                         Text="{DynamicResource Text_Undo}"
                         FontIcon="&#xe7a6;"
                         Click="UndoIcon_Click"

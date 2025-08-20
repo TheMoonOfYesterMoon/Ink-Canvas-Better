@@ -17,10 +17,7 @@ namespace Ink_Canvas_Better
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Cursor)
             {
                 CursorIcon_ChangeToCursor();
-            }
-            else
-            {
-                // hide part of the floatingbar
+                IsHideDrawingTools = true;
             }
         }
 
@@ -36,6 +33,10 @@ namespace Ink_Canvas_Better
         #region Pen
         public void PenIcon_Click(Object sender, RoutedEventArgs e)
         {
+            if (RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Cursor)
+            {
+                IsHideDrawingTools = false;
+            }
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
             {
                 MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");

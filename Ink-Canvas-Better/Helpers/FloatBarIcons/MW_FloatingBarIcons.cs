@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas_Better.Controls;
+using Ink_Canvas_Better.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,30 +11,29 @@ namespace Ink_Canvas_Better
 {
     public partial class MainWindow
     {
-
-        // TODO: need to be improved
-        public void SwitchButtonStatus(String mode)
+        public void HideDrawingTools()
         {
-            CursorIcon.IsStatusEnable = false;
-            EraserIcon.IsStatusEnable = false;
-            // HighlighterIcon.IsStatusEnable = false;
-            PenIcon.IsStatusEnable = false;
-            // RetraceIcon.IsStatusEnable = false;
-            PickIcon.IsStatusEnable = false;
-            // ShapeIcon.IsStatusEnable = false;
-            // ToolsIcon.IsStatusEnable = false;
-            // TouchSettingIcon.IsStatusEnable = false;
-
-            ICB_Button foundControl = (ICB_Button)FindName(mode);
-            if (foundControl == null)
-            {
-                Console.WriteLine($"未找到控件:{mode}");
-            }
-            else
-            {
-                foundControl.IsStatusEnable = true;
-            }
+            var _ = Visibility.Collapsed;
+            ClearIcon.Visibility = _;
+            HighlighterIcon.Visibility = _;
+            EraserIcon.Visibility = _;
+            PickIcon.Visibility = _;
+            ShapeIcon.Visibility = _;
+            RedoIcon.Visibility = _;
+            UndoIcon.Visibility = _;
         }
 
+        public void ShowDrawingTools()
+        {
+            var _ = Visibility.Visible;
+            ClearIcon.Visibility = _;
+            HighlighterIcon.Visibility = _;
+            EraserIcon.Visibility = _;
+            PickIcon.Visibility = _;
+            ShapeIcon.Visibility = _;
+            RedoIcon.Visibility = _;
+            UndoIcon.Visibility = _;
+
+        }
     }
 }
