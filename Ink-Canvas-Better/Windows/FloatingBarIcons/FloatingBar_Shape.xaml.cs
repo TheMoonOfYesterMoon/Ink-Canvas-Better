@@ -41,6 +41,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Shape;
             var senderName = ((Image)sender).Name;
             switch (senderName)
             {

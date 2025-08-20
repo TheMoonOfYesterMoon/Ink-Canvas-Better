@@ -26,9 +26,7 @@ namespace Ink_Canvas_Better
 
         public void CursorIcon_ChangeToCursor()
         {
-            MainInkCanvas.Background = Brushes.Transparent;
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Cursor;
-            MainInkCanvas.EditingMode = InkCanvasEditingMode.None;
         }
 
         #endregion
@@ -38,10 +36,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
             {
-                MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pen;
-                MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                MainInkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
             }
             else
             {
@@ -55,10 +50,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Highlighter)
             {
-                RuntimeData.mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Highlighter;
-                MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                MainInkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
             }
             else
             {
@@ -72,17 +64,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser)
             {
-                MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
-                MainInkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
-                if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
-                {
-                    MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
-                }
-                else
-                {
-                    MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
-                }
             }
             else
             {
@@ -96,9 +78,7 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pick)
             {
-                MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pick;
-                MainInkCanvas.EditingMode = InkCanvasEditingMode.Select;
             }
         }
         #endregion
