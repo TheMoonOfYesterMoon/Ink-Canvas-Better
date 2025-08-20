@@ -13,7 +13,7 @@
         Width="64"
         Height="64"
         Name="Border"
-        Background="{DynamicResource DefaultBackgroundColor_Opacity}">
+        Background="{DynamicResource DefaultBackgroundColor}">
         <Button
             Width="58"
             Height="58"

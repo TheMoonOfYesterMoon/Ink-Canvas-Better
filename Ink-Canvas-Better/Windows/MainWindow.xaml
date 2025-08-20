@@ -47,14 +47,18 @@
             TouchUp=""/>
         -->
         <!--  // Canvas //  -->
-        <localControls:CustomInkCanvas
-            x:Name="inkCanvas"
+        <InkCanvas
+            x:Name="MainInkCanvas"
             Background="Transparent"
             Cursor="Pen"
             ForceCursor="False"
-            IsManipulationEnabled="True"/>
+            IsManipulationEnabled="True"
+            MouseDown="MainInkCanvas_MouseDown"
+            MouseMove="MainInkCanvas_MouseMove"
+            MouseUp="MainInkCanvas_MouseUp"/>
         <!-- // Floatingbar // -->
         <ikw:SimpleStackPanel
+            Opacity="0.88"
             Height="68"
             Name="floatingBar"
             Spacing="2"
@@ -81,16 +85,14 @@
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
+                Background="{DynamicResource DefaultBackgroundColor}"
                 BorderThickness="2"
+                Padding="5,0,5,0"
                 CornerRadius="6"
                 Name="Border_DrawingTools">
                 <ikw:SimpleStackPanel
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
-                    <Border 
-                        Width="5"
-                        Background="{DynamicResource DefaultBackgroundColor_Opacity}"
-                        CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="CursorIcon"
                         Text="{DynamicResource Text_Cursor}"
@@ -187,25 +189,19 @@
                         FontIcon="&#xe7a6;"
                         Click="UndoIcon_Click"
                         IsSqueezeHorizontally="True"/>
-                    <Border 
-                        Width="5"
-                        Background="{DynamicResource DefaultBackgroundColor_Opacity}"
-                        CornerRadius="0,5,5,0"/>
                 </ikw:SimpleStackPanel>
             </Border>
 
             <Border
                 BorderBrush="{DynamicResource BorderBrush}"
+                Background="{DynamicResource DefaultBackgroundColor}"
                 BorderThickness="2"
+                Padding="5,0,5,0"
                 CornerRadius="6"
                 Name="Border_Others">
                 <ikw:SimpleStackPanel
                     HorizontalAlignment="Center"
                     Orientation="Horizontal">
-                    <Border 
-                        Width="5"
-                        Background="{DynamicResource DefaultBackgroundColor_Opacity}"
-                        CornerRadius="5,0,0,5"/>
                     <localControls:ICB_Button
                         x:Name="WhiteBoardIcon"
                         Text="{DynamicResource Text_WhiteBoardIcon}"
@@ -230,10 +226,6 @@
                         FontIcon="&#xed1a;"
                         Click="HideIcon_Click"
                         IsSqueezeHorizontally="True"/>
-                    <Border 
-                        Width="5"
-                        Background="{DynamicResource DefaultBackgroundColor_Opacity}"
-                        CornerRadius="0,5,5,0"/>
                 </ikw:SimpleStackPanel>
             </Border>
 

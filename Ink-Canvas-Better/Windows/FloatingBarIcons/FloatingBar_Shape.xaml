@@ -9,7 +9,7 @@
              xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
              xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
              mc:Ignorable="d"
-             d:DesignHeight="240" Width="500">
+             d:DesignHeight="300" Width="500">
     <UserControl.Resources>
         <Style x:Key="PinButtonStyle" TargetType="Button">
             <Setter Property="Template">
@@ -36,6 +36,11 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style x:Key="ImageShapeStyle" TargetType="Image">
+            <Setter Property="Width" Value="56"/>
+            <Setter Property="Height" Value="56"/>
+            <Setter Property="Margin" Value="2"/>
         </Style>
     </UserControl.Resources>
     
@@ -111,12 +116,32 @@
             CornerRadius="0,0,5,5">
             <ikw:SimpleStackPanel Margin="5">
                 <TextBlock Text="{DynamicResource Text_2DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
-                <WrapPanel>
-
+                <WrapPanel Margin="2">
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Line" Source="{DynamicResource Image.Shape.Line}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedLine" Source="{DynamicResource Image.Shape.DashedLine}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DotLine" Source="{DynamicResource Image.Shape.DotLine}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ArrowLine" Source="{DynamicResource Image.Shape.ArrowLine}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParallelLine" Source="{DynamicResource Image.Shape.ParallelLine}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate1" Source="{DynamicResource Image.Shape.Coordinate1}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate2" Source="{DynamicResource Image.Shape.Coordinate2}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Rectangle" Source="{DynamicResource Image.Shape.Rectangle}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Circle" Source="{DynamicResource Image.Shape.Circle}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedCircle" Source="{DynamicResource Image.Shape.DashedCircle}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Ellipse" Source="{DynamicResource Image.Shape.Ellipse}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Hyperbola" Source="{DynamicResource Image.Shape.Hyperbola}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Parabola" Source="{DynamicResource Image.Shape.Parabola}"/>
+                    <!--
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Source="{DynamicResource Image.Shape.Line}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Source="{DynamicResource Image.Shape.Line}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Source="{DynamicResource Image.Shape.Line}"/>
+                    -->
                 </WrapPanel>
                 <TextBlock Text="{DynamicResource Text_3DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                 <WrapPanel>
-
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cylinder" Source="{DynamicResource Image.Shape.Cylinder}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cone" Source="{DynamicResource Image.Shape.Cone}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cuboid" Source="{DynamicResource Image.Shape.Cuboid}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Tetrahedron" Source="{DynamicResource Image.Shape.Tetrahedron}"/>
                 </WrapPanel>
             </ikw:SimpleStackPanel>
         </Border>

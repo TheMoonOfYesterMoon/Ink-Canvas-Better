@@ -6,6 +6,7 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Media;
 
@@ -41,34 +42,53 @@ namespace Ink_Canvas_Better.Resources
             get { return _currentDrawingMode; }
             set
             {
+                if (_currentDrawingMode != DrawingMode.Shape)
+                {
+                    mainWindow.CursorIcon.IsStatusEnable = false;
+                    mainWindow.PenIcon.IsStatusEnable = false;
+                    mainWindow.HighlighterIcon.IsStatusEnable = false;
+                    mainWindow.EraserIcon.IsStatusEnable = false;
+                    mainWindow.PickIcon.IsStatusEnable = false;
+                }
                 _currentDrawingMode = value;
-                mainWindow.CursorIcon.IsStatusEnable = false;
-                mainWindow.PenIcon.IsStatusEnable = false;
-                mainWindow.HighlighterIcon.IsStatusEnable = false;
-                mainWindow.EraserIcon.IsStatusEnable = false;
-                mainWindow.PickIcon.IsStatusEnable = false;
                 switch (_currentDrawingMode)
                 {
                     case DrawingMode.None:
                         break;
                     case DrawingMode.Cursor:
+                        mainWindow.MainInkCanvas.Background = Brushes.Transparent;
+                        mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.None;
                         mainWindow.CursorIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Pen:
+                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                        mainWindow.MainInkCanvas.DefaultDrawingAttributes = CurrentDrawingAttributes_Pen;
                         mainWindow.PenIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Highlighter:
+                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                        mainWindow.MainInkCanvas.DefaultDrawingAttributes = CurrentDrawingAttributes_Highlighter;
                         mainWindow.HighlighterIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Eraser:
+                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        if (CurrentEraserMode == EraserMode.Stroke) mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke; else mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                        mainWindow.MainInkCanvas.EraserShape = CurrentEraserShape;
                         mainWindow.EraserIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Pick:
+                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Select;
                         mainWindow.PickIcon.IsStatusEnable = true;
                         break;
+                    case DrawingMode.Shape:
+                        break;
                     default:
+                        var _ = _currentDrawingMode;
                         _currentDrawingMode = DrawingMode.None;
-                        throw new NotImplementedException();
+                        throw new NotImplementedException($"Unimplemented drawing mode: {_}");
                 }
             }
         }
@@ -95,7 +115,8 @@ namespace Ink_Canvas_Better.Resources
             Pen,
             Highlighter,
             Eraser,
-            Pick // Select
+            Pick, // Select
+            Shape
         }
 
         public enum EraserMode

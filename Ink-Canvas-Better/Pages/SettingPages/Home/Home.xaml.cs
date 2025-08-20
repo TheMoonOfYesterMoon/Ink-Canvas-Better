@@ -54,11 +54,6 @@ namespace Ink_Canvas_Better.Pages.SettingPages
             Process.Start(new ProcessStartInfo("https://github.com/BaiYang2238/Ink-Canvas-Better") { UseShellExecute = true });
         }
 
-        private void SettingsCard_Author_Click(object sender, RoutedEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo("https://github.com/BaiYang2238") { UseShellExecute = true });
-        }
-
         private void Home_Loaded(object sender, RoutedEventArgs e)
         {
             string Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -77,6 +72,12 @@ namespace Ink_Canvas_Better.Pages.SettingPages
         {
             Language languageWindow = new Language();
             languageWindow.ShowDialog();
+        }
+
+        private void HyperlinkButton_Author_Click(object sender, RoutedEventArgs e)
+        {
+            var name = ((iNKORE.UI.WPF.Modern.Controls.HyperlinkButton)sender).Content.ToString();
+            Process.Start(new ProcessStartInfo($"https://github.com/{name}") { UseShellExecute = true });
         }
     }
 }

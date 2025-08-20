@@ -79,30 +79,35 @@
                     </ikw:SimpleStackPanel>
                 </ui:SettingsCard.Content>
             </ui:SettingsCard>
-            <ui:SettingsCard
-                Header="Github"
-                Click="SettingsCard_Github_Click"
-                IsClickEnabled="True"
-                Description="{DynamicResource Text_Setting_GoToGithubRepository}">
-                <ui:SettingsCard.HeaderIcon>
-                    <Image Source="{StaticResource Icon_Github}"/>
-                </ui:SettingsCard.HeaderIcon>
-                <ui:SettingsCard.ActionIcon>
-                    <ui:FontIcon Glyph="&#xe8a7;"/>
-                </ui:SettingsCard.ActionIcon>
-            </ui:SettingsCard>
-            <ui:SettingsCard
-                Header="{DynamicResource Text_Setting_Author}"
-                Click="SettingsCard_Author_Click"
-                IsClickEnabled="True"
-                Description="{DynamicResource Text_Author}">
-                <ui:SettingsCard.HeaderIcon>
-                    <ui:FontIcon Glyph="&#xee57;"/>
-                </ui:SettingsCard.HeaderIcon>
-                <ui:SettingsCard.ActionIcon>
-                    <ui:FontIcon Glyph="&#xe8a7;"/>
-                </ui:SettingsCard.ActionIcon>
-            </ui:SettingsCard>
+            <ui:SettingsExpander Header="{DynamicResource Text_About}">
+                <ui:SettingsExpander.HeaderIcon>
+                    <ui:FontIcon Glyph="&#xe736;"/>
+                </ui:SettingsExpander.HeaderIcon>
+                <ui:SettingsExpander.Items>
+                    <ui:SettingsCard
+                        Header="{DynamicResource Text_Setting_Author}">
+                        <ui:SettingsCard.HeaderIcon>
+                            <ui:FontIcon Glyph="&#xee57;"/>
+                        </ui:SettingsCard.HeaderIcon>
+                        <ikw:SimpleStackPanel Orientation="Horizontal">
+                            <ui:HyperlinkButton Content="{DynamicResource Text_Author}" FontSize="12" Click="HyperlinkButton_Author_Click"/>
+                            <ui:HyperlinkButton Content="{DynamicResource Text_Author1}" FontSize="12" Click="HyperlinkButton_Author_Click"/>
+                        </ikw:SimpleStackPanel>
+                    </ui:SettingsCard>
+                    <ui:SettingsCard
+                        Header="Github"
+                        Click="SettingsCard_Github_Click"
+                        IsClickEnabled="True"
+                        Description="{DynamicResource Text_Setting_GoToGithubRepository}">
+                        <ui:SettingsCard.HeaderIcon>
+                            <Image Source="{DynamicResource Image.Others.Github}"/>
+                        </ui:SettingsCard.HeaderIcon>
+                        <ui:SettingsCard.ActionIcon>
+                            <ui:FontIcon Glyph="&#xe8a7;"/>
+                        </ui:SettingsCard.ActionIcon>
+                    </ui:SettingsCard>
+                </ui:SettingsExpander.Items>
+            </ui:SettingsExpander>
             <ui:SettingsCard
                 Header="{DynamicResource Text_Setting_Language}"
                 Click="SettingsCard_Language_Click"

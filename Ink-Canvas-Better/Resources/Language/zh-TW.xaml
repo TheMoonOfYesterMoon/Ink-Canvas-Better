@@ -5,6 +5,7 @@
     <!-- About -->
     <s:String x:Key="Text_ProductName">Ink Canvas Better</s:String>
     <s:String x:Key="Text_Author">BaiYang2238</s:String>
+    <s:String x:Key="Text_Author1">theMonthBeforeLastMonth</s:String>
 
     <!-- Floating bar -->
     <s:String x:Key="Text_Cursor">滑鼠</s:String>
@@ -36,6 +37,7 @@
         <s:String x:Key="Text_Circular">圓形</s:String>
         <s:String x:Key="Text_2DSahpes">平面圖形</s:String>
         <s:String x:Key="Text_3DSahpes">立體圖形</s:String>
+        <s:String x:Key="Text_About">關於</s:String>
 
     <!-- Setting -->
     <s:String x:Key="Text_Setting">設定</s:String>

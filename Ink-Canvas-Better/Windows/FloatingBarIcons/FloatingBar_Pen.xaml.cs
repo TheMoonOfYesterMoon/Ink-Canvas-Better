@@ -5,14 +5,12 @@ using Ink_Canvas_Better.Resources;
 using iNKORE.UI.WPF.Helpers;
 using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Ink;
 using System.Windows.Media;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
@@ -51,7 +49,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         public static void StaysOpen_OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as FloatingBar_Pen;
-            RuntimeData.mainWindow.Popup_Pen.StaysOpen = (bool)e.NewValue;
+            control.FindAscendant<Popup>().StaysOpen = (bool)e.NewValue;
             if ((bool)e.NewValue)
             {
                 control.PinButton.FindDescendant<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue77a";
@@ -99,7 +97,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            RuntimeData.mainWindow.Popup_Pen.IsOpen = false;
+            ((Popup)this.GetFirstLogicalTreeParent(typeof(Popup))).IsOpen = false;
         }
 
         private void PinButton_Click(object sender, RoutedEventArgs e)
@@ -136,10 +134,10 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             if (RuntimeData.mainWindow != null && RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
             {
-                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pen;
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                RuntimeData.mainWindow.inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
+                RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                RuntimeData.mainWindow.MainInkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
             }
         }
 

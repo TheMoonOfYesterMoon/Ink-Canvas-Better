@@ -1,4 +1,5 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Helpers.Others;
+using Ink_Canvas_Better.Resources;
 using iNKORE.UI.WPF.Helpers;
 using System;
 using System.Diagnostics;
@@ -7,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Ink;
 using System.Windows.Media;
 
@@ -23,7 +25,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            RuntimeData.mainWindow.Popup_Eraser.IsOpen = false;
+            ((Popup)this.GetFirstLogicalTreeParent(typeof(Popup))).IsOpen = false;
         }
 
         private void PinButton_Click(object sender, RoutedEventArgs e)
@@ -51,7 +53,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             ToggleButton_Square.IsEnabled = false;
             ToggleButton_EraseByStroke.IsChecked = true;
             ToggleButton_EraseByPoint.IsChecked = false;
-            RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+            RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
             RuntimeData.CurrentEraserMode = RuntimeData.EraserMode.Stroke;
         }
@@ -62,7 +64,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             ToggleButton_Square.IsEnabled = true;
             ToggleButton_EraseByStroke.IsChecked = false;
             ToggleButton_EraseByPoint.IsChecked = true;
-            RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+            RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
             RuntimeData.CurrentEraserMode = RuntimeData.EraserMode.Point;
         }
@@ -103,9 +105,9 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
                     RuntimeData.CurrentEraserShape = new EllipseStylusShape(value, value);
                 }
                 // it's necessary
-                RuntimeData.mainWindow.inkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                RuntimeData.mainWindow.MainInkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
+                RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             }
         }
 
@@ -113,15 +115,15 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             if (RuntimeData.mainWindow != null && (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser))
             {
-                RuntimeData.mainWindow.MainWindow_Grid.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
                 if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
                 {
-                    RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                    RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
                 }
                 else
                 {
-                    RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                    RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                 }
             }
         }

@@ -17,7 +17,9 @@
                 <ui:XamlControlsResources/>
                 <ResourceDictionary Source="Resources/Styles/Light.xaml"/>
 
-                <ResourceDictionary x:Name="LanguageFile" Source="Resources/Language/en.xaml"/>
+                <ResourceDictionary Source="/Resources/Image/OthersImageDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Image/DrawShapeImageDictionary.xaml"/>
+                <ResourceDictionary Source="/Resources/Language/en.xaml" x:Name="LanguageFile"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
