@@ -32,9 +32,22 @@ namespace Ink_Canvas_Better
             MainInkCanvas.AddHandler(MouseDownEvent, new MouseButtonEventHandler(MainInkCanvas_MouseUp), true);
             this.SourceInitialized += Win32Helper.MainWindow_SourceInitialized;
             this.Loaded += DockWindowToBottom;
+
+            CursorIcon_Click(null, null);
         }
 
         #endregion
+
+        private bool _isHideDrawingTools = false;
+        public bool IsHideDrawingTools
+        {
+            get { return _isHideDrawingTools; }
+            set
+            {
+                _isHideDrawingTools = value;
+                if (_isHideDrawingTools) HideDrawingTools(); else ShowDrawingTools();
+            }
+        }
 
         private void MainInkCanvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
