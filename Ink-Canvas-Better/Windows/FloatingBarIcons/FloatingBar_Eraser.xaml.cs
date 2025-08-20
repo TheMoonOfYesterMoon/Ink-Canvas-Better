@@ -53,7 +53,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             ToggleButton_Square.IsEnabled = false;
             ToggleButton_EraseByStroke.IsChecked = true;
             ToggleButton_EraseByPoint.IsChecked = false;
-            RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+            RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
             RuntimeData.CurrentEraserMode = RuntimeData.EraserMode.Stroke;
         }
@@ -64,7 +64,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             ToggleButton_Square.IsEnabled = true;
             ToggleButton_EraseByStroke.IsChecked = false;
             ToggleButton_EraseByPoint.IsChecked = true;
-            RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+            RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
             RuntimeData.CurrentEraserMode = RuntimeData.EraserMode.Point;
         }
@@ -105,9 +105,9 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
                     RuntimeData.CurrentEraserShape = new EllipseStylusShape(value, value);
                 }
                 // it's necessary
-                RuntimeData.mainWindow.inkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                RuntimeData.mainWindow.MainInkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
+                RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
             }
         }
 
@@ -115,15 +115,15 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             if (RuntimeData.mainWindow != null && (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser))
             {
-                RuntimeData.mainWindow.inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
                 if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
                 {
-                    RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                    RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
                 }
                 else
                 {
-                    RuntimeData.mainWindow.inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                    RuntimeData.mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                 }
             }
         }

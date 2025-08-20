@@ -48,14 +48,14 @@
         -->
         <!--  // Canvas //  -->
         <InkCanvas
-            x:Name="inkCanvas"
+            x:Name="MainInkCanvas"
             Background="Transparent"
             Cursor="Pen"
             ForceCursor="False"
             IsManipulationEnabled="True"
-            TouchDown="inkCanvas_TouchDown"
-            TouchMove="inkCanvas_TouchMove"
-            TouchUp="inkCanvas_TouchUp"/>
+            MouseDown="MainInkCanvas_MouseDown"
+            MouseMove="MainInkCanvas_MouseMove"
+            MouseUp="MainInkCanvas_MouseUp"/>
         <!-- // Floatingbar // -->
         <ikw:SimpleStackPanel
             Opacity="0.88"

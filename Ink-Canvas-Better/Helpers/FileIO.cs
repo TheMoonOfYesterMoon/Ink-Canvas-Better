@@ -91,7 +91,7 @@ namespace Ink_Canvas_Better.Helpers
 
                     // Create a temporary strokes file
                     FileStream stkFileStream = new FileStream(Path.Combine(directoryPath, tempStkFile), FileMode.Create);
-                    RuntimeData.mainWindow.inkCanvas.Strokes.Save(stkFileStream);
+                    RuntimeData.mainWindow.MainInkCanvas.Strokes.Save(stkFileStream);
                     stkFileStream.Close();
 
                     // Create a temporary metadata file
@@ -121,7 +121,7 @@ namespace Ink_Canvas_Better.Helpers
 
         public static void LoadStrokes(String filePath)
         {
-            if (RuntimeData.mainWindow.inkCanvas.Strokes != null || RuntimeData.mainWindow.inkCanvas.Strokes.Count != 0)
+            if (RuntimeData.mainWindow.MainInkCanvas.Strokes != null || RuntimeData.mainWindow.MainInkCanvas.Strokes.Count != 0)
             {
                 //SaveStrokes();
             }
@@ -153,7 +153,7 @@ namespace Ink_Canvas_Better.Helpers
                         //}
                         using (Stream strokeStream = strokeEntry.Open())
                         {
-                            RuntimeData.mainWindow.inkCanvas.Strokes = new StrokeCollection(strokeStream);
+                            RuntimeData.mainWindow.MainInkCanvas.Strokes = new StrokeCollection(strokeStream);
                         }
                     }
                     break;

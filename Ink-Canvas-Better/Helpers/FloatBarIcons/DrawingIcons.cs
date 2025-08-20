@@ -26,9 +26,9 @@ namespace Ink_Canvas_Better
 
         public void CursorIcon_ChangeToCursor()
         {
-            inkCanvas.Background = Brushes.Transparent;
+            MainInkCanvas.Background = Brushes.Transparent;
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Cursor;
-            inkCanvas.EditingMode = InkCanvasEditingMode.None;
+            MainInkCanvas.EditingMode = InkCanvasEditingMode.None;
         }
 
         #endregion
@@ -38,10 +38,10 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pen)
             {
-                inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pen;
-                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
+                MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                MainInkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Pen;
             }
             else
             {
@@ -55,10 +55,10 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Highlighter)
             {
-                RuntimeData.mainWindow.inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Highlighter;
-                inkCanvas.EditingMode = InkCanvasEditingMode.Ink;
-                inkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
+                MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+                MainInkCanvas.DefaultDrawingAttributes = RuntimeData.CurrentDrawingAttributes_Highlighter;
             }
             else
             {
@@ -72,16 +72,16 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser)
             {
-                inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
-                inkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
+                MainInkCanvas.EraserShape = RuntimeData.CurrentEraserShape;
                 if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
                 {
-                    inkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
+                    MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke;
                 }
                 else
                 {
-                    inkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+                    MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                 }
             }
             else
@@ -96,9 +96,9 @@ namespace Ink_Canvas_Better
         {
             if (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Pick)
             {
-                inkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Pick;
-                inkCanvas.EditingMode = InkCanvasEditingMode.Select;
+                MainInkCanvas.EditingMode = InkCanvasEditingMode.Select;
             }
         }
         #endregion
@@ -106,7 +106,7 @@ namespace Ink_Canvas_Better
         #region Clear
         public void ClearIcon_Click(object sender, RoutedEventArgs e)
         {
-            inkCanvas.Strokes.Clear();
+            MainInkCanvas.Strokes.Clear();
         }
         #endregion
     }

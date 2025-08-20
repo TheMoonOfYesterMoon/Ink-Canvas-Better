@@ -25,7 +25,7 @@ namespace Ink_Canvas_Better
         {
             var c = sender as Control;
             _isMouseDown = true;
-            _mouseDownPosition = e.GetPosition(inkCanvas);
+            _mouseDownPosition = e.GetPosition(MainInkCanvas);
             if (!(floatingBar.RenderTransform is TranslateTransform transform))
             {
                 transform = new TranslateTransform();
@@ -53,7 +53,7 @@ namespace Ink_Canvas_Better
         {
             var c = sender as Control;
             _isMouseDown = false;
-            _mouseUpPosition = e.GetPosition(inkCanvas);
+            _mouseUpPosition = e.GetPosition(MainInkCanvas);
 
             // fold the floating bar if the mouse movement is within the tolerance
             double deltaX = _mouseUpPosition.X - _mouseDownPosition.X;
