@@ -115,7 +115,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         {
             if (RuntimeData.mainWindow != null && (RuntimeData.CurrentDrawingMode != RuntimeData.DrawingMode.Eraser))
             {
-                RuntimeData.mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                RuntimeData.mainWindow.MainInkCanvas_Hitable = true;
                 RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Eraser;
                 if (RuntimeData.CurrentEraserMode == RuntimeData.EraserMode.Stroke)
                 {

@@ -24,8 +24,6 @@ namespace Ink_Canvas_Better.Resources
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
 
-        public static StylusShape CurrentEraserShape { get; set; } = new EllipseStylusShape(30, 30);
-
         public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes()
         {
             Color = Color.FromRgb(255,0,0)
@@ -36,12 +34,15 @@ namespace Ink_Canvas_Better.Resources
             Width = 1
         };
 
+        public static DrawingMode LastDrawingMode {  get; set; } = DrawingMode.None;
+
         private static DrawingMode _currentDrawingMode = DrawingMode.None;
         public static DrawingMode CurrentDrawingMode
         {
             get { return _currentDrawingMode; }
             set
             {
+                // Check
                 if (_currentDrawingMode != DrawingMode.Shape)
                 {
                     mainWindow.CursorIcon.IsStatusEnable = false;
@@ -49,41 +50,47 @@ namespace Ink_Canvas_Better.Resources
                     mainWindow.HighlighterIcon.IsStatusEnable = false;
                     mainWindow.EraserIcon.IsStatusEnable = false;
                     mainWindow.PickIcon.IsStatusEnable = false;
+                    mainWindow.PickIcon.IsStatusEnable = false;
+                    LastDrawingMode = _currentDrawingMode;
                 }
+                // Update _currentDrawingMode
                 _currentDrawingMode = value;
                 switch (_currentDrawingMode)
                 {
                     case DrawingMode.None:
                         break;
                     case DrawingMode.Cursor:
-                        mainWindow.MainInkCanvas.Background = Brushes.Transparent;
+                        mainWindow.MainInkCanvas_Hitable = false;
                         mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.None;
                         mainWindow.CursorIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Pen:
-                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        mainWindow.MainInkCanvas_Hitable = true;
                         mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                         mainWindow.MainInkCanvas.DefaultDrawingAttributes = CurrentDrawingAttributes_Pen;
                         mainWindow.PenIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Highlighter:
-                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        mainWindow.MainInkCanvas_Hitable = true;
                         mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
                         mainWindow.MainInkCanvas.DefaultDrawingAttributes = CurrentDrawingAttributes_Highlighter;
                         mainWindow.HighlighterIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Eraser:
-                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        mainWindow.MainInkCanvas_Hitable = true;
                         if (CurrentEraserMode == EraserMode.Stroke) mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByStroke; else mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
                         mainWindow.MainInkCanvas.EraserShape = CurrentEraserShape;
                         mainWindow.EraserIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Pick:
-                        mainWindow.MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                        mainWindow.MainInkCanvas_Hitable = true;
                         mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.Select;
                         mainWindow.PickIcon.IsStatusEnable = true;
                         break;
                     case DrawingMode.Shape:
+                        mainWindow.MainInkCanvas_Hitable = true;
+                        mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.None;
+                        mainWindow.PickIcon.IsStatusEnable = true;
                         break;
                     default:
                         var _ = _currentDrawingMode;
@@ -93,15 +100,13 @@ namespace Ink_Canvas_Better.Resources
             }
         }
 
-        private static EraserMode _currentEraserMode = EraserMode.Point;
-        public static EraserMode CurrentEraserMode
-        {
-            get { return _currentEraserMode; }
-            set
-            {
-                _currentEraserMode = value;
-            }
-        }
+        public static EraserMode CurrentEraserMode { get; set; } = EraserMode.Point;
+
+        public static StylusShape CurrentEraserShape { get; set; } = new EllipseStylusShape(30, 30);
+
+        public static string CurrentShape { get; set; } = "Shape_Line";
+
+        public static bool IsShapeModePersistent { get; set; } = false;
 
         public static void ApplyMetadata()
         {

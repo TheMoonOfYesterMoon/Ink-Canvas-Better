@@ -130,11 +130,6 @@
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Ellipse" Source="{DynamicResource Image.Shape.Ellipse}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Hyperbola" Source="{DynamicResource Image.Shape.Hyperbola}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Parabola" Source="{DynamicResource Image.Shape.Parabola}"/>
-                    <!--
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Source="{DynamicResource Image.Shape.Line}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Source="{DynamicResource Image.Shape.Line}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Source="{DynamicResource Image.Shape.Line}"/>
-                    -->
                 </WrapPanel>
                 <TextBlock Text="{DynamicResource Text_3DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                 <WrapPanel>
