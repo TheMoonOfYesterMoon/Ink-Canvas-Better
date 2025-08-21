@@ -6,6 +6,7 @@
     <s:String x:Key="Text_ProductName">Ink Canvas Better</s:String>
     <s:String x:Key="Text_Author">BaiYang2238</s:String>
     <s:String x:Key="Text_Author1">theMonthBeforeLastMonth</s:String>
+    <s:String x:Key="Text_CurrentLanguage">English</s:String>
 
     <!-- Floating bar -->
     <s:String x:Key="Text_Cursor">Cursor</s:String>
@@ -55,6 +56,11 @@
         <s:String x:Key="Text_ResetSettings">Reset Settings</s:String>
         <s:String x:Key="Text_OpenLog">Open Log</s:String>
         <s:String x:Key="Text_About">About</s:String>
+        <!-- Appearance -->
+        <s:String x:Key="Text_Setting_Theme">Theme</s:String>
+        <s:String x:Key="Text_Setting_Auto">Auto</s:String>
+        <s:String x:Key="Text_Setting_Light">Light</s:String>
+        <s:String x:Key="Text_Setting_Dark">Dark</s:String>
 
     <!-- Basic -->
     <s:String x:Key="Text_CloseApplication">Close Application</s:String>

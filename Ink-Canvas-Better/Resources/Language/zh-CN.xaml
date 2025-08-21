@@ -6,6 +6,7 @@
     <s:String x:Key="Text_ProductName">Ink Canvas Better</s:String>
     <s:String x:Key="Text_Author">BaiYang2238</s:String>
     <s:String x:Key="Text_Author1">theMonthBeforeLastMonth</s:String>
+    <s:String x:Key="Text_CurrentLanguage">简体中文</s:String>
 
     <!-- Floating bar -->
     <s:String x:Key="Text_Cursor">鼠标</s:String>
@@ -55,6 +56,11 @@
         <s:String x:Key="Text_ResetSettings">重置设置</s:String>
         <s:String x:Key="Text_OpenLog">打开日志</s:String>
         <s:String x:Key="Text_About">关于</s:String>
+        <!-- Appearance -->
+        <s:String x:Key="Text_Setting_Theme">主题</s:String>
+        <s:String x:Key="Text_Setting_Auto">自动</s:String>
+        <s:String x:Key="Text_Setting_Light">浅色</s:String>
+        <s:String x:Key="Text_Setting_Dark">深色</s:String>
 
     <!-- Basic -->
     <s:String x:Key="Text_CloseApplication">关闭软件</s:String>

@@ -112,11 +112,16 @@
             <ui:SettingsCard
                 Header="{DynamicResource Text_Setting_Language}"
                 Click="SettingsCard_Language_Click"
-                IsClickEnabled="True"
-                Description="Language">
+                IsClickEnabled="True">
                 <ui:SettingsCard.HeaderIcon>
                     <ui:FontIcon Glyph="&#xf2b7;"/>
                 </ui:SettingsCard.HeaderIcon>
+                <ui:SettingsCard.Description>
+                    <TextBlock>
+                        <Run Text="Current language: "/>
+                        <Run Text="{DynamicResource Text_CurrentLanguage}"/>
+                    </TextBlock>
+                </ui:SettingsCard.Description>
             </ui:SettingsCard>
         </ikw:SimpleStackPanel>
     </ScrollViewer>

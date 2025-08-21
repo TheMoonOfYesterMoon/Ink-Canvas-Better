@@ -20,6 +20,9 @@
     <Compile Update="Controls\ICB_ToggleButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\SettingPages\Appearance\Appearance.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\SettingPages\Home\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

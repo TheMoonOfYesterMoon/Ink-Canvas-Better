@@ -1,0 +1,30 @@
+﻿<Page x:Class="Ink_Canvas_Better.Pages.SettingPages.Appearance"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Ink_Canvas_Better.Pages.SettingPages"
+      xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+      xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+      xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Appearance">
+
+    <ScrollViewer PanningMode="VerticalOnly">
+        <ikw:SimpleStackPanel Spacing="4" Margin="16,4">
+            <ui:SettingsCard Header="{DynamicResource Text_Setting_Theme}">
+                <ui:SettingsCard.HeaderIcon>
+                    <ui:FontIcon Glyph="&#xe793;"/>
+                </ui:SettingsCard.HeaderIcon>
+                <ui:SettingsCard.Content>
+                    <ComboBox SelectedIndex="0">
+                        <ComboBoxItem Content="{DynamicResource Text_Setting_Auto}"/>
+                        <ComboBoxItem Content="{DynamicResource Text_Setting_Light}"/>
+                        <ComboBoxItem Content="{DynamicResource Text_Setting_Dark}"/>
+                    </ComboBox>
+                </ui:SettingsCard.Content>
+            </ui:SettingsCard>
+        </ikw:SimpleStackPanel>
+    </ScrollViewer>
+</Page>
