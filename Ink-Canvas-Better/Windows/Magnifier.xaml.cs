@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Windows.Media;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -30,8 +31,8 @@ namespace Ink_Canvas_Better.Windows
             dispatcherTimer.Tick += (s, e) =>
             {
                 // gdi+截屏，,使用PointToScreen消除dpi影响
-                var leftTop = PointToScreen(new System.Windows.Point(leftTopPointWidth, leftTopPointHeight));
-                var rightBottom = PointToScreen(new System.Windows.Point(rightBottomPointWidth, rightBottomPointHeight));
+                var leftTop = PointToScreen(new Point(leftTopPointWidth, leftTopPointHeight));
+                var rightBottom = PointToScreen(new Point(rightBottomPointWidth, rightBottomPointHeight));
                 var bm = Snapshot((int)leftTop.X, (int)leftTop.Y, (int)(rightBottom.X - leftTop.X), (int)(rightBottom.Y - leftTop.Y));
                 var wb = BitmapToWriteableBitmap(bm);
                 // 显示到界面
@@ -75,7 +76,7 @@ namespace Ink_Canvas_Better.Windows
             System.Drawing.Imaging.PixelFormat format = src.PixelFormat;
             if (wb == null)
             {
-                wb = new WriteableBitmap(src.Width * 2, src.Height, 0, 0, System.Windows.Media.PixelFormats.Bgra32, null);
+                wb = new WriteableBitmap(src.Width * 2, src.Height, 0, 0, PixelFormats.Bgra32, null);
                 format = System.Drawing.Imaging.PixelFormat.Format32bppArgb;
             }
             BitmapCopyToWriteableBitmap(src, wb, new System.Drawing.Rectangle(0, 0, src.Width, src.Height), 0, 0, format);
@@ -85,26 +86,26 @@ namespace Ink_Canvas_Better.Windows
         // 创建尺寸和格式与Bitmap兼容的WriteableBitmap
         public static WriteableBitmap CreateCompatibleWriteableBitmap(System.Drawing.Bitmap src)
         {
-            System.Windows.Media.PixelFormat format;
+            PixelFormat format;
             switch (src.PixelFormat)
             {
                 case System.Drawing.Imaging.PixelFormat.Format16bppRgb555:
-                    format = System.Windows.Media.PixelFormats.Bgr555;
+                    format = PixelFormats.Bgr555;
                     break;
                 case System.Drawing.Imaging.PixelFormat.Format16bppRgb565:
-                    format = System.Windows.Media.PixelFormats.Bgr565;
+                    format = PixelFormats.Bgr565;
                     break;
                 case System.Drawing.Imaging.PixelFormat.Format24bppRgb:
-                    format = System.Windows.Media.PixelFormats.Bgr24;
+                    format = PixelFormats.Bgr24;
                     break;
                 case System.Drawing.Imaging.PixelFormat.Format32bppRgb:
-                    format = System.Windows.Media.PixelFormats.Bgr32;
+                    format = PixelFormats.Bgr32;
                     break;
                 case System.Drawing.Imaging.PixelFormat.Format32bppPArgb:
-                    format = System.Windows.Media.PixelFormats.Pbgra32;
+                    format = PixelFormats.Pbgra32;
                     break;
                 case System.Drawing.Imaging.PixelFormat.Format32bppArgb:
-                    format = System.Windows.Media.PixelFormats.Bgra32;
+                    format = PixelFormats.Bgra32;
                     break;
                 default:
                     return null;

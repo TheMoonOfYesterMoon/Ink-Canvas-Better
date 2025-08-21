@@ -1,15 +1,10 @@
-﻿using Ink_Canvas_Better.Resources;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 using ColorConverter = Ink_Canvas_Better.Helpers.Others.ColorConverter;
 

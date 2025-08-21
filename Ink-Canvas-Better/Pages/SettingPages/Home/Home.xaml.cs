@@ -2,7 +2,6 @@
 using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;

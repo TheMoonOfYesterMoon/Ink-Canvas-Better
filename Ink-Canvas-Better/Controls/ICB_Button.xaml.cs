@@ -197,7 +197,7 @@ namespace Ink_Canvas_Better.Controls
 
         private static void FontIcon_OnValueChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
         {
-            var fontIcon = new FontIcon((string)eventArgs.NewValue, (FontFamily)System.Windows.Application.Current.Resources["FluentIconFontFamily"]);
+            var fontIcon = new FontIcon((string)eventArgs.NewValue, (FontFamily)Application.Current.Resources["FluentIconFontFamily"]);
             SetIcon(dependencyObject, fontIcon);
         }
 
@@ -222,27 +222,6 @@ namespace Ink_Canvas_Better.Controls
         {
             var img = new Image { Source = new BitmapImage(new Uri((string)eventArgs.NewValue, UriKind.Relative)) };
             SetIcon(dependencyObject, img);
-        }
-
-        #endregion
-
-        #region Property_Event
-
-        /// <summary>
-        /// Click event
-        /// </summary>
-        public static readonly RoutedEvent ClickEvent =
-            EventManager.RegisterRoutedEvent(
-                "Click",
-                RoutingStrategy.Bubble,
-                typeof(RoutedEventHandler),
-                typeof(ICB_Button)
-            );
-
-        public event RoutedEventHandler Click
-        {
-            add { AddHandler(ClickEvent, value); }
-            remove { RemoveHandler(ClickEvent, value); }
         }
 
         #endregion
@@ -273,6 +252,27 @@ namespace Ink_Canvas_Better.Controls
         }
 
         #endregion
+
+        #endregion
+
+        #region Events
+
+        /// <summary>
+        /// Click event
+        /// </summary>
+        public static readonly RoutedEvent ClickEvent =
+            EventManager.RegisterRoutedEvent(
+                "Click",
+                RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler),
+                typeof(ICB_Button)
+            );
+
+        public event RoutedEventHandler Click
+        {
+            add { AddHandler(ClickEvent, value); }
+            remove { RemoveHandler(ClickEvent, value); }
+        }
 
         #endregion
 
