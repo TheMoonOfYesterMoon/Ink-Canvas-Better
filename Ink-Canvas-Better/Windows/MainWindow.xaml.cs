@@ -1,13 +1,15 @@
-﻿using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Helpers.Others;
-using Ink_Canvas_Better.Resources;
-using Ink_Canvas_Better.Windows;
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Helpers.Others;
+using Ink_Canvas_Better.Resources;
+using Ink_Canvas_Better.Windows;
 
 namespace Ink_Canvas_Better
 {
@@ -27,9 +29,6 @@ namespace Ink_Canvas_Better
             Setting.LoadSettings(isStartup : true);
             RuntimeData.mainWindow = this;
 
-            MainInkCanvas.AddHandler(MouseDownEvent, new MouseButtonEventHandler(MainInkCanvas_MouseDown), true);
-            MainInkCanvas.AddHandler(MouseDownEvent, new MouseButtonEventHandler(MainInkCanvas_MouseMove), true);
-            MainInkCanvas.AddHandler(MouseDownEvent, new MouseButtonEventHandler(MainInkCanvas_MouseUp), true);
             this.SourceInitialized += Win32Helper.MainWindow_SourceInitialized;
             this.Loaded += DockWindowToBottom;
 
@@ -37,6 +36,18 @@ namespace Ink_Canvas_Better
         }
 
         #endregion
+
+        private bool _mainInkCanvas_Hitable = true;
+        public bool MainInkCanvas_Hitable
+        {
+            get { return _mainInkCanvas_Hitable; }
+            set
+            {
+                _mainInkCanvas_Hitable= value;
+                if (_mainInkCanvas_Hitable) MainInkCanvas.Background = (Brush)new BrushConverter().ConvertFrom("#01FFFFFF");
+                else MainInkCanvas.Background = Brushes.Transparent;
+            }
+        }
 
         private bool _isHideDrawingTools = false;
         public bool IsHideDrawingTools
