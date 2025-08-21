@@ -39,22 +39,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             RuntimeData.CurrentDrawingMode = RuntimeData.DrawingMode.Shape;
-            var senderName = ((Image)sender).Name;
-            switch (senderName)
-            {
-                // 2D shape
-                case "Shape_Line":
-                    break;
-                case "Shape_DashedLine":
-                    break;
-                case "Shape_DotLine":
-                    break;
-                case "Shape_ArrowLine":
-                    break;
-                // 3D shape
-                default:
-                    throw new NotImplementedException($"Unsupported shape {sender}");
-            }
+            RuntimeData.CurrentShape = ((Image)sender).Name;
         }
     }
 }

@@ -24,8 +24,6 @@ namespace Ink_Canvas_Better.Resources
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
 
-        public static StylusShape CurrentEraserShape { get; set; } = new EllipseStylusShape(30, 30);
-
         public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes()
         {
             Color = Color.FromRgb(255,0,0)
@@ -36,12 +34,15 @@ namespace Ink_Canvas_Better.Resources
             Width = 1
         };
 
+        public static DrawingMode LastDrawingMode {  get; set; } = DrawingMode.None;
+
         private static DrawingMode _currentDrawingMode = DrawingMode.None;
         public static DrawingMode CurrentDrawingMode
         {
             get { return _currentDrawingMode; }
             set
             {
+                // Check
                 if (_currentDrawingMode != DrawingMode.Shape)
                 {
                     mainWindow.CursorIcon.IsStatusEnable = false;
@@ -50,7 +51,9 @@ namespace Ink_Canvas_Better.Resources
                     mainWindow.EraserIcon.IsStatusEnable = false;
                     mainWindow.PickIcon.IsStatusEnable = false;
                     mainWindow.PickIcon.IsStatusEnable = false;
+                    LastDrawingMode = _currentDrawingMode;
                 }
+                // Update _currentDrawingMode
                 _currentDrawingMode = value;
                 switch (_currentDrawingMode)
                 {
@@ -97,15 +100,13 @@ namespace Ink_Canvas_Better.Resources
             }
         }
 
-        private static EraserMode _currentEraserMode = EraserMode.Point;
-        public static EraserMode CurrentEraserMode
-        {
-            get { return _currentEraserMode; }
-            set
-            {
-                _currentEraserMode = value;
-            }
-        }
+        public static EraserMode CurrentEraserMode { get; set; } = EraserMode.Point;
+
+        public static StylusShape CurrentEraserShape { get; set; } = new EllipseStylusShape(30, 30);
+
+        public static string CurrentShape { get; set; } = "Shape_Line";
+
+        public static bool IsShapeModePersistent { get; set; } = false;
 
         public static void ApplyMetadata()
         {

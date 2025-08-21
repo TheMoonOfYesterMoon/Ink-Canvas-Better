@@ -67,12 +67,55 @@ namespace Ink_Canvas_Better
 
         private void MainInkCanvas_MouseMove(object sender, MouseEventArgs e)
         {
-
+            switch (RuntimeData.CurrentShape)
+            {
+                // 2D shape
+                case "Shape_Line":
+                    break;
+                case "Shape_DashedLine":
+                    break;
+                case "Shape_DotLine":
+                    break;
+                case "Shape_ArrowLine":
+                    break;
+                case "Shape_ParallelLine":
+                    break;
+                case "Shape_Coordinate1":
+                    break;
+                case "Shape_Coordinate2":
+                    break;
+                case "Shape_Rectangle":
+                    break;
+                case "Shape_Circle":
+                    break;
+                case "Shape_DashedCircle":
+                    break;
+                case "Shape_Ellipse":
+                    break;
+                case "Shape_Hyperbola":
+                    break;
+                case "Shape_Parabola":
+                    break;
+                // 3D shape
+                case "Shape_Cylinder":
+                    break;
+                case "Shape_Cone":
+                    break;
+                case "Shape_Cuboid":
+                    break;
+                case "Shape_Tetrahedron":
+                    break;
+                default:
+                    throw new NotImplementedException($"Unsupported shape {sender}");
+            }
         }
 
         private void MainInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
-
+            if (!RuntimeData.IsShapeModePersistent)
+            {
+                RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
+            }
         }
     }
 }
