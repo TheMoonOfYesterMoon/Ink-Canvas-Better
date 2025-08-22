@@ -60,6 +60,8 @@ namespace Ink_Canvas_Better
             }
         }
 
+        #region MainInkCanvas
+
         private void MainInkCanvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -117,5 +119,27 @@ namespace Ink_Canvas_Better
                 RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
             }
         }
+
+        private void MainInkCanvas_TouchDown(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void MainInkCanvas_TouchMove(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void MainInkCanvas_TouchUp(object sender, TouchEventArgs e)
+        {
+
+        }
+
+        private void MainInkCanvss_DrawShape(Point endPoint)
+        {
+
+        }
+
+        #endregion
     }
 }
