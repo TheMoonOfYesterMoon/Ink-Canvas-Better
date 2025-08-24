@@ -23,6 +23,7 @@
 
 > [!NOTE]
 > 本软件正在重写......  
+> 可以先去 [Actions](https://github.com/BaiYang2238/Ink-Canvas-Better/actions) 提前体验（但不建议直接使用，因为还没做完，很多功能未完善）
 
 上面那个图标是即将在 2.X.X.X 版本中使用的图标，因此已有 releases 中的图标均与该图标不同
 
