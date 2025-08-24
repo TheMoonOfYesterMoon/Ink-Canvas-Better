@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ink Canvas", "Ink Canvas\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ink-Canvas-Better", "Ink-Canvas-Better\Ink-Canvas-Better.csproj", "{0AB73D01-FD18-4EDA-BE24-12B9175BFCC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICBCustomControlLibrary", "ICBCustomControlLibrary\ICBCustomControlLibrary.csproj", "{6441DEFE-A654-43EA-A50B-89A473EE4E7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,26 @@ Global
 		{0AB73D01-FD18-4EDA-BE24-12B9175BFCC6}.Release|x64.Build.0 = Release|Any CPU
 		{0AB73D01-FD18-4EDA-BE24-12B9175BFCC6}.Release|x86.ActiveCfg = Release|Any CPU
 		{0AB73D01-FD18-4EDA-BE24-12B9175BFCC6}.Release|x86.Build.0 = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|x64.Build.0 = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Debug|x86.Build.0 = Debug|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|ARM.Build.0 = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|ARM64.Build.0 = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|x64.ActiveCfg = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|x64.Build.0 = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{6441DEFE-A654-43EA-A50B-89A473EE4E7F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
