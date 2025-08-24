@@ -14,15 +14,21 @@ namespace Ink_Canvas_Better.Resources
 {
     static class RuntimeData
     {
-        public static bool isCloseFromButton = false;
+        #region instance
+
         public static SettingWindow settingWindow;
         public static MainWindow mainWindow;
         public static FloatingBar_Pen floatingBar_Pen;
         public static FloatingBar_Highlighter floatingBar_Highlighter;
         public static ICB_ColorPicker colorPicker;
+
+        #endregion
+
+        public static bool isCloseFromButton = false;
         public static String settingsFileName = "settings.json";
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
+        public static int CurrentDrawStep = 0; // Shape
 
         public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes()
         {
@@ -50,9 +56,9 @@ namespace Ink_Canvas_Better.Resources
                     mainWindow.HighlighterIcon.IsStatusEnable = false;
                     mainWindow.EraserIcon.IsStatusEnable = false;
                     mainWindow.PickIcon.IsStatusEnable = false;
-                    mainWindow.PickIcon.IsStatusEnable = false;
                     LastDrawingMode = _currentDrawingMode;
                 }
+                else { mainWindow.ShapeIcon.IsStatusEnable = false; }
                 // Update _currentDrawingMode
                 _currentDrawingMode = value;
                 switch (_currentDrawingMode)
@@ -90,7 +96,7 @@ namespace Ink_Canvas_Better.Resources
                     case DrawingMode.Shape:
                         mainWindow.MainInkCanvas_Hitable = true;
                         mainWindow.MainInkCanvas.EditingMode = InkCanvasEditingMode.None;
-                        mainWindow.PickIcon.IsStatusEnable = true;
+                        mainWindow.ShapeIcon.IsStatusEnable = true;
                         break;
                     default:
                         var _ = _currentDrawingMode;

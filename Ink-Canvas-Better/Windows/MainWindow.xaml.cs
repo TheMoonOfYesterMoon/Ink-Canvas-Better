@@ -1,20 +1,26 @@
-﻿using System;
+﻿using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Helpers.Others;
+using Ink_Canvas_Better.Resources;
+using Ink_Canvas_Better.Windows;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
-using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Helpers.Others;
-using Ink_Canvas_Better.Resources;
-using Ink_Canvas_Better.Windows;
 
 namespace Ink_Canvas_Better
 {
     public partial class MainWindow : Window
     {
+        Point iniPoint;
+        Stroke lastTempStroke = null;
+
         #region Initialize
 
         readonly Magnifier MagnifierWindow = new Magnifier();
@@ -64,15 +70,75 @@ namespace Ink_Canvas_Better
 
         private void MainInkCanvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            _isMouseDown = true;
+            iniPoint = e.GetPosition(MainInkCanvas);
         }
 
         private void MainInkCanvas_MouseMove(object sender, MouseEventArgs e)
         {
+            if (RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape && _isMouseDown)
+            {
+                MainInkCanvas_DrawShape(e.GetPosition(MainInkCanvas));
+            }
+        }
+
+        private void MainInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (!RuntimeData.IsShapeModePersistent && RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape)
+            {
+                RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
+            }
+            _isMouseDown = false;
+            lastTempStroke = null;
+        }
+
+        private void MainInkCanvas_TouchDown(object sender, TouchEventArgs e)
+        {
+            iniPoint = e.GetTouchPoint(MainInkCanvas).Position;
+        }
+
+        private void MainInkCanvas_TouchMove(object sender, TouchEventArgs e)
+        {
+            if (RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape)
+            {
+                MainInkCanvas_DrawShape(e.GetTouchPoint(MainInkCanvas).Position);
+            }
+        }
+
+        private void MainInkCanvas_TouchUp(object sender, TouchEventArgs e)
+        {
+            if (!RuntimeData.IsShapeModePersistent && RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape)
+            {
+                RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
+            }
+            _isMouseDown = false;
+            lastTempStroke = null;
+        }
+
+        private void MainInkCanvas_DrawShape(Point endPoint)
+        {
+            List<Point> pointList;
+            StylusPointCollection pointCollection;
+            Stroke stroke;
+            StrokeCollection strokeCollection = new StrokeCollection();
+            Point newIniPoint = iniPoint;
             switch (RuntimeData.CurrentShape)
             {
                 // 2D shape
                 case "Shape_Line":
+                    pointList = new List<Point>{
+                        new Point(iniPoint.X, iniPoint.Y),
+                        new Point(endPoint.X, endPoint.Y)
+                    };
+                    pointCollection = new StylusPointCollection(pointList);
+                    stroke = new Stroke(pointCollection) { DrawingAttributes = MainInkCanvas.DefaultDrawingAttributes.Clone() };
+                    try
+                    {
+                        MainInkCanvas.Strokes.Remove(lastTempStroke);
+                    }
+                    catch { }
+                    lastTempStroke = stroke;
+                    MainInkCanvas.Strokes.Add(stroke);
                     break;
                 case "Shape_DashedLine":
                     break;
@@ -108,36 +174,8 @@ namespace Ink_Canvas_Better
                 case "Shape_Tetrahedron":
                     break;
                 default:
-                    throw new NotImplementedException($"Unsupported shape {sender}");
+                    throw new NotImplementedException($"Unsupported shape {RuntimeData.CurrentShape}");
             }
-        }
-
-        private void MainInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (!RuntimeData.IsShapeModePersistent)
-            {
-                RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
-            }
-        }
-
-        private void MainInkCanvas_TouchDown(object sender, TouchEventArgs e)
-        {
-
-        }
-
-        private void MainInkCanvas_TouchMove(object sender, TouchEventArgs e)
-        {
-
-        }
-
-        private void MainInkCanvas_TouchUp(object sender, TouchEventArgs e)
-        {
-
-        }
-
-        private void MainInkCanvss_DrawShape(Point endPoint)
-        {
-
         }
 
         #endregion
