@@ -19,7 +19,7 @@ namespace Ink_Canvas_Better
     public partial class MainWindow : Window
     {
         Point iniPoint;
-        Stroke lastTempStroke = null;
+        StrokeCollection lastTempStrokeCollection = new StrokeCollection();
 
         #region Initialize
 
@@ -89,7 +89,7 @@ namespace Ink_Canvas_Better
                 RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
             }
             _isMouseDown = false;
-            lastTempStroke = null;
+            lastTempStrokeCollection.Clear();
         }
 
         private void MainInkCanvas_TouchDown(object sender, TouchEventArgs e)
@@ -112,12 +112,12 @@ namespace Ink_Canvas_Better
                 RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
             }
             _isMouseDown = false;
-            lastTempStroke = null;
+            lastTempStrokeCollection.Clear();
         }
 
         private void MainInkCanvas_DrawShape(Point endPoint)
         {
-            List<Point> pointList;
+            // List<Point> pointList;
             StylusPointCollection pointCollection;
             Stroke stroke;
             StrokeCollection strokeCollection = new StrokeCollection();
@@ -126,21 +126,30 @@ namespace Ink_Canvas_Better
             {
                 // 2D shape
                 case "Shape_Line":
-                    pointList = new List<Point>{
-                        new Point(iniPoint.X, iniPoint.Y),
-                        new Point(endPoint.X, endPoint.Y)
-                    };
-                    pointCollection = new StylusPointCollection(pointList);
+                    pointCollection = new StylusPointCollection(
+                        new List<Point>{
+                            new Point(iniPoint.X, iniPoint.Y),
+                            new Point(endPoint.X, endPoint.Y)
+                        });
                     stroke = new Stroke(pointCollection) { DrawingAttributes = MainInkCanvas.DefaultDrawingAttributes.Clone() };
                     try
                     {
-                        MainInkCanvas.Strokes.Remove(lastTempStroke);
+                        MainInkCanvas.Strokes.Remove(lastTempStrokeCollection);
+                        lastTempStrokeCollection.Clear();
                     }
                     catch { }
-                    lastTempStroke = stroke;
-                    MainInkCanvas.Strokes.Add(stroke);
+                    lastTempStrokeCollection.Add(stroke);
+                    MainInkCanvas.Strokes.Add(lastTempStrokeCollection);
                     break;
                 case "Shape_DashedLine":
+                    strokeCollection.Add(GenerateStrokeCollection_DashedLine(iniPoint, endPoint));
+                    try
+                    {
+                        MainInkCanvas.Strokes.Remove(lastTempStrokeCollection);
+                    }
+                    catch { }
+                    lastTempStrokeCollection = strokeCollection;
+                    MainInkCanvas.Strokes.Add(strokeCollection);
                     break;
                 case "Shape_DotLine":
                     break;
