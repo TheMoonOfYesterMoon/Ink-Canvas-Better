@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -44,11 +46,37 @@ namespace ICBCustomControlLibrary.Controls.Panel
     ///     <MyNamespace:Subpanel/>
     ///
     /// </summary>
-    public class Subpanel : Control
+    [ContentProperty("Content")]
+    public class Subpanel : ContentControl
     {
         static Subpanel()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(Subpanel), new FrameworkPropertyMetadata(typeof(Subpanel)));
         }
+
+        #region Properties
+
+        public static readonly DependencyProperty TitleProperty =
+            DependencyProperty.Register("Title", typeof(string), typeof(Subpanel), new PropertyMetadata("Title"));
+
+        public string Title { get => (string)GetValue(TitleProperty); set => SetValue(TitleProperty, value); }
+
+        public static readonly DependencyProperty IsOpenProperty =
+            DependencyProperty.Register("IsOpen", typeof(bool), typeof(Subpanel), new PropertyMetadata(false));
+
+        public bool IsOpen { get => (bool)GetValue(IsOpenProperty); set => SetValue(IsOpenProperty, value); }
+
+        public static readonly DependencyProperty StaysOpenProperty =
+            DependencyProperty.Register("StaysOpen", typeof(bool), typeof(Subpanel), new PropertyMetadata(false));
+
+        public bool StaysOpen { get => (bool)GetValue(StaysOpenProperty); set => SetValue(StaysOpenProperty, value); }
+
+        public static readonly DependencyProperty PlacementTargetProperty =
+            DependencyProperty.Register("PlacementTarget", typeof(UIElement), typeof(Subpanel), new PropertyMetadata(null));
+
+        public UIElement PlacementTarget { get => (UIElement)GetValue(PlacementTargetProperty); set => SetValue(PlacementTargetProperty, value); }
+
+        #endregion
+
     }
 }

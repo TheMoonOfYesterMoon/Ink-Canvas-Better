@@ -2,13 +2,42 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:ICBCustomControlLibrary.Controls.Panel">
     <Style TargetType="{x:Type local:Subpanel}">
+        <Setter Property="IsTabStop" Value="False" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:Subpanel}">
-                    <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
-                    </Border>
+                    <Popup AllowsTransparency="True" Name="Popup0" IsOpen="{TemplateBinding IsOpen}" StaysOpen="{TemplateBinding StaysOpen}" PlacementTarget="{TemplateBinding PlacementTarget}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Name="TextBlock_Title"
+                                               HorizontalAlignment="Left"
+                                               Text="{TemplateBinding Title}"
+                                               VerticalAlignment="Center"/>
+                                    <UniformGrid Grid.Column="1" Columns="2">
+                                        <!-- TODO: Close & Pin -->
+                                        <Button/>
+                                        <Button/>
+                                    </UniformGrid>
+                                </Grid>
+                                <ContentPresenter Grid.Row="1"
+                                                  ContentSource="Content"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}"/>
+                            </Grid>
+                        </Border>
+                    </Popup>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

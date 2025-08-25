@@ -9,4 +9,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Segoe Fluent Icons.ttf" />
+  </ItemGroup>
 </Project>
