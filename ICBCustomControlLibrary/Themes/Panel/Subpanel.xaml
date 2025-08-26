@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ICBCustomControlLibrary.Controls.Panel">
+    <Style TargetType="{x:Type local:Subpanel}">
+        <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:Subpanel}">
+                    <Popup AllowsTransparency="True" Name="Popup0" IsOpen="{TemplateBinding IsOpen}" StaysOpen="{TemplateBinding StaysOpen}" PlacementTarget="{TemplateBinding PlacementTarget}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Name="TextBlock_Title"
+                                               HorizontalAlignment="Left"
+                                               Text="{TemplateBinding Title}"
+                                               VerticalAlignment="Center"/>
+                                    <UniformGrid Grid.Column="1" Columns="2" HorizontalAlignment="Right">
+                                        <Button Name="PART_PinButton">
+                                            <TextBlock Name="PART_PinTextblock" FontFamily="FluentIconFontFamily" Text="&#xe77a;"></TextBlock>
+                                        </Button>
+                                        <Button Name="PART_CloseButton">
+                                            <TextBlock FontFamily="FluentIconFontFamily" Text="&#xe8bb;"></TextBlock>
+                                        </Button>
+                                    </UniformGrid>
+                                </Grid>
+                                <ContentPresenter Grid.Row="1"
+                                                  ContentSource="Content"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                  Margin="{TemplateBinding Padding}"/>
+                            </Grid>
+                        </Border>
+                    </Popup>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+</ResourceDictionary>
