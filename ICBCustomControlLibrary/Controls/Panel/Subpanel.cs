@@ -47,6 +47,8 @@ namespace ICBCustomControlLibrary.Controls.Panel
     ///
     /// </summary>
     [ContentProperty("Content")]
+    [TemplatePart(Name = "PART_PinButton", Type = typeof(Button))]
+    [TemplatePart(Name = "PART_CloseButton", Type = typeof(Button))]
     public class Subpanel : ContentControl
     {
         static Subpanel()
@@ -78,5 +80,28 @@ namespace ICBCustomControlLibrary.Controls.Panel
 
         #endregion
 
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            if (GetTemplateChild("PART_PinButton") is Button pinButton)
+            {
+                pinButton.Click += PinButton_Click;
+            }
+            if (GetTemplateChild("PART_CloseButton") is Button closeButton)
+            {
+                closeButton.Click += CloseButton_Click;
+            }
+        }
+
+        private void PinButton_Click(object sender, RoutedEventArgs e)
+        {
+            StaysOpen = !StaysOpen;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            IsOpen = false;
+        }
     }
+
 }

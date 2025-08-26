@@ -26,8 +26,15 @@
                                                VerticalAlignment="Center"/>
                                     <UniformGrid Grid.Column="1" Columns="2">
                                         <!-- TODO: Close & Pin -->
-                                        <Button/>
-                                        <Button/>
+                                        <Button Name="PART_PinButton">
+                                            <TextBlock FontFamily="FluentIconFontFamily" Text="&#xe77a;"></TextBlock>
+                                            <!--
+                                            <TextBlock FontFamily="FluentIconFontFamily" Text="&#xe840;"></TextBlock>
+                                            -->
+                                        </Button>
+                                        <Button Name="PART_CloseButton">
+                                            <TextBlock FontFamily="FluentIconFontFamily" Text="&#xe8bb;"></TextBlock>
+                                        </Button>
                                     </UniformGrid>
                                 </Grid>
                                 <ContentPresenter Grid.Row="1"
