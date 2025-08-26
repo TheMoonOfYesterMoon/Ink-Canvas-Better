@@ -24,13 +24,9 @@
                                                HorizontalAlignment="Left"
                                                Text="{TemplateBinding Title}"
                                                VerticalAlignment="Center"/>
-                                    <UniformGrid Grid.Column="1" Columns="2">
-                                        <!-- TODO: Close & Pin -->
+                                    <UniformGrid Grid.Column="1" Columns="2" HorizontalAlignment="Right">
                                         <Button Name="PART_PinButton">
-                                            <TextBlock FontFamily="FluentIconFontFamily" Text="&#xe77a;"></TextBlock>
-                                            <!--
-                                            <TextBlock FontFamily="FluentIconFontFamily" Text="&#xe840;"></TextBlock>
-                                            -->
+                                            <TextBlock Name="PART_PinTextblock" FontFamily="FluentIconFontFamily" Text="&#xe77a;"></TextBlock>
                                         </Button>
                                         <Button Name="PART_CloseButton">
                                             <TextBlock FontFamily="FluentIconFontFamily" Text="&#xe8bb;"></TextBlock>

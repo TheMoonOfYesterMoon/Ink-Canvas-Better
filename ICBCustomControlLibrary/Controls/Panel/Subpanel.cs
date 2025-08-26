@@ -96,6 +96,11 @@ namespace ICBCustomControlLibrary.Controls.Panel
         private void PinButton_Click(object sender, RoutedEventArgs e)
         {
             StaysOpen = !StaysOpen;
+            if (GetTemplateChild("PART_PinTextblock") is TextBlock textBlock)
+            {
+                textBlock.Text = StaysOpen ? "\ue77a" : "\ue840";
+            }
+
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
