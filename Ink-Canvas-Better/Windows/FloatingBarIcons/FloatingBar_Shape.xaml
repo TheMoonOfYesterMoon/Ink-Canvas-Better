@@ -122,7 +122,7 @@
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DotLine" Source="{DynamicResource Image.Shape.DotLine}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ArrowLine" Source="{DynamicResource Image.Shape.ArrowLine}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParallelLine" Source="{DynamicResource Image.Shape.ParallelLine}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate1" Source="{DynamicResource Image.Shape.Coordinate1}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate2D" Source="{DynamicResource Image.Shape.Coordinate2D}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Rectangle" Source="{DynamicResource Image.Shape.Rectangle}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Circle" Source="{DynamicResource Image.Shape.Circle}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedCircle" Source="{DynamicResource Image.Shape.DashedCircle}"/>
@@ -132,7 +132,7 @@
                 </WrapPanel>
                 <TextBlock Text="{DynamicResource Text_3DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                 <WrapPanel>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate2" Source="{DynamicResource Image.Shape.Coordinate2}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate3D" Source="{DynamicResource Image.Shape.Coordinate3D}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cylinder" Source="{DynamicResource Image.Shape.Cylinder}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cone" Source="{DynamicResource Image.Shape.Cone}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cuboid" Source="{DynamicResource Image.Shape.Cuboid}"/>

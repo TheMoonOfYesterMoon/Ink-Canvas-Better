@@ -29,15 +29,15 @@ namespace Ink_Canvas_Better
                 case "Shape_DotLine": UpdateStrokes(GenerateStrokeCollection_DotLine(iniPoint, endPoint)); break;
                 case "Shape_ArrowLine": UpdateStrokes(GenerateStrokeCollection_ArrowLine(iniPoint, endPoint)); break;
                 case "Shape_ParallelLine": UpdateStrokes(GenerateStrokeCollection_ParallelLine(iniPoint, endPoint)); break;
-                case "Shape_Coordinate1": UpdateStrokes(GenerateStrokeCollection_Coordinate1(iniPoint, endPoint)); break; // 2D coordinate system
-                case "Shape_Rectangle":
+                case "Shape_Coordinate2D": UpdateStrokes(GenerateStrokeCollection_Coordinate2D(iniPoint, endPoint)); break;
+                case "Shape_Rectangle": UpdateStrokes(GenerateStrokeCollection_Rectangle(iniPoint, endPoint)); break;
                 case "Shape_Circle":
                 case "Shape_DashedCircle":
                 case "Shape_Ellipse":
                 case "Shape_Hyperbola":
                 case "Shape_Parabola":
                 // 3D shape
-                case "Shape_Coordinate2":
+                case "Shape_Coordinate3D":
                 case "Shape_Cylinder":
                 case "Shape_Cone":
                 case "Shape_Cuboid":
@@ -180,13 +180,27 @@ namespace Ink_Canvas_Better
         }
 
         // 2D shape -- Coordinate (2D)
-        private StrokeCollection GenerateStrokeCollection_Coordinate1(Point st, Point ed)
+        private StrokeCollection GenerateStrokeCollection_Coordinate2D(Point st, Point ed)
         {
             StrokeCollection strokeCollection = new StrokeCollection();
             double d = GetDistance(st, ed);
             if (d == 0) return strokeCollection; // the strokeCollection is empty
             strokeCollection.Add(GenerateStrokeCollection_ArrowLine(new Point(2 * st.X - (ed.X - 20), st.Y), new Point(ed.X, st.Y)));
             strokeCollection.Add(GenerateStrokeCollection_ArrowLine(new Point(st.X, 2 * st.Y - (ed.Y + 20)), new Point(st.X, ed.Y)));
+            return strokeCollection;
+        }
+
+        // 2D shape -- Rectangle
+        private StrokeCollection GenerateStrokeCollection_Rectangle(Point st, Point ed)
+        {
+            List<Point> pointList = new List<Point>{
+                new Point(st.X, st.Y),
+                new Point(st.X, ed.Y),
+                new Point(ed.X, ed.Y),
+                new Point(ed.X, st.Y),
+                new Point(st.X, st.Y)};
+            Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            StrokeCollection strokeCollection = new StrokeCollection { stroke.Clone() };
             return strokeCollection;
         }
 

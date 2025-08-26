@@ -736,7 +736,7 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-    <DrawingImage x:Key="Image.Shape.Coordinate1">
+    <DrawingImage x:Key="Image.Shape.Coordinate2D">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V813.58 H813.58 V0 H0 Z">
                 <GeometryDrawing>
@@ -820,7 +820,7 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-    <DrawingImage x:Key="Image.Shape.Coordinate2">
+    <DrawingImage x:Key="Image.Shape.Coordinate3D">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V798.42 H796.54 V0 H0 Z">
                 <GeometryDrawing>
