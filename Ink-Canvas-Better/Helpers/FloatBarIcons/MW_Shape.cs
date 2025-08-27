@@ -31,9 +31,9 @@ namespace Ink_Canvas_Better
                 case "Shape_ParallelLine": UpdateStrokes(GenerateStrokeCollection_ParallelLine(iniPoint, endPoint)); break;
                 case "Shape_Coordinate2D": UpdateStrokes(GenerateStrokeCollection_Coordinate2D(iniPoint, endPoint)); break;
                 case "Shape_Rectangle": UpdateStrokes(GenerateStrokeCollection_Rectangle(iniPoint, endPoint)); break;
-                case "Shape_Circle":
-                case "Shape_DashedCircle":
-                case "Shape_Ellipse":
+                case "Shape_Circle": UpdateStrokes(GenerateStrokeCollection_Circle(iniPoint, endPoint)); break;
+                case "Shape_DashedCircle": UpdateStrokes(GenerateStrokeCollection_DashedCircle(iniPoint, endPoint)); break;
+                case "Shape_Ellipse": UpdateStrokes(GenerateStrokeCollection_Ellipse(iniPoint, endPoint)); break;
                 case "Shape_Hyperbola":
                 case "Shape_Parabola":
                 // 3D shape
@@ -199,6 +199,73 @@ namespace Ink_Canvas_Better
                 new Point(ed.X, ed.Y),
                 new Point(ed.X, st.Y),
                 new Point(st.X, st.Y)};
+            Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            StrokeCollection strokeCollection = new StrokeCollection { stroke.Clone() };
+            return strokeCollection;
+        }
+
+        // 2D shape -- Circle
+        private StrokeCollection GenerateStrokeCollection_Circle(Point st, Point ed)
+        {
+            double R = GetDistance(st, ed);
+            StrokeCollection strokeCollection = GenerateStrokeCollection_Ellipse(new Point(st.X - R, ed.Y - R), new Point(st.X + R, ed.Y + R));
+            return strokeCollection;
+        }
+
+        // 2D shape -- DashedCircle
+        private StrokeCollection GenerateStrokeCollection_DashedCircle(Point st, Point ed, bool isDrawTop = true, bool isDrawBottom = true)
+        {
+            double a = 0.5 * (ed.X - st.X);
+            double b = 0.5 * (ed.Y - st.Y);
+            double step = 0.05;
+            List<Point> pointList = new List<Point>();
+            StrokeCollection strokeCollection = new StrokeCollection();
+            if (isDrawBottom)
+            {
+                for (double i = 0.0; i < 1.0; i += step * 1.66)
+                {
+                    for (double r = Math.PI * i; r <= Math.PI * (i + step); r += 0.01)
+                    {
+                        pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(r), 0.5 * (st.Y + ed.Y) + b * Math.Sin(r)));
+                    }
+                }
+            }
+            if (isDrawTop)
+            {
+                for (double i = 1.0; i < 2.0; i += step * 1.66)
+                {
+                    for (double r = Math.PI * i; r <= Math.PI * (i + step); r += 0.01)
+                    {
+                        pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(r), 0.5 * (st.Y + ed.Y) + b * Math.Sin(r)));
+                    }
+                }
+            }
+            Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            strokeCollection.Add(stroke.Clone());
+            return strokeCollection;
+        }
+
+        // 2D shape -- Ellipse
+        private StrokeCollection GenerateStrokeCollection_Ellipse(Point st, Point ed, bool isDrawTop = true, bool isDrawBottom = true)
+        {
+            double a = 0.5 * (ed.X - st.X);
+            double b = 0.5 * (ed.Y - st.Y);
+            List<Point> pointList = new List<Point>();
+            if (isDrawTop && isDrawBottom)
+            {
+                for (double r = 0; r <= 2 * Math.PI; r += 0.01)
+                {
+                    pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(r), 0.5 * (st.Y + ed.Y) + b * Math.Sin(r)));
+                }
+            }
+            else
+            {
+                for (double r = 0; r <= Math.PI; r += 0.01)
+                {
+                    double x = isDrawTop ? r += Math.PI : r;
+                    pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(x), 0.5 * (st.Y + ed.Y) + b * Math.Sin(x)));
+                }
+            }
             Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
             StrokeCollection strokeCollection = new StrokeCollection { stroke.Clone() };
             return strokeCollection;

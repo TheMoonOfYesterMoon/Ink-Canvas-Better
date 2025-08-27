@@ -8,6 +8,9 @@
 /ICBCustomControlLibrary/obj
 /ICBCustomControlLibrary/bin
 
+/CustomControlTest/obj
+/CustomControlTest/bin
+
 /.vs
 
 .claudiaideconfig

@@ -140,7 +140,7 @@
                 </WrapPanel>
             </ikw:SimpleStackPanel>
         </Border>
-
+        
     </Grid>
 
 </UserControl>
