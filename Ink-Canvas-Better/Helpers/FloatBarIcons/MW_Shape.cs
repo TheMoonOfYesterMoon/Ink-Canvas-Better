@@ -34,7 +34,7 @@ namespace Ink_Canvas_Better
                 case "Shape_Circle": UpdateStrokes(GenerateStrokeCollection_Circle(iniPoint, endPoint)); break;
                 case "Shape_DashedCircle": UpdateStrokes(GenerateStrokeCollection_DashedCircle(iniPoint, endPoint)); break;
                 case "Shape_Ellipse": UpdateStrokes(GenerateStrokeCollection_Ellipse(iniPoint, endPoint)); break;
-                case "Shape_Hyperbola":
+                case "Shape_Hyperbola": UpdateStrokes(GenerateStrokeCollection_Hyperbola(iniPoint, endPoint)); break;
                 case "Shape_Parabola":
                 // 3D shape
                 case "Shape_Coordinate3D":
@@ -109,7 +109,7 @@ namespace Ink_Canvas_Better
             StrokeCollection strokeCollection = new StrokeCollection();
             double d = GetDistance(st, ed);
             if (d == 0) return strokeCollection; // the strokeCollection is empty
-            double w = Math.Log(MainInkCanvas.DefaultDrawingAttributes.Width + Math.E) * 30, h = Math.Log(MainInkCanvas.DefaultDrawingAttributes.Width + Math.E) * 10;
+            double w = RuntimeData.GetShapePara_0() * 30, h = RuntimeData.GetShapePara_0() * 10;
             double theta = Math.Atan2(st.Y - ed.Y, st.X - ed.X);
             double sint = Math.Sin(theta);
             double cost = Math.Cos(theta);
@@ -136,7 +136,7 @@ namespace Ink_Canvas_Better
             double sinTheta = (st.Y - ed.Y) / d;
             double cosTheta = (ed.X - st.X) / d;
             // double tanTheta = Math.Abs(sinTheta / cosTheta);
-            double x = Math.Log(MainInkCanvas.DefaultDrawingAttributes.Width + Math.E) * 20;
+            double x = RuntimeData.GetShapePara_0() * 20;
             // TODO: Angle Constraint
             //if (Math.Abs(tanTheta) < 1.0 / 12)
             //{
@@ -221,8 +221,8 @@ namespace Ink_Canvas_Better
         // 2D shape -- DashedCircle
         private StrokeCollection GenerateStrokeCollection_DashedCircle(Point st, Point ed, bool isDrawTop = true, bool isDrawBottom = true)
         {
-            double a = 0.5 * (ed.X - st.X);
-            double b = 0.5 * (ed.Y - st.Y);
+            double a = ed.X - st.X;
+            double b = ed.Y - st.Y;
             double step = 0.05;
             List<Point> pointList = new List<Point>();
             StrokeCollection strokeCollection = new StrokeCollection();
@@ -230,39 +230,42 @@ namespace Ink_Canvas_Better
             {
                 for (double i = 0.0; i < 1.0; i += step * 1.66)
                 {
+                    pointList.Clear();
                     for (double r = Math.PI * i; r <= Math.PI * (i + step); r += 0.01)
                     {
-                        pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(r), 0.5 * (st.Y + ed.Y) + b * Math.Sin(r)));
+                        pointList.Add(new Point(st.X + a * Math.Cos(r), st.Y + b * Math.Sin(r)));
                     }
+                    Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+                    strokeCollection.Add(stroke.Clone());
                 }
             }
             if (isDrawTop)
             {
                 for (double i = 1.0; i < 2.0; i += step * 1.66)
                 {
+                    pointList.Clear();
                     for (double r = Math.PI * i; r <= Math.PI * (i + step); r += 0.01)
                     {
-                        pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(r), 0.5 * (st.Y + ed.Y) + b * Math.Sin(r)));
+                        pointList.Add(new Point(st.X + a * Math.Cos(r), st.Y + b * Math.Sin(r)));
                     }
+                    Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+                    strokeCollection.Add(stroke.Clone());
                 }
             }
-            Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
-            strokeCollection.Add(stroke.Clone());
             return strokeCollection;
         }
 
         // 2D shape -- Ellipse
         private StrokeCollection GenerateStrokeCollection_Ellipse(Point st, Point ed, bool isDrawTop = true, bool isDrawBottom = true)
         {
-            double a = 0.5 * (ed.X - st.X);
-            double b = 0.5 * (ed.Y - st.Y);
-            Point center = new Point((st.X + ed.X) / 2, (st.Y + ed.Y) / 2);
+            double a = ed.X - st.X;
+            double b = ed.Y - st.Y;
             List<Point> pointList = new List<Point>();
             if (isDrawTop && isDrawBottom)
             {
                 for (double r = 0; r <= 2 * Math.PI; r += 0.01)
                 {
-                    pointList.Add(new Point(center.X + a * Math.Cos(r), center.Y + b * Math.Sin(r)));
+                    pointList.Add(new Point(st.X + a * Math.Cos(r), st.Y + b * Math.Sin(r)));
                 }
             }
             else if (isDrawTop || isDrawBottom)
@@ -270,11 +273,95 @@ namespace Ink_Canvas_Better
                 for (double r = 0; r <= Math.PI; r += 0.01)
                 {
                     double x = isDrawTop ? r += Math.PI : r;
-                    pointList.Add(new Point(center.X + a * Math.Cos(x), center.Y + b * Math.Sin(x)));
+                    pointList.Add(new Point(st.X + a * Math.Cos(x), st.Y + b * Math.Sin(x)));
                 }
             }
             Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
             StrokeCollection strokeCollection = new StrokeCollection { stroke.Clone() };
+            return strokeCollection;
+        }
+
+        // 2D shape -- Hyperbola
+        private StrokeCollection GenerateStrokeCollection_Hyperbola(Point st, Point ed)
+        {
+            // x^2/a^2 - y^2/b^2 = 1
+            StrokeCollection strokeCollection = new StrokeCollection();
+            List<Point> pointList;
+            Stroke stroke;
+            StylusPointCollection stylusPointCollection;
+            double a, b, c;
+            if (Math.Abs(st.X - ed.X) < 0.01 || Math.Abs(st.Y - ed.Y) < 0.01) return strokeCollection;
+            var pointList2 = new List<Point>();
+            var pointList3 = new List<Point>();
+            var pointList4 = new List<Point>();
+            if (RuntimeData.CurrentDrawStep == 0)
+            {
+                // Asymptote first
+                double k = Math.Abs((ed.Y - st.Y) / (ed.X - st.X));
+                strokeCollection.Add(GenerateStrokeCollection_DashedLine(new Point(2 * st.X - ed.X, 2 * st.Y - ed.Y), ed));
+                strokeCollection.Add(GenerateStrokeCollection_DashedLine(new Point(2 * st.X - ed.X, ed.Y), new Point(ed.X, 2 * st.Y - ed.Y)));
+                RuntimeData.Shape_Para_1 = k;
+                multiStepShapeSpecialStrokeCollection = strokeCollection;
+            }
+            else
+            {
+                // Hyperbola next
+                double k = RuntimeData.Shape_Para_1;
+                bool isHyperbolaFocalPointOnXAxis = Math.Abs((ed.Y - st.Y) / (ed.X - st.X)) < k;
+                if (isHyperbolaFocalPointOnXAxis)
+                {
+                    // The focus is on the x-axis
+                    a = Math.Sqrt(Math.Abs((ed.X - st.X) * (ed.X - st.X) - (ed.Y - st.Y) * (ed.Y - st.Y) / (k * k)));
+                    b = a * k;
+                    pointList = new List<Point>();
+                    for (double i = a; i <= Math.Abs(ed.X - st.X); i += 0.5)
+                    {
+                        double rY = Math.Sqrt(Math.Abs(k * k * i * i - b * b));
+                        pointList.Add(new Point(st.X + i, st.Y - rY));
+                        pointList2.Add(new Point(st.X + i, st.Y + rY));
+                        pointList3.Add(new Point(st.X - i, st.Y - rY));
+                        pointList4.Add(new Point(st.X - i, st.Y + rY));
+                    }
+                }
+                else
+                {
+                    // The focus is on the y-axis
+                    a = Math.Sqrt(Math.Abs((ed.Y - st.Y) * (ed.Y - st.Y) - (ed.X - st.X) * (ed.X - st.X) * (k * k)));
+                    b = a / k;
+                    pointList = new List<Point>();
+                    for (double i = a; i <= Math.Abs(ed.Y - st.Y); i += 0.5)
+                    {
+                        double rX = Math.Sqrt(Math.Abs(i * i / k / k - b * b));
+                        pointList.Add(new Point(st.X - rX, st.Y + i));
+                        pointList2.Add(new Point(st.X + rX, st.Y + i));
+                        pointList3.Add(new Point(st.X - rX, st.Y - i));
+                        pointList4.Add(new Point(st.X + rX, st.Y - i));
+                    }
+                }
+                try
+                {
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes));
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList2), MainInkCanvas.DefaultDrawingAttributes));
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList3), MainInkCanvas.DefaultDrawingAttributes));
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList4), MainInkCanvas.DefaultDrawingAttributes));
+
+                    c = Math.Sqrt(a * a + b * b);
+
+                    StylusPoint stylusPoint = isHyperbolaFocalPointOnXAxis ? new StylusPoint(st.X + c, st.Y, (float)1.0) : new StylusPoint(st.X, st.Y + c, (float)1.0);
+                    stylusPointCollection = new StylusPointCollection { stylusPoint };
+                    stroke = new Stroke(stylusPointCollection, MainInkCanvas.DefaultDrawingAttributes);
+                    strokeCollection.Add(stroke.Clone());
+
+                    stylusPoint = isHyperbolaFocalPointOnXAxis ? new StylusPoint(st.X - c, st.Y, (float)1.0) : new StylusPoint(st.X, st.Y - c, (float)1.0);
+                    stylusPointCollection = new StylusPointCollection { stylusPoint };
+                    stroke = new Stroke(stylusPointCollection, MainInkCanvas.DefaultDrawingAttributes);
+                    strokeCollection.Add(stroke.Clone());
+                }
+                catch
+                {
+                    return strokeCollection;
+                }
+            }
             return strokeCollection;
         }
 

@@ -20,6 +20,7 @@ namespace Ink_Canvas_Better
     {
         Point iniPoint;
         StrokeCollection lastTempStrokeCollection = new StrokeCollection();
+        StrokeCollection multiStepShapeSpecialStrokeCollection = new StrokeCollection();
 
         #region Initialize
 
@@ -70,6 +71,7 @@ namespace Ink_Canvas_Better
 
         private void MainInkCanvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            RuntimeData.UpdateShapePara_0();
             _isMouseDown = true;
             iniPoint = e.GetPosition(MainInkCanvas);
         }
@@ -84,12 +86,20 @@ namespace Ink_Canvas_Better
 
         private void MainInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (!RuntimeData.IsShapeModePersistent && RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape)
+            lastTempStrokeCollection.Clear();
+            switch (RuntimeData.CurrentShape)
             {
-                RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
+                case "Shape_Hyperbola":
+                    RuntimeData.CurrentDrawStep += 1;
+                    break;
+                default:
+                    if (!RuntimeData.IsShapeModePersistent && RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape)
+                    {
+                        RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
+                    }
+                    break;
             }
             _isMouseDown = false;
-            lastTempStrokeCollection.Clear();
         }
 
         private void MainInkCanvas_TouchDown(object sender, TouchEventArgs e)

@@ -24,11 +24,27 @@ namespace Ink_Canvas_Better.Resources
 
         #endregion
 
+        #region Shape parameters
+
+        public static string CurrentShape { get; set; } = "Shape_Line";
+
+        public static bool IsShapeModePersistent { get; set; } = false;
+
+        public static int CurrentDrawStep = 0; // Shape
+
+        // special parameters for shapes
+        private static double Shape_Para_0;
+        public static double GetShapePara_0() { return Shape_Para_0; }
+        public static void UpdateShapePara_0() { Shape_Para_0 = Math.Log(mainWindow.MainInkCanvas.DefaultDrawingAttributes.Width + Math.E); }
+
+        public static double Shape_Para_1;
+
+        #endregion
+
         public static bool isCloseFromButton = false;
         public static String settingsFileName = "settings.json";
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
-        public static int CurrentDrawStep = 0; // Shape
 
         public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes()
         {
@@ -106,13 +122,14 @@ namespace Ink_Canvas_Better.Resources
             }
         }
 
+        private static void DefaultDrawingAttributes_PropertyDataChanged(object sender, PropertyDataChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public static EraserMode CurrentEraserMode { get; set; } = EraserMode.Point;
 
         public static StylusShape CurrentEraserShape { get; set; } = new EllipseStylusShape(30, 30);
-
-        public static string CurrentShape { get; set; } = "Shape_Line";
-
-        public static bool IsShapeModePersistent { get; set; } = false;
 
         public static void ApplyMetadata()
         {
