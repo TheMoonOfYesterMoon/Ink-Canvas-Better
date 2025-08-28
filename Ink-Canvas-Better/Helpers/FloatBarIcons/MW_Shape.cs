@@ -207,8 +207,14 @@ namespace Ink_Canvas_Better
         // 2D shape -- Circle
         private StrokeCollection GenerateStrokeCollection_Circle(Point st, Point ed)
         {
-            double R = GetDistance(st, ed);
-            StrokeCollection strokeCollection = GenerateStrokeCollection_Ellipse(new Point(st.X - R, ed.Y - R), new Point(st.X + R, ed.Y + R));
+            double d = GetDistance(st, ed);
+            List<Point> pointList = new List<Point>();
+            for (double r = 0; r <= 2 * Math.PI; r += 0.01)
+            {
+                pointList.Add(new Point(st.X + d * Math.Cos(r), st.Y + d * Math.Sin(r)));
+            }
+            Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            StrokeCollection strokeCollection = new StrokeCollection { stroke.Clone() };
             return strokeCollection;
         }
 
@@ -250,20 +256,21 @@ namespace Ink_Canvas_Better
         {
             double a = 0.5 * (ed.X - st.X);
             double b = 0.5 * (ed.Y - st.Y);
+            Point center = new Point((st.X + ed.X) / 2, (st.Y + ed.Y) / 2);
             List<Point> pointList = new List<Point>();
             if (isDrawTop && isDrawBottom)
             {
                 for (double r = 0; r <= 2 * Math.PI; r += 0.01)
                 {
-                    pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(r), 0.5 * (st.Y + ed.Y) + b * Math.Sin(r)));
+                    pointList.Add(new Point(center.X + a * Math.Cos(r), center.Y + b * Math.Sin(r)));
                 }
             }
-            else
+            else if (isDrawTop || isDrawBottom)
             {
                 for (double r = 0; r <= Math.PI; r += 0.01)
                 {
                     double x = isDrawTop ? r += Math.PI : r;
-                    pointList.Add(new Point(0.5 * (st.X + ed.X) + a * Math.Cos(x), 0.5 * (st.Y + ed.Y) + b * Math.Sin(x)));
+                    pointList.Add(new Point(center.X + a * Math.Cos(x), center.Y + b * Math.Sin(x)));
                 }
             }
             Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
