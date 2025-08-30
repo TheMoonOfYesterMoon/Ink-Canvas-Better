@@ -11,7 +11,7 @@ namespace Ink_Canvas_Better
 {
     public partial class MainWindow
     {
-        readonly double FOLD_TOLERANCE = 8;
+        const double FOLD_TOLERANCE = 8;
         bool _isMouseDown = false;
         Point _mouseDownPosition;
         Point _mouseUpPosition;

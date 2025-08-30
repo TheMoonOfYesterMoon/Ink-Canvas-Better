@@ -14,6 +14,7 @@ using System.Windows.Media;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 {
+    // imperfect but works, need to be improved
     public partial class FloatingBar_Eraser : UserControl
     {
         private bool _isSquare = false;

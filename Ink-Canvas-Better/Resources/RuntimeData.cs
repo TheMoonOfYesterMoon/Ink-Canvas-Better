@@ -35,7 +35,7 @@ namespace Ink_Canvas_Better.Resources
         // special parameters for shapes
         private static double Shape_Para_0;
         public static double GetShapePara_0() { return Shape_Para_0; }
-        public static void UpdateShapePara_0() { Shape_Para_0 = Math.Log(mainWindow.MainInkCanvas.DefaultDrawingAttributes.Width + Math.E); }
+        public static void UpdateShapePara_0() { Shape_Para_0 = Math.Round(Math.Log(mainWindow.MainInkCanvas.DefaultDrawingAttributes.Width + Math.E), 3); }
 
         public static double Shape_Para_1;
 

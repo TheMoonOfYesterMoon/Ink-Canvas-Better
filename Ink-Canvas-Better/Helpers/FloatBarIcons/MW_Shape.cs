@@ -1,6 +1,7 @@
 ﻿using Ink_Canvas_Better.Resources;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -291,9 +292,6 @@ namespace Ink_Canvas_Better
             StylusPointCollection stylusPointCollection;
             double a, b, c;
             if (Math.Abs(st.X - ed.X) < 0.01 || Math.Abs(st.Y - ed.Y) < 0.01) return strokeCollection;
-            var pointList2 = new List<Point>();
-            var pointList3 = new List<Point>();
-            var pointList4 = new List<Point>();
             if (RuntimeData.CurrentDrawStep == 0)
             {
                 // Asymptote first
@@ -306,6 +304,10 @@ namespace Ink_Canvas_Better
             else
             {
                 // Hyperbola next
+                var pointList2 = new List<Point>();
+                var pointList3 = new List<Point>();
+                var pointList4 = new List<Point>();
+                st = lastInitPoint;
                 double k = RuntimeData.Shape_Para_1;
                 bool isHyperbolaFocalPointOnXAxis = Math.Abs((ed.Y - st.Y) / (ed.X - st.X)) < k;
                 if (isHyperbolaFocalPointOnXAxis)
@@ -340,10 +342,10 @@ namespace Ink_Canvas_Better
                 }
                 try
                 {
-                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes));
-                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList2), MainInkCanvas.DefaultDrawingAttributes));
-                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList3), MainInkCanvas.DefaultDrawingAttributes));
-                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList4), MainInkCanvas.DefaultDrawingAttributes));
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes).Clone());
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList2), MainInkCanvas.DefaultDrawingAttributes).Clone());
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList3), MainInkCanvas.DefaultDrawingAttributes).Clone());
+                    strokeCollection.Add(new Stroke(new StylusPointCollection(pointList4), MainInkCanvas.DefaultDrawingAttributes).Clone());
 
                     c = Math.Sqrt(a * a + b * b);
 

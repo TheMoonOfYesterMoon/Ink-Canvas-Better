@@ -18,6 +18,7 @@ namespace Ink_Canvas_Better
 {
     public partial class MainWindow : Window
     {
+        Point lastInitPoint;
         Point iniPoint;
         StrokeCollection lastTempStrokeCollection = new StrokeCollection();
         StrokeCollection multiStepShapeSpecialStrokeCollection = new StrokeCollection();
@@ -86,17 +87,38 @@ namespace Ink_Canvas_Better
 
         private void MainInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            // check if need to switch back to last mode
+            void func0(ref int currentDrawStep, int maximum)
+            {
+                if (currentDrawStep < maximum)
+                {
+                    currentDrawStep += 1;
+                }
+                else
+                {
+                    func1();
+                    currentDrawStep = 0;
+                    multiStepShapeSpecialStrokeCollection.Clear();
+                }
+            }
+            // switch back to last mode
+            void func1()
+            {
+                if (!RuntimeData.IsShapeModePersistent && RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape)
+                {
+                    RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
+                }
+            }
+
+            lastInitPoint = iniPoint;
             lastTempStrokeCollection.Clear();
             switch (RuntimeData.CurrentShape)
             {
                 case "Shape_Hyperbola":
-                    RuntimeData.CurrentDrawStep += 1;
+                    func0(ref RuntimeData.CurrentDrawStep, 1);
                     break;
                 default:
-                    if (!RuntimeData.IsShapeModePersistent && RuntimeData.CurrentDrawingMode == RuntimeData.DrawingMode.Shape)
-                    {
-                        RuntimeData.CurrentDrawingMode = RuntimeData.LastDrawingMode;
-                    }
+                    func1();
                     break;
             }
             _isMouseDown = false;

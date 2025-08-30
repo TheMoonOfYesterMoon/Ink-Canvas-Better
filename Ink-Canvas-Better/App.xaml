@@ -13,7 +13,7 @@
             
             <!-- TODO -->
             <ResourceDictionary.MergedDictionaries>
-                <ui:ThemeResources RequestedTheme="Light" />
+                <ui:ThemeResources/>
                 <ui:XamlControlsResources/>
                 <ResourceDictionary Source="Resources/Styles/Light.xaml"/>
 
