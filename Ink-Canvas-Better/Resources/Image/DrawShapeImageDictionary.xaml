@@ -1162,7 +1162,55 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-    <DrawingImage x:Key="Image.Shape.Parabola">
+    <DrawingImage x:Key="Image.Shape.ParabolaX">
+        <DrawingImage.Drawing>
+            <DrawingGroup>
+                <DrawingGroup.Transform>
+                    <RotateTransform Angle="90" CenterX="342.135" CenterY="342.135"/>
+                </DrawingGroup.Transform>
+                <DrawingGroup ClipGeometry="M0,0 V635.2 H684.27 V0 H0 Z">
+                    <DrawingGroup Transform="1,0,0,1,-157.87,-182.4">
+                        <GeometryDrawing Geometry="F1 M684.27,635.2z M0,0z M182.87,207.4C191.75,296.78 210.54,423.16 252.87,553.03 260.15,575.33 290.28,665.09 352.09,727.67 378.68,754.59 401.88,767.11 413.96,772.86A203.34,203.34,0,0,0,496.84,792.4">
+                            <GeometryDrawing.Pen>
+                                <Pen
+                                    Brush="{DynamicResource DefaultForegroundColor}"
+                                    EndLineCap="Round"
+                                    LineJoin="Miter"
+                                    StartLineCap="Round"
+                                    Thickness="50" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                    <DrawingGroup Transform="1,0,0,1,-157.87,-182.4">
+                        <GeometryDrawing Geometry="F1 M684.27,635.2z M0,0z M817.13,207.6C808.25,296.98 789.46,423.36 747.13,553.23 739.85,575.53 709.72,665.29 647.91,727.87 621.32,754.79 598.12,767.31 586.04,773.06A203.34,203.34,0,0,1,503.16,792.6">
+                            <GeometryDrawing.Pen>
+                                <Pen
+                                    Brush="{DynamicResource DefaultForegroundColor}"
+                                    EndLineCap="Round"
+                                    LineJoin="Miter"
+                                    StartLineCap="Round"
+                                    Thickness="50" />
+                            </GeometryDrawing.Pen>
+                        </GeometryDrawing>
+                    </DrawingGroup>
+                    <GeometryDrawing>
+                        <GeometryDrawing.Pen>
+                            <Pen
+                                Brush="{DynamicResource DefaultForegroundColor}"
+                                EndLineCap="Round"
+                                LineJoin="Miter"
+                                StartLineCap="Round"
+                                Thickness="75" />
+                        </GeometryDrawing.Pen>
+                        <GeometryDrawing.Geometry>
+                            <LineGeometry StartPoint="342.08,417.65" EndPoint="342.18,417.55" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingGroup>
+        </DrawingImage.Drawing>
+    </DrawingImage>
+    <DrawingImage x:Key="Image.Shape.ParabolaY">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V635.2 H684.27 V0 H0 Z">
                 <DrawingGroup Transform="1,0,0,1,-157.87,-182.4">

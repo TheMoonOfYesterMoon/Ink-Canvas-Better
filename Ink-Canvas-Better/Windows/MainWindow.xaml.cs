@@ -20,6 +20,7 @@ namespace Ink_Canvas_Better
     {
         Point lastInitPoint;
         Point iniPoint;
+        bool _isMouseDown = false;
         StrokeCollection lastTempStrokeCollection = new StrokeCollection();
         StrokeCollection multiStepShapeSpecialStrokeCollection = new StrokeCollection();
 

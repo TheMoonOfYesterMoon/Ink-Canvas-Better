@@ -36,7 +36,8 @@ namespace Ink_Canvas_Better
                 case "Shape_DashedCircle": UpdateStrokes(GenerateStrokeCollection_DashedCircle(iniPoint, endPoint)); break;
                 case "Shape_Ellipse": UpdateStrokes(GenerateStrokeCollection_Ellipse(iniPoint, endPoint)); break;
                 case "Shape_Hyperbola": UpdateStrokes(GenerateStrokeCollection_Hyperbola(iniPoint, endPoint)); break;
-                case "Shape_Parabola":
+                case "Shape_ParabolaX": UpdateStrokes(GenerateStrokeCollection_ParabolaX(iniPoint, endPoint)); break;
+                case "Shape_ParabolaY": UpdateStrokes(GenerateStrokeCollection_ParabolaY(iniPoint, endPoint)); break;
                 // 3D shape
                 case "Shape_Coordinate3D":
                 case "Shape_Cylinder":
@@ -364,6 +365,60 @@ namespace Ink_Canvas_Better
                     return strokeCollection;
                 }
             }
+            return strokeCollection;
+        }
+
+        // 2D shape -- Parabola (x-axis)
+        private StrokeCollection GenerateStrokeCollection_ParabolaX(Point st, Point ed)
+        {
+            // y^2 = 2px
+            StrokeCollection strokeCollection = new StrokeCollection();
+            Stroke stroke;
+            if (Math.Abs(st.X - ed.X) < 0.01 || Math.Abs(st.Y - ed.Y) < 0.01) return strokeCollection;
+            double p = (st.Y - ed.Y) * (st.Y - ed.Y) / (2 * (st.X - ed.X));
+            double a = 0.5 / p;
+            List<Point> pointList = new List<Point>();
+            List<Point> pointList2 = new List<Point>();
+            for (double i = 0.0; i <= Math.Abs(ed.Y - st.Y); i += 0.5)
+            {
+                pointList.Add(new Point(st.X - a * i * i, st.Y + i));
+                pointList2.Add(new Point(st.X - a * i * i, st.Y - i));
+            }
+            stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            strokeCollection.Add(stroke.Clone());
+            stroke = new Stroke(new StylusPointCollection(pointList2), MainInkCanvas.DefaultDrawingAttributes);
+            strokeCollection.Add(stroke.Clone());
+            // focus
+            pointList = new List<Point>() { new Point(st.X - p / 2, st.Y) };
+            stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            strokeCollection.Add(stroke.Clone());
+            return strokeCollection;
+        }
+
+        // 2D shape -- Parabola (y-axis)
+        private StrokeCollection GenerateStrokeCollection_ParabolaY(Point st, Point ed)
+        {
+            // x^2 = 2py
+            StrokeCollection strokeCollection = new StrokeCollection();
+            Stroke stroke;
+            if (Math.Abs(st.X - ed.X) < 0.01 || Math.Abs(st.Y - ed.Y) < 0.01) return strokeCollection;
+            double p = (st.X - ed.X) * (st.X - ed.X) / (2 * (st.Y - ed.Y));
+            double a = 0.5 / p;
+            List<Point> pointList = new List<Point>();
+            List<Point> pointList2 = new List<Point>();
+            for (double i = 0.0; i <= Math.Abs(ed.X - st.X); i += 0.5)
+            {
+                pointList.Add(new Point(st.X + i, st.Y - a * i * i));
+                pointList2.Add(new Point(st.X - i, st.Y - a * i * i));
+            }
+            stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            strokeCollection.Add(stroke.Clone());
+            stroke = new Stroke(new StylusPointCollection(pointList2), MainInkCanvas.DefaultDrawingAttributes);
+            strokeCollection.Add(stroke.Clone());
+            // focus
+            pointList = new List<Point>() { new Point(st.X, st.Y - p / 2) };
+            stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
+            strokeCollection.Add(stroke.Clone());
             return strokeCollection;
         }
 
