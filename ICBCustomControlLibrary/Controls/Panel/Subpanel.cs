@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICBCustomControlLibrary.Themes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,17 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Markup;
+using System.Windows.Media;
 
 [assembly: XmlnsDefinition("ICBCustomControlLibrary", "ICBCustomControlLibrary.Controls.Panel")]
 namespace ICBCustomControlLibrary.Controls.Panel
 {
-    [ContentProperty("Content")]
+    [ContentProperty("Child")]
     [TemplatePart(Name = "PART_PinButton", Type = typeof(Button))]
     [TemplatePart(Name = "PART_CloseButton", Type = typeof(Button))]
-    public class Subpanel : ContentControl
+    public class Subpanel : Popup
     {
         static Subpanel()
         {
@@ -26,51 +29,120 @@ namespace ICBCustomControlLibrary.Controls.Panel
         public static readonly DependencyProperty TitleProperty =
             DependencyProperty.Register("Title", typeof(string), typeof(Subpanel), new PropertyMetadata("Title"));
 
-        public string Title { get => (string)GetValue(TitleProperty); set => SetValue(TitleProperty, value); }
+        public string Title
+        {
+            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
+        }
 
-        public static readonly DependencyProperty IsOpenProperty =
-            DependencyProperty.Register("IsOpen", typeof(bool), typeof(Subpanel), new PropertyMetadata(false));
+        public static readonly DependencyProperty ShowHeaderProperty =
+            DependencyProperty.Register("ShowHeader", typeof(bool), typeof(Subpanel),
+                new PropertyMetadata(true));
 
-        public bool IsOpen { get => (bool)GetValue(IsOpenProperty); set => SetValue(IsOpenProperty, value); }
+        public bool ShowHeader
+        {
+            get { return (bool)GetValue(ShowHeaderProperty); }
+            set { SetValue(ShowHeaderProperty, value); }
+        }
 
-        public static readonly DependencyProperty StaysOpenProperty =
-            DependencyProperty.Register("StaysOpen", typeof(bool), typeof(Subpanel), new PropertyMetadata(false));
+        public static readonly DependencyProperty HeaderBackgroundProperty =
+            DependencyProperty.Register("HeaderBackground", typeof(Brush), typeof(Subpanel), new PropertyMetadata(Brushes.LightGray));
 
-        public bool StaysOpen { get => (bool)GetValue(StaysOpenProperty); set => SetValue(StaysOpenProperty, value); }
-
-        public static readonly DependencyProperty PlacementTargetProperty =
-            DependencyProperty.Register("PlacementTarget", typeof(UIElement), typeof(Subpanel), new PropertyMetadata(null));
-
-        public UIElement PlacementTarget { get => (UIElement)GetValue(PlacementTargetProperty); set => SetValue(PlacementTargetProperty, value); }
+        public Brush HeaderBackground
+        {
+            get { return (Brush)GetValue(HeaderBackgroundProperty); }
+            set { SetValue(HeaderBackgroundProperty, value); }
+        }
 
         #endregion
 
-        public override void OnApplyTemplate()
+        protected override void OnInitialized(EventArgs e)
         {
-            base.OnApplyTemplate();
-            if (GetTemplateChild("PART_PinButton") is Button pinButton)
+            base.OnInitialized(e);
+
+            var mainBorder = new Border
             {
-                pinButton.Click += PinButton_Click;
-            }
-            if (GetTemplateChild("PART_CloseButton") is Button closeButton)
+                Background = (Brush)ThemeHelper.ThemeResources["DefaultBackgroundColor"],
+                BorderBrush = (Brush)ThemeHelper.ThemeResources["BorderBrush"],
+                BorderThickness = new Thickness(1),
+                CornerRadius = new CornerRadius(4)
+            };
+
+            var mainGrid = new Grid();
+            mainGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+            mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+
+            // title bar
+            var headerGrid = new Grid
             {
-                closeButton.Click += CloseButton_Click;
-            }
+                Background = HeaderBackground,
+                Height = 30
+            };
+            headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+            headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+
+            var titleTextBlock = new TextBlock
+            {
+                Text = Title,
+                VerticalAlignment = VerticalAlignment.Center,
+                Margin = new Thickness(10, 0, 0, 0),
+                FontWeight = FontWeights.Bold
+            };
+
+            var pinButton = new Button
+            {
+                Content = "📌",
+                Width = 30,
+            };
+            pinButton.Click += (s, args) => { /* TODO */ };
+
+            var closeButton = new Button
+            {
+                Content = "×",
+                Width = 30,
+            };
+            closeButton.Click += (s, args) => { this.IsOpen = false; };
+
+            headerGrid.Children.Add(titleTextBlock);
+            Grid.SetColumn(titleTextBlock, 0);
+
+            headerGrid.Children.Add(pinButton);
+            Grid.SetColumn(pinButton, 1);
+
+            headerGrid.Children.Add(closeButton);
+            Grid.SetColumn(closeButton, 2);
+
+            var contentPresenter = new ContentPresenter();
+
+            var contentBinding = new Binding("Child") { Source = this.MemberwiseClone() };
+            contentPresenter.SetBinding(ContentPresenter.ContentProperty, contentBinding);
+
+            mainGrid.Children.Add(headerGrid);
+            Grid.SetRow(headerGrid, 0);
+
+            mainGrid.Children.Add(contentPresenter);
+            Grid.SetRow(contentPresenter, 1);
+
+            var visibilityBinding = new Binding("ShowHeader")
+            {
+                Source = this,
+                Converter = new BooleanToVisibilityConverter()
+            };
+            headerGrid.SetBinding(VisibilityProperty, visibilityBinding);
+
+            mainBorder.Child = mainGrid;
+            this.Child = mainBorder;
         }
 
-        private void PinButton_Click(object sender, RoutedEventArgs e)
+        public void Show()
         {
-            StaysOpen = !StaysOpen;
-            if (GetTemplateChild("PART_PinTextblock") is TextBlock textBlock)
-            {
-                textBlock.Text = StaysOpen ? "\ue77a" : "\ue840";
-            }
-
+            this.IsOpen = true;
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        public void Hide()
         {
-            IsOpen = false;
+            this.IsOpen = false;
         }
     }
 
