@@ -1,6 +1,7 @@
 ﻿using ICBCustomControlLibrary.Themes;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
             headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
             headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 
+            // title
             var titleTextBlock = new TextBlock
             {
                 Text = Title,
@@ -90,16 +92,29 @@ namespace ICBCustomControlLibrary.Controls.Panel
                 FontWeight = FontWeights.Bold
             };
 
+            // pin button
             var pinButton = new Button
             {
-                Content = "📌",
+                Content = "\ue718",
                 Width = 30,
             };
-            pinButton.Click += (s, args) => { /* TODO */ };
+            pinButton.Click += (s, args) =>
+            {
+                StaysOpen = !StaysOpen;
+                if (StaysOpen)
+                {
+                    pinButton.Content = "\ue77a";
+                }
+                else
+                {
+                    pinButton.Content = "\ue718";
+                }
+            };
 
+            // close button
             var closeButton = new Button
             {
-                Content = "×",
+                Content = "\ue8bb",
                 Width = 30,
             };
             closeButton.Click += (s, args) => { this.IsOpen = false; };
