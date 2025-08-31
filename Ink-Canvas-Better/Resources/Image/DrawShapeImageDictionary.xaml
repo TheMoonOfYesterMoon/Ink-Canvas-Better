@@ -31,7 +31,7 @@
             </DrawingGroup>
         </DrawingImage.Drawing>
     </DrawingImage>
-    <DrawingImage x:Key="Image.Shape.DashedCircle">
+    <DrawingImage x:Key="Image.Shape.DashedEllipse">
         <DrawingImage.Drawing>
             <DrawingGroup ClipGeometry="M0,0 V825 H825 V0 H0 Z">
                 <GeometryDrawing>

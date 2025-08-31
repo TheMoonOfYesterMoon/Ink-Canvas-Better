@@ -33,15 +33,15 @@ namespace Ink_Canvas_Better
                 case "Shape_Coordinate2D": UpdateStrokes(GenerateStrokeCollection_Coordinate2D(iniPoint, endPoint)); break;
                 case "Shape_Rectangle": UpdateStrokes(GenerateStrokeCollection_Rectangle(iniPoint, endPoint)); break;
                 case "Shape_Circle": UpdateStrokes(GenerateStrokeCollection_Circle(iniPoint, endPoint)); break;
-                case "Shape_DashedCircle": UpdateStrokes(GenerateStrokeCollection_DashedCircle(iniPoint, endPoint)); break;
+                case "Shape_DashedEllipse": UpdateStrokes(GenerateStrokeCollection_DashedEllipse(iniPoint, endPoint)); break;
                 case "Shape_Ellipse": UpdateStrokes(GenerateStrokeCollection_Ellipse(iniPoint, endPoint)); break;
                 case "Shape_Hyperbola": UpdateStrokes(GenerateStrokeCollection_Hyperbola(iniPoint, endPoint)); break;
                 case "Shape_ParabolaX": UpdateStrokes(GenerateStrokeCollection_ParabolaX(iniPoint, endPoint)); break;
                 case "Shape_ParabolaY": UpdateStrokes(GenerateStrokeCollection_ParabolaY(iniPoint, endPoint)); break;
                 // 3D shape
-                case "Shape_Coordinate3D":
-                case "Shape_Cylinder":
-                case "Shape_Cone":
+                case "Shape_Coordinate3D": UpdateStrokes(GenerateStrokeCollection_Coordinate3D(iniPoint, endPoint)); break;
+                case "Shape_Cylinder": UpdateStrokes(GenerateStrokeCollection_Cylinder(iniPoint, endPoint)); break;
+                case "Shape_Cone": UpdateStrokes(GenerateStrokeCollection_Cone(iniPoint, endPoint)); break;
                 case "Shape_Cuboid":
                 case "Shape_Tetrahedron":
                 default:
@@ -221,7 +221,7 @@ namespace Ink_Canvas_Better
         }
 
         // 2D shape -- DashedCircle
-        private StrokeCollection GenerateStrokeCollection_DashedCircle(Point st, Point ed, bool isDrawTop = true, bool isDrawBottom = true)
+        private StrokeCollection GenerateStrokeCollection_DashedEllipse(Point st, Point ed, bool isDrawTop = true, bool isDrawBottom = true)
         {
             double a = ed.X - st.X;
             double b = ed.Y - st.Y;
@@ -425,6 +425,84 @@ namespace Ink_Canvas_Better
         #endregion
 
         #region 3D shape generators
+
+        // 3D shape -- Coordinate (3D)
+        private StrokeCollection GenerateStrokeCollection_Coordinate3D(Point st, Point ed)
+        {
+            StrokeCollection strokeCollection = new StrokeCollection();
+            double d = (Math.Abs(st.X - ed.X) + Math.Abs(st.Y - ed.Y)) / 2;
+            strokeCollection.Add(GenerateStrokeCollection_ArrowLine(st, new Point(ed.X, st.Y)));
+            strokeCollection.Add(GenerateStrokeCollection_ArrowLine(st, new Point(st.X, ed.Y)));
+            strokeCollection.Add(GenerateStrokeCollection_ArrowLine(st, new Point(st.X - d / 1.76, st.Y + d / 1.76)));
+            return strokeCollection;
+        }
+
+        // 3D shape -- Cylinder
+        private StrokeCollection GenerateStrokeCollection_Cylinder(Point st, Point ed)
+        {
+            StrokeCollection strokeCollection = new StrokeCollection();
+            List<Point> pointList;
+            Point newSt = st;
+            if (st.Y > ed.Y)
+            {
+                newSt = new Point(st.X, ed.Y);
+                ed = new Point(ed.X, st.Y);
+            }
+            double top = Math.Abs(newSt.X - ed.X) / 2.646;
+            // Ellipse top
+            strokeCollection.Add(GenerateStrokeCollection_Ellipse(new Point(newSt.X, newSt.Y), new Point(ed.X, newSt.Y + top / 2)));
+            // Ellipse bottom
+            strokeCollection.Add(GenerateStrokeCollection_Ellipse(new Point(newSt.X, ed.Y), new Point(ed.X, ed.Y + top / 2), false, true));
+            strokeCollection.Add(GenerateStrokeCollection_DashedEllipse(new Point(newSt.X, ed.Y), new Point(ed.X, ed.Y + top / 2), true, false));
+            // Sides
+            double dx = ed.X - st.X;
+            pointList = new List<Point>{
+                new Point(newSt.X - dx, newSt.Y),
+                new Point(newSt.X - dx, ed.Y)
+            };
+            strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes).Clone());
+            pointList = new List<Point>{
+                new Point(ed.X, newSt.Y),
+                new Point(ed.X, ed.Y)
+            };
+            strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes).Clone());
+            return strokeCollection;
+        }
+
+        // 3D shape -- Cone
+        private StrokeCollection GenerateStrokeCollection_Cone(Point st, Point ed)
+        {
+            // Under construction
+            StrokeCollection strokeCollection = new StrokeCollection();
+            List<Point> pointList;
+            double bottom = Math.Abs(st.Y - ed.Y);
+            Point p1 = new Point(st.X, st.Y);
+            Point p2 = new Point(ed.X, ed.Y + bottom);
+            // Ellipse bottom
+            if (st.Y > ed.Y)
+            {
+                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, false, true));
+                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, true, false));
+
+            }
+            else
+            {
+                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, false, true));
+                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, true, false));
+            }
+            // Sides
+            pointList = new List<Point>{
+                new Point(ed.X, st.Y),
+                new Point(st.X, ed.Y)
+            };
+            strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes).Clone());
+            pointList = new List<Point>{
+                new Point(ed.X - 2*(ed.X - st.X), st.Y),
+                new Point(st.X, ed.Y)
+            };
+            strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes).Clone());
+            return strokeCollection;
+        }
 
         #endregion
 

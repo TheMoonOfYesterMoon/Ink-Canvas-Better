@@ -125,7 +125,7 @@
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate2D" Source="{DynamicResource Image.Shape.Coordinate2D}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Rectangle" Source="{DynamicResource Image.Shape.Rectangle}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Circle" Source="{DynamicResource Image.Shape.Circle}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedCircle" Source="{DynamicResource Image.Shape.DashedCircle}"/>
+                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedEllipse" Source="{DynamicResource Image.Shape.DashedEllipse}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Ellipse" Source="{DynamicResource Image.Shape.Ellipse}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Hyperbola" Source="{DynamicResource Image.Shape.Hyperbola}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParabolaX" Source="{DynamicResource Image.Shape.ParabolaX}"/>
