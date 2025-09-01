@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,7 +43,7 @@ namespace Ink_Canvas_Better
                 case "Shape_Coordinate3D": UpdateStrokes(GenerateStrokeCollection_Coordinate3D(iniPoint, endPoint)); break;
                 case "Shape_Cylinder": UpdateStrokes(GenerateStrokeCollection_Cylinder(iniPoint, endPoint)); break;
                 case "Shape_Cone": UpdateStrokes(GenerateStrokeCollection_Cone(iniPoint, endPoint)); break;
-                case "Shape_Cuboid":
+                case "Shape_Cuboid": UpdateStrokes(GenerateStrokeCollection_Cuboid(iniPoint, endPoint)); break;
                 case "Shape_Tetrahedron":
                 default:
                     throw new NotImplementedException($"Unsupported shape {RuntimeData.CurrentShape}");
@@ -54,14 +55,8 @@ namespace Ink_Canvas_Better
         // 2D shape -- Line
         private StrokeCollection GenerateStrokeCollection_Line(Point st, Point ed)
         {
-            List<Point> pointList = new List<Point> {
-                new Point(st.X, st.Y),
-                new Point(ed.X, ed.Y)
-            };
-            Stroke stroke = new Stroke(new StylusPointCollection(pointList))
-            {
-                DrawingAttributes = MainInkCanvas.DefaultDrawingAttributes.Clone()
-            };
+            List<Point> pointList = new List<Point> { st, ed };
+            Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
             StrokeCollection strokeCollection = new StrokeCollection { stroke.Clone() };
             return strokeCollection;
         }
@@ -193,16 +188,14 @@ namespace Ink_Canvas_Better
         }
 
         // 2D shape -- Rectangle
-        private StrokeCollection GenerateStrokeCollection_Rectangle(Point st, Point ed)
+        private StrokeCollection GenerateStrokeCollection_Rectangle(Point st, Point ed, bool isLeftDashed = false, bool isUpDashed = false, bool isRightDashed = false, bool isBottomDashed = false)
         {
-            List<Point> pointList = new List<Point>{
-                new Point(st.X, st.Y),
-                new Point(st.X, ed.Y),
-                new Point(ed.X, ed.Y),
-                new Point(ed.X, st.Y),
-                new Point(st.X, st.Y)};
-            Stroke stroke = new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes);
-            StrokeCollection strokeCollection = new StrokeCollection { stroke.Clone() };
+            StrokeCollection strokeCollection = new StrokeCollection {
+                isLeftDashed   ? GenerateStrokeCollection_DashedLine(st, new Point(st.X, ed.Y)) : GenerateStrokeCollection_Line(st, new Point(st.X, ed.Y)),
+                isUpDashed     ? GenerateStrokeCollection_DashedLine(new Point(ed.X, st.Y), st) : GenerateStrokeCollection_Line(new Point(ed.X, st.Y), st),
+                isRightDashed  ? GenerateStrokeCollection_DashedLine(ed, new Point(ed.X, st.Y)) : GenerateStrokeCollection_Line(ed, new Point(ed.X, st.Y)),
+                isBottomDashed ? GenerateStrokeCollection_DashedLine(new Point(st.X, ed.Y), ed) : GenerateStrokeCollection_Line(new Point(st.X, ed.Y), ed)
+            };
             return strokeCollection;
         }
 
@@ -274,7 +267,7 @@ namespace Ink_Canvas_Better
             {
                 for (double r = 0; r <= Math.PI; r += 0.01)
                 {
-                    double x = isDrawTop ? r += Math.PI : r;
+                    double x = isDrawTop ? r + Math.PI : r;
                     pointList.Add(new Point(st.X + a * Math.Cos(x), st.Y + b * Math.Sin(x)));
                 }
             }
@@ -300,7 +293,6 @@ namespace Ink_Canvas_Better
                 strokeCollection.Add(GenerateStrokeCollection_DashedLine(new Point(2 * st.X - ed.X, 2 * st.Y - ed.Y), ed));
                 strokeCollection.Add(GenerateStrokeCollection_DashedLine(new Point(2 * st.X - ed.X, ed.Y), new Point(ed.X, 2 * st.Y - ed.Y)));
                 RuntimeData.Shape_Para_1 = k;
-                multiStepShapeSpecialStrokeCollection = strokeCollection;
             }
             else
             {
@@ -472,23 +464,19 @@ namespace Ink_Canvas_Better
         // 3D shape -- Cone
         private StrokeCollection GenerateStrokeCollection_Cone(Point st, Point ed)
         {
-            // Under construction
             StrokeCollection strokeCollection = new StrokeCollection();
             List<Point> pointList;
-            double bottom = Math.Abs(st.Y - ed.Y);
             Point p1 = new Point(st.X, st.Y);
-            Point p2 = new Point(ed.X, ed.Y + bottom);
+            Point p2 = new Point(ed.X, st.Y + Math.Abs(st.X - ed.X) / 2.646 + Math.Abs(ed.Y - st.Y)/20);
             // Ellipse bottom
             if (st.Y > ed.Y)
             {
                 strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, false, true));
-                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, true, false));
-
+                strokeCollection.Add(GenerateStrokeCollection_DashedEllipse(p1, p2, true, false));
             }
             else
             {
-                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, false, true));
-                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2, true, false));
+                strokeCollection.Add(GenerateStrokeCollection_Ellipse(p1, p2));
             }
             // Sides
             pointList = new List<Point>{
@@ -497,11 +485,73 @@ namespace Ink_Canvas_Better
             };
             strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes).Clone());
             pointList = new List<Point>{
-                new Point(ed.X - 2*(ed.X - st.X), st.Y),
+                new Point(ed.X - 2 * (ed.X - st.X), st.Y),
                 new Point(st.X, ed.Y)
             };
             strokeCollection.Add(new Stroke(new StylusPointCollection(pointList), MainInkCanvas.DefaultDrawingAttributes).Clone());
             return strokeCollection;
+        }
+
+        // 3D shape -- Cuboid
+        private StrokeCollection GenerateStrokeCollection_Cuboid(Point st, Point ed)
+        {
+            StrokeCollection strokeCollection = new StrokeCollection();
+            if (RuntimeData.CurrentDrawStep == 0)
+            {
+                lastInitPoint = st;
+                lastEndPoint = ed;
+                strokeCollection.Add(GenerateStrokeCollection_Rectangle(st, ed));
+                return strokeCollection;
+            }
+            else
+            {
+                var dp = ed - st;
+                // Retangle1 ( bottom-left == lastInitPoint, top-right == lastEndPoint )
+                var r1p1 = new Point(lastInitPoint.X, lastEndPoint.Y); // top-left
+                var r1p2 = new Point(lastEndPoint.X, lastInitPoint.Y); // bottom-right
+                // Drawing
+                if (dp.Y < 0)
+                {
+                    if (dp.X > 0) // Quadrant I
+                    {
+                        strokeCollection.Add(GenerateStrokeCollection_Rectangle(lastInitPoint + dp, lastEndPoint + dp, isLeftDashed: true, isBottomDashed: true));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(lastInitPoint, lastInitPoint + dp)); // IV
+                        strokeCollection.Add(GenerateStrokeCollection_DashedLine(r1p1, r1p1 + dp)); // I
+                        strokeCollection.Add(GenerateStrokeCollection_Line(r1p2, r1p2 + dp)); // III
+                        strokeCollection.Add(GenerateStrokeCollection_Line(lastEndPoint, lastEndPoint + dp)); // II
+                    }
+                    else // Quadrant II
+                    {
+                        strokeCollection.Add(GenerateStrokeCollection_Rectangle(lastInitPoint + dp, lastEndPoint + dp, isRightDashed: true, isBottomDashed: true));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(lastInitPoint, lastInitPoint + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(r1p1, r1p1 + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(r1p2, r1p2 + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_DashedLine(lastEndPoint, lastEndPoint + dp));
+
+                    }
+                }
+                else
+                {
+                    if (dp.X < 0) // Quadrant III
+                    {
+                        strokeCollection.Add(GenerateStrokeCollection_Rectangle(lastInitPoint + dp, lastEndPoint + dp, isRightDashed: true, isUpDashed: true));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(lastInitPoint, lastInitPoint + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(r1p1, r1p1 + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_DashedLine(r1p2, r1p2 + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(lastEndPoint, lastEndPoint + dp));
+
+                    }
+                    else // Quadrant IV
+                    {
+                        strokeCollection.Add(GenerateStrokeCollection_Rectangle(lastInitPoint + dp, lastEndPoint + dp, isLeftDashed: true, isUpDashed: true));
+                        strokeCollection.Add(GenerateStrokeCollection_DashedLine(lastInitPoint, lastInitPoint + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(r1p1, r1p1 + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(r1p2, r1p2 + dp));
+                        strokeCollection.Add(GenerateStrokeCollection_Line(lastEndPoint, lastEndPoint + dp));
+                    }
+                }
+                return strokeCollection;
+            }
         }
 
         #endregion

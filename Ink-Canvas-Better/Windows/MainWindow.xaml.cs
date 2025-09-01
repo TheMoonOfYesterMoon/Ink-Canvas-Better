@@ -19,10 +19,10 @@ namespace Ink_Canvas_Better
     public partial class MainWindow : Window
     {
         Point lastInitPoint;
+        Point lastEndPoint;
         Point iniPoint;
         bool _isMouseDown = false;
         StrokeCollection lastTempStrokeCollection = new StrokeCollection();
-        StrokeCollection multiStepShapeSpecialStrokeCollection = new StrokeCollection();
 
         #region Initialize
 
@@ -99,7 +99,6 @@ namespace Ink_Canvas_Better
                 {
                     func1();
                     currentDrawStep = 0;
-                    multiStepShapeSpecialStrokeCollection.Clear();
                 }
             }
             // switch back to last mode
@@ -111,11 +110,14 @@ namespace Ink_Canvas_Better
                 }
             }
 
-            lastInitPoint = iniPoint;
             lastTempStrokeCollection.Clear();
+            lastInitPoint = iniPoint;
             switch (RuntimeData.CurrentShape)
             {
                 case "Shape_Hyperbola":
+                    func0(ref RuntimeData.CurrentDrawStep, 1);
+                    break;
+                case "Shape_Cuboid":
                     func0(ref RuntimeData.CurrentDrawStep, 1);
                     break;
                 default:
