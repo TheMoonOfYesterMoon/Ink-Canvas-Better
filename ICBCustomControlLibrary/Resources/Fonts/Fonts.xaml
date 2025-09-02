@@ -1,4 +1,4 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/ICBCustomControlLibrary/Resources/Fonts/Segeo Fluent Icons.ttf</FontFamily>
+    <FontFamily x:Key="SegoeFluentIcons">pack://application:,,,/ICBCustomControlLibrary;component/Resources/Fonts/Segoe Fluent Icons.ttf#Segoe Fluent Icons</FontFamily>
 </ResourceDictionary>

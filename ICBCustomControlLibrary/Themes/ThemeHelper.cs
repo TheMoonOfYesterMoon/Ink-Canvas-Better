@@ -16,7 +16,7 @@ namespace ICBCustomControlLibrary.Themes
         {
             Dictionary = new ResourceDictionary()
             {
-                Source = new Uri("/ICBCustomControlLibrary;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute)
+                Source = new Uri("pack://application:,,,/ICBCustomControlLibrary;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute)
             };
         }
 

@@ -59,86 +59,95 @@ namespace ICBCustomControlLibrary.Controls.Panel
 
         #endregion
 
+        #region Controls
+
+        // title
+        private readonly TextBlock _titleTextBlock = new TextBlock
+        {
+            VerticalAlignment = VerticalAlignment.Center,
+            Margin = new Thickness(10, 0, 0, 0),
+            FontWeight = FontWeights.Bold
+        };
+
+        // close button
+        private readonly Button _closeButton = new Button
+        {
+            Background = Brushes.Transparent,
+            FontFamily = ThemeHelper.SegoeFluentIcons,
+            Content = "\ue8bb",
+            Width = 30,
+            BorderThickness = new Thickness(0)
+        };
+        protected virtual void OnCloseButtonClicked(Object s, RoutedEventArgs args)
+        {
+            this.IsOpen = false;
+        }
+
+        // pin button
+        private readonly Button _pinButton = new Button
+        {
+            Background = Brushes.Transparent,
+            FontFamily = ThemeHelper.SegoeFluentIcons,
+            Content = "\ue718",
+            Width = 30,
+            BorderThickness = new Thickness(0)
+        };
+        protected virtual void OnPinButtonClicked(Object s, RoutedEventArgs args)
+        {
+            StaysOpen = !StaysOpen;
+            _pinButton.Content = StaysOpen ? "\ue77a" : "\ue718";
+        }
+
+        // title bar
+        private readonly Grid _headerGrid = new Grid
+        {
+            Height = 30,
+            ColumnDefinitions =
+            {
+                new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+                new ColumnDefinition { Width = GridLength.Auto },
+                new ColumnDefinition { Width = GridLength.Auto }
+            }
+        };
+
+        private readonly Border _mainBorder = new Border
+        {
+            Background = (Brush)ThemeHelper.Dictionary["DefaultBackgroundColor"],
+            BorderBrush = (Brush)ThemeHelper.Dictionary["BorderBrush"],
+            BorderThickness = new Thickness(1),
+            CornerRadius = new CornerRadius(4)
+        };
+
+        #endregion
+
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
 
-            var mainBorder = new Border
-            {
-                Background = (Brush)ThemeHelper.Dictionary["DefaultBackgroundColor"],
-                BorderBrush = (Brush)ThemeHelper.Dictionary["BorderBrush"],
-                BorderThickness = new Thickness(1),
-                CornerRadius = new CornerRadius(4)
-            };
+            _titleTextBlock.Text = Title;
+
+            _headerGrid.Background = HeaderBackground;
+            _headerGrid.Children.Add(_titleTextBlock);
+            Grid.SetColumn(_titleTextBlock, 0);
+
+            _pinButton.Click += OnPinButtonClicked;
+            _headerGrid.Children.Add(_pinButton);
+            Grid.SetColumn(_pinButton, 1);
+
+            _closeButton.Click += OnCloseButtonClicked;
+            _headerGrid.Children.Add(_closeButton);
+            Grid.SetColumn(_closeButton, 2);
+
+            var contentPresenter = new ContentPresenter();
+            var contentBinding = new Binding("Child") { Source = this.MemberwiseClone() };
+            contentPresenter.SetBinding(ContentPresenter.ContentProperty, contentBinding);
 
             var mainGrid = new Grid();
             mainGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
             mainGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
 
-            // title bar
-            var headerGrid = new Grid
-            {
-                Background = HeaderBackground,
-                Height = 30
-            };
-            headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-            headerGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-
-            // title
-            var titleTextBlock = new TextBlock
-            {
-                Text = Title,
-                VerticalAlignment = VerticalAlignment.Center,
-                Margin = new Thickness(10, 0, 0, 0),
-                FontWeight = FontWeights.Bold
-            };
-
-            // pin button
-            var pinButton = new Button
-            {
-                FontFamily = ThemeHelper.SegoeFluentIcons,
-                Content = "\ue718",
-                Width = 30,
-            };
-            pinButton.Click += (s, args) =>
-            {
-                StaysOpen = !StaysOpen;
-                if (StaysOpen)
-                {
-                    pinButton.Content = "\ue77a";
-                }
-                else
-                {
-                    pinButton.Content = "\ue718";
-                }
-            };
-
-            // close button
-            var closeButton = new Button
-            {
-                FontFamily = ThemeHelper.SegoeFluentIcons,
-                Content = "\ue8bb",
-                Width = 30,
-            };
-            closeButton.Click += (s, args) => { this.IsOpen = false; };
-
-            headerGrid.Children.Add(titleTextBlock);
-            Grid.SetColumn(titleTextBlock, 0);
-
-            headerGrid.Children.Add(pinButton);
-            Grid.SetColumn(pinButton, 1);
-
-            headerGrid.Children.Add(closeButton);
-            Grid.SetColumn(closeButton, 2);
-
-            var contentPresenter = new ContentPresenter();
-
-            var contentBinding = new Binding("Child") { Source = this.MemberwiseClone() };
-            contentPresenter.SetBinding(ContentPresenter.ContentProperty, contentBinding);
-
-            mainGrid.Children.Add(headerGrid);
-            Grid.SetRow(headerGrid, 0);
+            mainGrid.Children.Add(_headerGrid);
+            Grid.SetRow(_headerGrid, 0);
 
             mainGrid.Children.Add(contentPresenter);
             Grid.SetRow(contentPresenter, 1);
@@ -148,10 +157,10 @@ namespace ICBCustomControlLibrary.Controls.Panel
                 Source = this,
                 Converter = new BooleanToVisibilityConverter()
             };
-            headerGrid.SetBinding(VisibilityProperty, visibilityBinding);
+            _headerGrid.SetBinding(VisibilityProperty, visibilityBinding);
 
-            mainBorder.Child = mainGrid;
-            this.Child = mainBorder;
+            _mainBorder.Child = mainGrid;
+            this.Child = _mainBorder;
         }
 
         public void Show()
