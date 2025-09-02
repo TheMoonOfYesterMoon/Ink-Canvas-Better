@@ -9,8 +9,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 [assembly: XmlnsDefinition("ICBCustomControlLibrary", "ICBCustomControlLibrary.Controls.Panel")]
 namespace ICBCustomControlLibrary.Controls.Panel
@@ -63,8 +65,8 @@ namespace ICBCustomControlLibrary.Controls.Panel
 
             var mainBorder = new Border
             {
-                Background = (Brush)ThemeHelper.ThemeResources["DefaultBackgroundColor"],
-                BorderBrush = (Brush)ThemeHelper.ThemeResources["BorderBrush"],
+                Background = (Brush)ThemeHelper.Dictionary["DefaultBackgroundColor"],
+                BorderBrush = (Brush)ThemeHelper.Dictionary["BorderBrush"],
                 BorderThickness = new Thickness(1),
                 CornerRadius = new CornerRadius(4)
             };
@@ -95,6 +97,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
             // pin button
             var pinButton = new Button
             {
+                FontFamily = ThemeHelper.SegoeFluentIcons,
                 Content = "\ue718",
                 Width = 30,
             };
@@ -114,6 +117,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
             // close button
             var closeButton = new Button
             {
+                FontFamily = ThemeHelper.SegoeFluentIcons,
                 Content = "\ue8bb",
                 Width = 30,
             };

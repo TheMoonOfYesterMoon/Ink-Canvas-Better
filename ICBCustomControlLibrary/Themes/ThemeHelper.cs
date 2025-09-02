@@ -5,12 +5,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows;
+using System.Diagnostics;
 
 namespace ICBCustomControlLibrary.Themes
 {
-    static class ThemeHelper
+    public static class ThemeHelper
     {
-        public static ResourceDictionary ThemeResources { get; set; } =
-            new ResourceDictionary { Source = new Uri("/ICBCustomControlLibrary;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute) };
+        public static ResourceDictionary Dictionary { get; set; }
+        static ThemeHelper()
+        {
+            Dictionary = new ResourceDictionary()
+            {
+                Source = new Uri("/ICBCustomControlLibrary;component/Themes/Generic.xaml", UriKind.RelativeOrAbsolute)
+            };
+        }
+
+        public static FontFamily GetFont(string key)
+        {
+            if (Dictionary.Contains(key) && Dictionary[key] is FontFamily fontFamily)
+            {
+                Debug.WriteLine($"FontFamily found for key '{key}': {fontFamily.Source}");
+                return fontFamily;
+            }
+            return new FontFamily(key);
+        }
+
+        public static FontFamily SegoeFluentIcons => GetFont("SegoeFluentIcons");
     }
 }

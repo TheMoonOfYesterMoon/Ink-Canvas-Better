@@ -137,7 +137,8 @@
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cylinder" Source="{DynamicResource Image.Shape.Cylinder}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cone" Source="{DynamicResource Image.Shape.Cone}"/>
                     <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cuboid" Source="{DynamicResource Image.Shape.Cuboid}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Tetrahedron" Source="{DynamicResource Image.Shape.Tetrahedron}"/>
+                    <!-- TODO: Unimplement Tetrahedron shape drawing -->
+                    <Image Visibility="Collapsed" Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Tetrahedron" Source="{DynamicResource Image.Shape.Tetrahedron}"/>
                 </WrapPanel>
             </ikw:SimpleStackPanel>
         </Border>

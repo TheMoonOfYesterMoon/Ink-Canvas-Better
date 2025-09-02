@@ -10,7 +10,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Segoe Fluent Icons.ttf" />
+    <Resource Include="Resources\Fonts\Segoe Fluent Icons.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Properties\Settings.Designer.cs">

@@ -46,6 +46,8 @@ namespace Ink_Canvas_Better
 
         #endregion
 
+        #region Properties
+
         private bool _mainInkCanvas_Hitable = true;
         public bool MainInkCanvas_Hitable
         {
@@ -69,6 +71,8 @@ namespace Ink_Canvas_Better
             }
         }
 
+        #endregion
+
         #region MainInkCanvas
 
         private void MainInkCanvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -89,7 +93,7 @@ namespace Ink_Canvas_Better
         private void MainInkCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             // check if need to switch back to last mode
-            void func0(ref int currentDrawStep, int maximum)
+            void func0(ref int currentDrawStep, int maximum) // step count from 0 to maximum
             {
                 if (currentDrawStep < maximum)
                 {

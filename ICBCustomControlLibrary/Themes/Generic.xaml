@@ -2,8 +2,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <FontFamily x:Key="FluentIconFontFamily">/Resources/#Segoe Fluent Icons</FontFamily>
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/ICBCustomControlLibrary;component/Resources/Fonts/Fonts.xaml"/>
         <ResourceDictionary Source="/ICBCustomControlLibrary;component/Themes/ColorResources_light.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

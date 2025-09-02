@@ -44,7 +44,7 @@ namespace Ink_Canvas_Better
                 case "Shape_Cylinder": UpdateStrokes(GenerateStrokeCollection_Cylinder(iniPoint, endPoint)); break;
                 case "Shape_Cone": UpdateStrokes(GenerateStrokeCollection_Cone(iniPoint, endPoint)); break;
                 case "Shape_Cuboid": UpdateStrokes(GenerateStrokeCollection_Cuboid(iniPoint, endPoint)); break;
-                case "Shape_Tetrahedron":
+                case "Shape_Tetrahedron": UpdateStrokes(GenerateStrokeCollection_Tetrahedron(iniPoint, endPoint)); break;
                 default:
                     throw new NotImplementedException($"Unsupported shape {RuntimeData.CurrentShape}");
             }
@@ -464,6 +464,7 @@ namespace Ink_Canvas_Better
         // 3D shape -- Cone
         private StrokeCollection GenerateStrokeCollection_Cone(Point st, Point ed)
         {
+            // TODO: need to be optimized
             StrokeCollection strokeCollection = new StrokeCollection();
             List<Point> pointList;
             Point p1 = new Point(st.X, st.Y);
@@ -495,6 +496,7 @@ namespace Ink_Canvas_Better
         // 3D shape -- Cuboid
         private StrokeCollection GenerateStrokeCollection_Cuboid(Point st, Point ed)
         {
+            // TODO: need to be optimized
             StrokeCollection strokeCollection = new StrokeCollection();
             if (RuntimeData.CurrentDrawStep == 0)
             {
@@ -527,7 +529,6 @@ namespace Ink_Canvas_Better
                         strokeCollection.Add(GenerateStrokeCollection_Line(r1p1, r1p1 + dp));
                         strokeCollection.Add(GenerateStrokeCollection_Line(r1p2, r1p2 + dp));
                         strokeCollection.Add(GenerateStrokeCollection_DashedLine(lastEndPoint, lastEndPoint + dp));
-
                     }
                 }
                 else
@@ -539,7 +540,6 @@ namespace Ink_Canvas_Better
                         strokeCollection.Add(GenerateStrokeCollection_Line(r1p1, r1p1 + dp));
                         strokeCollection.Add(GenerateStrokeCollection_DashedLine(r1p2, r1p2 + dp));
                         strokeCollection.Add(GenerateStrokeCollection_Line(lastEndPoint, lastEndPoint + dp));
-
                     }
                     else // Quadrant IV
                     {
@@ -552,6 +552,15 @@ namespace Ink_Canvas_Better
                 }
                 return strokeCollection;
             }
+        }
+
+        // 3D shape -- Tetrahedron
+        private StrokeCollection GenerateStrokeCollection_Tetrahedron(Point st, Point ed)
+        {
+            // TODO: I haven't implemented it yet, it's not easy...
+            // Perhaps it needs 3 steps to draw a tetrahedron, what's more, it needs to calculate whether the line needs to be dashed or not. It's too complex for now.
+            StrokeCollection strokeCollection = new StrokeCollection();
+            return strokeCollection;
         }
 
         #endregion
@@ -567,6 +576,5 @@ namespace Ink_Canvas_Better
         {
             return Math.Sqrt(Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2));
         }
-
     }
 }
