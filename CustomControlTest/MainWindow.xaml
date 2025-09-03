@@ -9,7 +9,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Name="Button0" Width="60" Height="20" Click="Button_Click">Button</Button>
-        <icb:Subpanel x:Name="subpanel" Title="Test Subpanel" Width="200" Height="200" PlacementTarget="{Binding ElementName=Button0}" StaysOpen="False" Margin="435,207,165,28">
+        <icb:Subpanel x:Name="subpanel"
+                      AllowsTransparency="True"
+                      Title="Test Subpanel"
+                      PlacementTarget="{Binding ElementName=Button0}"
+                      StaysOpen="True">
             <TextBlock>123</TextBlock>
         </icb:Subpanel>
     </Grid>

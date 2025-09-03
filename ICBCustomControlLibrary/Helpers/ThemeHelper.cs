@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +6,7 @@ using System.Windows.Media;
 using System.Windows;
 using System.Diagnostics;
 
-namespace ICBCustomControlLibrary.Themes
+namespace ICBCustomControlLibrary.Helpers
 {
     public static class ThemeHelper
     {
@@ -20,16 +19,38 @@ namespace ICBCustomControlLibrary.Themes
             };
         }
 
+        #region Fonts
+
         public static FontFamily GetFont(string key)
         {
             if (Dictionary.Contains(key) && Dictionary[key] is FontFamily fontFamily)
             {
-                Debug.WriteLine($"FontFamily found for key '{key}': {fontFamily.Source}");
                 return fontFamily;
             }
             return new FontFamily(key);
         }
 
         public static FontFamily SegoeFluentIcons => GetFont("SegoeFluentIcons");
+
+        #endregion
+
+        #region Colors
+
+        public static Brush GetBrush(string key)
+        {
+            if (Dictionary.Contains(key) && Dictionary[key] is Brush brush)
+            {
+                return brush;
+            }
+            return Brushes.Transparent;
+        }
+
+        public static Brush DefaultBackgroundColor => GetBrush("DefaultBackgroundColor");
+        public static Brush DefaultBackgroundColor_Opacity => GetBrush("DefaultBorderColor");
+        public static Brush DefaultForegroundColor => GetBrush("DefaultBorderColor");
+        public static Brush DefaultBorderColor => GetBrush("DefaultBorderColor");
+        public static Brush DefaultButtonHoverColor => GetBrush("DefaultHoverColor");
+
+        #endregion
     }
 }
