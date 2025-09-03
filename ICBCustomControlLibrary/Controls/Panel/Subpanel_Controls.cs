@@ -27,6 +27,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
             Background = Brushes.Transparent,
             FontFamily = ThemeHelper.SegoeFluentIcons,
             Content = "\ue8bb",
+            Padding = new Thickness(0),
             Width = 30,
             BorderThickness = new Thickness(0)
         };
@@ -37,6 +38,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
             Background = Brushes.Transparent,
             FontFamily = ThemeHelper.SegoeFluentIcons,
             Content = "\ue718",
+            Padding = new Thickness(0),
             Width = 30,
             BorderThickness = new Thickness(0)
         };
@@ -60,8 +62,8 @@ namespace ICBCustomControlLibrary.Controls.Panel
             MinHeight = 30,
             Background = ThemeHelper.DefaultBackgroundColor,
             BorderBrush = ThemeHelper.DefaultBorderColor,
-            BorderThickness = new Thickness(1),
-            CornerRadius = new CornerRadius(4)
+            BorderThickness = new Thickness(2),
+            CornerRadius = new CornerRadius(5)
         };
 
         private readonly Grid _mainGrid = new Grid

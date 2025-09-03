@@ -9,34 +9,8 @@
              xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
              xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
              mc:Ignorable="d"
-             d:DesignHeight="300" Width="500">
+             d:DesignHeight="300" Width="484">
     <UserControl.Resources>
-        <Style x:Key="PinButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True"/>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="CloseButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="{DynamicResource ICBButtonHover}" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style x:Key="ImageShapeStyle" TargetType="Image">
             <Setter Property="Width" Value="56"/>
             <Setter Property="Height" Value="56"/>
@@ -44,105 +18,32 @@
         </Style>
     </UserControl.Resources>
     
-    <Grid
-        Margin="0,5"
-        VerticalAlignment="Stretch">
-        <Grid.RowDefinitions>
-            <RowDefinition
-                Name="GridRow0"
-                Height="{Binding ElementName=TitleTextBlock, Path=Height}"/>
-            <RowDefinition
-                Name="GridRow1"/>
-        </Grid.RowDefinitions>
-
-        <!-- Title -->
-        <Border
-            SnapsToDevicePixels="True"
-            BorderBrush="{DynamicResource BorderBrush}"
-            BorderThickness="2,2,2,0"
-            Background="{DynamicResource DefaultBackgroundColor}"
-            Grid.Row="0"
-            CornerRadius="5,5,0,0">
-            <Grid>
-                <TextBlock
-                    HorizontalAlignment="Left"
-                    Name="TitleTextBlock"
-                    Padding="5,2"
-                    FontSize="24"
-                    Foreground="{DynamicResource DefaultForegroundColor}"
-                    Text="{DynamicResource Text_Shape}">
-                </TextBlock>
-
-                <ikw:SimpleStackPanel
-                    Margin="0,0,8,0"
-                    HorizontalAlignment="Right"
-                    Spacing="8"
-                    Orientation="Horizontal">
-                    <Button
-                        Style="{StaticResource PinButtonStyle}"
-                        Name="PinButton"
-                        Click="PinButton_Click"
-                        BorderThickness="0"
-                        Background="Transparent">
-                        <ui:FontIcon
-                            FontSize="20"
-                            FontFamily="{DynamicResource FluentIconFontFamily}"
-                            Glyph="&#xe718;"/>
-                    </Button>
-
-                    <Button
-                        Style="{StaticResource CloseButtonStyle}"
-                        Name="CloseButton"
-                        Click="CloseButton_Click"
-                        BorderThickness="0"
-                        Background="Transparent">
-                        <ui:FontIcon
-                            Foreground="{Binding ElementName=CloseButton, Path=Foreground}"
-                            FontSize="20"
-                            FontFamily="{DynamicResource FluentIconFontFamily}"
-                            Glyph="&#xe8bb;"/>
-                    </Button>
-                </ikw:SimpleStackPanel>
-            </Grid>
-        </Border>
-
-        <!-- Content -->
-        <Border
-            SnapsToDevicePixels="True"
-            BorderBrush="{DynamicResource BorderBrush}"
-            BorderThickness="2,0,2,2"
-            Background="{DynamicResource DefaultBackgroundColor}"
-            Grid.Row="1"
-            CornerRadius="0,0,5,5">
-            <ikw:SimpleStackPanel Margin="5">
-                <TextBlock Text="{DynamicResource Text_2DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
-                <WrapPanel Margin="2">
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Line" Source="{DynamicResource Image.Shape.Line}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedLine" Source="{DynamicResource Image.Shape.DashedLine}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DotLine" Source="{DynamicResource Image.Shape.DotLine}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ArrowLine" Source="{DynamicResource Image.Shape.ArrowLine}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParallelLine" Source="{DynamicResource Image.Shape.ParallelLine}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate2D" Source="{DynamicResource Image.Shape.Coordinate2D}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Rectangle" Source="{DynamicResource Image.Shape.Rectangle}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Circle" Source="{DynamicResource Image.Shape.Circle}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedEllipse" Source="{DynamicResource Image.Shape.DashedEllipse}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Ellipse" Source="{DynamicResource Image.Shape.Ellipse}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Hyperbola" Source="{DynamicResource Image.Shape.Hyperbola}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParabolaX" Source="{DynamicResource Image.Shape.ParabolaX}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParabolaY" Source="{DynamicResource Image.Shape.ParabolaY}"/>
-                </WrapPanel>
-                <TextBlock Text="{DynamicResource Text_3DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
-                <WrapPanel>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate3D" Source="{DynamicResource Image.Shape.Coordinate3D}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cylinder" Source="{DynamicResource Image.Shape.Cylinder}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cone" Source="{DynamicResource Image.Shape.Cone}"/>
-                    <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cuboid" Source="{DynamicResource Image.Shape.Cuboid}"/>
-                    <!-- TODO: Unimplement Tetrahedron shape drawing -->
-                    <Image Visibility="Collapsed" Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Tetrahedron" Source="{DynamicResource Image.Shape.Tetrahedron}"/>
-                </WrapPanel>
-            </ikw:SimpleStackPanel>
-        </Border>
-        
-    </Grid>
-
+    <!-- Content -->
+    <ikw:SimpleStackPanel>
+        <TextBlock Text="{DynamicResource Text_2DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
+        <WrapPanel Margin="2">
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Line" Source="{DynamicResource Image.Shape.Line}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedLine" Source="{DynamicResource Image.Shape.DashedLine}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DotLine" Source="{DynamicResource Image.Shape.DotLine}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ArrowLine" Source="{DynamicResource Image.Shape.ArrowLine}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParallelLine" Source="{DynamicResource Image.Shape.ParallelLine}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate2D" Source="{DynamicResource Image.Shape.Coordinate2D}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Rectangle" Source="{DynamicResource Image.Shape.Rectangle}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Circle" Source="{DynamicResource Image.Shape.Circle}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_DashedEllipse" Source="{DynamicResource Image.Shape.DashedEllipse}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Ellipse" Source="{DynamicResource Image.Shape.Ellipse}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Hyperbola" Source="{DynamicResource Image.Shape.Hyperbola}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParabolaX" Source="{DynamicResource Image.Shape.ParabolaX}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_ParabolaY" Source="{DynamicResource Image.Shape.ParabolaY}"/>
+        </WrapPanel>
+        <TextBlock Text="{DynamicResource Text_3DSahpes}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
+        <WrapPanel>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Coordinate3D" Source="{DynamicResource Image.Shape.Coordinate3D}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cylinder" Source="{DynamicResource Image.Shape.Cylinder}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cone" Source="{DynamicResource Image.Shape.Cone}"/>
+            <Image Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Cuboid" Source="{DynamicResource Image.Shape.Cuboid}"/>
+            <!-- TODO: Unimplement Tetrahedron shape drawing -->
+            <Image Visibility="Collapsed" Style="{StaticResource ImageShapeStyle}" MouseDown="Image_MouseDown" Name="Shape_Tetrahedron" Source="{DynamicResource Image.Shape.Tetrahedron}"/>
+        </WrapPanel>
+    </ikw:SimpleStackPanel>
 </UserControl>

@@ -9,6 +9,7 @@
         xmlns:local="clr-namespace:Ink_Canvas_Better"
         xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+        xmlns:icb="ICBCustomControlLibrary"
         xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
         Title="{DynamicResource Text_ProductName}"
         ResizeMode="NoResize"
@@ -109,7 +110,7 @@
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- Pen -->
-                    <Popup
+                    <icb:Subpanel
                         Name="Popup_Pen"
                         IsOpen="False"
                         StaysOpen="False"
@@ -117,7 +118,7 @@
                         Placement="Top"
                         PlacementTarget="{Binding ElementName=PenIcon}">
                         <floatingBar:FloatingBar_Pen/>
-                    </Popup>
+                    </icb:Subpanel>
                     <localControls:ICB_Button
                         x:Name="PenIcon"
                         Text="{DynamicResource Text_Pen}"
@@ -125,7 +126,7 @@
                         Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- Highlighter -->
-                    <Popup
+                    <icb:Subpanel
                         Name="Popup_Highlighter"
                         IsOpen="False"
                         StaysOpen="False"
@@ -133,7 +134,7 @@
                         Placement="Top"
                         PlacementTarget="{Binding ElementName=HighlighterIcon}">
                         <floatingBar:FloatingBar_Highlighter/>
-                    </Popup>
+                    </icb:Subpanel>
                     <localControls:ICB_Button
                         x:Name="HighlighterIcon"
                         Text="{DynamicResource Text_Highlighter}"
@@ -141,7 +142,7 @@
                         FontIcon="&#xe891;"
                         IsSqueezeHorizontally="True"/>
                     <!-- Eraser -->
-                    <Popup
+                    <icb:Subpanel
                         Name="Popup_Eraser"
                         IsOpen="False"
                         StaysOpen="False"
@@ -149,7 +150,7 @@
                         Placement="Top"
                         PlacementTarget="{Binding ElementName=EraserIcon}">
                         <floatingBar:FloatingBar_Eraser/>
-                    </Popup>
+                    </icb:Subpanel>
                     <localControls:ICB_Button
                         x:Name="EraserIcon"
                         Text="{DynamicResource Text_Eraser}"
@@ -164,7 +165,7 @@
                         Click="PickIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- Shape -->
-                    <Popup
+                    <icb:Subpanel
                         Name="Popup_Shape"
                         IsOpen="False"
                         StaysOpen="False"
@@ -172,7 +173,7 @@
                         Placement="Top"
                         PlacementTarget="{Binding ElementName=ShapeIcon}">
                         <floatingBar:FloatingBar_Shape/>
-                    </Popup>
+                    </icb:Subpanel>
                     <localControls:ICB_Button
                         x:Name="ShapeIcon"
                         Text="{DynamicResource Text_Shape}"

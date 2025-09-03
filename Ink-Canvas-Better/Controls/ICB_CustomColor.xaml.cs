@@ -127,11 +127,11 @@ namespace Ink_Canvas_Better.Controls
                     RuntimeData.colorPicker = new ICB_ColorPicker();
                     if (this.FindAscendant<FloatingBar_Pen>() != null)
                     {
-                        RuntimeData.floatingBar_Pen.StaysOpen = true;
+                        RuntimeData.mainWindow.Popup_Pen.StaysOpen = true;
                     }
                     else if (this.FindAscendant<FloatingBar_Highlighter>() != null)
                     {
-                       // RuntimeData.floatingBar_Highlighter.StaysOpen = true;
+                        RuntimeData.mainWindow.Popup_Highlighter.StaysOpen = true;
                     }
                     RuntimeData.mainWindow.MainWindow_Grid.Children.Add(RuntimeData.colorPicker);
                 }

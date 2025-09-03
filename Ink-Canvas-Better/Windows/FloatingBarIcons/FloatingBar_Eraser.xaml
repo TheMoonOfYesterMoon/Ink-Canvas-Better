@@ -10,147 +10,45 @@
              xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
              mc:Ignorable="d"
              d:DesignHeight="240" Width="500">
-    <UserControl.Resources>
-        <Style x:Key="PinButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True"/>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="CloseButtonStyle" TargetType="Button">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="{DynamicResource ICBButtonHover}" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Resources>
-    
-    <Grid
-        Margin="0,5"
-        VerticalAlignment="Stretch">
-        <Grid.RowDefinitions>
-            <RowDefinition
-                Name="GridRow0"
-                Height="{Binding ElementName=TitleTextBlock, Path=Height}"/>
-            <RowDefinition
-                Name="GridRow1"/>
-        </Grid.RowDefinitions>
-
-        <!-- Title -->
-        <Border
-            SnapsToDevicePixels="True"
-            BorderBrush="{DynamicResource BorderBrush}"
-            BorderThickness="2,2,2,0"
-            Background="{DynamicResource DefaultBackgroundColor}"
-            Grid.Row="0"
-            CornerRadius="5,5,0,0">
-            <Grid>
-                <TextBlock
-                    HorizontalAlignment="Left"
-                    Name="TitleTextBlock"
-                    Padding="5,2"
-                    FontSize="24"
-                    Foreground="{DynamicResource DefaultForegroundColor}"
-                    Text="{DynamicResource Text_Eraser}">
-                </TextBlock>
-
-                <ikw:SimpleStackPanel
-                    Margin="0,0,8,0"
-                    HorizontalAlignment="Right"
-                    Spacing="8"
-                    Orientation="Horizontal">
-                    <Button
-                        Style="{StaticResource PinButtonStyle}"
-                        Name="PinButton"
-                        Click="PinButton_Click"
-                        BorderThickness="0"
-                        Background="Transparent">
-                        <ui:FontIcon
-                            FontSize="20"
-                            FontFamily="{DynamicResource FluentIconFontFamily}"
-                            Glyph="&#xe718;"/>
-                    </Button>
-
-                    <Button
-                        Style="{StaticResource CloseButtonStyle}"
-                        Name="CloseButton"
-                        Click="CloseButton_Click"
-                        BorderThickness="0"
-                        Background="Transparent">
-                        <ui:FontIcon
-                            Foreground="{Binding ElementName=CloseButton, Path=Foreground}"
-                            FontSize="20"
-                            FontFamily="{DynamicResource FluentIconFontFamily}"
-                            Glyph="&#xe8bb;"/>
-                    </Button>
-                </ikw:SimpleStackPanel>
-            </Grid>
-        </Border>
-
-        <!-- Content -->
-        <Border
-            SnapsToDevicePixels="True"
-            BorderBrush="{DynamicResource BorderBrush}"
-            BorderThickness="2,0,2,2"
-            Background="{DynamicResource DefaultBackgroundColor}"
-            Grid.Row="1"
-            CornerRadius="0,0,5,5">
-            <ikw:SimpleStackPanel Margin="5">
-                <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5" VerticalAlignment="Top">
-                    <TextBlock TextAlignment="Center" Text="{DynamicResource Text_Thickness}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
-                    <Slider VerticalAlignment="Center"
-                            Name="Slider_StrokeThickness"
-                            Width="300"
-                            IsSnapToTickEnabled="True"
-                            Minimum="1"
-                            Maximum="125"
-                            IsMoveToPointEnabled="True"
-                            TickFrequency="1"
-                            TickPlacement="Both"
-                            Value="30"
-                            ValueChanged="Slider_StrokeThickness_ValueChanged"/>
-                    <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="16" Width="36" Foreground="{DynamicResource DefaultForegroundColor}"/>
-                </ikw:SimpleStackPanel>
-                <!-- function -->
-                <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">
-                    <ikw:SimpleStackPanel Orientation="Vertical" Spacing="5">
-                        <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_EraseByStroke" Click="ToggleButton_EraseByStroke_Click">
-                            <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Eraser_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_EraseByStroke}" Spacing="0"/>
-                        </ToggleButton>
-                        <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_Square" Click="ToggleButton_Square_Click">
-                            <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Square_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_Square}" Spacing="0"/>
-                        </ToggleButton>
-                    </ikw:SimpleStackPanel>
-                    <ikw:SimpleStackPanel Orientation="Vertical" Spacing="5">
-                        <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_EraseByPoint" Click="ToggleButton_EraseByPoint_Click">
-                            <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.EraserMedium_20_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_EraseByPoint}" Spacing="0"/>
-                        </ToggleButton>
-                        <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_Circular" Click="ToggleButton_Circular_Click">
-                            <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Circle_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_Circular}" Spacing="0"/>
-                        </ToggleButton>
-                    </ikw:SimpleStackPanel>
-                    <Grid Width="125" Height="125" HorizontalAlignment="Left">
-                        <Ellipse Name="Preview_Circular" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
-                        <Rectangle Name="Preview_Square" Visibility="Collapsed" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
-                    </Grid>
-                </ikw:SimpleStackPanel>
+    <ikw:SimpleStackPanel>
+        <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Center" Text="{DynamicResource Text_Thickness}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
+            <Slider VerticalAlignment="Center"
+                    Name="Slider_StrokeThickness"
+                    Width="300"
+                    IsSnapToTickEnabled="True"
+                    Minimum="1"
+                    Maximum="125"
+                    IsMoveToPointEnabled="True"
+                    TickFrequency="1"
+                    TickPlacement="Both"
+                    Value="30"
+                    ValueChanged="Slider_StrokeThickness_ValueChanged"/>
+            <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="16" Width="36" Foreground="{DynamicResource DefaultForegroundColor}"/>
+        </ikw:SimpleStackPanel>
+        <!-- function -->
+        <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">
+            <ikw:SimpleStackPanel Orientation="Vertical" Spacing="5">
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_EraseByStroke" Click="ToggleButton_EraseByStroke_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Eraser_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_EraseByStroke}" Spacing="0"/>
+                </ToggleButton>
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_Square" Click="ToggleButton_Square_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Square_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_Square}" Spacing="0"/>
+                </ToggleButton>
             </ikw:SimpleStackPanel>
-        </Border>
-
-    </Grid>
+            <ikw:SimpleStackPanel Orientation="Vertical" Spacing="5">
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_EraseByPoint" Click="ToggleButton_EraseByPoint_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.EraserMedium_20_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_EraseByPoint}" Spacing="0"/>
+                </ToggleButton>
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_Circular" Click="ToggleButton_Circular_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Circle_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_Circular}" Spacing="0"/>
+                </ToggleButton>
+            </ikw:SimpleStackPanel>
+            <Grid Width="125" Height="125" HorizontalAlignment="Left">
+                <Ellipse Name="Preview_Circular" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
+                <Rectangle Name="Preview_Square" Visibility="Collapsed" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
+            </Grid>
+        </ikw:SimpleStackPanel>
+    </ikw:SimpleStackPanel>
 
 </UserControl>

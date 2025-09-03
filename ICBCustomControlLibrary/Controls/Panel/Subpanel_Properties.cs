@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Media;
 
 namespace ICBCustomControlLibrary.Controls.Panel
@@ -46,7 +47,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
         #region IsShowHeader
 
         public static readonly DependencyProperty IsShowHeaderProperty =
-            DependencyProperty.Register("ShowHeader", typeof(bool), typeof(Subpanel), new PropertyMetadata(true, OnIsShowHeaderChanged));
+            DependencyProperty.Register("ShowHeader", typeof(bool), typeof(Subpanel), new PropertyMetadata(true));
 
         public bool IsShowHeader
         {
@@ -54,38 +55,9 @@ namespace ICBCustomControlLibrary.Controls.Panel
             set { SetValue(IsShowHeaderProperty, value); }
         }
 
-        private static void OnIsShowHeaderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (e.NewValue != e.OldValue)
-            {
-                var control = d as Subpanel;
-                control._titleBarGrid.Visibility = (bool)e.NewValue ? Visibility.Visible : Visibility.Collapsed;
-            }
-        }
-
         #endregion
 
-        #region HeaderBackground
-
-        public static readonly DependencyProperty HeaderBackgroundProperty =
-            DependencyProperty.Register("HeaderBackground", typeof(Brush), typeof(Subpanel), new PropertyMetadata(ThemeHelper.DefaultBackgroundColor, OnHeaderBackgroundChanged));
-
-        public Brush HeaderBackground
-        {
-            get { return (Brush)GetValue(HeaderBackgroundProperty); }
-            set { SetValue(HeaderBackgroundProperty, value); }
-        }
-
-        private static void OnHeaderBackgroundChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (e.NewValue != e.OldValue)
-            {
-                var control = d as Subpanel;
-                control._titleBarGrid.Background = e.NewValue as Brush;
-            }
-        }
-
-        #endregion
-
+        private Binding childBinding;
+        private Binding isShowHeaderBinding;
     }
 }

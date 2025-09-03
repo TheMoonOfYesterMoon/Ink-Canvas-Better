@@ -28,43 +28,6 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             AddHandler(ICB_CustomColor.ColorSelectedEvent, new RoutedEventHandler(OnColorSelected));
         }
 
-        #region Properties
-
-        #region StaysOpen
-
-        readonly DependencyProperty StaysOpenProperty =
-            DependencyProperty.Register(
-                "StaysOpen",
-                typeof(bool),
-                typeof(FloatingBar_Pen),
-                new PropertyMetadata(StaysOpen_OnValueChanged)
-            );
-
-        public bool StaysOpen
-        {
-            get { return (bool)GetValue(StaysOpenProperty); }
-            set { SetValue(StaysOpenProperty, value); }
-        }
-
-        public static void StaysOpen_OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var control = d as FloatingBar_Pen;
-            control.FindAscendant<Popup>().StaysOpen = (bool)e.NewValue;
-            if ((bool)e.NewValue)
-            {
-                control.PinButton.FindDescendant<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue77a";
-            }
-            else
-            {
-                control.PinButton.FindDescendant<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue718";
-
-            }
-        }
-
-        #endregion
-
-        #endregion
-
         private void OnColorSelected(object sender, RoutedEventArgs e)
         {
             SwitchEdittingMode();
@@ -93,16 +56,6 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             CustomColorCollection.Add(Color8);
             CustomColorCollection.Add(Color9);
             CustomColorCollection.Add(Color10);
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            ((Popup)this.GetFirstLogicalTreeParent(typeof(Popup))).IsOpen = false;
-        }
-
-        private void PinButton_Click(object sender, RoutedEventArgs e)
-        {
-            StaysOpen = !StaysOpen;
         }
 
         private void Slider_StrokeThickness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

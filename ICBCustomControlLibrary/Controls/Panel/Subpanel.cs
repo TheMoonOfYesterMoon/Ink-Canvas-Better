@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICBCustomControlLibrary.Helpers;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -28,10 +29,10 @@ namespace ICBCustomControlLibrary.Controls.Panel
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
-
+            BindingInit();
             _titleTextBlock.Text = Title;
 
-            _titleBarGrid.Background = HeaderBackground;
+            _titleBarGrid.Background = ThemeHelper.DefaultBackgroundColor;
             _titleBarGrid.Children.Add(_titleTextBlock);
             Grid.SetColumn(_titleTextBlock, 0);
 
@@ -44,8 +45,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
             _titleBarGrid.Children.Add(_closeButton);
             Grid.SetColumn(_closeButton, 2);
 
-            var contentBinding = new Binding("Child") { Source = this.MemberwiseClone() };
-            _contentPresenter.SetBinding(ContentPresenter.ContentProperty, contentBinding);
+            _contentPresenter.SetBinding(ContentPresenter.ContentProperty, childBinding);
 
             _mainGrid.Children.Add(_titleBarGrid);
             Grid.SetRow(_titleBarGrid, 0);
@@ -53,15 +53,23 @@ namespace ICBCustomControlLibrary.Controls.Panel
             _mainGrid.Children.Add(_contentPresenter);
             Grid.SetRow(_contentPresenter, 1);
 
-            var visibilityBinding = new Binding("ShowHeader")
+            _titleBarGrid.SetBinding(VisibilityProperty, isShowHeaderBinding);
+
+            _mainBorder.Child = _mainGrid;
+            this.Child = _mainBorder;
+        }
+
+        private void BindingInit()
+        {
+            childBinding = new Binding("Child")
+            {
+                Source = this.MemberwiseClone()
+            };
+            isShowHeaderBinding = new Binding("ShowHeader")
             {
                 Source = this,
                 Converter = new BooleanToVisibilityConverter()
             };
-            _titleBarGrid.SetBinding(VisibilityProperty, visibilityBinding);
-
-            _mainBorder.Child = _mainGrid;
-            this.Child = _mainBorder;
         }
     }
 }

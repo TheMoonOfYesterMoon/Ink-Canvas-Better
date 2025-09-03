@@ -18,24 +18,6 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             InitializeComponent();
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            ((Popup)this.GetFirstLogicalTreeParent(typeof(Popup))).IsOpen = false;
-        }
-
-        private void PinButton_Click(object sender, RoutedEventArgs e)
-        {
-            RuntimeData.mainWindow.Popup_Shape.StaysOpen = !RuntimeData.mainWindow.Popup_Shape.StaysOpen;
-            if (RuntimeData.mainWindow.Popup_Shape.StaysOpen)
-            {
-                PinButton.FindVisualChild<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue77a";
-            }
-            else
-            {
-                PinButton.FindVisualChild<iNKORE.UI.WPF.Modern.Controls.FontIcon>().Glyph = "\ue718";
-            }
-        }
-
         private void Image_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             RuntimeData.CurrentDrawStep = 0;
