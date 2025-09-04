@@ -21,6 +21,18 @@
         Background="Transparent"
         AllowsTransparency="True"
         WindowState="Maximized">
+    <Window.Resources>
+        <Style x:Key="SubpanelStyle" TargetType="icb:Subpanel">
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="IsOpen" Value="False"/>
+            <Setter Property="StaysOpen" Value="False"/>
+            <Setter Property="AllowsTransparency" Value="True"/>
+            <Setter Property="Placement" Value="Top"/>
+            <Setter Property="PopupAnimation" Value="Fade"/>
+            <Setter Property="PlacementRectangle" Value="0,0,0,0"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid
         Name="MainWindow_Grid"
         Background="Transparent">
@@ -110,13 +122,9 @@
                         Click="ClearIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- Pen -->
-                    <icb:Subpanel
-                        Name="Popup_Pen"
-                        IsOpen="False"
-                        StaysOpen="False"
-                        AllowsTransparency="True"
-                        Placement="Top"
-                        PlacementTarget="{Binding ElementName=PenIcon}">
+                    <icb:Subpanel Name="Popup_Pen"
+                                  Style="{StaticResource SubpanelStyle}"
+                                  PlacementTarget="{Binding ElementName=PenIcon}">
                         <floatingBar:FloatingBar_Pen/>
                     </icb:Subpanel>
                     <localControls:ICB_Button
@@ -126,13 +134,9 @@
                         Click="PenIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- Highlighter -->
-                    <icb:Subpanel
-                        Name="Popup_Highlighter"
-                        IsOpen="False"
-                        StaysOpen="False"
-                        AllowsTransparency="True"
-                        Placement="Top"
-                        PlacementTarget="{Binding ElementName=HighlighterIcon}">
+                    <icb:Subpanel Name="Popup_Highlighter"
+                                  Style="{StaticResource SubpanelStyle}"
+                                  PlacementTarget="{Binding ElementName=HighlighterIcon}">
                         <floatingBar:FloatingBar_Highlighter/>
                     </icb:Subpanel>
                     <localControls:ICB_Button
@@ -144,10 +148,7 @@
                     <!-- Eraser -->
                     <icb:Subpanel
                         Name="Popup_Eraser"
-                        IsOpen="False"
-                        StaysOpen="False"
-                        AllowsTransparency="True"
-                        Placement="Top"
+                        Style="{StaticResource SubpanelStyle}"
                         PlacementTarget="{Binding ElementName=EraserIcon}">
                         <floatingBar:FloatingBar_Eraser/>
                     </icb:Subpanel>
@@ -165,13 +166,9 @@
                         Click="PickIcon_Click"
                         IsSqueezeHorizontally="True"/>
                     <!-- Shape -->
-                    <icb:Subpanel
-                        Name="Popup_Shape"
-                        IsOpen="False"
-                        StaysOpen="False"
-                        AllowsTransparency="True"
-                        Placement="Top"
-                        PlacementTarget="{Binding ElementName=ShapeIcon}">
+                    <icb:Subpanel Name="Popup_Shape"
+                                  Style="{StaticResource SubpanelStyle}"
+                                  PlacementTarget="{Binding ElementName=ShapeIcon}">
                         <floatingBar:FloatingBar_Shape/>
                     </icb:Subpanel>
                     <localControls:ICB_Button

@@ -37,10 +37,14 @@ namespace ICBCustomControlLibrary.Controls.Panel
         {
             Background = Brushes.Transparent,
             FontFamily = ThemeHelper.SegoeFluentIcons,
-            Content = "\ue718",
             Padding = new Thickness(0),
             Width = 30,
             BorderThickness = new Thickness(0)
+        };
+
+        private readonly TextBlock _pinTextBlock = new TextBlock
+        {
+            Text = "\ue718"
         };
 
         // title bar
@@ -56,6 +60,13 @@ namespace ICBCustomControlLibrary.Controls.Panel
         };
 
         #endregion
+
+        // this grid is used to keep the gap between the popup and the target element
+        // i know offset property exists, but it has some issues when the target element is near the screen edge
+        private readonly Grid _transparentGrid = new Grid
+        {
+            Background = Brushes.Transparent
+        };
 
         private readonly Border _mainBorder = new Border
         {

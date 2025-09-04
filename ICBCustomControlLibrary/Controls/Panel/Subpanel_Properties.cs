@@ -1,7 +1,5 @@
-﻿using ICBCustomControlLibrary.Helpers;
-using System;
+﻿using System;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,34 +10,15 @@ namespace ICBCustomControlLibrary.Controls.Panel
 {
     public partial class Subpanel
     {
-        protected override void OnPropertyChanged(DependencyPropertyChangedEventArgs e)
-        {
-            base.OnPropertyChanged(e);
-
-            if (e.Property == StaysOpenProperty)
-            {
-                _pinButton.Content = (bool)e.NewValue ? "\ue77a" : "\ue718";
-            }
-        }
-
         #region Title
 
         public static readonly DependencyProperty TitleProperty =
-            DependencyProperty.Register("Title", typeof(string), typeof(Subpanel), new PropertyMetadata("Title", OnTitleChanged));
+            DependencyProperty.Register("Title", typeof(string), typeof(Subpanel), new PropertyMetadata("Title"));
 
         public string Title
         {
             get { return (string)GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
-        }
-
-        private static void OnTitleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (e.NewValue != e.OldValue)
-            {
-                var control = d as Subpanel;
-                control._titleTextBlock.Text = e.NewValue as string;
-            }
         }
 
         #endregion
@@ -57,7 +36,11 @@ namespace ICBCustomControlLibrary.Controls.Panel
 
         #endregion
 
-        private Binding childBinding;
+        private Binding titleBinding;
         private Binding isShowHeaderBinding;
+
+        private Binding childBinding;
+        private Binding marginBinding;
+        private Binding staysOpenBinding;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ICBCustomControlLibrary.Helpers;
+using ICBCustomControlLibrary.Helpers.Converter;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -30,13 +31,16 @@ namespace ICBCustomControlLibrary.Controls.Panel
         {
             base.OnInitialized(e);
             BindingInit();
+
             _titleTextBlock.Text = Title;
+            _titleTextBlock.SetBinding(TextBlock.TextProperty, titleBinding);
 
             _titleBarGrid.Background = ThemeHelper.DefaultBackgroundColor;
             _titleBarGrid.Children.Add(_titleTextBlock);
             Grid.SetColumn(_titleTextBlock, 0);
 
-            _pinButton.Content = StaysOpen ? "\ue77a" : "\ue718";
+            _pinTextBlock.SetBinding(TextBlock.TextProperty, staysOpenBinding);
+            _pinButton.Content = _pinTextBlock;
             _pinButton.Click += OnPinButtonClicked;
             _titleBarGrid.Children.Add(_pinButton);
             Grid.SetColumn(_pinButton, 1);
@@ -56,19 +60,36 @@ namespace ICBCustomControlLibrary.Controls.Panel
             _titleBarGrid.SetBinding(VisibilityProperty, isShowHeaderBinding);
 
             _mainBorder.Child = _mainGrid;
-            this.Child = _mainBorder;
+            _mainBorder.SetBinding(Border.MarginProperty, marginBinding);
+
+            _transparentGrid.Children.Add(_mainBorder);
+            this.Child = _transparentGrid;
         }
 
         private void BindingInit()
         {
-            childBinding = new Binding("Child")
+            titleBinding = new Binding("Title")
             {
-                Source = this.MemberwiseClone()
+                Source = this
             };
             isShowHeaderBinding = new Binding("ShowHeader")
             {
                 Source = this,
                 Converter = new BooleanToVisibilityConverter()
+            };
+
+            childBinding = new Binding("Child")
+            {
+                Source = this
+            };
+            marginBinding = new Binding("Margin")
+            {
+                Source = this
+            };
+            staysOpenBinding = new Binding("StaysOpen")
+            {
+                Source = this,
+                Converter = new BooleanToTextCconverter_Pin()
             };
         }
     }
