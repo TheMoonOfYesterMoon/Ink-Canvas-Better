@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ICBCustomControlLibrary.Controls.Panel
 {
@@ -17,7 +18,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
         private readonly TextBlock _titleTextBlock = new TextBlock
         {
             VerticalAlignment = VerticalAlignment.Center,
-            Margin = new Thickness(10, 0, 0, 0),
+            FontSize = 18,
             FontWeight = FontWeights.Bold
         };
 
@@ -26,9 +27,10 @@ namespace ICBCustomControlLibrary.Controls.Panel
         {
             Background = Brushes.Transparent,
             FontFamily = ThemeHelper.SegoeFluentIcons,
-            Content = "\ue8bb",
             Padding = new Thickness(0),
-            Width = 30,
+            Content = "\ue8bb",
+            FontSize = 14,
+            Width = 24,
             BorderThickness = new Thickness(0)
         };
 
@@ -38,18 +40,19 @@ namespace ICBCustomControlLibrary.Controls.Panel
             Background = Brushes.Transparent,
             FontFamily = ThemeHelper.SegoeFluentIcons,
             Padding = new Thickness(0),
-            Width = 30,
+            Width = 24,
             BorderThickness = new Thickness(0)
         };
-
         private readonly TextBlock _pinTextBlock = new TextBlock
         {
-            Text = "\ue718"
+            Text = "\ue718",
+            FontSize = 16
         };
 
         // title bar
         private readonly Grid _titleBarGrid = new Grid
         {
+            Margin = new Thickness(5, 0, 5, 0),
             Height = 30,
             ColumnDefinitions =
             {
@@ -88,7 +91,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
 
         private readonly ContentPresenter _contentPresenter = new ContentPresenter
         {
-            Margin = new Thickness(5)
+            Margin = new Thickness(10)
         };
     }
 }

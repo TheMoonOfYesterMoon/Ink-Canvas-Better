@@ -6,7 +6,9 @@
 
     <SolidColorBrush x:Key="BorderBrush" Opacity="0.85" Color="CadetBlue"/>
 
-    <SolidColorBrush x:Key="ICBButtonHover" Opacity="1" Color="PaleVioletRed"/>
     <SolidColorBrush x:Key="ICBButtonStateEnable" Opacity="0.9" Color="LightBlue"/>
 
+    <DrawingImage x:Key="Image.Others.Icon">
+        /Resources/Ink Canvas Better.ico
+    </DrawingImage>
 </ResourceDictionary>

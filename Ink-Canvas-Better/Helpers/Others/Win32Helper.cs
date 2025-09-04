@@ -9,6 +9,8 @@ namespace Ink_Canvas_Better.Helpers.Others
 {
     internal class Win32Helper
     {
+        #region Windows
+
         public const int GWL_EXSTYLE = -20;
         public const int WS_EX_TOOLWINDOW = 0x00000080;
 
@@ -28,6 +30,8 @@ namespace Ink_Canvas_Better.Helpers.Others
                 extendedStyle | Win32Helper.WS_EX_TOOLWINDOW
             );
         }
+
+        #endregion
 
     }
 }

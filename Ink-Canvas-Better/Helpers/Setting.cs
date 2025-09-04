@@ -1,9 +1,10 @@
 ﻿using Ink_Canvas_Better.Resources;
+using iNKORE.UI.WPF.Modern;
 using IWshRuntimeLibrary;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -88,7 +89,7 @@ namespace Ink_Canvas_Better.Helpers
             #region Appearance
             if (RuntimeData.settingData.Appearance != null)
             {
-
+                ApplySystemTheme(RuntimeData.settingData.Appearance.Theme);
             }
             else
             { RuntimeData.settingData.Appearance = new Appearance(); }
@@ -206,6 +207,36 @@ namespace Ink_Canvas_Better.Helpers
             }
 
             Application.Current.Resources.MergedDictionaries.Add(newDict);
+        }
+
+        public static void OnUserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General)
+            {
+                ApplySystemTheme(RuntimeData.settingData.Appearance.Theme);
+            }
+        }
+        public static void ApplySystemTheme(bool? b)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                var oldTheme = new ResourceDictionary();
+                var newTheme = new ResourceDictionary();
+                if (b == null | b == true)
+                {
+                    ThemeManager.Current.ApplicationTheme = ApplicationTheme.Light;
+                    newTheme.Source = new Uri("Resources/Styles/Light.xaml", UriKind.Relative);
+                    oldTheme.Source = new Uri("Resources/Styles/Dark.xaml", UriKind.Relative);
+                }
+                else
+                {
+                    ThemeManager.Current.ApplicationTheme = ApplicationTheme.Dark;
+                    oldTheme.Source = new Uri("Resources/Styles/Light.xaml", UriKind.Relative);
+                    newTheme.Source = new Uri("Resources/Styles/Dark.xaml", UriKind.Relative);
+                }
+                Application.Current.Resources.MergedDictionaries.Remove(oldTheme);
+                Application.Current.Resources.MergedDictionaries.Add(newTheme);
+            });
         }
     }
 }

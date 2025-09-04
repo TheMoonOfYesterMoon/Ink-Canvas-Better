@@ -1,5 +1,5 @@
 ﻿using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Resources;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -21,12 +21,15 @@ namespace Ink_Canvas_Better
         public static string RootPath = Environment.GetEnvironmentVariable("APPDATA") + "\\Ink Canvas\\";
         public App()
         {
-            this.Startup += new StartupEventHandler(App_Startup);
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
+            SystemEvents.UserPreferenceChanged += Setting.OnUserPreferenceChanged;
+
+            this.Startup += new StartupEventHandler(App_Startup);
+            this.Exit += new ExitEventHandler(App_OnExit);
         }
         private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-            Helpers.Log.NewLog(e.Exception.ToString());
+            Log.NewLog(e.Exception.ToString());
             // TODO: show in the messagebox
             // Ink_Canvas.MainWindow.ShowNewMessage($"抱歉，出现预料之外的异常，可能导致 Ink Canvas 画板运行不稳定。\n建议保存墨迹后重启应用。\n报错信息：\n{e.ToString()}", true);
             e.Handled = true;
@@ -41,20 +44,26 @@ namespace Ink_Canvas_Better
                 Directory.CreateDirectory($"{RootPath}Logs");
             }
 
-            Helpers.Log.NewLog(string.Format("Ink Canvas Starting (Version: {0})", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
+            Log.NewLog(string.Format("Ink-Canvas-Better Starting (Version: {0})", Assembly.GetExecutingAssembly().GetName().Version.ToString()));
             
 
             Mutex _ = new Mutex(true, "Ink_Canvas_Better", out bool ret);
 
             if (!ret && !e.Args.Contains("-m")) // -m multiple
             {
-                Helpers.Log.NewLog("Detected existing instance");
+                Log.NewLog("Detected existing instance");
                 MessageBox.Show("已有一个程序实例正在运行");
-                Helpers.Log.NewLog("Ink Canvas automatically closed");
+                Log.NewLog("Ink-Canvas-Batter automatically closed");
                 Environment.Exit(0);
             }
 
             StartArgs = e.Args;
+        }
+
+        void App_OnExit(object sender, ExitEventArgs e)
+        {
+            SystemEvents.UserPreferenceChanged -= Setting.OnUserPreferenceChanged;
+            Log.NewLog("Ink-Canvas-Better exited");
         }
     }
 }

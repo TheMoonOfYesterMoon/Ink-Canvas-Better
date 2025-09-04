@@ -81,7 +81,7 @@ namespace Ink_Canvas_Better.Resources
         public bool IsShowModeFingerToggleSwitch { get; set; } = true;
 
         [JsonProperty("theme")]
-        public int Theme { get; set; } = 0;
+        public bool? Theme { get; set; } = null;
     }
 
     /// <summary>

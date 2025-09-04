@@ -15,7 +15,7 @@
             <ui:SettingsCard Name="SettingsCard_About_1" Header="Ink Cnavas Better" Description="{DynamicResource Text_Setting_AppDescription}" IsClickEnabled="True">
                 <ui:SettingsCard.HeaderIcon>
                     <!--<ui:FontIcon Glyph="&#xf167;"/>-->
-                    <Image Source="{DynamicResource Image.Others.SolidColorIcon}"/>
+                    <Image Source="{DynamicResource Image.Others.Icon}"/>
                 </ui:SettingsCard.HeaderIcon>
                 <ui:SettingsCard.Content>
                     <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">

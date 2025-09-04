@@ -8,8 +8,7 @@
              xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
              xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
              xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-             mc:Ignorable="d"
-             d:DesignHeight="240" Width="500">
+             mc:Ignorable="d">
     <ikw:SimpleStackPanel>
         <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5" VerticalAlignment="Top">
             <TextBlock TextAlignment="Center" Text="{DynamicResource Text_Thickness}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>

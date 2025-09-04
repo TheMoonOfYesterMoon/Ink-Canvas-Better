@@ -18,31 +18,31 @@
             <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5" DockPanel.Dock="Top" VerticalAlignment="Top">
                 <TextBlock TextAlignment="Center" Text="{DynamicResource Text_Thickness}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                 <Slider VerticalAlignment="Center"
-                            Name="Slider_StrokeThickness"
-                            Width="260"
-                            IsSnapToTickEnabled="True"
-                            Minimum="1"
-                            Maximum="40"
-                            IsMoveToPointEnabled="True"
-                            TickFrequency="1"
-                            TickPlacement="Both"
-                            Value="30"
-                            ValueChanged="Slider_StrokeThickness_ValueChanged"/>
+                        Name="Slider_StrokeThickness"
+                        Width="260"
+                        IsSnapToTickEnabled="True"
+                        Minimum="1"
+                        Maximum="40"
+                        IsMoveToPointEnabled="True"
+                        TickFrequency="1"
+                        TickPlacement="Both"
+                        Value="30"
+                        ValueChanged="Slider_StrokeThickness_ValueChanged"/>
                 <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="16" Width="24" Foreground="{DynamicResource DefaultForegroundColor}"/>
             </ikw:SimpleStackPanel>
             <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5" DockPanel.Dock="Top" VerticalAlignment="Top">
                 <TextBlock TextAlignment="Center" Text="{DynamicResource Text_Alpha}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
                 <Slider VerticalAlignment="Center"
-                            Name="Slider_Alpha"
-                            Width="260"
-                            IsSnapToTickEnabled="True"
-                            Minimum="1"
-                            Maximum="99"
-                            IsMoveToPointEnabled="True"
-                            TickFrequency="1"
-                            TickPlacement="Both"
-                            Value="40"
-                            ValueChanged="Slider_Alpha_ValueChanged"/>
+                        Name="Slider_Alpha"
+                        Width="260"
+                        IsSnapToTickEnabled="True"
+                        Minimum="1"
+                        Maximum="99"
+                        IsMoveToPointEnabled="True"
+                        TickFrequency="1"
+                        TickPlacement="Both"
+                        Value="40"
+                        ValueChanged="Slider_Alpha_ValueChanged"/>
                 <TextBlock TextAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="48" Foreground="{DynamicResource DefaultForegroundColor}">
                         <Run Text="{Binding Value, ElementName=Slider_Alpha}"/>
                         <Run Text="%"/>

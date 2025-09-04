@@ -80,7 +80,7 @@ namespace ICBCustomControlLibrary.Controls.Panel
 
             childBinding = new Binding("Child")
             {
-                Source = this
+                Source = this.MemberwiseClone()
             };
             marginBinding = new Binding("Margin")
             {
