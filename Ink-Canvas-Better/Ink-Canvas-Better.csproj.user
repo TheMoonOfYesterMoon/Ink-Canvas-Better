@@ -11,27 +11,27 @@
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Controls\ICB_ColorPicker.xaml.cs">
+    <Compile Update="View\Controls\ICB_ColorPicker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\ICB_CustomColor.xaml.cs">
+    <Compile Update="View\Controls\ICB_CustomColor.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\ICB_ToggleButton.xaml.cs">
+    <Compile Update="View\Controls\ICB_ToggleButton.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\SettingPages\Appearance\Appearance.xaml.cs">
+    <Compile Update="View\Pages\SettingPages\Appearance\Appearance.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Pages\SettingPages\Home\Home.xaml.cs">
+    <Compile Update="View\Pages\SettingPages\Home\Home.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Windows\Language.xaml.cs">
+    <Compile Update="View\Windows\Language.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Controls\ICB_ColorPicker.xaml">
+    <Page Update="View\Controls\ICB_ColorPicker.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

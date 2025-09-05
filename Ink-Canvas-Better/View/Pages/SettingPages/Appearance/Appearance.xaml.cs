@@ -1,11 +1,11 @@
-﻿using Ink_Canvas_Better.Resources;
-using Ink_Canvas_Better.Helpers;
-using System;
+﻿using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.ViewModel;
 
 namespace Ink_Canvas_Better.Pages.SettingPages
 {
@@ -17,23 +17,6 @@ namespace Ink_Canvas_Better.Pages.SettingPages
         public Appearance()
         {
             InitializeComponent();
-            this.Loaded += Appearance_Loaded;
-        }
-
-        private void Appearance_Loaded(object sender, RoutedEventArgs e)
-        {
-            switch (RuntimeData.settingData.Appearance.Theme)
-            {
-                case null:
-                    Theme_ComboBox.SelectedIndex = 0;
-                    break;
-                case true:
-                    Theme_ComboBox.SelectedIndex = 1;
-                    break;
-                case false:
-                    Theme_ComboBox.SelectedIndex = 2;
-                    break;
-            }
         }
 
         private void Theme_SelectionChanged(object sender, SelectionChangedEventArgs e)

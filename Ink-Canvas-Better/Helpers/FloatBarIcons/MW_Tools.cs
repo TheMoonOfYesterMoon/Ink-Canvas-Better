@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Resources;
+using Ink_Canvas_Better.ViewModel;
 using Ink_Canvas_Better.Windows;
 
 namespace Ink_Canvas_Better

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ink_Canvas_Better.Resources
+namespace Ink_Canvas_Better.Model
 {
     public class SettingData
     {
@@ -109,7 +109,7 @@ namespace Ink_Canvas_Better.Resources
         public bool IsShowWelcomeScreen { get; set; } = true;
 
         [JsonProperty("language")]
-        public String Language { get; set; } = "en";
+        public string Language { get; set; } = "en";
     }
 
     public class Runtime
@@ -118,7 +118,7 @@ namespace Ink_Canvas_Better.Resources
         public InkStyle InkStyle { get; set; } = InkStyle.Default;
 
         [JsonProperty("bluntnessFactor")]
-        public float BluntnessFactor { get; set; } = (49f / 50f);// influent writing style
+        public float BluntnessFactor { get; set; } = 49f / 50f;// influent writing style
     }
 
     public enum OptionalOperation

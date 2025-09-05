@@ -28,7 +28,7 @@ namespace Ink_Canvas_Better.Helpers.Others
                         return parent;
                     }
                 }
-                parent = GetFirstVisualTreeParent(parent);
+                parent = parent.GetFirstVisualTreeParent();
             }
             return null;
         }
@@ -50,7 +50,7 @@ namespace Ink_Canvas_Better.Helpers.Others
                         return parent;
                     }
                 }
-                parent = GetFirstLogicalTreeParent(parent);
+                parent = parent.GetFirstLogicalTreeParent();
             }
             return null;
         }

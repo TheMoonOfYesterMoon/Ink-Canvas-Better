@@ -77,7 +77,7 @@
             </ui:NavigationViewItem>
         </ui:NavigationView.MenuItems>
         <ui:NavigationView.Content>
-            <ui:Frame x:Name="SettingFrame" Source="pack://application:,,,/Pages/SettingPages/Home/Home.xaml"/>
+            <ui:Frame x:Name="SettingFrame" Source="pack://application:,,,/View/Pages/SettingPages/Home/Home.xaml"/>
         </ui:NavigationView.Content>
     </ui:NavigationView>
 </Window>

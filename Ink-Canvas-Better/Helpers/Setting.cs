@@ -1,4 +1,5 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.Model;
+using Ink_Canvas_Better.ViewModel;
 using iNKORE.UI.WPF.Modern;
 using IWshRuntimeLibrary;
 using Microsoft.Win32;
@@ -116,7 +117,7 @@ namespace Ink_Canvas_Better.Helpers
             {
                 SwitchLanguage(RuntimeData.settingData.Others.Language);
             }
-            else { RuntimeData.settingData.Others = new Resources.Others(); }
+            else { RuntimeData.settingData.Others = new Model.Others(); }
             #endregion
 
             #region Runtime
@@ -156,7 +157,7 @@ namespace Ink_Canvas_Better.Helpers
         {
             try
             {
-                String f = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + exeName + ".lnk";
+                string f = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\" + exeName + ".lnk";
                 if (File.Exists(f))
                 {
                     WshShell shell = new WshShell();

@@ -18,7 +18,7 @@ namespace Ink_Canvas_Better
     {
 
         public static string[] StartArgs = null;
-        public static string RootPath = Environment.GetEnvironmentVariable("APPDATA") + "\\Ink Canvas\\";
+        public static string RootPath = Environment.GetEnvironmentVariable("APPDATA") + "\\Ink Canvas Better\\";
         public App()
         {
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;

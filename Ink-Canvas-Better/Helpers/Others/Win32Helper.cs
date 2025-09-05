@@ -23,11 +23,11 @@ namespace Ink_Canvas_Better.Helpers.Others
         public static void MainWindow_SourceInitialized(object sender, EventArgs e)
         {
             var handle = new WindowInteropHelper((Window)sender).Handle;
-            int extendedStyle = Win32Helper.GetWindowLong(handle, Win32Helper.GWL_EXSTYLE);
-            Win32Helper.SetWindowLong(
+            int extendedStyle = GetWindowLong(handle, GWL_EXSTYLE);
+            SetWindowLong(
                 handle,
-                Win32Helper.GWL_EXSTYLE,
-                extendedStyle | Win32Helper.WS_EX_TOOLWINDOW
+                GWL_EXSTYLE,
+                extendedStyle | WS_EX_TOOLWINDOW
             );
         }
 

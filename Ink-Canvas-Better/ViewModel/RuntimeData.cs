@@ -1,4 +1,5 @@
 ﻿using Ink_Canvas_Better.Controls;
+using Ink_Canvas_Better.Model;
 using Ink_Canvas_Better.Windows;
 using Ink_Canvas_Better.Windows.FloatingBarIcons;
 using Newtonsoft.Json;
@@ -10,7 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Media;
 
-namespace Ink_Canvas_Better.Resources
+namespace Ink_Canvas_Better.ViewModel
 {
     static class RuntimeData
     {
@@ -42,7 +43,7 @@ namespace Ink_Canvas_Better.Resources
         #endregion
 
         public static bool isCloseFromButton = false;
-        public static String settingsFileName = "settings.json";
+        public static string settingsFileName = "settings.json";
         public static SettingData settingData = new SettingData();
         public static Metadata currentMetadata = new Metadata();
 
@@ -158,7 +159,7 @@ namespace Ink_Canvas_Better.Resources
     public class Metadata
     {
         [JsonProperty("metadataVer")]
-        public String MetadataVer { get; set; } = "1.0";
+        public string MetadataVer { get; set; } = "1.0";
 
         [JsonProperty("dateTime")]
         public DateTime DateTime { get; set; }

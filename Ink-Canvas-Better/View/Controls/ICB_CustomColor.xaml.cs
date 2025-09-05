@@ -1,4 +1,4 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.ViewModel;
 using Ink_Canvas_Better.Windows.FloatingBarIcons;
 using iNKORE.UI.WPF.Helpers;
 using System;

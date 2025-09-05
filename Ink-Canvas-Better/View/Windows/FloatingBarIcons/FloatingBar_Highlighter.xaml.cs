@@ -1,8 +1,6 @@
 ﻿using Ink_Canvas_Better.Controls;
+using Ink_Canvas_Better.Model;
 using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Helpers.Others;
-using Ink_Canvas_Better.Resources;
-using iNKORE.UI.WPF.Helpers;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using Ink_Canvas_Better.ViewModel;
 
 namespace Ink_Canvas_Better.Windows.FloatingBarIcons
 {
@@ -34,7 +32,11 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
             if (e.OriginalSource is ICB_CustomColor customSelector)
             {
                 ColorPreview.Fill = new SolidColorBrush(customSelector.Color);
-                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = customSelector.Color;
+                RuntimeData.CurrentDrawingAttributes_Highlighter.Color = Color.FromArgb(
+                    (byte)(Slider_Alpha.Value / 100d * 255d),
+                    customSelector.Color.R,
+                    customSelector.Color.G,
+                    customSelector.Color.B);
                 foreach (ICB_CustomColor item in CustomColorCollection.Cast<ICB_CustomColor>())
                 {
                     item.IsSelected = false;

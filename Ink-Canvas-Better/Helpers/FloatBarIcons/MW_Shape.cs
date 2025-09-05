@@ -1,4 +1,4 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

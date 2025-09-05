@@ -1,4 +1,4 @@
-﻿using Ink_Canvas_Better.Resources;
+﻿using Ink_Canvas_Better.ViewModel;
 using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
 using System;
@@ -71,7 +71,7 @@ namespace Ink_Canvas_Better.Helpers
             }
         }
 
-        public static void SaveStrokes(String directoryPath, String format = ".icbpkg")
+        public static void SaveStrokes(string directoryPath, string format = ".icbpkg")
         {
             switch (format.ToLower())
             {
@@ -84,10 +84,10 @@ namespace Ink_Canvas_Better.Helpers
                     {
                         Directory.CreateDirectory(directoryPath);
                     }
-                    String currentTime = DateTime.Now.ToString("yyyy/MM/dd HH-mm-ss-fff");
-                    String fileName = $"{currentTime}.icbpkg";
-                    String tempStkFile = "tempStrokes.icstk";
-                    String tempMetaFile = "tempMetadata.json";
+                    string currentTime = DateTime.Now.ToString("yyyy/MM/dd HH-mm-ss-fff");
+                    string fileName = $"{currentTime}.icbpkg";
+                    string tempStkFile = "tempStrokes.icstk";
+                    string tempMetaFile = "tempMetadata.json";
 
                     // Create a temporary strokes file
                     FileStream stkFileStream = new FileStream(Path.Combine(directoryPath, tempStkFile), FileMode.Create);
@@ -96,7 +96,7 @@ namespace Ink_Canvas_Better.Helpers
 
                     // Create a temporary metadata file
                     StreamWriter metaStreamWriter = new StreamWriter(Path.Combine(directoryPath, tempMetaFile), false);
-                    String json = JsonConvert.SerializeObject(RuntimeData.currentMetadata, Formatting.Indented);
+                    string json = JsonConvert.SerializeObject(RuntimeData.currentMetadata, Formatting.Indented);
                     metaStreamWriter.Write(json);
                     metaStreamWriter.Close();
 
@@ -119,13 +119,13 @@ namespace Ink_Canvas_Better.Helpers
             }
         }
 
-        public static void LoadStrokes(String filePath)
+        public static void LoadStrokes(string filePath)
         {
             if (RuntimeData.mainWindow.MainInkCanvas.Strokes != null || RuntimeData.mainWindow.MainInkCanvas.Strokes.Count != 0)
             {
                 //SaveStrokes();
             }
-            String format = Path.GetExtension(filePath).ToLower();
+            string format = Path.GetExtension(filePath).ToLower();
             switch (format)
             {
                 case ".icbpkg":

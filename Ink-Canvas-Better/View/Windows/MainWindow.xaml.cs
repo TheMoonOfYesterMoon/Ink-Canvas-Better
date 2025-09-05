@@ -1,18 +1,16 @@
 ﻿using Ink_Canvas_Better.Helpers;
 using Ink_Canvas_Better.Helpers.Others;
-using Ink_Canvas_Better.Resources;
 using Ink_Canvas_Better.Windows;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
+using Ink_Canvas_Better.ViewModel;
 
 namespace Ink_Canvas_Better
 {
