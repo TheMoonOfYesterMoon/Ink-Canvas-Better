@@ -44,7 +44,7 @@ namespace Ink_Canvas_Better.ViewModel
 
         public static bool isCloseFromButton = false;
         public static string settingsFileName = "settings.json";
-        public static SettingData settingData = new SettingData();
+        public static SettingProperties SettingProperties = new SettingProperties();
         public static Metadata currentMetadata = new Metadata();
 
         public static DrawingAttributes CurrentDrawingAttributes_Pen { get; set; } = new DrawingAttributes()
