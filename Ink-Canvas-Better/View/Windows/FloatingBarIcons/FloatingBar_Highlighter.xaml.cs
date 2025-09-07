@@ -80,7 +80,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         public void ToggleButton_inkStyle_Unchecked(object sender, RoutedEventArgs e)
         {
             SwitchEdittingMode();
-            RuntimeData.settingData.Runtime.InkStyle = InkStyle.Default;
+            RuntimeData.SettingProperties.Runtime.InkStyle = InkStyle.Default;
             //inkstyleTextBlock.Text = Application.Current.Resources["Off"].ToString();
             ToggleButton_inkStyle.IsChecked = false;
             Setting.SaveSettings();
@@ -89,7 +89,7 @@ namespace Ink_Canvas_Better.Windows.FloatingBarIcons
         public void ToggleButton_inkStyle_Checked(object sender, RoutedEventArgs e)
         {
             SwitchEdittingMode();
-            RuntimeData.settingData.Runtime.InkStyle = InkStyle.Simulative;
+            RuntimeData.SettingProperties.Runtime.InkStyle = InkStyle.Simulative;
             //inkstyleTextBlock.Text = Application.Current.Resources["On"].ToString();
             ToggleButton_inkStyle.IsChecked = true;
             Setting.SaveSettings();
