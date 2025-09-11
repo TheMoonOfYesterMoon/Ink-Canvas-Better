@@ -38,7 +38,7 @@ namespace Ink_Canvas_Better.Windows
         private void ButtonOK_Click(object sender, RoutedEventArgs e)
         {
             SupportedLanguage.TryGetValue((String)LanguageListBox.SelectedItem, out String value);
-            RuntimeData.SettingProperties.Others.Language = value;
+            RuntimeData.SettingModel.Others.Language = value;
             Setting.SaveSettings();
             Setting.SwitchLanguage(value);
 
