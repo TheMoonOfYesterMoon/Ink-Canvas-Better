@@ -28,7 +28,7 @@ namespace Ink_Canvas_Better.Helpers
                     try
                     {
                         string text = File.ReadAllText(App.RootPath + RuntimeData.settingsFileName);
-                        RuntimeData.SettingProperties = JsonConvert.DeserializeObject<SettingProperties>(text);
+                        RuntimeData.SettingModel = JsonConvert.DeserializeObject<SettingModel>(text);
                     }
                     catch { }
                 }
@@ -50,7 +50,7 @@ namespace Ink_Canvas_Better.Helpers
             }
             try
             {
-                if (RuntimeData.SettingProperties.StartupAndUpdate.IsAutoStartup)
+                if (RuntimeData.SettingModel.StartupAndUpdate.IsAutoStartup)
                 {
                     if (!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\Ink Canvas Better.lnk"))
                     {
@@ -72,9 +72,9 @@ namespace Ink_Canvas_Better.Helpers
             #endregion
 
             #region StartupAndUpdate
-            if (RuntimeData.SettingProperties.StartupAndUpdate != null)
+            if (RuntimeData.SettingModel.StartupAndUpdate != null)
             {
-                if (RuntimeData.SettingProperties.StartupAndUpdate.IsAutoUpdate)
+                if (RuntimeData.SettingModel.StartupAndUpdate.IsAutoUpdate)
                 {
                     //TODO
                 }
@@ -84,46 +84,46 @@ namespace Ink_Canvas_Better.Helpers
                 }
             }
             else
-            { RuntimeData.SettingProperties.StartupAndUpdate = new StartupAndUpdate(); }
+            { RuntimeData.SettingModel.StartupAndUpdate = new StartupAndUpdate(); }
             #endregion
 
             #region Appearance
-            if (RuntimeData.SettingProperties.Appearance != null)
+            if (RuntimeData.SettingModel.Appearance != null)
             {
-                ApplySystemTheme(RuntimeData.SettingProperties.Appearance.Theme);
+                ApplySystemTheme(RuntimeData.SettingModel.Appearance.Theme);
             }
             else
-            { RuntimeData.SettingProperties.Appearance = new Appearance(); }
+            { RuntimeData.SettingModel.Appearance = new Appearance(); }
             #endregion
 
             #region PPT
-            if (RuntimeData.SettingProperties.PPT != null)
+            if (RuntimeData.SettingModel.PPT != null)
             {
 
             }
-            else { RuntimeData.SettingProperties.PPT = new PPT(); }
+            else { RuntimeData.SettingModel.PPT = new PPT(); }
             #endregion
 
             #region ExperimentalFeatures
-            if (RuntimeData.SettingProperties.ExperimentalFeatures != null)
+            if (RuntimeData.SettingModel.ExperimentalFeatures != null)
             {
 
             }
-            else { RuntimeData.SettingProperties.ExperimentalFeatures = new ExperimentalFeatures(); }
+            else { RuntimeData.SettingModel.ExperimentalFeatures = new ExperimentalFeatures(); }
             #endregion
 
             #region Others
-            if (RuntimeData.SettingProperties.Others != null)
+            if (RuntimeData.SettingModel.Others != null)
             {
-                SwitchLanguage(RuntimeData.SettingProperties.Others.Language);
+                SwitchLanguage(RuntimeData.SettingModel.Others.Language);
             }
-            else { RuntimeData.SettingProperties.Others = new Model.Others(); }
+            else { RuntimeData.SettingModel.Others = new Model.Others(); }
             #endregion
 
             #region Runtime
-            if (RuntimeData.SettingProperties.Runtime != null)
+            if (RuntimeData.SettingModel.Runtime != null)
             {
-                switch (RuntimeData.SettingProperties.Runtime.InkStyle)
+                switch (RuntimeData.SettingModel.Runtime.InkStyle)
                 {
                     case InkStyle.Default:
                         RuntimeData.floatingBar_Pen.ToggleButton_inkStyle_Unchecked(null, null);
@@ -133,13 +133,13 @@ namespace Ink_Canvas_Better.Helpers
                         break;
                 }
             }
-            else { RuntimeData.SettingProperties.Runtime = new Runtime(); }
+            else { RuntimeData.SettingModel.Runtime = new Runtime(); }
             #endregion
         }
 
         public static void SaveSettings()
         {
-            string text = JsonConvert.SerializeObject(RuntimeData.SettingProperties, Formatting.Indented);
+            string text = JsonConvert.SerializeObject(RuntimeData.SettingModel, Formatting.Indented);
             try
             {
                 File.WriteAllText(App.RootPath + RuntimeData.settingsFileName, text);
@@ -149,7 +149,7 @@ namespace Ink_Canvas_Better.Helpers
 
         public static void ResetSettings()
         {
-            RuntimeData.SettingProperties = new SettingProperties();
+            RuntimeData.SettingModel = new SettingModel();
             SaveSettings();
         }
 
@@ -214,7 +214,7 @@ namespace Ink_Canvas_Better.Helpers
         {
             if (e.Category == UserPreferenceCategory.General)
             {
-                ApplySystemTheme(RuntimeData.SettingProperties.Appearance.Theme);
+                ApplySystemTheme(RuntimeData.SettingModel.Appearance.Theme);
             }
         }
         public static void ApplySystemTheme(bool? b)

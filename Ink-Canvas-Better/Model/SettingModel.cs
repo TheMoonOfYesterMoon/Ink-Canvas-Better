@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace Ink_Canvas_Better.Model
 {
-    public class SettingProperties
+    public class SettingModel
     {
         [JsonProperty("startupAndUpdate")]
         public StartupAndUpdate StartupAndUpdate { get; set; } = new StartupAndUpdate();

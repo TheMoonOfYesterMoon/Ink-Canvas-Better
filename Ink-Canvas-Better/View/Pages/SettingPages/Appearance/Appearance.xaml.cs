@@ -24,15 +24,15 @@ namespace Ink_Canvas_Better.Pages.SettingPages
             switch (Theme_ComboBox.SelectedIndex)
             {
                 case 0:
-                    RuntimeData.SettingProperties.Appearance.Theme = null;
+                    RuntimeData.SettingModel.Appearance.Theme = null;
                     Setting.ApplySystemTheme(null);
                     break;
                 case 1:
-                    RuntimeData.SettingProperties.Appearance.Theme = true;
+                    RuntimeData.SettingModel.Appearance.Theme = true;
                     Setting.ApplySystemTheme(true);
                     break;
                 case 2:
-                    RuntimeData.SettingProperties.Appearance.Theme = false;
+                    RuntimeData.SettingModel.Appearance.Theme = false;
                     Setting.ApplySystemTheme(false);
                     break;
             }
