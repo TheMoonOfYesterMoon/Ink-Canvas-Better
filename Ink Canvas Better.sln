@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ink Canvas", "Ink Canvas\Ink Canvas.csproj", "{8D0EDFC7-F974-4571-BC49-6F3A6653FE81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ink-Canvas-Better", "Ink-Canvas-Better\Ink-Canvas-Better.csproj", "{0AB73D01-FD18-4EDA-BE24-12B9175BFCC6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ink-Canvas-Better (Abandoned)", "Ink-Canvas-Better\Ink-Canvas-Better (Abandoned).csproj", "{0AB73D01-FD18-4EDA-BE24-12B9175BFCC6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICBCustomControlLibrary", "ICBCustomControlLibrary\ICBCustomControlLibrary.csproj", "{6441DEFE-A654-43EA-A50B-89A473EE4E7F}"
 EndProject
@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomControlTest", "Custom
 	ProjectSection(ProjectDependencies) = postProject
 		{6441DEFE-A654-43EA-A50B-89A473EE4E7F} = {6441DEFE-A654-43EA-A50B-89A473EE4E7F}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ink Canvas Better", "Ink Canvas Better\Ink Canvas Better.csproj", "{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -108,6 +110,26 @@ Global
 		{11D53FE8-94F0-47A8-B076-CF512E361716}.Release|x64.Build.0 = Release|Any CPU
 		{11D53FE8-94F0-47A8-B076-CF512E361716}.Release|x86.ActiveCfg = Release|Any CPU
 		{11D53FE8-94F0-47A8-B076-CF512E361716}.Release|x86.Build.0 = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|x64.Build.0 = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Debug|x86.Build.0 = Debug|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|ARM.Build.0 = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|ARM64.Build.0 = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|x64.ActiveCfg = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|x64.Build.0 = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|x86.ActiveCfg = Release|Any CPU
+		{7BB70DA8-1BF5-44A3-A183-BD34E41E39BD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
