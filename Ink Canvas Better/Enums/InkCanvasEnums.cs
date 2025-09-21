@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ink_Canvas_Better.Enums
 {
-    static class InkCanvasEnums
+    public class InkCanvasEnums
     {
         public enum InkStyle
         {

@@ -3,6 +3,7 @@ using Ink_Canvas_Better.Enums;
 
 namespace Ink_Canvas_Better.Helpers
 {
+    // TODO: Move to Services
     internal class LogHelper
     {
         public static string LogFilePath = Path.Combine("Logs", "Log.txt");
