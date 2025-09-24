@@ -84,5 +84,10 @@ namespace Ink_Canvas_Better.Services
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public object GetData()
+        {
+            return Settings;
+        }
     }
 }

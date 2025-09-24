@@ -8,9 +8,10 @@ namespace Ink_Canvas_Better.Services.Interfaces
 {
     internal interface IDataService
     {
-        void LoadData();
-        void SaveData();
-        void ResetData();
-        void DeleteData();
+        public void LoadData();
+        public void SaveData();
+        public void ResetData();
+        public void DeleteData();
+        public object GetData();
     }
 }

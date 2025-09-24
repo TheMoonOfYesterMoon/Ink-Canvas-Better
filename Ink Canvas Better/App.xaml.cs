@@ -3,6 +3,7 @@ using System.Data;
 using System.Windows;
 using Ink_Canvas_Better.Model;
 using Ink_Canvas_Better.Services;
+using Ink_Canvas_Better.Views;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
