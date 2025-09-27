@@ -13,7 +13,7 @@ using File = System.IO.File;
 
 namespace Ink_Canvas_Better.Services
 {
-    internal class SettingsService : IDataService, INotifyPropertyChanged
+    internal class SettingsService : INotifyPropertyChanged
     {
         private Settings _settings = new();
 
@@ -25,7 +25,7 @@ namespace Ink_Canvas_Better.Services
             set => SetField(ref _settings, value);
         }
 
-        async void IDataService.LoadData()
+        public async void LoadData()
         {
             try
             {
@@ -46,12 +46,7 @@ namespace Ink_Canvas_Better.Services
             }
         }
 
-        void IDataService.SaveData()
-        {
-            SaveData();
-        }
-
-        private void SaveData()
+        public void SaveData()
         {
             try
             {
@@ -61,12 +56,12 @@ namespace Ink_Canvas_Better.Services
             catch { }
         }
 
-        void IDataService.DeleteData()
+        public void DeleteData()
         {
             throw new NotImplementedException();
         }
 
-        void IDataService.ResetData()
+        public void ResetData()
         {
             Settings = new();
             SaveData();
@@ -83,11 +78,6 @@ namespace Ink_Canvas_Better.Services
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        public object GetData()
-        {
-            return Settings;
         }
     }
 }

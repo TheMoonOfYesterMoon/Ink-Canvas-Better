@@ -8,7 +8,6 @@
         xmlns:local="clr-namespace:Ink_Canvas_Better"
         xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
         xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
-        xmlns:text="clr-namespace:Ink_Canvas_Better.Properties"
         ui:WindowHelper.UseModernWindowStyle="True"
         ui:WindowHelper.SystemBackdropType="Mica"
         ui:TitleBar.Height="36"

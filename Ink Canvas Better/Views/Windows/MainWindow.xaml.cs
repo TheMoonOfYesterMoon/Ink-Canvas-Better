@@ -1,5 +1,4 @@
-﻿using Ink_Canvas_Better.Helpers;
-using Ink_Canvas_Better.Helpers.Others;
+﻿using Ink_Canvas_Better.Helpers.Others;
 using Ink_Canvas_Better.Windows;
 using System;
 using System.Diagnostics;
@@ -10,12 +9,14 @@ using System.Windows;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
-using Ink_Canvas_Better.ViewModel;
+using Ink_Canvas_Better.Services;
 
 namespace Ink_Canvas_Better
 {
     public partial class MainWindow : Window
     {
+        SettingsService settingsService = App.GetService<SettingsService>();
+
         Point lastInitPoint;
         Point lastEndPoint;
         Point iniPoint;
@@ -33,10 +34,9 @@ namespace Ink_Canvas_Better
         {
             InitializeComponent();
 
-            Setting.LoadSettings(isStartup : true);
-            RuntimeData.mainWindow = this;
+            settingsService.LoadData();
 
-            this.SourceInitialized += Win32Helper.MainWindow_SourceInitialized;
+            this.SourceInitialized += Win32Helper.MainWindow_SourceInitialized!;
             this.Loaded += DockWindowToBottom;
 
             CursorIcon_Click(null, null);

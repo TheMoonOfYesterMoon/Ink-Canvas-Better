@@ -57,4 +57,11 @@
     </Compile>
   </ItemGroup>
 
+  <ItemGroup>
+    <Resource Include="Resources\Ink Canvas Better.ico">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Segoe Fluent Icons.ttf" />
+  </ItemGroup>
+
 </Project>

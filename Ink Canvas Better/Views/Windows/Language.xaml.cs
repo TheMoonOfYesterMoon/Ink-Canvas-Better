@@ -1,17 +1,20 @@
-﻿using Ink_Canvas_Better.Helpers;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using Ink_Canvas_Better.ViewModel;
+using Ink_Canvas_Better.Helpers;
+using Ink_Canvas_Better.Model;
+using Ink_Canvas_Better.Services;
 
 namespace Ink_Canvas_Better.Windows
 {
     public partial class Language : Window
     {
+        SettingsService settingsService = App.GetService<SettingsService>();
+
         public Language()
         {
             InitializeComponent();
@@ -37,10 +40,11 @@ namespace Ink_Canvas_Better.Windows
 
         private void ButtonOK_Click(object sender, RoutedEventArgs e)
         {
-            SupportedLanguage.TryGetValue((String)LanguageListBox.SelectedItem, out String value);
-            RuntimeData.SettingModel.Others.Language = value;
-            Setting.SaveSettings();
-            Setting.SwitchLanguage(value);
+            SupportedLanguage.TryGetValue((String)LanguageListBox.SelectedItem, out string? value);
+            if (value == null) value = "en";
+            settingsService.Settings.Others.Language = value;
+            settingsService.SaveData();
+            ThemeAndLangHelper.SwitchLanguage(value);
 
             this.Close();
         }

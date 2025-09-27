@@ -13,7 +13,7 @@ namespace Ink_Canvas_Better.Windows
     /// </summary>
     public partial class Magnifier : Window
     {
-        DispatcherTimer dispatcherTimer;
+        DispatcherTimer dispatcherTimer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(33), };
         private bool MagnifyTheRightScreem = false;
         public Magnifier()
         {
@@ -23,7 +23,6 @@ namespace Ink_Canvas_Better.Windows
         public void MagnifierRunning()
         {
             // 启动定时器，截屏
-            dispatcherTimer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(33), };
             double leftTopPointWidth = MagnifyTheRightScreem ? Width : -Width;
             double leftTopPointHeight = MagnifyTheRightScreem ? 0 : 0;
             double rightBottomPointWidth = MagnifyTheRightScreem ? Width * 2 : 0;
@@ -108,7 +107,8 @@ namespace Ink_Canvas_Better.Windows
                     format = PixelFormats.Bgra32;
                     break;
                 default:
-                    return null;
+                    // return null;
+                    throw new Exception();
             }
             return new WriteableBitmap(src.Width, src.Height, 0, 0, format, null);
         }
