@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="Ink_Canvas_Better.Windows.FloatingBarIcons.FloatingBar_Eraser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Ink_Canvas_Better.Windows.FloatingBarIcons"
+             xmlns:localControls="clr-namespace:Ink_Canvas_Better.Controls"
+             xmlns:ikw="http://schemas.inkore.net/lib/ui/wpf"
+             xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
+             mc:Ignorable="d">
+    <ikw:SimpleStackPanel>
+        <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5" VerticalAlignment="Top">
+            <TextBlock TextAlignment="Center" Text="{DynamicResource Text_Thickness}" VerticalAlignment="Center" FontSize="16" Foreground="{DynamicResource DefaultForegroundColor}"/>
+            <Slider VerticalAlignment="Center"
+                    Name="Slider_StrokeThickness"
+                    Width="300"
+                    IsSnapToTickEnabled="True"
+                    Minimum="1"
+                    Maximum="125"
+                    IsMoveToPointEnabled="True"
+                    TickFrequency="1"
+                    TickPlacement="Both"
+                    Value="30"
+                    ValueChanged="Slider_StrokeThickness_ValueChanged"/>
+            <TextBlock TextAlignment="Center" Text="{Binding Value, ElementName=Slider_StrokeThickness}" VerticalAlignment="Center" FontSize="16" Width="36" Foreground="{DynamicResource DefaultForegroundColor}"/>
+        </ikw:SimpleStackPanel>
+        <!-- function -->
+        <ikw:SimpleStackPanel Orientation="Horizontal" Spacing="5">
+            <ikw:SimpleStackPanel Orientation="Vertical" Spacing="5">
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_EraseByStroke" Click="ToggleButton_EraseByStroke_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Eraser_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_EraseByStroke}" Spacing="0"/>
+                </ToggleButton>
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_Square" Click="ToggleButton_Square_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Square_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_Square}" Spacing="0"/>
+                </ToggleButton>
+            </ikw:SimpleStackPanel>
+            <ikw:SimpleStackPanel Orientation="Vertical" Spacing="5">
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_EraseByPoint" Click="ToggleButton_EraseByPoint_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.EraserMedium_20_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_EraseByPoint}" Spacing="0"/>
+                </ToggleButton>
+                <ToggleButton Width="60" Height="60" Padding="0" Name="ToggleButton_Circular" Click="ToggleButton_Circular_Click">
+                    <ui:IconAndText Icon="{x:Static ui:FluentSystemIcons.Circle_24_Filled}" Orientation="Vertical" IconSize="24" FontSize="12" Content="{DynamicResource Text_Circular}" Spacing="0"/>
+                </ToggleButton>
+            </ikw:SimpleStackPanel>
+            <Grid Width="125" Height="125" HorizontalAlignment="Left">
+                <Ellipse Name="Preview_Circular" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
+                <Rectangle Name="Preview_Square" Visibility="Collapsed" Width="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Height="{Binding ElementName=Slider_StrokeThickness, Path=Value}" Fill="Black"/>
+            </Grid>
+        </ikw:SimpleStackPanel>
+    </ikw:SimpleStackPanel>
+
+</UserControl>
